@@ -5,8 +5,6 @@ import trinton
 import fractions
 import itertools
 import random
-from augsburg import library
-from augsburg import sections
 from itertools import cycle
 
 
