@@ -5,9 +5,8 @@ import evans
 import trinton
 import itertools
 from polyxena import library
-
-# from polyxena import pitch
-# from polyxena import rhythm
+from polyxena import pitch
+from polyxena import rhythm
 
 # score
 
@@ -22,6 +21,43 @@ score = library.polyxena_score(
 )
 
 # english horn music
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (1,)),
+    evans.RhythmHandler(rhythm.rhythm_a(stage=1, index=12)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle([abjad.StartBeam(), abjad.StopBeam()]),
+        selector=trinton.select_leaves_by_index([0, 3, 5, 7]),
+    ),
+    trinton.change_notehead_command(notehead="cross", selector=trinton.pleaves()),
+    trinton.respell_with_flats(
+        selector=trinton.select_leaves_by_index([-1], pitched=True)
+    ),
+    voice=score["englishhorn voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (3,)),
+    evans.RhythmHandler(rhythm.rhythm_a(stage=2, index=1)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    # trinton.annotate_leaves_locally(
+    #     # selector=abjad.select.leaves,
+    #     selector=trinton.pleaves()
+    # ),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle([abjad.StartBeam(), abjad.StopBeam()]),
+        selector=trinton.select_leaves_by_index([0, 3, 4, 6, 7, 10, 11, 14, 16, 19]),
+    ),
+    trinton.change_notehead_command(notehead="cross", selector=trinton.pleaves()),
+    trinton.respell_with_flats(
+        selector=trinton.select_leaves_by_index([2, 8, 16], pitched=True)
+    ),
+    trinton.respell_with_sharps(
+        selector=trinton.select_leaves_by_index([5], pitched=True)
+    ),
+    voice=score["englishhorn voice"],
+)
 
 # soprano saxophone music
 

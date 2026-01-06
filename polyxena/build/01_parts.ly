@@ -37,9 +37,70 @@
                             \set Staff.instrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { Cor Anglais }
                               %! +SCORE
                         %%% \set Staff.shortInstrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { ca. }
-                            s1 * 3/4
+                            \tweak style #'cross
+                            f'16
+                            [
+                            r16
+                            r16
+                            \tweak style #'cross
+                            ef'16
+                            ]
+                            r4
+                            r8
+                            [
+                            \tweak style #'cross
+                            gf'16
+                            r16
+                            ]
                             s1 * 7/4
-                            s1 * 2
+                            \tweak style #'cross
+                            f'16
+                            [
+                            \tweak style #'cross
+                            ef'16
+                            \tweak style #'cross
+                            gf'16
+                            \tweak style #'cross
+                            d'16
+                            ]
+                            \tweak style #'cross
+                            cs'16
+                            [
+                            \tweak style #'cross
+                            gs'16
+                            r8
+                            ]
+                            r16
+                            [
+                            \tweak style #'cross
+                            g'16
+                            \tweak style #'cross
+                            bf'16
+                            \tweak style #'cross
+                            gf'16
+                            ]
+                            \tweak style #'cross
+                            f'16
+                            [
+                            \tweak style #'cross
+                            d'16
+                            \tweak style #'cross
+                            c'16
+                            \tweak style #'cross
+                            ef'16
+                            ]
+                            r2
+                            \tweak style #'cross
+                            bf'16
+                            [
+                            \tweak style #'cross
+                            b'16
+                            \tweak style #'cross
+                            af'16
+                            \tweak style #'cross
+                            gf'16
+                            ]
+                            r4
                             s1 * 9/16
                               %! +SCORE
                         %%% \once \override MultiMeasureRest.transparent = ##t
