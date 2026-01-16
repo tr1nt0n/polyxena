@@ -42,7 +42,7 @@ afterGraceFraction = #(cons 15 16)
         \override BarNumber.Y-offset = 0
         \override BarNumber.X-extent = ##f
         \override BarNumber.X-offset = -4
-        \override BarNumber.font-size = 2
+        \override BarNumber.font-size = 6
         \override BarNumber.padding = 1
         \override BarNumber.font-name = "Bodoni72 Book"
         \override MetronomeMark.stencil = ##f
@@ -275,7 +275,7 @@ afterGraceFraction = #(cons 15 16)
     bottom-margin = 10\mm
     left-margin = 10\mm
     right-margin = 10\mm
-    top-margin = 10\mm
+    top-margin = 20\mm
 
     oddHeaderMarkup = \markup ""
     evenHeaderMarkup = \markup ""

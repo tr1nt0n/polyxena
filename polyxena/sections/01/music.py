@@ -280,6 +280,36 @@ trinton.make_music(
 # clarinet music
 
 trinton.make_music(
+    lambda _: trinton.select_target(_, (1,)),
+    evans.RhythmHandler(rhythm.rhythm_a(stage=1, index=3, later_material=True)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    library.transpose_to_first_octave(
+        selector=trinton.logical_ties(pitched=True),
+        instrument="clarinet",
+        lowest_octave=True,
+    ),
+    trinton.change_notehead_command(
+        notehead="xcircle",
+        selector=trinton.pleaves(),
+    ),
+    abjad.slur,
+    trinton.attachment_command(
+        attachments=[abjad.Dynamic("pp")], selector=trinton.select_leaves_by_index([0])
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.Markup(
+                r"""\markup \fontsize #3 { \hspace #-6 { \override #'(font-name . "Bodoni72 Book Italic") { Always so delicately it becomes distant, ghostly. } } }"""
+            )
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.DOWN,
+    ),
+    voice=score["clarinetinbflat voice"],
+    beam_meter=True,
+)
+
+trinton.make_music(
     lambda _: trinton.select_target(_, (3,)),
     evans.RhythmHandler(rhythm.rhythm_a(stage=1, index=2, later_material=True)),
     trinton.force_rest(
@@ -407,8 +437,227 @@ trinton.make_music(
 
 # bass clarinet music
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (1,)),
+    evans.RhythmHandler(rhythm.rhythm_a(stage=1, index=9, later_material=True)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    library.transpose_to_first_octave(
+        selector=trinton.logical_ties(pitched=True),
+        instrument="bass clarinet",
+        lowest_octave=True,
+    ),
+    trinton.change_notehead_command(
+        notehead="xcircle",
+        selector=trinton.pleaves(),
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.Dynamic("pp")], selector=trinton.select_leaves_by_index([0])
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.Articulation("tenuto")],
+        selector=trinton.select_leaves_by_index([-1]),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.Markup(
+                r"""\markup \fontsize #3 { \hspace #-6 { \override #'(font-name . "Bodoni72 Book Italic") { Always so delicately it becomes distant, ghostly. } } }"""
+            )
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.DOWN,
+    ),
+    library.half_note_signifier(),
+    voice=score["bassclarinet voice"],
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (2, 3)),
+    evans.RhythmHandler(rhythm.rhythm_a(stage=2, index=0, later_material=True)),
+    # trinton.annotate_leaves_locally(
+    #     selector=trinton.logical_ties(first=True, pitched=True),
+    # ),
+    trinton.force_rest(
+        selector=trinton.select_logical_ties_by_index([24, 25, 26, 27], pitched=True),
+    ),
+    evans.RewriteMeterCommand(boundary_depth=-1),
+    library.transpose_to_first_octave(
+        selector=trinton.logical_ties(pitched=True),
+        instrument="bass clarinet",
+        lowest_octave=True,
+    ),
+    trinton.change_notehead_command(notehead="xcircle", selector=trinton.pleaves()),
+    library.attach_patterned_dynamics(
+        index=6,
+        selector=trinton.patterned_tie_index_selector(
+            [3, 9, 12, 19, 27], 28, pitched=True, first=True
+        ),
+    ),
+    voice=score["bassclarinet voice"],
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (2, 3)),
+    trinton.IntermittentVoiceHandler(
+        evans.RhythmHandler(rhythm.rhythm_e(index=0, stage=2)),
+        direction=abjad.UP,
+        voice_name="bass clarinet teeth voice 1",
+        temp_name="temp 1",
+    ),
+    voice=score["bassclarinet voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (2, 3)),
+    library.half_note_signifier(direction=abjad.DOWN),
+    # trinton.annotate_leaves_locally(
+    #     selector=trinton.pleaves(),
+    #     direction=abjad.DOWN
+    # ),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle(
+            [
+                abjad.StartSlur(),
+                abjad.StopSlur(),
+            ],
+        ),
+        selector=trinton.select_leaves_by_index(
+            [0, 2, 6, 7, 9, 12, 13, 17, 18, 21, 22, 24, 25, 27, 28, 31], pitched=True
+        ),
+        direction=abjad.DOWN,
+    ),
+    voice=score["bassclarinet voice temp 1"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (2, 3)),
+    trinton.force_rest(
+        selector=trinton.select_tuplets_by_index([-4, -3, -2]),
+    ),
+    evans.PitchHandler(
+        [_ + 20 for _ in abjad.sequence.flatten(pitch.final_pitch_groups)]
+    ),
+    library.color_teeth_slurs(selector=trinton.pleaves()),
+    library.color_voice(color=r"(css-color 'darkred)"),
+    trinton.continuous_glissando(
+        zero_padding=True, tweaks=[abjad.Tweak(r"- \tweak color #(css-color 'darkred)")]
+    ),
+    trinton.hooked_spanner_command(
+        string="""teeth""",
+        selector=trinton.select_leaves_by_index([0, -9], pitched=True, grace=False),
+        padding=13.5,
+        right_padding=2,
+        full_string=False,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="",
+        tag=None,
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
+            r"""- \tweak font-size 2""",
+            r"""- \tweak color #(css-color 'darkred)""",
+        ],
+    ),
+    trinton.hooked_spanner_command(
+        string="""( teeth )""",
+        selector=trinton.select_leaves_by_index([-8, -1], pitched=True, grace=False),
+        padding=14,
+        right_padding=18,
+        full_string=False,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="",
+        tag=None,
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
+            r"""- \tweak font-size 2""",
+            r"""- \tweak color #(css-color 'darkred)""",
+        ],
+    ),
+    voice=score["bass clarinet teeth voice 1"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (4,)),
+    evans.RhythmHandler(rhythm.rhythm_a(stage=1, index=12, later_material=True)),
+    evans.RewriteMeterCommand(boundary_depth=-1),
+    library.transpose_to_first_octave(
+        selector=trinton.logical_ties(pitched=True),
+        instrument="bass clarinet",
+        lowest_octave=True,
+    ),
+    trinton.change_notehead_command(notehead="xcircle", selector=trinton.pleaves()),
+    abjad.slur,
+    voice=score["bassclarinet voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (4,)),
+    trinton.IntermittentVoiceHandler(
+        evans.RhythmHandler(rhythm.rhythm_e(index=12, stage=1)),
+        direction=abjad.UP,
+        voice_name="bass clarinet teeth voice 2",
+        temp_name="temp 2",
+    ),
+    voice=score["bassclarinet voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (4,)),
+    evans.PitchHandler(
+        [
+            _ + 20
+            for _ in trinton.rotated_sequence(
+                abjad.sequence.flatten(pitch.final_pitch_groups), 12
+            )
+        ]
+    ),
+    library.color_teeth_slurs(selector=trinton.pleaves()),
+    library.color_voice(color=r"(css-color 'darkred)"),
+    trinton.continuous_glissando(
+        zero_padding=True, tweaks=[abjad.Tweak(r"- \tweak color #(css-color 'darkred)")]
+    ),
+    voice=score["bass clarinet teeth voice 2"],
+)
+
 # bassoon music
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (1,)),
+    evans.RhythmHandler(rhythm.rhythm_a(stage=1, index=12, later_material=True)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    library.transpose_to_first_octave(
+        selector=trinton.logical_ties(pitched=True),
+        instrument="bassoon",
+    ),
+    trinton.respell_with_flats(
+        selector=trinton.select_logical_ties_by_index(
+            [-1], first=True, pitched=True, grace=False
+        )
+    ),
+    trinton.change_notehead_command(
+        notehead="xcircle",
+        selector=trinton.pleaves(),
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.Dynamic("pp"), abjad.Clef("bass")],
+        selector=trinton.select_leaves_by_index([0]),
+    ),
+    abjad.slur,
+    trinton.attachment_command(
+        attachments=[
+            abjad.Markup(
+                r"""\markup \fontsize #3 { \hspace #-6 { \override #'(font-name . "Bodoni72 Book Italic") { Always so delicately it becomes distant, ghostly. } } }"""
+            )
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.DOWN,
+    ),
+    library.half_note_signifier(),
+    voice=score["bassoon voice"],
+    beam_meter=True,
+)
 
 # globals
 

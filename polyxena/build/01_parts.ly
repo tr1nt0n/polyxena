@@ -528,7 +528,24 @@
                             \set Staff.instrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { Clarinet in B-flat }
                               %! +SCORE
                         %%% \set Staff.shortInstrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { cl. }
-                            s1 * 3/4
+                            \tweak style #'xcircle
+                            f4
+                            \pp
+                            _ \markup \fontsize #3 { \hspace #-6 { \override #'(font-name . "Bodoni72 Book Italic") { Always so delicately it becomes distant, ghostly. } } }
+                            (
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            f8.
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            af16
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            af4
+                            )
                             s1 * 7/4
                             <<
                                 \context Voice = "clarinetinbflat voice temp 1"
@@ -803,10 +820,723 @@
                             \set Staff.instrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { Bass Clarinet }
                               %! +SCORE
                         %%% \set Staff.shortInstrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { b. cl. }
-                            s1 * 3/4
-                            s1 * 7/4
-                            s1 * 2
-                            s1 * 9/16
+                            \tweak style #'xcircle
+                            e2
+                            \pp
+                            ^ \markup { \hspace #-2 { ( \note {2} #2  ) } }
+                            _ \markup \fontsize #3 { \hspace #-6 { \override #'(font-name . "Bodoni72 Book Italic") { Always so delicately it becomes distant, ghostly. } } }
+                            \tweak style #'xcircle
+                            e4
+                            - \tenuto
+                            <<
+                                \context Voice = "bassclarinet voice temp 1"
+                                {
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \voiceTwo
+                                    \tweak style #'xcircle
+                                    fs16
+                                    [
+                                    _ (
+                                    \tweak style #'xcircle
+                                    gs16
+                                    \tweak style #'xcircle
+                                    f16
+                                    )
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    a16
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "pp"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ]
+                                    ~
+                                    \tweak style #'xcircle
+                                    a4
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    a8
+                                    [
+                                    \tweak style #'xcircle
+                                    a16
+                                    _ (
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    cs16
+                                    )
+                                    ]
+                                    \tweak style #'xcircle
+                                    d2
+                                    _ \markup { \hspace #-2 { ( \note {2} #2  ) } }
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    c16
+                                    [
+                                    _ (
+                                    \tweak style #'xcircle
+                                    ds16
+                                    \tweak style #'xcircle
+                                    f16
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    d16
+                                    )
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    fs16
+                                    [
+                                    _ (
+                                    \tweak style #'xcircle
+                                    g16
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.4
+                                                #:dynamic "f"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    \tweak style #'xcircle
+                                    a16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    b16
+                                    ]
+                                    ~
+                                    \tweak style #'xcircle
+                                    b4
+                                    )
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    g16
+                                    [
+                                    _ (
+                                    \tweak style #'xcircle
+                                    fs16
+                                    \tweak style #'xcircle
+                                    f16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    ds16
+                                    )
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    fs16
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "p"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    [
+                                    _ (
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    d8.
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    d16
+                                    )
+                                    [
+                                    \tweak style #'xcircle
+                                    gs16
+                                    _ (
+                                    \tweak style #'xcircle
+                                    d16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    e16
+                                    )
+                                    ]
+                                    r2.
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    e16
+                                    [
+                                    _ (
+                                    \tweak style #'xcircle
+                                    cs16
+                                    \tweak style #'xcircle
+                                    f16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    fs16
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "pp"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    )
+                                    ]
+                                }
+                                \context Voice = "bass clarinet teeth voice 1"
+                                {
+                                    \override Voice.NoteHead.transparent = ##t
+                                    \override Voice.NoteHead.X-extent = #'(0 . 0)
+                                    \override Voice.NoteHead.no-ledgers = ##t
+                                    \override Voice.Beam.beam-thickness = #0.5
+                                    \override Voice.Beam.length-fraction = #0.85
+                                    \override Voice.TupletBracket.stencil = ##f
+                                    \override Voice.TupletNumber.stencil = ##f
+                                    \override Voice.Rest.transparent = ##t
+                                    \override Voice.Dots.stencil = ##f
+                                    \override Voice.Accidental.stencil = ##f
+                                    \set fontSize = #-3
+                                    \times 4/5
+                                    {
+                                        \override Dots.staff-position = #2
+                                        \my-hack-slash
+                                        \override Voice.NoteHead.color = #(css-color 'darkred)
+                                        \override Voice.Dots.color = #(css-color 'darkred)
+                                        \override Voice.Stem.color = #(css-color 'darkred)
+                                        \override Voice.Beam.color = #(css-color 'darkred)
+                                        \override Voice.Rest.color = #(css-color 'darkred)
+                                        \override Voice.Tie.color = #(css-color 'darkred)
+                                        \override Voice.TupletBracket.color = #(css-color 'darkred)
+                                        \override Voice.TupletNumber.color = #(css-color 'darkred)
+                                        \voiceOne
+                                        c'''16
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #13.5
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { \upright { "teeth" } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -2
+                                        \startTextSpan
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        d'''16.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        b''32.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        ef'''16..
+                                        )
+                                        ]
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                    }
+                                    \times 16/27
+                                    {
+                                        \my-hack-slash
+                                        cs'''32.
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        b''16.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        d'''32
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        bf''64
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        a''8
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        e'''16..
+                                        )
+                                        ]
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                    }
+                                    \times 8/15
+                                    {
+                                        \my-hack-slash
+                                        ef'''8..
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        g'''8.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        af''16
+                                        )
+                                        ]
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 1/1
+                                    {
+                                        \my-hack-slash
+                                        ef'''64.
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        fs'''128
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        d'''64.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        cs'''32
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        bf''32..
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        af''16
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        b''32.
+                                        )
+                                        ]
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                    }
+                                    \times 16/25
+                                    {
+                                        \my-hack-slash
+                                        fs'''16
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        a''32.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        b''64
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        af''16
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        c'''32
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        cs'''16
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        ef'''64
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        f'''16.
+                                        )
+                                        ]
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                    }
+                                    \times 4/5
+                                    {
+                                        \my-hack-slash
+                                        fs'''16
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        g'''16.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        e'''8
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        d'''32
+                                        )
+                                        ]
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                    }
+                                    \times 4/7
+                                    {
+                                        \my-hack-slash
+                                        cs'''16
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        c'''32
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        b''16
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        a''16
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        c'''16.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        af''8
+                                        )
+                                        ]
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                    }
+                                    \times 4/5
+                                    {
+                                        \my-hack-slash
+                                        bf''16.
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        c'''8
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        a''16.
+                                        )
+                                        ]
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                    }
+                                    \times 16/23
+                                    {
+                                        \my-hack-slash
+                                        d'''16
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        af''32
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        bf''32.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        g'''64
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        b''32.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        c'''16
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        a''16.
+                                        )
+                                        ]
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                    }
+                                    \times 2/3
+                                    {
+                                        \my-hack-slash
+                                        bf''16
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        fs'''32..
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        f'''16
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        a''64.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        g'''32..
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        bf''16
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        fs'''32..
+                                        )
+                                        ]
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                    }
+                                    \times 4/5
+                                    {
+                                        \my-hack-slash
+                                        f'''16
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        bf''16.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        g'''32.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        \revert Dots.staff-position
+                                        b''16..
+                                        )
+                                        \stopTextSpan
+                                        ]
+                                    }
+                                    \times 16/27
+                                    {
+                                        r32.
+                                        r16.
+                                        r32
+                                        r64
+                                        r8
+                                        r16..
+                                    }
+                                    \times 8/15
+                                    {
+                                        r8..
+                                        r8.
+                                        r16
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 1/1
+                                    {
+                                        r64.
+                                        r128
+                                        r64.
+                                        r32
+                                        r32..
+                                        r16
+                                        r32.
+                                    }
+                                    \times 16/25
+                                    {
+                                        \override Dots.staff-position = #2
+                                        \my-hack-slash
+                                        c'''16
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #14
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { \upright { "( teeth )" } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -18
+                                        \startTextSpan
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        f'''32.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        d'''64
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        fs'''16
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        g'''32
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        e'''16
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        d'''64
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        \revert Dots.staff-position
+                                        cs'''16.
+                                        )
+                                        \stopTextSpan
+                                        ]
+                                        \revert Voice.NoteHead.color
+                                        \revert Voice.Dots.color
+                                        \revert Voice.Stem.color
+                                        \revert Voice.Beam.color
+                                        \revert Voice.Rest.color
+                                        \revert Voice.Tie.color
+                                        \revert Voice.TupletBracket.color
+                                        \revert Voice.TupletNumber.color
+                                    }
+                                }
+                            >>
+                            \oneVoice
+                            <<
+                                \context Voice = "bassclarinet voice temp 2"
+                                {
+                                    \voiceTwo
+                                    \tweak style #'xcircle
+                                    g8.
+                                    (
+                                    \tweak style #'xcircle
+                                    f4.
+                                    )
+                                }
+                                \context Voice = "bass clarinet teeth voice 2"
+                                {
+                                    \override Voice.NoteHead.transparent = ##t
+                                    \override Voice.NoteHead.X-extent = #'(0 . 0)
+                                    \override Voice.NoteHead.no-ledgers = ##t
+                                    \override Voice.Beam.beam-thickness = #0.5
+                                    \override Voice.Beam.length-fraction = #0.85
+                                    \override Voice.TupletBracket.stencil = ##f
+                                    \override Voice.TupletNumber.stencil = ##f
+                                    \override Voice.Rest.transparent = ##t
+                                    \override Voice.Dots.stencil = ##f
+                                    \override Voice.Accidental.stencil = ##f
+                                    \set fontSize = #-3
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 14/20
+                                    {
+                                        \override Dots.staff-position = #2
+                                        \my-hack-slash
+                                        \override Voice.NoteHead.color = #(css-color 'darkred)
+                                        \override Voice.Dots.color = #(css-color 'darkred)
+                                        \override Voice.Stem.color = #(css-color 'darkred)
+                                        \override Voice.Beam.color = #(css-color 'darkred)
+                                        \override Voice.Rest.color = #(css-color 'darkred)
+                                        \override Voice.Tie.color = #(css-color 'darkred)
+                                        \override Voice.TupletBracket.color = #(css-color 'darkred)
+                                        \override Voice.TupletNumber.color = #(css-color 'darkred)
+                                        \voiceOne
+                                        af''8
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        ef'''8.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        fs'''16.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        \revert Dots.staff-position
+                                        d'''8..
+                                        )
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 1/1
+                                    {
+                                        r8
+                                        \revert Voice.NoteHead.color
+                                        \revert Voice.Dots.color
+                                        \revert Voice.Stem.color
+                                        \revert Voice.Beam.color
+                                        \revert Voice.Rest.color
+                                        \revert Voice.Tie.color
+                                        \revert Voice.TupletBracket.color
+                                        \revert Voice.TupletNumber.color
+                                    }
+                                }
+                            >>
+                            \oneVoice
                               %! +SCORE
                         %%% \once \override MultiMeasureRest.transparent = ##t
                               %! +SCORE
@@ -828,7 +1558,31 @@
                             \set Staff.instrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { Bassoon }
                               %! +SCORE
                         %%% \set Staff.shortInstrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { bsn. }
-                            s1 * 3/4
+                            \clef "bass"
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            f,8.
+                            \pp
+                            _ \markup \fontsize #3 { \hspace #-6 { \override #'(font-name . "Bodoni72 Book Italic") { Always so delicately it becomes distant, ghostly. } } }
+                            [
+                            (
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            ef,16
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            ef,4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            ef,8
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            gf,8
+                            )
+                            ]
                             s1 * 7/4
                             s1 * 2
                             s1 * 9/16

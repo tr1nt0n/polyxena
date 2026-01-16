@@ -82,27 +82,170 @@ def rhythm_a(stage, index, later_material=False):
     return rhythm
 
 
-def rhythm_b(index=0):
+def rhythm_b(index=0, stage=1):
     def rhythm(time_signatures):
-        talea_numerators = abjad.sequence.flatten(pitch.final_pitch_groups)
-        new_numerators = []
-        for i, numerator in enumerate(talea_numerators):
-            if i % 2 == 1:
-                numerator = numerator * -1
-            new_numerators.append(numerator)
-
-        talea_numerators = trinton.rotated_sequence(
-            new_numerators, index % len(talea_numerators)
-        )
-
         container = abjad.Container()
-        rhythms = rmakers.talea(time_signatures, talea_numerators, 16)
-        container.extend(rhythms)
+        if stage == 1:
+            talea_numerators = abjad.sequence.flatten(pitch.final_pitch_groups)
+            new_numerators = []
+            for i, numerator in enumerate(talea_numerators):
+                if i % 2 == 1:
+                    numerator = numerator * -1
+                new_numerators.append(numerator)
+
+            talea_numerators = trinton.rotated_sequence(
+                new_numerators, index % len(talea_numerators)
+            )
+
+            rhythms = rmakers.talea(time_signatures, talea_numerators, 16)
+            container.extend(rhythms)
+
+        if stage == 2:
+            rhythms = rmakers.talea(time_signatures, [1], 4)
+            container.extend(rhythms)
+
+        if stage == 3:
+            rhythms = rmakers.note(time_signatures)
+            container.extend(rhythms)
 
         rmakers.rewrite_dots(abjad.select.tuplets(container))
         trinton.respell_tuplets(abjad.select.tuplets(container), rewrite_brackets=False)
         treat_tuplets = trinton.treat_tuplets()
         treat_tuplets(container)
+        rhythm_selections = abjad.mutate.eject_contents(container)
+
+        return rhythm_selections
+
+    return rhythm
+
+
+def rhythm_e(index, stage=1):
+    def rhythm(time_signatures):
+        container = abjad.Container()
+        if stage == 1:
+            duration_numerators = abjad.sequence.flatten(pitch.final_pitch_groups)
+
+            duration_numerators = trinton.rotated_sequence(
+                duration_numerators, index % len(duration_numerators)
+            )
+
+            preprocessing_groups = []
+
+            for numerator in duration_numerators:
+                if numerator > 0:
+                    preprocessing_groups.append(numerator)
+
+            preprocessing_groups = tuple(preprocessing_groups)
+
+            preprocessor = trinton.fuse_sixteenths_preprocessor(
+                groups=preprocessing_groups
+            )
+
+            if isinstance(time_signatures[0], abjad.TimeSignature):
+                new_divisions = [
+                    time_signature.duration for time_signature in time_signatures
+                ]
+            else:
+                new_divisions = time_signatures
+
+            tuplet_divisions = preprocessor(new_divisions)
+
+        if stage == 2:
+            preprocessor = trinton.fuse_quarters_preprocessor(groups=(1,))
+
+            if isinstance(time_signatures[0], abjad.TimeSignature):
+                new_divisions = [
+                    time_signature.duration for time_signature in time_signatures
+                ]
+            else:
+                new_divisions = time_signatures
+
+            tuplet_divisions = preprocessor(new_divisions)
+
+        if stage == 3:
+            tuplet_divisions = time_signatures
+
+        tuplet_ratio_base = abjad.sequence.flatten(pitch.final_pitch_groups)
+
+        tuplet_ratio_numerators = []
+
+        for _ in tuplet_ratio_base:
+            if _ == 0 or _ % 5 == 0 or _ == 9 or _ == 11:
+                pass
+            else:
+                tuplet_ratio_numerators.append(_)
+
+        tuplet_partitions = abjad.select.partition_by_counts(
+            tuplet_ratio_numerators,
+            [4, 6, 3, 7, 8],
+            cyclic=True,
+            overhang=True,
+        )
+
+        tuplet_ratios = [tuple(partition) for partition in tuplet_partitions]
+
+        if stage > 1:
+            final_tuplet_ratios = tuplet_ratios
+
+        else:
+            final_tuplet_ratios = []
+            for i, ratio in enumerate(tuplet_ratios):
+                if i % 2 == 1:
+                    new_ratio = (-1,)
+                    final_tuplet_ratios.append(new_ratio)
+                else:
+                    final_tuplet_ratios.append(ratio)
+
+        rhythms = rmakers.tuplet(tuplet_divisions, final_tuplet_ratios)
+        container.extend(rhythms)
+
+        for tuplet in abjad.select.tuplets(container):
+            if isinstance(abjad.select.leaf(tuplet, 0), abjad.Note):
+                abjad.beam(tuplet)
+                abjad.slur(tuplet)
+
+                abjad.attach(
+                    abjad.LilyPondLiteral(r"\my-hack-slash", site="before"),
+                    abjad.select.leaf(tuplet, 0),
+                )
+
+        start_literal = abjad.LilyPondLiteral(
+            [
+                r"\override Voice.NoteHead.transparent = ##t",
+                r"\override Voice.NoteHead.X-extent = #'(0 . 0)",
+                r"\override Voice.NoteHead.no-ledgers = ##t",
+                r"\override Voice.Beam.beam-thickness = #0.5",
+                r"\override Voice.Beam.length-fraction = #0.85",
+                r"\override Voice.TupletBracket.stencil = ##f",
+                r"\override Voice.TupletNumber.stencil = ##f",
+                r"\override Voice.Rest.transparent = ##t",
+                r"\override Voice.Dots.stencil = ##f",
+                r"\override Voice.Accidental.stencil = ##f",
+                r"\set fontSize = #-3",
+            ],
+            site="before",
+        )
+
+        stop_literal = abjad.LilyPondLiteral(
+            [
+                r"\revert Voice.NoteHead.transparent",
+                r"\revert Voice.NoteHead.X-extent",
+                r"\revert Voice.NoteHead.no-ledgers",
+                r"\revert Voice.Beam.beam-thickness",
+                r"\revert Voice.Beam.length-fraction",
+                r"\revert Voice.TupletBracket.stencil",
+                r"\revert Voice.TupletNumber.stencil",
+                r"\revert Voice.Rest.transparent",
+                r"\revert Voice.Dots.stencil",
+                r"\revert Voice.Accidental.stencil",
+                r"\set fontSize = #-1.3",
+            ],
+            site="absolute_after",
+        )
+
+        abjad.attach(start_literal, container[0])
+        rmakers.rewrite_dots(abjad.select.tuplets(container))
+        rmakers.rewrite_rest_filled(abjad.select.tuplets(container))
         rhythm_selections = abjad.mutate.eject_contents(container)
 
         return rhythm_selections

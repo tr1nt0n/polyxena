@@ -106,6 +106,25 @@ def attach_patterned_dynamics(
 # notation tools
 
 
+def color_teeth_slurs(selector=trinton.pleaves()):
+    def color_slurs(argument):
+        selections = selector(argument)
+
+        for selection in selections:
+
+            if abjad.get.has_indicator(selection, abjad.StartSlur):
+                abjad.detach(abjad.StartSlur, selection)
+                abjad.attach(
+                    abjad.bundle(
+                        abjad.StartSlur(), r"- \tweak color #(css-color 'darkred)"
+                    ),
+                    selection,
+                    direction=abjad.UP,
+                )
+
+    return color_slurs
+
+
 def graphic_bow_pressure_spanner(
     selector=trinton.logical_ties(first=True, pitched=True),
     peaks=[0, 1, 4, 2],
@@ -220,7 +239,7 @@ def color_voice(color, selector=trinton.select_leaves_by_index([0, -1])):
 # pitch tools
 
 
-def transpose_to_first_octave(selector, instrument):
+def transpose_to_first_octave(selector, instrument, lowest_octave=True):
     def transpose(argument):
         _instrument_to_transposition_and_threshold = {
             "english horn": (7, 10),
@@ -241,14 +260,58 @@ def transpose_to_first_octave(selector, instrument):
 
             abjad.mutate.transpose(tie, transposition)
 
-            for _ in range(0, 4):
-                if tie[0].written_pitch.number > threshold:
-                    abjad.mutate.transpose(tie, -12)
+            if lowest_octave is True:
+                for _ in range(0, 4):
+                    if tie[0].written_pitch.number > threshold:
+                        abjad.mutate.transpose(tie, -12)
+
+            if tie[0].written_pitch.name == abjad.NamedPitch("es") or tie[
+                0
+            ].written_pitch.name == abjad.NamedPitch("bs"):
+                respell = trinton.respell_with_flats()
+                respell(tie)
 
     return transpose
 
 
 # markups
+
+
+def half_note_signifier(
+    selector=trinton.logical_ties(pitched=True, grace=False), direction=abjad.UP
+):
+    def attach_markups(argument):
+        selections = selector(argument)
+
+        for selection in selections:
+            note_duration = abjad.get.duration(selection)
+
+            if note_duration > abjad.Duration(
+                (15, 32)
+            ) and note_duration < abjad.Duration(abjad.Duration((1, 1))):
+                _numerator_to_dot_amount = {1: 0, 3: 1, 7: 2, 15: 3}
+
+                dots = []
+
+                numerator = note_duration.numerator
+
+                dot_amount = _numerator_to_dot_amount[numerator]
+
+                for _ in range(0, dot_amount):
+                    dots.append(".")
+
+                dots = "".join(dots)
+
+                note_markup_string = (
+                    rf"""\markup {{ \hspace #-2 {{ ( \note {{2}} #2 {dots} ) }} }}"""
+                )
+
+                note_markup = abjad.Markup(note_markup_string)
+
+                abjad.attach(note_markup, selection[0], direction=direction)
+
+    return attach_markups
+
 
 all_instrument_names = [
     abjad.InstrumentName(
