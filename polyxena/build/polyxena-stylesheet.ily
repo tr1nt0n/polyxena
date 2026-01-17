@@ -13,8 +13,8 @@
 \header {
     dedication = \markup \column {\line \override #'(font-name . "Bodoni72 Book Italic") { \fontsize #4 { "to" \override #'(font-name . "Bodoni72 Book") "Solstice Reed Quintet"  } } \line { \fontsize #0.01 \with-color #white "."} }
     title = \markup \override #'(font-name . "Bodoni72 Book Italic") \center-column { \line \fontsize #14 { "polyxena / iliac" } \fontsize #0.01 \with-color #white "."}
-    subtitle = \markup \fontsize #4 \center-column { \line { \override #'(font-name . "Bodoni72 Book Italic") { "( four talismans )" } } \fontsize #22 \with-color #white "."}
-    composer = \markup \column { \override #'(font-name . "Bodoni72") \fontsize #4 {"Trinity Hlynn Prater (*2000)"} \fontsize #-10 \with-color #white "."}
+    subtitle = \markup \fontsize #4 \center-column { \line { \override #'(font-name . "Bodoni72 Book Italic") { "( four talismans )" } } \fontsize #0.01 \with-color #white "."}
+    composer = \markup \column { \override #'(font-name . "Bodoni72") \fontsize #4 {"Trinity Hlynn Prater (*2000)"} \fontsize #0.01 \with-color #white "."}
 }
 
 afterGraceFraction = #(cons 15 16)
@@ -39,9 +39,9 @@ afterGraceFraction = #(cons 15 16)
 		\consists Text_spanner_engraver
         \override BarNumber.stencil = #(make-stencil-circler 0.1 0.75 ly:text-interface::print)
         \override BarNumber.Y-extent = ##f
-        \override BarNumber.Y-offset = 0
+        \override BarNumber.Y-offset = 5
         \override BarNumber.X-extent = ##f
-        \override BarNumber.X-offset = -4
+        \override BarNumber.X-offset = -6.5
         \override BarNumber.font-size = 6
         \override BarNumber.padding = 1
         \override BarNumber.font-name = "Bodoni72 Book"

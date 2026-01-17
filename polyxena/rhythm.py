@@ -184,6 +184,10 @@ def rhythm_e(index, stage=1):
 
         tuplet_ratios = [tuple(partition) for partition in tuplet_partitions]
 
+        tuplet_ratios = trinton.rotated_sequence(
+            tuplet_ratios, index % len(tuplet_ratios)
+        )
+
         if stage > 1:
             final_tuplet_ratios = tuplet_ratios
 
