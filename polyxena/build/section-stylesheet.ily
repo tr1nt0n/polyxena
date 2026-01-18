@@ -10,12 +10,12 @@
 \include "/Users/trintonprater/trinton/lilypond/trinton-spanners.ily"
 \include "/Users/trintonprater/abjad-ext-microtones/abjadext/microtones/lilypond/ekmelos-ji-accidental-markups.ily"
 
-\header {
-    dedication = \markup \column {\line \override #'(font-name . "Bodoni72 Book Italic") { \fontsize #4 { "to" \override #'(font-name . "Bodoni72 Book") "Solstice Reed Quintet"  } } \line { \fontsize #0.01 \with-color #white "."} }
-    title = \markup \override #'(font-name . "Bodoni72 Book Italic") \center-column { \line \fontsize #14 { "polyxena / iliac sherds" } \fontsize #0.01 \with-color #white "."}
-    subtitle = \markup \fontsize #4 \center-column { \line { \override #'(font-name . "Bodoni72 Book Italic") { "( four talismans )" } } \fontsize #0.01 \with-color #white "."}
-    composer = \markup \column { \override #'(font-name . "Bodoni72") \fontsize #4 {"Trinity Hlynn Prater (*2000)"} \fontsize #0.01 \with-color #white "."}
-}
+% \header {
+%     dedication = \markup \column {\line \override #'(font-name . "Bodoni72 Book Italic") { \fontsize #4 { "to" \override #'(font-name . "Bodoni72 Book") "Solstice Reed Quintet"  } } \line { \fontsize #0.01 \with-color #white "."} }
+%     title = \markup \override #'(font-name . "Bodoni72 Book Italic") \center-column { \line \fontsize #14 { "polyxena / iliac" } \fontsize #0.01 \with-color #white "."}
+%     subtitle = \markup \fontsize #4 \center-column { \line { \override #'(font-name . "Bodoni72 Book Italic") { "( four talismans )" } } \fontsize #0.01 \with-color #white "."}
+%     composer = \markup \column { \override #'(font-name . "Bodoni72") \fontsize #4 {"Trinity Hlynn Prater (*2000)"} \fontsize #0.01 \with-color #white "."}
+% }
 
 afterGraceFraction = #(cons 15 16)
 

@@ -1430,7 +1430,7 @@ trinton.fermata_measures(
     clef_whitespace=True,
     blank=True,
     last_measure=False,
-    # padding=-5,
+    padding=-10,
     # extra_offset=2.5,
     tag=abjad.Tag("+SCORE"),
 )

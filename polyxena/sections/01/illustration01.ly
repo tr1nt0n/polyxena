@@ -44,6 +44,7 @@
             \time 1/4
             R1 * 1/4
             - \tweak font-size #'15
+            - \tweak padding -10
             _ \short-fermata
             \bar "||"
             \once \override Score.BarLine.transparent = ##f
