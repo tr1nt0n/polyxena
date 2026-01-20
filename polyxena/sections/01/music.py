@@ -1006,6 +1006,9 @@ trinton.make_music(
         direction=abjad.DOWN,
     ),
     library.half_note_signifier(),
+    trinton.attachment_command(
+        attachments=[abjad.Clef("bass")], selector=trinton.select_leaves_by_index([0])
+    ),
     voice=score["bassclarinet voice"],
     beam_meter=True,
 )
@@ -1075,7 +1078,7 @@ trinton.make_music(
         selector=trinton.select_tuplets_by_index([-4, -3, -2]),
     ),
     evans.PitchHandler(
-        [_ + 20 for _ in abjad.sequence.flatten(pitch.final_pitch_groups)]
+        [_ + 4 for _ in abjad.sequence.flatten(pitch.final_pitch_groups)]
     ),
     library.color_teeth_slurs(selector=trinton.pleaves()),
     library.color_voice(color=r"(css-color 'darkred)"),
@@ -1085,7 +1088,7 @@ trinton.make_music(
     trinton.hooked_spanner_command(
         string="""teeth""",
         selector=trinton.select_leaves_by_index([0, -9], pitched=True, grace=False),
-        padding=13.5,
+        padding=15,
         right_padding=2,
         full_string=False,
         style="dashed-line-with-hook",
@@ -1101,7 +1104,7 @@ trinton.make_music(
     trinton.hooked_spanner_command(
         string="""( teeth )""",
         selector=trinton.select_leaves_by_index([-8, -1], pitched=True, grace=False),
-        padding=14,
+        padding=15.5,
         right_padding=27,
         full_string=False,
         style="dashed-line-with-hook",
@@ -1146,7 +1149,7 @@ trinton.make_music(
     lambda _: trinton.select_target(_, (4,)),
     evans.PitchHandler(
         [
-            _ + 20
+            _ + 4
             for _ in trinton.rotated_sequence(
                 abjad.sequence.flatten(pitch.final_pitch_groups), 12
             )
@@ -1515,7 +1518,7 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             abjad.LilyPondLiteral(
-                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (4 32 34 37 38)))",
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (4 32 34 41 34)))",
                 site="absolute_before",
             ),
         ],

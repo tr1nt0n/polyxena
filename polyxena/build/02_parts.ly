@@ -974,6 +974,7 @@
                                     \set Staff.instrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { Bass Clarinet }
                                       %! +SCORE
                                 %%% \set Staff.shortInstrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { b. cl. }
+                                    \clef "bass"
                                     \override Staff.Stem.stemlet-length = 0.75
                                     \voiceTwo
                                     \tweak style #'xcircle
@@ -1069,7 +1070,7 @@
                                         \override Voice.TupletBracket.color = #(css-color 'darkred)
                                         \override Voice.TupletNumber.color = #(css-color 'darkred)
                                         \voiceOne
-                                        c'''16
+                                        e'16
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
@@ -1084,28 +1085,28 @@
                                         \startTextSpan
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        d'''32..
+                                        fs'32..
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        b''16
+                                        ef'16
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        ef'''64.
+                                        g'64.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        cs'''32..
+                                        f'32..
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        b''16
+                                        ef'16
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         \revert Dots.staff-position
-                                        d'''32..
+                                        fs'32..
                                         )
                                         \stopTextSpan
                                         ]
@@ -1137,7 +1138,7 @@
                                     {
                                         \override Dots.staff-position = #2
                                         \my-hack-slash
-                                        bf''64.
+                                        d'64.
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
@@ -1152,27 +1153,27 @@
                                         \startTextSpan
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        a''128
+                                        cs'128
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        e'''64.
+                                        af'64.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        ef'''32
+                                        g'32
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        g'''32..
+                                        b'32..
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        af''16
+                                        c'16
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        ef'''32.
+                                        g'32.
                                         )
                                         ]
                                         - \tweak color #(css-color 'darkred)
@@ -1182,23 +1183,23 @@
                                     \times 16/25
                                     {
                                         \my-hack-slash
-                                        fs'''16
+                                        bf'16
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        d'''32.
+                                        fs'32.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        cs'''64
+                                        f'64
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         \revert Dots.staff-position
-                                        bf''16
+                                        d'16
                                         )
                                         ]
                                         r32
@@ -1211,23 +1212,23 @@
                                     {
                                         \override Dots.staff-position = #2
                                         \my-hack-slash
-                                        af''16
+                                        c'16
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        b''16.
+                                        ef'16.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        fs'''8
+                                        bf'8
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         \revert Dots.staff-position
-                                        a''32
+                                        cs'32
                                         )
                                         \stopTextSpan
                                         ]

@@ -123,17 +123,17 @@ def rhythm_e(index, stage=1):
     def rhythm(time_signatures):
         container = abjad.Container()
         if stage == 1:
-            duration_numerators = abjad.sequence.flatten(pitch.final_pitch_groups)
+            # duration_numerators = abjad.sequence.flatten(pitch.final_pitch_groups)
 
-            duration_numerators = trinton.rotated_sequence(
-                duration_numerators, index % len(duration_numerators)
+            duration_groups = trinton.rotated_sequence(
+                pitch.final_pitch_groups, index % len(pitch.final_pitch_groups)
             )
 
             preprocessing_groups = []
 
-            for numerator in duration_numerators:
-                if numerator > 0:
-                    preprocessing_groups.append(numerator)
+            for group in duration_groups:
+                numerator = len(group)
+                preprocessing_groups.append(numerator)
 
             preprocessing_groups = tuple(preprocessing_groups)
 

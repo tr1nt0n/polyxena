@@ -243,8 +243,8 @@ afterGraceFraction = #(cons 15 16)
         % \override TimeSignature.whiteout-style = #'outline
         % \override TimeSignature.whiteout = 1
         % \override TimeSignature.layer = 4
-        % \RemoveAllEmptyStaves
-        \RemoveEmptyStaves
+        \RemoveAllEmptyStaves
+        % \RemoveEmptyStavesß
     }
 
     \context {

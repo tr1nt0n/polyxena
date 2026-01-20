@@ -427,6 +427,9 @@ trinton.make_music(
         ),
         direction=abjad.DOWN,
     ),
+    trinton.attachment_command(
+        attachments=[abjad.Clef("bass")], selector=trinton.select_leaves_by_index([0])
+    ),
     voice=score["bassclarinet voice"],
     beam_meter=True,
 )
@@ -459,9 +462,7 @@ trinton.make_music(
         ],
         selector=trinton.select_leaves_by_index([17], pitched=True, grace=False),
     ),
-    evans.PitchHandler(
-        [_ + 20 for _ in abjad.sequence.flatten(pitch.final_pitch_groups)]
-    ),
+    evans.PitchHandler(abjad.sequence.flatten(pitch.final_pitch_groups)),
     library.color_teeth_slurs(selector=trinton.pleaves()),
     library.color_voice(color=r"(css-color 'darkred)"),
     trinton.continuous_glissando(

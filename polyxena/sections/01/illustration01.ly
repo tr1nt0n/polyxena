@@ -17,7 +17,7 @@
         \context TimeSignatureContext = "Global Context"
         {
               %! +SCORE
-            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (4 32 34 37 38)))
+            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (4 32 34 41 34)))
             \time 3/4
             s1 * 3/4
             - \tweak padding 20
@@ -1765,6 +1765,7 @@
                             \set Staff.instrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { Bass Clarinet }
                               %! +SCORE
                             \set Staff.shortInstrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { b. cl. }
+                            \clef "bass"
                             \tweak style #'xcircle
                             e2
                             \pp
@@ -1982,7 +1983,7 @@
                                         \override Voice.TupletBracket.color = #(css-color 'darkred)
                                         \override Voice.TupletNumber.color = #(css-color 'darkred)
                                         \voiceOne
-                                        c'''16
+                                        af'16
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
@@ -1990,22 +1991,22 @@
                                         - \tweak color #(css-color 'darkred)
                                         - \tweak font-name "Bodoni72 Book Italic" 
                                         - \tweak font-size 2
-                                        - \tweak padding #13.5
+                                        - \tweak padding #15
                                         - \abjad-dashed-line-with-hook
                                         - \tweak bound-details.left.text \markup \concat { \upright { "teeth" } \hspace #0.5 }
                                         - \tweak bound-details.right.padding -2
                                         \startTextSpan
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        d'''16.
+                                        bf'16.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        b''32.
+                                        g'32.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        ef'''16..
+                                        b'16..
                                         )
                                         ]
                                         - \tweak color #(css-color 'darkred)
@@ -2015,30 +2016,30 @@
                                     \times 16/27
                                     {
                                         \my-hack-slash
-                                        cs'''32.
+                                        a'32.
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        b''16.
+                                        g'16.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        d'''32
+                                        bf'32
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        bf''64
+                                        fs'64
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        a''8
+                                        f'8
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        e'''16..
+                                        c''16..
                                         )
                                         ]
                                         - \tweak color #(css-color 'darkred)
@@ -2048,18 +2049,18 @@
                                     \times 8/15
                                     {
                                         \my-hack-slash
-                                        ef'''8..
+                                        b'8..
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        g'''8.
+                                        ef''8.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        af''16
+                                        e'16
                                         )
                                         ]
                                         - \tweak color #(css-color 'darkred)
@@ -2070,34 +2071,34 @@
                                     \times 1/1
                                     {
                                         \my-hack-slash
-                                        ef'''64.
+                                        b'64.
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        fs'''128
+                                        d''128
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        d'''64.
+                                        bf'64.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        cs'''32
+                                        a'32
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        bf''32..
+                                        fs'32..
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        af''16
+                                        e'16
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        b''32.
+                                        g'32.
                                         )
                                         ]
                                         - \tweak color #(css-color 'darkred)
@@ -2107,38 +2108,38 @@
                                     \times 16/25
                                     {
                                         \my-hack-slash
-                                        fs'''16
+                                        d''16
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        a''32.
+                                        f'32.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        b''64
+                                        g'64
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        af''16
+                                        e'16
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        c'''32
+                                        af'32
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        cs'''16
+                                        a'16
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        ef'''64
+                                        b'64
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        f'''16.
+                                        cs''16.
                                         )
                                         ]
                                         - \tweak color #(css-color 'darkred)
@@ -2148,22 +2149,22 @@
                                     \times 4/5
                                     {
                                         \my-hack-slash
-                                        fs'''16
+                                        d''16
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        g'''16.
+                                        ef''16.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        e'''8
+                                        c''8
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        d'''32
+                                        bf'32
                                         )
                                         ]
                                         - \tweak color #(css-color 'darkred)
@@ -2173,30 +2174,30 @@
                                     \times 4/7
                                     {
                                         \my-hack-slash
-                                        cs'''16
+                                        a'16
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        c'''32
+                                        af'32
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        b''16
+                                        g'16
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        a''16
+                                        f'16
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        c'''16.
+                                        af'16.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        af''8
+                                        e'8
                                         )
                                         ]
                                         - \tweak color #(css-color 'darkred)
@@ -2206,18 +2207,18 @@
                                     \times 4/5
                                     {
                                         \my-hack-slash
-                                        bf''16.
+                                        fs'16.
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        c'''8
+                                        af'8
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        a''16.
+                                        f'16.
                                         )
                                         ]
                                         - \tweak color #(css-color 'darkred)
@@ -2227,34 +2228,34 @@
                                     \times 16/23
                                     {
                                         \my-hack-slash
-                                        d'''16
+                                        bf'16
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        af''32
+                                        e'32
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        bf''32.
+                                        fs'32.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        g'''64
+                                        ef''64
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        b''32.
+                                        g'32.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        c'''16
+                                        af'16
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        a''16.
+                                        f'16.
                                         )
                                         ]
                                         - \tweak color #(css-color 'darkred)
@@ -2264,34 +2265,34 @@
                                     \times 2/3
                                     {
                                         \my-hack-slash
-                                        bf''16
+                                        fs'16
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        fs'''32..
+                                        d''32..
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        f'''16
+                                        cs''16
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        a''64.
+                                        f'64.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        g'''32..
+                                        ef''32..
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        bf''16
+                                        fs'16
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        fs'''32..
+                                        d''32..
                                         )
                                         ]
                                         - \tweak color #(css-color 'darkred)
@@ -2301,23 +2302,23 @@
                                     \times 4/5
                                     {
                                         \my-hack-slash
-                                        f'''16
+                                        cs''16
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        bf''16.
+                                        fs'16.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        g'''32.
+                                        ef''32.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         \revert Dots.staff-position
-                                        b''16..
+                                        g'16..
                                         )
                                         \stopTextSpan
                                         ]
@@ -2352,7 +2353,7 @@
                                     {
                                         \override Dots.staff-position = #2
                                         \my-hack-slash
-                                        c'''16
+                                        af'16
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
@@ -2360,39 +2361,39 @@
                                         - \tweak color #(css-color 'darkred)
                                         - \tweak font-name "Bodoni72 Book Italic" 
                                         - \tweak font-size 2
-                                        - \tweak padding #14
+                                        - \tweak padding #15.5
                                         - \abjad-dashed-line-with-hook
                                         - \tweak bound-details.left.text \markup \concat { \upright { "( teeth )" } \hspace #0.5 }
                                         - \tweak bound-details.right.padding -27
                                         \startTextSpan
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        f'''32.
+                                        cs''32.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        d'''64
+                                        bf'64
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        fs'''16
+                                        d''16
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        g'''32
+                                        ef''32
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        e'''16
+                                        c''16
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        d'''64
+                                        bf'64
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         \revert Dots.staff-position
-                                        cs'''16.
+                                        a'16.
                                         )
                                         \stopTextSpan
                                         ]
@@ -2432,8 +2433,7 @@
                                     \override Voice.Dots.stencil = ##f
                                     \override Voice.Accidental.stencil = ##f
                                     \set fontSize = #-3
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 14/15
+                                    \times 4/5
                                     {
                                         \override Dots.staff-position = #2
                                         \my-hack-slash
@@ -2446,26 +2446,26 @@
                                         \override Voice.TupletBracket.color = #(css-color 'darkred)
                                         \override Voice.TupletNumber.color = #(css-color 'darkred)
                                         \voiceOne
-                                        af''8..
+                                        e'16..
                                         [
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         - \tweak color #(css-color 'darkred)
                                         ^ (
-                                        ef'''8.
+                                        b'16.
                                         - \tweak color #(css-color 'darkred)
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         \revert Dots.staff-position
-                                        fs'''16
+                                        d''32
                                         )
                                         ]
                                     }
                                     \tweak text #tuplet-number::calc-fraction-text
                                     \times 1/1
                                     {
-                                        r8
+                                        r4.
                                         \revert Voice.NoteHead.color
                                         \revert Voice.Dots.color
                                         \revert Voice.Stem.color
