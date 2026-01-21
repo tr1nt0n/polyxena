@@ -56,6 +56,58 @@ def rhythm_a(stage, index, later_material=False):
             rhythms = rmakers.talea(time_signatures, talea_counts, 16)
             container.extend(rhythms)
 
+        if stage == 3:
+            preprocessing_groups = []
+
+            for time_signature in time_signatures:
+                if (
+                    time_signature.numerator == 3
+                    or time_signature.numerator == 7
+                    or time_signature.numerator == 8
+                ):
+                    if time_signature.numerator == 3:
+                        for _ in range(0, 3):
+                            preprocessing_groups.append(1)
+                    if time_signature.numerator == 7:
+                        preprocessing_groups.append(3)
+                        for _ in range(0, 2):
+                            preprocessing_groups.append(2)
+
+                    if time_signature.numerator == 8:
+                        for _ in range(0, 4):
+                            preprocessing_groups.append(2)
+
+                else:
+                    preprocessor_groups.append(100)
+
+            preprocessing_groups = tuple(preprocessing_groups)
+
+            preprocessor = trinton.fuse_quarters_preprocessor(
+                groups=preprocessing_groups
+            )
+
+            durations = preprocessor([_.duration for _ in time_signatures])
+
+            tuplet_attacks = [len(_) for _ in pitch.final_pitch_groups]
+
+            tuplet_attacks = trinton.rotated_sequence(
+                tuplet_attacks, index % len(tuplet_attacks)
+            )
+
+            tuplet_ratios = []
+
+            for duration, attack in zip(durations, itertools.cycle(tuplet_attacks)):
+                ratio = []
+                for _ in range(0, attack):
+                    ratio.append(1)
+
+                ratio = tuple(ratio)
+
+                tuplet_ratios.append(ratio)
+
+            rhythms = rmakers.tuplet(durations, tuplet_ratios)
+            container.extend(rhythms)
+
         rmakers.rewrite_dots(abjad.select.tuplets(container))
         trinton.respell_tuplets(abjad.select.tuplets(container), rewrite_brackets=False)
         treat_tuplets = trinton.treat_tuplets()
@@ -203,15 +255,39 @@ def rhythm_e(index, stage=1):
         rhythms = rmakers.tuplet(tuplet_divisions, final_tuplet_ratios)
         container.extend(rhythms)
 
+        tuplet_counter = 1
         for tuplet in abjad.select.tuplets(container):
             if isinstance(abjad.select.leaf(tuplet, 0), abjad.Note):
                 abjad.beam(tuplet)
+
+                if abjad.get.duration(
+                    abjad.select.leaf(tuplet, 0), preprolated=True
+                ) < abjad.Duration((1, 1)):
+                    abjad.attach(
+                        abjad.LilyPondLiteral(r"\my-hack-slash", site="before"),
+                        abjad.select.leaf(tuplet, 0),
+                    )
+
+                if stage == 3 and tuplet_counter == len(
+                    abjad.select.tuplets(container)
+                ):
+                    aftergrace_command = trinton.aftergrace_command(
+                        notes_string="c'16",
+                        selector=trinton.logical_ties(pitched=True, grace=False),
+                        slash=False,
+                        glissando=False,
+                        invisible=True,
+                        pitch_matching=True,
+                        fraction=None,
+                    )
+
+                    last_tie = abjad.select.logical_tie(tuplet, -1)
+
+                    aftergrace_command(last_tie)
+
                 abjad.slur(tuplet)
 
-                abjad.attach(
-                    abjad.LilyPondLiteral(r"\my-hack-slash", site="before"),
-                    abjad.select.leaf(tuplet, 0),
-                )
+            tuplet_counter += 1
 
         start_literal = abjad.LilyPondLiteral(
             [

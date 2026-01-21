@@ -367,14 +367,945 @@
                             r8.
                             ]
                             r4
-                            s1 * 3/4
-                            s1 * 7/4
-                            s1 * 2
-                            s1 * 3/4
-                            s1 * 2
-                            s1 * 3/4
-                            s1 * 7/4
-                            s1 * 3/4
+                            <<
+                                \context Voice = "englishhorn voice temp 2"
+                                {
+                                    \times 4/6
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \voiceTwo
+                                        \tweak style #'xcircle
+                                        e'16
+                                        [
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        cs'16
+                                        \tweak style #'xcircle
+                                        f'16
+                                        )
+                                        \tweak style #'xcircle
+                                        fs'16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mf"
+                                                    #:hspace -0.2
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        ef'16
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        cs'16
+                                        ]
+                                    }
+                                    \times 2/3
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        c'8
+                                        [
+                                        \tweak style #'xcircle
+                                        b8
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        a'8
+                                        )
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        bf'32
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.4
+                                                    #:dynamic "f"
+                                                    #:hspace -0.2
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        [
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        fs'32
+                                        \tweak style #'xcircle
+                                        f'32
+                                        )
+                                        \tweak style #'xcircle
+                                        gs'32
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "p"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        bf'32
+                                        \tweak style #'xcircle
+                                        g'32
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        b32
+                                        ]
+                                    }
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    cs'16.
+                                    [
+                                    \tweak style #'xcircle
+                                    ef'32
+                                    ~
+                                    \tweak style #'xcircle
+                                    ef'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    c'16
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    c'32
+                                    )
+                                    [
+                                    \tweak style #'xcircle
+                                    e'16.
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mp"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ^ (
+                                    \tweak style #'xcircle
+                                    f'16.
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    d'32
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    d'16
+                                    [
+                                    \tweak style #'xcircle
+                                    c'16
+                                    ~
+                                    \tweak style #'xcircle
+                                    c'32
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    ef'16.
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    bf'8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    e'8
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    d'8
+                                    )
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    f'8
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "p"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ]
+                                    ^ (
+                                    \times 4/5
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        ef'8
+                                        [
+                                        \tweak style #'xcircle
+                                        f'8
+                                        \tweak style #'xcircle
+                                        d'8
+                                        )
+                                        \tweak style #'xcircle
+                                        fs'8
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.4
+                                                    #:dynamic "f"
+                                                    #:hspace -0.2
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        g'8
+                                        ]
+                                    }
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    b8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    cs'8
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    bf'8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    d'8
+                                    )
+                                    ]
+                                    \times 4/6
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        c'8
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        [
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        bf'8
+                                        )
+                                        \tweak style #'xcircle
+                                        cs'8
+                                        \tweak style #'xcircle
+                                        a'8
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "pp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        gs'8
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        ef'8
+                                        ]
+                                    }
+                                    \times 2/3
+                                    {
+                                        \tweak style #'xcircle
+                                        d'4
+                                        \tweak style #'xcircle
+                                        fs'4
+                                        \tweak style #'xcircle
+                                        g'4
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        d'16
+                                        )
+                                        [
+                                        \tweak style #'xcircle
+                                        f'16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mf"
+                                                    #:hspace -0.2
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        cs'16
+                                        \tweak style #'xcircle
+                                        c'16
+                                        \tweak style #'xcircle
+                                        a'16
+                                        \tweak style #'xcircle
+                                        g'16
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        bf'16
+                                        ]
+                                    }
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    f'32
+                                    [
+                                    \tweak style #'xcircle
+                                    gs'32
+                                    )
+                                    \tweak style #'xcircle
+                                    bf'32
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.4
+                                                #:dynamic "f"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    - \tweak circled-tip ##t
+                                    \>
+                                    ^ (
+                                    \tweak style #'xcircle
+                                    g'32
+                                    \tweak style #'xcircle
+                                    b32
+                                    \tweak style #'xcircle
+                                    c'32
+                                    )
+                                    \tweak style #'xcircle
+                                    d'32
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.4
+                                                #:dynamic "f"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ^ (
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    e'32
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    f'16
+                                    [
+                                    \tweak style #'xcircle
+                                    fs'16
+                                    \tweak style #'xcircle
+                                    ef'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    cs'16
+                                    )
+                                    ]
+                                    \times 4/6
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        c'16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "pp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        [
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        b16
+                                        \tweak style #'xcircle
+                                        bf'16
+                                        )
+                                        \tweak style #'xcircle
+                                        gs'16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mf"
+                                                    #:hspace -0.2
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        b16
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        g'16
+                                        ]
+                                    }
+                                    \times 2/3
+                                    {
+                                        \tweak style #'xcircle
+                                        a'4
+                                        \tweak style #'xcircle
+                                        b4
+                                        \tweak style #'xcircle
+                                        gs'4
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        cs'16
+                                        )
+                                        [
+                                        \tweak style #'xcircle
+                                        g'16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        a'16
+                                        \tweak style #'xcircle
+                                        fs'16
+                                        \tweak style #'xcircle
+                                        bf'16
+                                        \tweak style #'xcircle
+                                        b16
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        gs'16
+                                        ]
+                                    }
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    a'16
+                                    [
+                                    \tweak style #'xcircle
+                                    f'16
+                                    )
+                                    \tweak style #'xcircle
+                                    e'16
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "p"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ^ (
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    gs'16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    fs'16
+                                    [
+                                    \tweak style #'xcircle
+                                    a'16
+                                    )
+                                    \tweak style #'xcircle
+                                    f'16
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ^ (
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    e'16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    a'8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    fs'8
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    bf'8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    b8
+                                    )
+                                    ]
+                                    \times 4/6
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        e'16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "p"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        [
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        cs'16
+                                        \tweak style #'xcircle
+                                        f'16
+                                        )
+                                        \tweak style #'xcircle
+                                        fs'16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        ef'16
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        cs'16
+                                        ]
+                                    }
+                                    \times 2/3
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        c'8
+                                        [
+                                        \tweak style #'xcircle
+                                        b8
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        a'8
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        bf'32
+                                        )
+                                        [
+                                        \tweak style #'xcircle
+                                        fs'32
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "pp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        f'32
+                                        \tweak style #'xcircle
+                                        gs'32
+                                        \tweak style #'xcircle
+                                        bf'32
+                                        \tweak style #'xcircle
+                                        g'32
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        b32
+                                        ]
+                                    }
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    cs'16.
+                                    [
+                                    \tweak style #'xcircle
+                                    ef'32
+                                    ~
+                                    \tweak style #'xcircle
+                                    ef'16
+                                    )
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    c'16
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ]
+                                    ^ (
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    c'32
+                                    [
+                                    \tweak style #'xcircle
+                                    e'16.
+                                    \tweak style #'xcircle
+                                    f'16.
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    d'32
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    d'16
+                                    )
+                                    [
+                                    \tweak style #'xcircle
+                                    c'16
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.4
+                                                #:dynamic "f"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ^ (
+                                    ~
+                                    \tweak style #'xcircle
+                                    c'32
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    ef'16.
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    bf'8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    e'8
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    d'8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    f'8
+                                    )
+                                    ]
+                                    \times 4/5
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        ef'8
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "pp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        [
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        f'8
+                                        \tweak style #'xcircle
+                                        d'8
+                                        )
+                                        \tweak style #'xcircle
+                                        fs'8
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "p"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        g'8
+                                        ]
+                                    }
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    b16
+                                    [
+                                    \tweak style #'xcircle
+                                    cs'16
+                                    \tweak style #'xcircle
+                                    bf'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    d'16
+                                    ]
+                                    \times 4/6
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        c'16
+                                        )
+                                        [
+                                        \tweak style #'xcircle
+                                        bf'16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        cs'16
+                                        \tweak style #'xcircle
+                                        a'16
+                                        \tweak style #'xcircle
+                                        gs'16
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        ef'16
+                                        ]
+                                    }
+                                    \times 2/3
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        d'8
+                                        [
+                                        \tweak style #'xcircle
+                                        fs'8
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        g'8
+                                        )
+                                        ]
+                                    }
+                                }
+                                \context Voice = "english horn teeth voice 2"
+                                {
+                                    \override Voice.NoteHead.transparent = ##t
+                                    \override Voice.NoteHead.X-extent = #'(0 . 0)
+                                    \override Voice.NoteHead.no-ledgers = ##t
+                                    \override Voice.Beam.beam-thickness = #0.5
+                                    \override Voice.Beam.length-fraction = #0.85
+                                    \override Voice.TupletBracket.stencil = ##f
+                                    \override Voice.TupletNumber.stencil = ##f
+                                    \override Voice.Rest.transparent = ##t
+                                    \override Voice.Dots.stencil = ##f
+                                    \override Voice.Accidental.stencil = ##f
+                                    \set fontSize = #-3
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 7/9
+                                    {
+                                        \override Dots.staff-position = #2
+                                        \override Voice.NoteHead.color = #(css-color 'darkred)
+                                        \override Voice.Dots.color = #(css-color 'darkred)
+                                        \override Voice.Stem.color = #(css-color 'darkred)
+                                        \override Voice.Beam.color = #(css-color 'darkred)
+                                        \override Voice.Rest.color = #(css-color 'darkred)
+                                        \override Voice.Tie.color = #(css-color 'darkred)
+                                        \override Voice.TupletBracket.color = #(css-color 'darkred)
+                                        \override Voice.TupletNumber.color = #(css-color 'darkred)
+                                        \voiceOne
+                                        c''''1.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #10.5
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { \upright { "teeth" } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -0.5
+                                        \startTextSpan
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        cs'''\breve.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        af'''1
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        b'''2
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        g'''\longa
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        \afterGrace
+                                        fs'''\breve..
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        {
+                                            \once \override Stem.stencil = ##f
+                                            \once \override Flag.stencil = ##f
+                                            \once \override NoteHead.no-ledgers = ##t
+                                            \once \override Accidental.stencil = ##f
+                                            \revert Dots.staff-position
+                                            \once \override NoteHead.transparent = ##t
+                                            ef'''16
+                                            )
+                                            \stopTextSpan
+                                            \revert Voice.NoteHead.color
+                                            \revert Voice.Dots.color
+                                            \revert Voice.Stem.color
+                                            \revert Voice.Beam.color
+                                            \revert Voice.Rest.color
+                                            \revert Voice.Tie.color
+                                            \revert Voice.TupletBracket.color
+                                            \revert Voice.TupletNumber.color
+                                        }
+                                    }
+                                }
+                            >>
+                            \oneVoice
                             s1 * 7/4
                             s1 * 2
                             s1 * 7/4
@@ -812,13 +1743,514 @@
                             r8
                             ]
                             r2
-                            s1 * 3/4
-                            s1 * 7/4
+                            <<
+                                \context Voice = "sopranosaxophone voice temp 3"
+                                {
+                                    \times 4/5
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \voiceTwo
+                                        \tweak style #'xcircle
+                                        gf'16
+                                        [
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        af'16
+                                        \tweak style #'xcircle
+                                        f'16
+                                        )
+                                        \tweak style #'xcircle
+                                        a'16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "p"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        bf16
+                                        ]
+                                    }
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    d'16
+                                    [
+                                    \tweak style #'xcircle
+                                    e'16
+                                    \tweak style #'xcircle
+                                    df'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    f'16
+                                    )
+                                    ]
+                                    \times 4/6
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        ef'16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        [
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        df'16
+                                        \tweak style #'xcircle
+                                        e'16
+                                        )
+                                        \tweak style #'xcircle
+                                        c'16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "pp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        b16
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        gf'16
+                                        ]
+                                    }
+                                    \tweak style #'xcircle
+                                    f'4
+                                    \tweak style #'xcircle
+                                    a'4
+                                    \tweak style #'xcircle
+                                    bf4
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        f'16
+                                        )
+                                        [
+                                        \tweak style #'xcircle
+                                        af'16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mf"
+                                                    #:hspace -0.2
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        e'16
+                                        \tweak style #'xcircle
+                                        ef'16
+                                        \tweak style #'xcircle
+                                        c'16
+                                        \tweak style #'xcircle
+                                        bf16
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        df'16
+                                        ]
+                                    }
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    af'16
+                                    [
+                                    \tweak style #'xcircle
+                                    b16
+                                    )
+                                    \tweak style #'xcircle
+                                    df'16
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "p"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ^ (
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    bf16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    d'16
+                                    [
+                                    \tweak style #'xcircle
+                                    ef'16
+                                    )
+                                    \tweak style #'xcircle
+                                    f'16
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mp"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ^ (
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    g'16
+                                    )
+                                    ]
+                                }
+                                \context Voice = "saxophone teeth voice 3"
+                                {
+                                    \override Voice.NoteHead.transparent = ##t
+                                    \override Voice.NoteHead.X-extent = #'(0 . 0)
+                                    \override Voice.NoteHead.no-ledgers = ##t
+                                    \override Voice.Beam.beam-thickness = #0.5
+                                    \override Voice.Beam.length-fraction = #0.85
+                                    \override Voice.TupletBracket.stencil = ##f
+                                    \override Voice.TupletNumber.stencil = ##f
+                                    \override Voice.Rest.transparent = ##t
+                                    \override Voice.Dots.stencil = ##f
+                                    \override Voice.Accidental.stencil = ##f
+                                    \set fontSize = #-3
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 20/32
+                                    {
+                                        \override Dots.staff-position = #2
+                                        \my-hack-slash
+                                        \override Voice.NoteHead.color = #(css-color 'darkred)
+                                        \override Voice.Dots.color = #(css-color 'darkred)
+                                        \override Voice.Stem.color = #(css-color 'darkred)
+                                        \override Voice.Beam.color = #(css-color 'darkred)
+                                        \override Voice.Rest.color = #(css-color 'darkred)
+                                        \override Voice.Tie.color = #(css-color 'darkred)
+                                        \override Voice.TupletBracket.color = #(css-color 'darkred)
+                                        \override Voice.TupletNumber.color = #(css-color 'darkred)
+                                        \voiceOne
+                                        f'''4.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #13.5
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { \upright { "teeth" } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -0.5
+                                        \startTextSpan
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        e'''8
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        d'''4.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        f'''2
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        cs'''2..
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        ef'''1
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        \afterGrace
+                                        f'''2.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        {
+                                            \once \override Stem.stencil = ##f
+                                            \once \override Flag.stencil = ##f
+                                            \once \override NoteHead.no-ledgers = ##t
+                                            \once \override Accidental.stencil = ##f
+                                            \revert Dots.staff-position
+                                            \once \override NoteHead.transparent = ##t
+                                            d'''16
+                                            )
+                                            \stopTextSpan
+                                            \revert Voice.NoteHead.color
+                                            \revert Voice.Dots.color
+                                            \revert Voice.Stem.color
+                                            \revert Voice.Beam.color
+                                            \revert Voice.Rest.color
+                                            \revert Voice.Tie.color
+                                            \revert Voice.TupletBracket.color
+                                            \revert Voice.TupletNumber.color
+                                        }
+                                    }
+                                }
+                            >>
+                            \oneVoice
                             s1 * 2
                             s1 * 3/4
                             s1 * 2
                             s1 * 3/4
-                            s1 * 7/4
+                            <<
+                                \context Voice = "sopranosaxophone voice temp 4"
+                                {
+                                    \voiceTwo
+                                    r2
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    gf'8
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mp"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    [
+                                    ^ (
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    e'8
+                                    )
+                                    ]
+                                    r2
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        df'16
+                                        [
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        a'16
+                                        \tweak style #'xcircle
+                                        af'16
+                                        \tweak style #'xcircle
+                                        b16
+                                        \tweak style #'xcircle
+                                        df'16
+                                        \tweak style #'xcircle
+                                        bf16
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        d'16
+                                        )
+                                        ]
+                                    }
+                                }
+                                \context Voice = "saxophone teeth voice 4"
+                                {
+                                    \override Voice.NoteHead.transparent = ##t
+                                    \override Voice.NoteHead.X-extent = #'(0 . 0)
+                                    \override Voice.NoteHead.no-ledgers = ##t
+                                    \override Voice.Beam.beam-thickness = #0.5
+                                    \override Voice.Beam.length-fraction = #0.85
+                                    \override Voice.TupletBracket.stencil = ##f
+                                    \override Voice.TupletNumber.stencil = ##f
+                                    \override Voice.Rest.transparent = ##t
+                                    \override Voice.Dots.stencil = ##f
+                                    \override Voice.Accidental.stencil = ##f
+                                    \set fontSize = #-3
+                                    \times 16/27
+                                    {
+                                        \override Voice.NoteHead.color = #(css-color 'darkred)
+                                        \override Voice.Dots.color = #(css-color 'darkred)
+                                        \override Voice.Stem.color = #(css-color 'darkred)
+                                        \override Voice.Beam.color = #(css-color 'darkred)
+                                        \override Voice.Rest.color = #(css-color 'darkred)
+                                        \override Voice.Tie.color = #(css-color 'darkred)
+                                        \override Voice.TupletBracket.color = #(css-color 'darkred)
+                                        \override Voice.TupletNumber.color = #(css-color 'darkred)
+                                        \voiceOne
+                                        r32.
+                                        r16.
+                                        r32
+                                        r64
+                                        r8
+                                        r16..
+                                    }
+                                    \times 8/15
+                                    {
+                                        r8..
+                                        r8.
+                                        r16
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 1/1
+                                    {
+                                        \override Dots.staff-position = #2
+                                        \my-hack-slash
+                                        c''''64.
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #15
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { \upright { "teeth" } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -2
+                                        \startTextSpan
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        cs'''128
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        af'''64.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        b'''32
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        g'''32..
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        fs'''16
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        \revert Dots.staff-position
+                                        ef'''32.
+                                        )
+                                        ]
+                                    }
+                                    \times 16/25
+                                    {
+                                        r16
+                                        r32.
+                                        r64
+                                        r16
+                                        r32
+                                        r16
+                                        r64
+                                        r16.
+                                    }
+                                    \times 4/5
+                                    {
+                                        r16
+                                        r16.
+                                        r8
+                                        r32
+                                    }
+                                    \times 4/7
+                                    {
+                                        \override Dots.staff-position = #2
+                                        \my-hack-slash
+                                        cs'''16
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        e'''32
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        b'''16
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        d'''16
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        e'''16.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        cs'''8
+                                        )
+                                        ]
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                    }
+                                    \times 4/5
+                                    {
+                                        \my-hack-slash
+                                        f'''16.
+                                        [
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        fs'''8
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        \revert Dots.staff-position
+                                        af'''16.
+                                        )
+                                        \stopTextSpan
+                                        ]
+                                        \revert Voice.NoteHead.color
+                                        \revert Voice.Dots.color
+                                        \revert Voice.Stem.color
+                                        \revert Voice.Beam.color
+                                        \revert Voice.Rest.color
+                                        \revert Voice.Tie.color
+                                        \revert Voice.TupletBracket.color
+                                        \revert Voice.TupletNumber.color
+                                    }
+                                }
+                            >>
+                            \oneVoice
                             s1 * 3/4
                             s1 * 7/4
                             s1 * 2
@@ -1504,9 +2936,415 @@
                                 }
                             >>
                             \oneVoice
-                            s1 * 3/4
-                            s1 * 7/4
-                            s1 * 2
+                            <<
+                                \context Voice = "clarinetinbflat voice temp 3"
+                                {
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \voiceTwo
+                                    \tweak style #'xcircle
+                                    d'16
+                                    [
+                                    ^ (
+                                    \tweak style #'xcircle
+                                    e16
+                                    \tweak style #'xcircle
+                                    df'16
+                                    )
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    f16
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mp"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ]
+                                    ^ (
+                                    \times 4/6
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        ef'16
+                                        [
+                                        \tweak style #'xcircle
+                                        df'16
+                                        \tweak style #'xcircle
+                                        e16
+                                        \tweak style #'xcircle
+                                        c'16
+                                        \tweak style #'xcircle
+                                        b16
+                                        )
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        gf16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "pp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ]
+                                        ^ (
+                                    }
+                                    \times 2/3
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        f8
+                                        [
+                                        \tweak style #'xcircle
+                                        a8
+                                        )
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        bf8
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mf"
+                                                    #:hspace -0.2
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ]
+                                        ^ (
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 6/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        f8
+                                        [
+                                        \tweak style #'xcircle
+                                        af8
+                                        \tweak style #'xcircle
+                                        e8
+                                        \tweak style #'xcircle
+                                        ef'8
+                                        \tweak style #'xcircle
+                                        c'8
+                                        \tweak style #'xcircle
+                                        bf8
+                                        )
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        df'8
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.4
+                                                    #:dynamic "f"
+                                                    #:hspace -0.2
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ]
+                                        - \tweak circled-tip ##t
+                                        \>
+                                        ^ (
+                                    }
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    af16
+                                    [
+                                    \tweak style #'xcircle
+                                    b16
+                                    \tweak style #'xcircle
+                                    df'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    bf16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    d'16
+                                    [
+                                    \tweak style #'xcircle
+                                    ef'16
+                                    \tweak style #'xcircle
+                                    f16
+                                    )
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    g16
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.4
+                                                #:dynamic "f"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ]
+                                    ^ (
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    af8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    a8
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    gf8
+                                    )
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    e8
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "pp"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ]
+                                    ^ (
+                                    \times 4/6
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        ef'8
+                                        [
+                                        \tweak style #'xcircle
+                                        d'8
+                                        \tweak style #'xcircle
+                                        df'8
+                                        \tweak style #'xcircle
+                                        b8
+                                        \tweak style #'xcircle
+                                        d'8
+                                        )
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        bf8
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mf"
+                                                    #:hspace -0.2
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ]
+                                        ^ (
+                                    }
+                                    \times 2/3
+                                    {
+                                        \tweak style #'xcircle
+                                        c'4
+                                        \tweak style #'xcircle
+                                        d'4
+                                        )
+                                        \tweak style #'xcircle
+                                        b4
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        e16
+                                        [
+                                        \tweak style #'xcircle
+                                        bf16
+                                        \tweak style #'xcircle
+                                        c'16
+                                        \tweak style #'xcircle
+                                        a16
+                                        \tweak style #'xcircle
+                                        df'16
+                                        \tweak style #'xcircle
+                                        d'16
+                                        )
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        b16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "p"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ]
+                                        ^ (
+                                    }
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    c'16
+                                    [
+                                    \tweak style #'xcircle
+                                    af16
+                                    \tweak style #'xcircle
+                                    g16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    b16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    a16
+                                    [
+                                    \tweak style #'xcircle
+                                    c'16
+                                    \tweak style #'xcircle
+                                    af16
+                                    )
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    g16
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ]
+                                }
+                                \context Voice = "clarinet teeth voice 3"
+                                {
+                                    \override Voice.NoteHead.transparent = ##t
+                                    \override Voice.NoteHead.X-extent = #'(0 . 0)
+                                    \override Voice.NoteHead.no-ledgers = ##t
+                                    \override Voice.Beam.beam-thickness = #0.5
+                                    \override Voice.Beam.length-fraction = #0.85
+                                    \override Voice.TupletBracket.stencil = ##f
+                                    \override Voice.TupletNumber.stencil = ##f
+                                    \override Voice.Rest.transparent = ##t
+                                    \override Voice.Dots.stencil = ##f
+                                    \override Voice.Accidental.stencil = ##f
+                                    \set fontSize = #-3
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 9/10
+                                    {
+                                        \override Dots.staff-position = #2
+                                        \override Voice.NoteHead.color = #(css-color 'darkred)
+                                        \override Voice.Dots.color = #(css-color 'darkred)
+                                        \override Voice.Stem.color = #(css-color 'darkred)
+                                        \override Voice.Beam.color = #(css-color 'darkred)
+                                        \override Voice.Rest.color = #(css-color 'darkred)
+                                        \override Voice.Tie.color = #(css-color 'darkred)
+                                        \override Voice.TupletBracket.color = #(css-color 'darkred)
+                                        \override Voice.TupletNumber.color = #(css-color 'darkred)
+                                        \voiceOne
+                                        e'''1.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #10
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { \upright { "teeth" } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -0.5
+                                        \startTextSpan
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        d'''\breve
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        \afterGrace
+                                        f'''1.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        {
+                                            \once \override Stem.stencil = ##f
+                                            \once \override Flag.stencil = ##f
+                                            \once \override NoteHead.no-ledgers = ##t
+                                            \once \override Accidental.stencil = ##f
+                                            \revert Dots.staff-position
+                                            \once \override NoteHead.transparent = ##t
+                                            c''''16
+                                            )
+                                            \stopTextSpan
+                                            \revert Voice.NoteHead.color
+                                            \revert Voice.Dots.color
+                                            \revert Voice.Stem.color
+                                            \revert Voice.Beam.color
+                                            \revert Voice.Rest.color
+                                            \revert Voice.Tie.color
+                                            \revert Voice.TupletBracket.color
+                                            \revert Voice.TupletNumber.color
+                                        }
+                                    }
+                                }
+                            >>
+                            \oneVoice
                             s1 * 3/4
                             s1 * 2
                             s1 * 3/4
@@ -2071,7 +3909,189 @@
                             r16
                             ]
                             r2
-                            s1 * 3/4
+                            <<
+                                \context Voice = "bassclarinet voice temp 3"
+                                {
+                                    \times 4/6
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \voiceTwo
+                                        \tweak style #'xcircle
+                                        g16
+                                        [
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        fs16
+                                        \tweak style #'xcircle
+                                        f16
+                                        )
+                                        \tweak style #'xcircle
+                                        ds16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "p"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        fs16
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        d16
+                                        ]
+                                    }
+                                    \times 2/3
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        e8
+                                        [
+                                        \tweak style #'xcircle
+                                        fs8
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        ds8
+                                        )
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        gs32
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.4
+                                                    #:dynamic "f"
+                                                    #:hspace -0.2
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        [
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        d32
+                                        \tweak style #'xcircle
+                                        e32
+                                        )
+                                        \tweak style #'xcircle
+                                        cs32
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        f32
+                                        \tweak style #'xcircle
+                                        fs32
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        ds32
+                                        )
+                                        ]
+                                    }
+                                }
+                                \context Voice = "bass clarinet teeth voice 3"
+                                {
+                                    \override Voice.NoteHead.transparent = ##t
+                                    \override Voice.NoteHead.X-extent = #'(0 . 0)
+                                    \override Voice.NoteHead.no-ledgers = ##t
+                                    \override Voice.Beam.beam-thickness = #0.5
+                                    \override Voice.Beam.length-fraction = #0.85
+                                    \override Voice.TupletBracket.stencil = ##f
+                                    \override Voice.TupletNumber.stencil = ##f
+                                    \override Voice.Rest.transparent = ##t
+                                    \override Voice.Dots.stencil = ##f
+                                    \override Voice.Accidental.stencil = ##f
+                                    \set fontSize = #-3
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 12/20
+                                    {
+                                        \override Dots.staff-position = #2
+                                        \my-hack-slash
+                                        \override Voice.NoteHead.color = #(css-color 'darkred)
+                                        \override Voice.Dots.color = #(css-color 'darkred)
+                                        \override Voice.Stem.color = #(css-color 'darkred)
+                                        \override Voice.Beam.color = #(css-color 'darkred)
+                                        \override Voice.Rest.color = #(css-color 'darkred)
+                                        \override Voice.Tie.color = #(css-color 'darkred)
+                                        \override Voice.TupletBracket.color = #(css-color 'darkred)
+                                        \override Voice.TupletNumber.color = #(css-color 'darkred)
+                                        \voiceOne
+                                        g'4
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #14.5
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { \upright { "teeth" } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -0.5
+                                        \startTextSpan
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        c''4.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        fs'8.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        \afterGrace
+                                        af'4..
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        {
+                                            \once \override Stem.stencil = ##f
+                                            \once \override Flag.stencil = ##f
+                                            \once \override NoteHead.no-ledgers = ##t
+                                            \once \override Accidental.stencil = ##f
+                                            \revert Dots.staff-position
+                                            \once \override NoteHead.transparent = ##t
+                                            f''16
+                                            )
+                                            \stopTextSpan
+                                            \revert Voice.NoteHead.color
+                                            \revert Voice.Dots.color
+                                            \revert Voice.Stem.color
+                                            \revert Voice.Beam.color
+                                            \revert Voice.Rest.color
+                                            \revert Voice.Tie.color
+                                            \revert Voice.TupletBracket.color
+                                            \revert Voice.TupletNumber.color
+                                        }
+                                    }
+                                }
+                            >>
+                            \oneVoice
                             s1 * 7/4
                             s1 * 2
                             s1 * 3/4
@@ -2228,10 +4248,520 @@
                             [
                             r8.
                             ]
-                            s1 * 3/4
-                            s1 * 7/4
-                            s1 * 2
-                            s1 * 3/4
+                            <<
+                                \context Voice = "bassoon voice temp 1"
+                                {
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \voiceTwo
+                                        \tweak style #'xcircle
+                                        fs,32
+                                        [
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        c,32
+                                        \tweak style #'xcircle
+                                        d,32
+                                        )
+                                        \tweak style #'xcircle
+                                        b,,32
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "p"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        ef,32
+                                        \tweak style #'xcircle
+                                        e,32
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        cs,32
+                                        ]
+                                    }
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    d,32
+                                    [
+                                    \tweak style #'xcircle
+                                    bf,,32
+                                    )
+                                    \tweak style #'xcircle
+                                    a,32
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ^ (
+                                    \tweak style #'xcircle
+                                    cs,32
+                                    \tweak style #'xcircle
+                                    b,,32
+                                    )
+                                    \tweak style #'xcircle
+                                    d,32
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "p"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ^ (
+                                    \tweak style #'xcircle
+                                    bf,,32
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    a,32
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    d,16
+                                    [
+                                    \tweak style #'xcircle
+                                    b,,16
+                                    \tweak style #'xcircle
+                                    ef,16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    e,16
+                                    )
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    a,8
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mp"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    [
+                                    ^ (
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    fs,8
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    bf,,8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    b,,8
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    af,8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    fs,8
+                                    ]
+                                    \times 2/3
+                                    {
+                                        \tweak style #'xcircle
+                                        f,4
+                                        \tweak style #'xcircle
+                                        e,4
+                                        )
+                                        \tweak style #'xcircle
+                                        d,4
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "pp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        ef,16
+                                        [
+                                        \tweak style #'xcircle
+                                        b,,16
+                                        \tweak style #'xcircle
+                                        bf,,16
+                                        )
+                                        \tweak style #'xcircle
+                                        cs,16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mf"
+                                                    #:hspace -0.2
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        ef,16
+                                        \tweak style #'xcircle
+                                        c,16
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        e,16
+                                        ]
+                                    }
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    fs,16
+                                    [
+                                    \tweak style #'xcircle
+                                    af,16
+                                    )
+                                    \tweak style #'xcircle
+                                    f,16
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.4
+                                                #:dynamic "f"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ^ (
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    a,16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    bf,,16
+                                    )
+                                    [
+                                    \tweak style #'xcircle
+                                    g,16
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "pp"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ^ (
+                                    \tweak style #'xcircle
+                                    f,16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    af,16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    ef,8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    a,8
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    g,8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    bf,,8
+                                    )
+                                    ]
+                                    \times 4/5
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        af,8
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "p"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        [
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        bf,,8
+                                        \tweak style #'xcircle
+                                        g,8
+                                        \tweak style #'xcircle
+                                        b,,8
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        c,8
+                                        ]
+                                    }
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    e,8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    fs,8
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'xcircle
+                                    ef,8
+                                    )
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'xcircle
+                                    g,8
+                                    ^ \accent
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mp"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    ]
+                                    ^ (
+                                    \times 4/6
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        f,16
+                                        [
+                                        \tweak style #'xcircle
+                                        ef,16
+                                        \tweak style #'xcircle
+                                        fs,16
+                                        )
+                                        \tweak style #'xcircle
+                                        d,16
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "pp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        cs,16
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        af,16
+                                        ]
+                                    }
+                                    \times 2/3
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        g,8
+                                        [
+                                        \tweak style #'xcircle
+                                        b,,8
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        c,8
+                                        )
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        \tweak style #'xcircle
+                                        g,32
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mf"
+                                                    #:hspace -0.2
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        [
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        bf,,32
+                                        \tweak style #'xcircle
+                                        fs,32
+                                        )
+                                        \tweak style #'xcircle
+                                        f,32
+                                        ^ \accent
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "p"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ^ (
+                                        \tweak style #'xcircle
+                                        d,32
+                                        \tweak style #'xcircle
+                                        c,32
+                                        \revert Staff.Stem.stemlet-length
+                                        \tweak style #'xcircle
+                                        ef,32
+                                        )
+                                        ]
+                                    }
+                                }
+                                \context Voice = "bassoon teeth voice 1"
+                                {
+                                    \override Voice.NoteHead.transparent = ##t
+                                    \override Voice.NoteHead.X-extent = #'(0 . 0)
+                                    \override Voice.NoteHead.no-ledgers = ##t
+                                    \override Voice.Beam.beam-thickness = #0.5
+                                    \override Voice.Beam.length-fraction = #0.85
+                                    \override Voice.TupletBracket.stencil = ##f
+                                    \override Voice.TupletNumber.stencil = ##f
+                                    \override Voice.Rest.transparent = ##t
+                                    \override Voice.Dots.stencil = ##f
+                                    \override Voice.Accidental.stencil = ##f
+                                    \set fontSize = #-3
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 21/20
+                                    {
+                                        \override Dots.staff-position = #2
+                                        \override Voice.NoteHead.color = #(css-color 'darkred)
+                                        \override Voice.Dots.color = #(css-color 'darkred)
+                                        \override Voice.Stem.color = #(css-color 'darkred)
+                                        \override Voice.Beam.color = #(css-color 'darkred)
+                                        \override Voice.Rest.color = #(css-color 'darkred)
+                                        \override Voice.Tie.color = #(css-color 'darkred)
+                                        \override Voice.TupletBracket.color = #(css-color 'darkred)
+                                        \override Voice.TupletNumber.color = #(css-color 'darkred)
+                                        \voiceOne
+                                        f'1
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak color #(css-color 'darkred)
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #9
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { \upright { "teeth" } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -0.5
+                                        \startTextSpan
+                                        - \tweak color #(css-color 'darkred)
+                                        ^ (
+                                        g'1.
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        a'\breve
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        \afterGrace
+                                        bf'2
+                                        - \tweak color #(css-color 'darkred)
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        {
+                                            \once \override Stem.stencil = ##f
+                                            \once \override Flag.stencil = ##f
+                                            \once \override NoteHead.no-ledgers = ##t
+                                            \once \override Accidental.stencil = ##f
+                                            \revert Dots.staff-position
+                                            \once \override NoteHead.transparent = ##t
+                                            b'16
+                                            )
+                                            \stopTextSpan
+                                            \revert Voice.NoteHead.color
+                                            \revert Voice.Dots.color
+                                            \revert Voice.Stem.color
+                                            \revert Voice.Beam.color
+                                            \revert Voice.Rest.color
+                                            \revert Voice.Tie.color
+                                            \revert Voice.TupletBracket.color
+                                            \revert Voice.TupletNumber.color
+                                        }
+                                    }
+                                }
+                            >>
+                            \oneVoice
                             s1 * 2
                             s1 * 3/4
                             s1 * 7/4

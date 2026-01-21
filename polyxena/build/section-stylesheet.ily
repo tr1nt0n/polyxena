@@ -199,6 +199,7 @@ afterGraceFraction = #(cons 15 16)
         \override TupletNumber.whiteout = 1
         \override TupletNumber.text = #tuplet-number::calc-fraction-text
         \override TupletNumber.font-name = "Bodoni72 Book Italic"
+        % \override TupletBracket.avoid-slur = #'ignore
         % \override TupletBracket.stencil =
         %     #(lambda (grob)
         %        (let* ((pos (ly:grob-property grob 'positions))
