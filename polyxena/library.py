@@ -308,7 +308,9 @@ def half_note_signifier(
 
                 note_markup = abjad.Markup(note_markup_string)
 
-                abjad.attach(note_markup, selection[0], direction=direction)
+                abjad.attach(
+                    note_markup, abjad.select.leaf(selection, 0), direction=direction
+                )
 
     return attach_markups
 

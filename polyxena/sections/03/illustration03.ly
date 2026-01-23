@@ -16,6 +16,8 @@
     <<
         \context TimeSignatureContext = "Global Context"
         {
+              %! +SCORE
+            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (2 36 36 36 36)))
             \time 7/4
             s1 * 7/4
             - \tweak padding 20
@@ -26,6 +28,8 @@
             s1 * 2
               %! +SCORE
             \break
+              %! +SCORE
+            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (2 36 36 36 36)))
             \time 3/4
             s1 * 3/4
               %! +SCORE
@@ -42,6 +46,8 @@
             s1 * 7/4
               %! +SCORE
             \break
+              %! +SCORE
+            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (7 36 36 36 36)))
             \time 3/4
             s1 * 3/4
               %! +SCORE
@@ -54,6 +60,8 @@
             s1 * 2
               %! +SCORE
             \break
+              %! +SCORE
+            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (3 28)))
             \time 3/4
             s1 * 3/4
               %! +SCORE
@@ -68,6 +76,8 @@
             \break
               %! +SCORE
             \noPageBreak
+              %! +SCORE
+            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (3 30 27 28 20)))
             \time 7/4
             s1 * 7/4
               %! +SCORE
@@ -76,18 +86,34 @@
             s1 * 3/4
               %! +SCORE
             \break
+              %! +SCORE
+            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (2 36 36 36 36)))
             \time 7/4
             s1 * 7/4
+              %! +SCORE
+            \noBreak
             \time 8/4
             s1 * 2
+              %! +SCORE
+            \break
+              %! +SCORE
+            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (2 36 36 36 36)))
             \time 7/4
             s1 * 7/4
+              %! +SCORE
+            \noBreak
             \time 8/4
             s1 * 2
+              %! +SCORE
+            \noBreak
             \time 3/4
             s1 * 3/4
+              %! +SCORE
+            \noBreak
             \time 9/16
             s1 * 9/16
+              %! +SCORE
+            \noBreak
             \once \override Score.BarLine.transparent = ##f
             \once \override MultiMeasureRest.transparent = ##t
             \once \override Score.TimeSignature.stencil = ##f
@@ -1325,11 +1351,216 @@
                             >>
                             \oneVoice
                             s1 * 7/4
-                            s1 * 2
-                            s1 * 7/4
-                            s1 * 2
-                            s1 * 3/4
-                            s1 * 9/16
+                            \tweak style #'xcircle
+                            ef'4
+                            _ #(make-dynamic-script
+                                (markup
+                                    #:whiteout
+                                    #:line (
+                                        #:general-align Y -2 #:normal-text #:larger "“"
+                                        #:hspace -0.1
+                                        #:dynamic "pp"
+                                        #:hspace -0.25
+                                        #:general-align Y -2 #:normal-text #:larger "”"
+                                        )
+                                    )
+                                )
+                            _ \markup \fontsize #3 { \hspace #-3 { \override #'(font-name . "Bodoni72 Book Italic") { \column { \line { "Hard to tell whether it's so far away it's barely audible," } \line { "or so close as to become indistinguishable." } } } } }
+                            (
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            ef'16
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            b8.
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            b16
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            c'8.
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            c'8.
+                            )
+                            r16
+                            r2
+                            r16
+                            \tweak style #'xcircle
+                            f'8.
+                            (
+                            ~
+                            \tweak style #'xcircle
+                            f'4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            f'16
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            f'8.
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            f'16
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            c'8.
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            c'8.
+                            )
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            a'16
+                            ]
+                            (
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            a'8
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            cs'8
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            cs'4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            cs'16
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            a'8.
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            a'4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            a'16
+                            )
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            a'8.
+                            ]
+                            (
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            a'16
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            e'8.
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            e'8.
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            c'16
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            c'8
+                            )
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            bf'8
+                            ]
+                            (
+                            ~
+                            \tweak style #'xcircle
+                            bf'4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            bf'16
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            cs'8.
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            cs'4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            cs'16
+                            )
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            bf'8.
+                            ]
+                            (
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            bf'16
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            ef'8.
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            ef'8
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            b8
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            b8
+                            )
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            c'8
+                            ]
+                            (
+                            ~
+                            \tweak style #'xcircle
+                            c'4
+                            \tweak style #'xcircle
+                            d'8
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            d'16
+                            )
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            d'8
+                            ]
                               %! +SCORE
                             \once \override MultiMeasureRest.transparent = ##t
                               %! +SCORE
@@ -2270,12 +2501,546 @@
                             >>
                             \oneVoice
                             s1 * 3/4
-                            s1 * 7/4
-                            s1 * 2
-                            s1 * 7/4
-                            s1 * 2
-                            s1 * 3/4
-                            s1 * 9/16
+                            <<
+                                \context Voice = "sopranosaxophone voice temp 5"
+                                {
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \voiceOne
+                                    \tweak style #'cross
+                                    f'16
+                                    [
+                                    \tweak style #'cross
+                                    af'16
+                                    \tweak style #'cross
+                                    e'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    ef'16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    c'16
+                                    [
+                                    \tweak style #'cross
+                                    bf16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    df'8
+                                    ]
+                                    ~
+                                    df'4
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    df'8.
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    af'16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    a'16
+                                    [
+                                    \tweak style #'cross
+                                    gf'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    e'8
+                                    ]
+                                    ~
+                                    e'4
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    e'16
+                                    [
+                                    \tweak style #'cross
+                                    c'16
+                                    \tweak style #'cross
+                                    d'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    b16
+                                    ]
+                                    ~
+                                    b4
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    b8.
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    c'16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    af'16
+                                    [
+                                    \tweak style #'cross
+                                    g'16
+                                    \tweak style #'cross
+                                    b16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    a'16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    c'16
+                                    [
+                                    \tweak style #'cross
+                                    af'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    g'8
+                                    ]
+                                    ~
+                                    g'8.
+                                    r16
+                                    r4
+                                    \tweak style #'cross
+                                    e'4
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    df'16
+                                    [
+                                    \tweak style #'cross
+                                    a'16
+                                    \tweak style #'cross
+                                    af'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    b16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    df'16
+                                    [
+                                    \tweak style #'cross
+                                    bf16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    d'8
+                                    ]
+                                    ~
+                                    d'4
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    d'8.
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    df'16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    g'16
+                                    [
+                                    \tweak style #'cross
+                                    f'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    af'8
+                                    ]
+                                    ~
+                                    af'4
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    d'16
+                                    [
+                                    \tweak style #'cross
+                                    e'16
+                                    \tweak style #'cross
+                                    df'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    f'16
+                                    ]
+                                    ~
+                                    f'4
+                                }
+                                \context Voice = "saxophone breath voice"
+                                {
+                                    \once \override Rest.staff-position = -14
+                                    \override Voice.NoteHead.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Dots.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Stem.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Beam.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Rest.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Tie.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.TupletBracket.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.TupletNumber.color = #(x11-color 'LightSlateBlue)
+                                    \voiceTwo
+                                    r2.
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        d
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    ^ \tenuto
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <d>16
+                                    }
+                                    \once \override Rest.staff-position = -14
+                                    r2.
+                                    \once \override Rest.staff-position = -14
+                                    r2
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        d
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    ^ \tenuto
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <d>16
+                                    }
+                                    \once \override Rest.staff-position = -14
+                                    r4
+                                    \once \override Rest.staff-position = -14
+                                    r2.
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        d
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    ^ \tenuto
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <d>16
+                                    }
+                                    \once \override Rest.staff-position = -14
+                                    r1.
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        d
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    ^ \tenuto
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <d>16
+                                        \revert Voice.NoteHead.color
+                                        \revert Voice.Dots.color
+                                        \revert Voice.Stem.color
+                                        \revert Voice.Beam.color
+                                        \revert Voice.Rest.color
+                                        \revert Voice.Tie.color
+                                        \revert Voice.TupletBracket.color
+                                        \revert Voice.TupletNumber.color
+                                    }
+                                }
+                            >>
+                            \oneVoice
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            ef'8.
+                            _ #(make-dynamic-script
+                                (markup
+                                    #:whiteout
+                                    #:line (
+                                        #:general-align Y -2 #:normal-text #:larger "“"
+                                        #:hspace -0.1
+                                        #:dynamic "pp"
+                                        #:hspace -0.25
+                                        #:general-align Y -2 #:normal-text #:larger "”"
+                                        )
+                                    )
+                                )
+                            _ \markup \fontsize #3 { \hspace #-3 { \override #'(font-name . "Bodoni72 Book Italic") { \column { \line { "Hard to tell whether it's so far away it's barely audible," } \line { "or so close as to become indistinguishable." } } } } }
+                            [
+                            (
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            df'16
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            df'4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            df'8
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            e'8
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            e'4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            e'8
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            df'8
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            df'8
+                            )
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            gf'8
+                            ]
+                            (
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            gf'8.
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            d'16
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            d'8.
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            ef'16
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            ef'4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            ef'16
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            f'8.
+                            )
+                            ]
+                            \tweak style #'xcircle
+                            f'4
+                            (
+                            ~
+                            \tweak style #'xcircle
+                            f'8.
+                            \tweak style #'xcircle
+                            af'4.
+                            )
                               %! +SCORE
                             \once \override MultiMeasureRest.transparent = ##t
                               %! +SCORE
@@ -3582,12 +4347,478 @@
                             >>
                             \oneVoice
                             s1 * 3/4
-                            s1 * 7/4
-                            s1 * 2
-                            s1 * 7/4
-                            s1 * 2
-                            s1 * 3/4
-                            s1 * 9/16
+                            <<
+                                \context Voice = "clarinetinbflat voice temp 5"
+                                {
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \voiceOne
+                                    \tweak style #'cross
+                                    e16
+                                    [
+                                    \tweak style #'cross
+                                    gf16
+                                    \tweak style #'cross
+                                    ef'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    g16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    af16
+                                    [
+                                    \tweak style #'cross
+                                    f16
+                                    \tweak style #'cross
+                                    ef'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    gf16
+                                    ]
+                                    ~
+                                    gf4
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    gf16
+                                    [
+                                    \tweak style #'cross
+                                    af16
+                                    \tweak style #'cross
+                                    f16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    a16
+                                    ]
+                                    \tweak style #'cross
+                                    bf4
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    bf16
+                                    [
+                                    \tweak style #'cross
+                                    ef'16
+                                    \tweak style #'cross
+                                    df'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    e16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    c'16
+                                    [
+                                    \tweak style #'cross
+                                    b16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    gf8
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    gf8
+                                    [
+                                    \tweak style #'cross
+                                    f16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    af16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    e16
+                                    [
+                                    \tweak style #'cross
+                                    ef'16
+                                    \tweak style #'cross
+                                    c'16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    bf16
+                                    ]
+                                    \tweak style #'cross
+                                    df'2
+                                    ~
+                                    df'16
+                                    r8.
+                                    r4
+                                    r8.
+                                    \tweak style #'cross
+                                    c'16
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    d'16
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    b8.
+                                    ]
+                                }
+                                \context Voice = "clarinet breath voice"
+                                {
+                                    \once \override Rest.staff-position = -17
+                                    \override Voice.NoteHead.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Dots.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Stem.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Beam.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Rest.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Tie.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.TupletBracket.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.TupletNumber.color = #(x11-color 'LightSlateBlue)
+                                    \voiceTwo
+                                    r2.
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        f,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    ^ \tenuto
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <f,>16
+                                    }
+                                    \once \override Rest.staff-position = -17
+                                    r2.
+                                    \once \override Rest.staff-position = -17
+                                    r2
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        f,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    ^ \tenuto
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <f,>16
+                                    }
+                                    \once \override Rest.staff-position = -17
+                                    r4
+                                    \once \override Rest.staff-position = -17
+                                    r2.
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        f,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    ^ \tenuto
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <f,>16
+                                        \revert Voice.NoteHead.color
+                                        \revert Voice.Dots.color
+                                        \revert Voice.Stem.color
+                                        \revert Voice.Beam.color
+                                        \revert Voice.Rest.color
+                                        \revert Voice.Tie.color
+                                        \revert Voice.TupletBracket.color
+                                        \revert Voice.TupletNumber.color
+                                    }
+                                }
+                            >>
+                            \oneVoice
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            c'8.
+                            _ #(make-dynamic-script
+                                (markup
+                                    #:whiteout
+                                    #:line (
+                                        #:general-align Y -2 #:normal-text #:larger "“"
+                                        #:hspace -0.1
+                                        #:dynamic "pp"
+                                        #:hspace -0.25
+                                        #:general-align Y -2 #:normal-text #:larger "”"
+                                        )
+                                    )
+                                )
+                            _ \markup \fontsize #3 { \hspace #-3 { \override #'(font-name . "Bodoni72 Book Italic") { \column { \line { "Hard to tell whether it's so far away it's barely audible," } \line { "or so close as to become indistinguishable." } } } } }
+                            [
+                            (
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            e16
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            e4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            e8
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            c'8
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            c'4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            c'8
+                            )
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            c'8
+                            ]
+                            (
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            c'8
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            g8
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            g4
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            ef'8.
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            df'16
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            df'4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            df'8
+                            )
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            e8
+                            ]
+                            (
+                            ~
+                            \tweak style #'xcircle
+                            e4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            e8
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            df'8
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            df'8
+                            )
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            gf8
+                            ]
+                            (
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            gf8.
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            d'16
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            d'8.
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            ef'16
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            ef'4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            ef'16
+                            )
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            f8.
+                            ]
+                            (
+                            \tweak style #'xcircle
+                            f4
+                            ~
+                            \tweak style #'xcircle
+                            f8.
+                            \tweak style #'xcircle
+                            af4.
+                            )
                               %! +SCORE
                             \once \override MultiMeasureRest.transparent = ##t
                               %! +SCORE
@@ -4543,12 +5774,2149 @@
                             >>
                             \oneVoice
                             s1 * 3/4
-                            s1 * 7/4
-                            s1 * 2
-                            s1 * 7/4
-                            s1 * 2
-                            s1 * 3/4
-                            s1 * 9/16
+                            <<
+                                \context Voice = "bassclarinet voice temp 5"
+                                {
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \voiceOne
+                                    \tweak style #'cross
+                                    a16
+                                    [
+                                    \tweak style #'cross
+                                    cs16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    d8
+                                    ]
+                                    ~
+                                    d4
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    d8
+                                    [
+                                    \tweak style #'cross
+                                    c16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    ds16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    f16
+                                    [
+                                    \tweak style #'cross
+                                    d16
+                                    \tweak style #'cross
+                                    fs16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    g16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    a16
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    b8.
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    b8
+                                    [
+                                    \tweak style #'cross
+                                    g16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    fs16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    f16
+                                    [
+                                    \tweak style #'cross
+                                    ds16
+                                    \tweak style #'cross
+                                    fs16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    d16
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    d8.
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    gs16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    d16
+                                    [
+                                    \tweak style #'cross
+                                    e16
+                                    \tweak style #'cross
+                                    cs16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    f16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    fs16
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    ds8.
+                                    ]
+                                    ~
+                                    ds4
+                                    ~
+                                    ds8
+                                    r8
+                                    r4
+                                    r4
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    g16
+                                    [
+                                    \tweak style #'cross
+                                    fs16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    e8
+                                    ]
+                                    ~
+                                    e4
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    e8
+                                    [
+                                    \tweak style #'cross
+                                    gs16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    bf16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    g16
+                                    [
+                                    \tweak style #'cross
+                                    b16
+                                    \tweak style #'cross
+                                    c16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    a16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    g16
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    bf8.
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    bf8
+                                    [
+                                    \tweak style #'cross
+                                    bf16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    c16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    a16
+                                    [
+                                    \tweak style #'cross
+                                    cs16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    d8
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    d8.
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    g16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    f16
+                                    [
+                                    \tweak style #'cross
+                                    gs16
+                                    \tweak style #'cross
+                                    e16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    ds16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    bf16
+                                    [
+                                    \tweak style #'cross
+                                    a16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    cs8
+                                    ]
+                                    ~
+                                    cs4
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    cs8
+                                    [
+                                    \tweak style #'cross
+                                    d16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    c16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    ds16
+                                    [
+                                    \tweak style #'cross
+                                    f16
+                                    \tweak style #'cross
+                                    d16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    fs16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    g16
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    a8.
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    a8
+                                    [
+                                    \tweak style #'cross
+                                    b16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    g16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    fs16
+                                    [
+                                    \tweak style #'cross
+                                    f16
+                                    \tweak style #'cross
+                                    ds16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    fs16
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    fs8.
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    d16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    gs16
+                                    [
+                                    \tweak style #'cross
+                                    d16
+                                    \tweak style #'cross
+                                    e16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    cs16
+                                    ]
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    f16
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    fs8.
+                                    ]
+                                    ~
+                                    fs4.
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \tweak style #'cross
+                                    ds16
+                                    [
+                                    \tweak style #'cross
+                                    e16
+                                    \revert Staff.Stem.stemlet-length
+                                    \tweak style #'cross
+                                    cs16
+                                    ]
+                                }
+                                \context Voice = "bass clarinet breath voice"
+                                {
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \override Voice.NoteHead.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Dots.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Stem.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Beam.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Rest.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.Tie.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.TupletBracket.color = #(x11-color 'LightSlateBlue)
+                                    \override Voice.TupletNumber.color = #(x11-color 'LightSlateBlue)
+                                    \voiceTwo
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "p"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    ^ \tenuto
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "p"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    ^ \tenuto
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "p"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Rest.staff-position = -10
+                                    r2
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    ^ \tenuto
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "p"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    ^ \tenuto
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "p"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    ^ \tenuto
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "p"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >4
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    ^ \tenuto
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >8
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "p"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    ~
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                      %! abjad.glissando(1)
+                                    \hide NoteHead
+                                      %! abjad.glissando(1)
+                                    \override Accidental.stencil = ##f
+                                      %! abjad.glissando(1)
+                                    \override NoteColumn.glissando-skip = ##t
+                                      %! abjad.glissando(1)
+                                    \override NoteHead.no-ledgers = ##t
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >8
+                                    [
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.X-offset = 0
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \once \override Voice.Glissando.thickness = #8.25
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Voice.NoteHead.no-ledgers = ##t
+                                    \once \override Voice.Accidental.stencil = ##f
+                                    \revert Staff.Stem.stemlet-length
+                                    \afterGrace
+                                    <
+                                        \tweak style #'la
+                                        a,,
+                                    >16
+                                    ]
+                                      %! abjad.glissando(7)
+                                    - \tweak color #(x11-color 'LightSlateBlue)
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <a,,>16
+                                        \revert Voice.NoteHead.color
+                                        \revert Voice.Dots.color
+                                        \revert Voice.Stem.color
+                                        \revert Voice.Beam.color
+                                        \revert Voice.Rest.color
+                                        \revert Voice.Tie.color
+                                        \revert Voice.TupletBracket.color
+                                        \revert Voice.TupletNumber.color
+                                    }
+                                }
+                            >>
+                            \oneVoice
                               %! +SCORE
                             \once \override MultiMeasureRest.transparent = ##t
                               %! +SCORE
@@ -5482,11 +8850,173 @@
                             >>
                             \oneVoice
                             s1 * 7/4
-                            s1 * 2
-                            s1 * 7/4
-                            s1 * 2
-                            s1 * 3/4
-                            s1 * 9/16
+                            \tweak style #'xcircle
+                            bf,,4
+                            _ #(make-dynamic-script
+                                (markup
+                                    #:whiteout
+                                    #:line (
+                                        #:general-align Y -2 #:normal-text #:larger "“"
+                                        #:hspace -0.1
+                                        #:dynamic "pp"
+                                        #:hspace -0.25
+                                        #:general-align Y -2 #:normal-text #:larger "”"
+                                        )
+                                    )
+                                )
+                            _ \markup \fontsize #3 { \hspace #-3 { \override #'(font-name . "Bodoni72 Book Italic") { \column { \line { "Hard to tell whether it's so far away it's barely audible," } \line { "or so close as to become indistinguishable." } } } } }
+                            (
+                            \tweak style #'xcircle
+                            f,4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            f,8
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            d,8
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            d,16
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            fs,8.
+                            )
+                            ]
+                            r4
+                            r4
+                            r4
+                            \tweak style #'xcircle
+                            d,4
+                            (
+                            \tweak style #'xcircle
+                            a,4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            a,8
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            f,8
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            f,16
+                            )
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            ef,8.
+                            ]
+                            (
+                            ~
+                            \tweak style #'xcircle
+                            ef,4
+                            \tweak style #'xcircle
+                            fs,4
+                            ~
+                            \tweak style #'xcircle
+                            fs,4
+                            \tweak style #'xcircle
+                            ef,4
+                            )
+                            \tweak style #'xcircle
+                            af,4
+                            (
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            af,16
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            e,8.
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            e,16
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            f,8.
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            f,8.
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            g,16
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            g,8
+                            )
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            g,8
+                            ]
+                            (
+                            ~
+                            \tweak style #'xcircle
+                            g,4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            g,16
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            bf,,8.
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            bf,,4
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            bf,,16
+                            )
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            bf,,8.
+                            ]
+                            (
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            bf,,16
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            f,8.
+                            ]
+                            ~
+                            \override Staff.Stem.stemlet-length = 0.75
+                            \tweak style #'xcircle
+                            f,8.
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            \tweak style #'xcircle
+                            d,16
+                            ]
+                            ~
+                            \tweak style #'xcircle
+                            d,8
+                            \tweak style #'xcircle
+                            fs,4..
+                            )
                               %! +SCORE
                             \once \override MultiMeasureRest.transparent = ##t
                               %! +SCORE

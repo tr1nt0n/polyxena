@@ -326,6 +326,43 @@ trinton.make_music(
     voice=score["english horn teeth voice 2"],
 )
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (16, 20)),
+    evans.RhythmHandler(rhythm.rhythm_a(stage=1, index=186, later_material=True)),
+    library.transpose_to_first_octave(
+        selector=trinton.logical_ties(pitched=True, grace=False),
+        instrument="english horn",
+    ),
+    trinton.force_rest(
+        selector=trinton.select_logical_ties_by_index([3, 4], pitched=True, grace=False)
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    # trinton.annotate_leaves_locally(
+    #     # selector=trinton.logical_ties(first=True, grace=False)
+    #     selector=trinton.pleaves()
+    # ),
+    trinton.change_notehead_command(notehead="xcircle", selector=trinton.pleaves()),
+    library.half_note_signifier(selector=trinton.pleaves()),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle([abjad.StartSlur(), abjad.StopSlur()]),
+        selector=trinton.select_leaves_by_index(
+            [0, 5, 6, 12, 13, 20, 21, 26, 27, 32, 33, 38, 39, 42], pitched=True
+        ),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.Markup(
+                r"""\markup \fontsize #3 { \hspace #-3 { \override #'(font-name . "Bodoni72 Book Italic") { \column { \line { "Hard to tell whether it's so far away it's barely audible," } \line { "or so close as to become indistinguishable." } } } } }"""
+            ),
+            abjad.Dynamic('"pp"'),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.DOWN,
+    ),
+    voice=score["englishhorn voice"],
+    beam_meter=True,
+)
+
 # saxophone music
 
 trinton.make_music(
@@ -702,6 +739,127 @@ trinton.make_music(
     voice=score["saxophone teeth voice 4"],
 )
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (15, 17)),
+    evans.RhythmHandler(rhythm.rhythm_a(stage=2, index=54, later_material=True)),
+    trinton.force_rest(
+        selector=trinton.select_logical_ties_by_index(
+            [22, 23, 24, 25, 26], pitched=True, grace=False
+        )
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    library.transpose_to_first_octave(
+        selector=trinton.logical_ties(pitched=True), instrument="saxophone"
+    ),
+    # trinton.annotate_leaves_locally(
+    #     selector=trinton.logical_ties(first=True, pitched=True, grace=False)
+    # ),
+    trinton.change_notehead_command(
+        notehead="cross",
+        selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+    ),
+    voice=score["sopranosaxophone voice"],
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (15, 17)),
+    trinton.IntermittentVoiceHandler(
+        evans.RhythmHandler(evans.talea([-3, 1, -5, 1, -4, 1, -6, 1], 4)),
+        direction=abjad.DOWN,
+        voice_name="saxophone breath voice",
+        temp_name="temp 5",
+    ),
+    voice=score["sopranosaxophone voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (15, 17)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    evans.PitchHandler([["d"]]),
+    trinton.change_notehead_command(
+        notehead="cluster",
+        selector=trinton.pleaves(),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                [
+                    r"\once \override Voice.NoteHead.no-ledgers = ##t",
+                    r"\once \override Voice.Accidental.stencil = ##f",
+                ],
+                site="before",
+            ),
+        ],
+        selector=trinton.pleaves(),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Rest.staff-position = -14",
+                site="before",
+            ),
+        ],
+        selector=abjad.select.rests,
+    ),
+    trinton.duration_line(
+        selector=trinton.logical_ties(pitched=True),
+        color=r"(x11-color 'LightSlateBlue)",
+    ),
+    trinton.noteheads_only(selector=trinton.pleaves(grace=True)),
+    library.color_voice(color="(x11-color 'LightSlateBlue)"),
+    trinton.attachment_command(
+        attachments=[
+            abjad.bundle(
+                abjad.Dynamic('"mf"'), r"- \tweak color #(x11-color 'LightSlateBlue)"
+            ),
+        ],
+        selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.bundle(
+                abjad.Articulation("tenuto"),
+                r"- \tweak color #(x11-color 'LightSlateBlue)",
+            ),
+        ],
+        selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+        direction=abjad.UP,
+    ),
+    voice=score["saxophone breath voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (18, 20)),
+    evans.RhythmHandler(rhythm.rhythm_a(stage=1, index=420, later_material=True)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    library.transpose_to_first_octave(
+        selector=trinton.logical_ties(pitched=True, grace=False), instrument="saxophone"
+    ),
+    # trinton.annotate_leaves_locally(
+    #     # selector=trinton.logical_ties(first=True, grace=False)
+    #     selector=trinton.pleaves()
+    # ),
+    trinton.change_notehead_command(notehead="xcircle", selector=trinton.pleaves()),
+    library.half_note_signifier(selector=trinton.pleaves()),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle([abjad.StartSlur(), abjad.StopSlur()]),
+        selector=trinton.select_leaves_by_index([0, 8, 9, 16, 17, 19], pitched=True),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.Markup(
+                r"""\markup \fontsize #3 { \hspace #-3 { \override #'(font-name . "Bodoni72 Book Italic") { \column { \line { "Hard to tell whether it's so far away it's barely audible," } \line { "or so close as to become indistinguishable." } } } } }"""
+            ),
+            abjad.Dynamic('"pp"'),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.DOWN,
+    ),
+    voice=score["sopranosaxophone voice"],
+    beam_meter=True,
+)
+
 # clarinet music
 
 trinton.make_music(
@@ -1063,6 +1221,129 @@ trinton.make_music(
         ],
     ),
     voice=score["clarinet teeth voice 4"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (15, 16)),
+    evans.RhythmHandler(rhythm.rhythm_a(stage=2, index=82, later_material=True)),
+    trinton.force_rest(
+        selector=trinton.select_logical_ties_by_index(
+            [26, 27, 28, 29], pitched=True, grace=False
+        )
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    library.transpose_to_first_octave(
+        selector=trinton.logical_ties(pitched=True), instrument="clarinet"
+    ),
+    # trinton.annotate_leaves_locally(
+    #     selector=trinton.logical_ties(first=True, pitched=True, grace=False)
+    # ),
+    trinton.change_notehead_command(
+        notehead="cross",
+        selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+    ),
+    voice=score["clarinetinbflat voice"],
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (15, 16)),
+    trinton.IntermittentVoiceHandler(
+        evans.RhythmHandler(evans.talea([-3, 1, -5, 1, -4, 1, -6, 1], 4)),
+        direction=abjad.DOWN,
+        voice_name="clarinet breath voice",
+        temp_name="temp 5",
+    ),
+    voice=score["clarinetinbflat voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (15, 16)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    evans.PitchHandler([["f,"]]),
+    trinton.change_notehead_command(
+        notehead="cluster",
+        selector=trinton.pleaves(),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                [
+                    r"\once \override Voice.NoteHead.no-ledgers = ##t",
+                    r"\once \override Voice.Accidental.stencil = ##f",
+                ],
+                site="before",
+            ),
+        ],
+        selector=trinton.pleaves(),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Rest.staff-position = -17",
+                site="before",
+            ),
+        ],
+        selector=abjad.select.rests,
+    ),
+    trinton.duration_line(
+        selector=trinton.logical_ties(pitched=True),
+        color=r"(x11-color 'LightSlateBlue)",
+    ),
+    trinton.noteheads_only(selector=trinton.pleaves(grace=True)),
+    library.color_voice(color="(x11-color 'LightSlateBlue)"),
+    trinton.attachment_command(
+        attachments=[
+            abjad.bundle(
+                abjad.Dynamic('"mf"'), r"- \tweak color #(x11-color 'LightSlateBlue)"
+            ),
+        ],
+        selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.bundle(
+                abjad.Articulation("tenuto"),
+                r"- \tweak color #(x11-color 'LightSlateBlue)",
+            ),
+        ],
+        selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+        direction=abjad.UP,
+    ),
+    voice=score["clarinet breath voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (17, 20)),
+    evans.RhythmHandler(rhythm.rhythm_a(stage=1, index=279, later_material=True)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    library.transpose_to_first_octave(
+        selector=trinton.logical_ties(pitched=True, grace=False), instrument="clarinet"
+    ),
+    # trinton.annotate_leaves_locally(
+    #     # selector=trinton.logical_ties(first=True, grace=False)
+    #     selector=trinton.pleaves()
+    # ),
+    trinton.change_notehead_command(notehead="xcircle", selector=trinton.pleaves()),
+    library.half_note_signifier(selector=trinton.pleaves()),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle([abjad.StartSlur(), abjad.StopSlur()]),
+        selector=trinton.select_leaves_by_index(
+            [0, 6, 7, 14, 15, 19, 20, 26, 27, 30], pitched=True
+        ),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.Markup(
+                r"""\markup \fontsize #3 { \hspace #-3 { \override #'(font-name . "Bodoni72 Book Italic") { \column { \line { "Hard to tell whether it's so far away it's barely audible," } \line { "or so close as to become indistinguishable." } } } } }"""
+            ),
+            abjad.Dynamic('"pp"'),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.DOWN,
+    ),
+    voice=score["clarinetinbflat voice"],
+    beam_meter=True,
 )
 
 # bass clarinet music
@@ -1449,6 +1730,116 @@ trinton.make_music(
     voice=score["bass clarinet teeth voice 4"],
 )
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (15, 20)),
+    evans.RhythmHandler(rhythm.rhythm_a(stage=2, index=36, later_material=True)),
+    trinton.force_rest(
+        selector=trinton.select_logical_ties_by_index(
+            [24, 25, 26, 27], pitched=True, grace=False
+        )
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    library.transpose_to_first_octave(
+        selector=trinton.logical_ties(pitched=True), instrument="bass clarinet"
+    ),
+    # trinton.annotate_leaves_locally(
+    #     selector=trinton.logical_ties(first=True, pitched=True, grace=False)
+    # ),
+    trinton.change_notehead_command(
+        notehead="cross",
+        selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+    ),
+    voice=score["bassclarinet voice"],
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (15, 20)),
+    trinton.IntermittentVoiceHandler(
+        evans.RhythmHandler(evans.talea([1], 4)),
+        direction=abjad.DOWN,
+        voice_name="bass clarinet breath voice",
+        temp_name="temp 5",
+    ),
+    voice=score["bassclarinet voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (15, 20)),
+    trinton.force_rest(
+        selector=trinton.select_logical_ties_by_index(
+            [11, 12], pitched=True, grace=False
+        )
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    evans.PitchHandler([["a,,"]]),
+    trinton.change_notehead_command(
+        notehead="cluster",
+        selector=trinton.pleaves(),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                [
+                    r"\once \override Voice.NoteHead.no-ledgers = ##t",
+                    r"\once \override Voice.Accidental.stencil = ##f",
+                ],
+                site="before",
+            ),
+        ],
+        selector=trinton.pleaves(),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Rest.staff-position = -10",
+                site="before",
+            ),
+        ],
+        selector=abjad.select.rests,
+    ),
+    trinton.duration_line(
+        selector=trinton.logical_ties(pitched=True),
+        color=r"(x11-color 'LightSlateBlue)",
+    ),
+    trinton.noteheads_only(selector=trinton.pleaves(grace=True)),
+    library.color_voice(color="(x11-color 'LightSlateBlue)"),
+    trinton.attachment_command(
+        attachments=[
+            abjad.bundle(
+                abjad.Dynamic('"p"'), r"- \tweak color #(x11-color 'LightSlateBlue)"
+            ),
+        ],
+        selector=trinton.patterned_tie_index_selector(
+            [0, 4, 10, 13, 20], 28, pitched=True, first=True, grace=False
+        ),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.bundle(
+                abjad.Dynamic('"mf"'), r"- \tweak color #(x11-color 'LightSlateBlue)"
+            ),
+        ],
+        selector=trinton.patterned_tie_index_selector(
+            [3, 9, 12, 19, 27], 28, pitched=True, first=True, grace=False
+        ),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.bundle(
+                abjad.Articulation("tenuto"),
+                r"- \tweak color #(x11-color 'LightSlateBlue)",
+            ),
+        ],
+        selector=trinton.patterned_tie_index_selector(
+            [3, 9, 12, 19, 27], 28, pitched=True, first=True, grace=False
+        ),
+        direction=abjad.UP,
+    ),
+    voice=score["bass clarinet breath voice"],
+    beam_meter=True,
+)
+
 # bassoon music
 
 trinton.make_music(
@@ -1711,6 +2102,48 @@ trinton.make_music(
     voice=score["bassoon teeth voice 2"],
 )
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (16, 20)),
+    evans.RhythmHandler(rhythm.rhythm_a(stage=1, index=124, later_material=True)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    library.transpose_to_first_octave(
+        selector=trinton.logical_ties(pitched=True, grace=False), instrument="bassoon"
+    ),
+    trinton.force_rest(
+        selector=trinton.select_leaves_by_index([6, 7, 8], pitched=True, grace=False)
+    ),
+    trinton.detach_command(
+        detachments=[
+            abjad.Tie,
+        ],
+        selector=trinton.select_leaves_by_index([5], pitched=True, grace=False),
+    ),
+    # trinton.annotate_leaves_locally(
+    #     # selector=trinton.logical_ties(first=True, grace=False)
+    #     selector=trinton.pleaves()
+    # ),
+    trinton.change_notehead_command(notehead="xcircle", selector=trinton.pleaves()),
+    library.half_note_signifier(selector=trinton.pleaves()),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle([abjad.StartSlur(), abjad.StopSlur()]),
+        selector=trinton.select_leaves_by_index(
+            [0, 5, 6, 10, 11, 15, 16, 23, 24, 29, 30, 36], pitched=True
+        ),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.Markup(
+                r"""\markup \fontsize #3 { \hspace #-3 { \override #'(font-name . "Bodoni72 Book Italic") { \column { \line { "Hard to tell whether it's so far away it's barely audible," } \line { "or so close as to become indistinguishable." } } } } }"""
+            ),
+            abjad.Dynamic('"pp"'),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.DOWN,
+    ),
+    voice=score["bassoon voice"],
+    beam_meter=True,
+)
+
 # globals
 
 # electronics
@@ -1786,17 +2219,7 @@ for measure in [
         voice=score["Global Context"],
     )
 
-for measure in [
-    1,
-    3,
-    4,
-    5,
-    7,
-    8,
-    10,
-    11,
-    13,
-]:
+for measure in [1, 3, 4, 5, 7, 8, 10, 11, 13, 15, 17, 18, 19, 20]:
     trinton.make_music(
         lambda _: trinton.select_target(_, (measure,)),
         trinton.attachment_command(
@@ -1813,6 +2236,7 @@ for measure in [
     9,
     12,
     14,
+    16,
 ]:
     trinton.make_music(
         lambda _: trinton.select_target(_, (measure,)),
@@ -1824,9 +2248,7 @@ for measure in [
         voice=score["Global Context"],
     )
 
-for measure in [
-    12,
-]:
+for measure in [12]:
     trinton.make_music(
         lambda _: trinton.select_target(_, (measure,)),
         trinton.attachment_command(
@@ -1839,21 +2261,110 @@ for measure in [
 
 # spacing
 
-# trinton.make_music(
-#     lambda _: trinton.select_target(_, (1,)),
-#     trinton.attachment_command(
-#         attachments=[
-#             abjad.LilyPondLiteral(
-#                 r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (2 36 34 36 28)))",
-#                 site="absolute_before",
-#             ),
-#         ],
-#         selector=trinton.select_leaves_by_index([0]),
-#         tag=abjad.Tag("+SCORE"),
-#     ),
-#     voice=score["Global Context"],
-# )
+trinton.make_music(
+    lambda _: trinton.select_target(_, (1,)),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (2 36 36 36 36)))",
+                site="absolute_before",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        tag=abjad.Tag("+SCORE"),
+    ),
+    voice=score["Global Context"],
+)
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (3,)),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (2 36 36 36 36)))",
+                site="absolute_before",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        tag=abjad.Tag("+SCORE"),
+    ),
+    voice=score["Global Context"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (7,)),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (7 36 36 36 36)))",
+                site="absolute_before",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        tag=abjad.Tag("+SCORE"),
+    ),
+    voice=score["Global Context"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (10,)),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (3 28)))",
+                site="absolute_before",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        tag=abjad.Tag("+SCORE"),
+    ),
+    voice=score["Global Context"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (13,)),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (3 30 27 28 20)))",
+                site="absolute_before",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        tag=abjad.Tag("+SCORE"),
+    ),
+    voice=score["Global Context"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (15,)),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (2 36 36 36 36)))",
+                site="absolute_before",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        tag=abjad.Tag("+SCORE"),
+    ),
+    voice=score["Global Context"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (17,)),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (2 36 36 36 36)))",
+                site="absolute_before",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        tag=abjad.Tag("+SCORE"),
+    ),
+    voice=score["Global Context"],
+)
 
 # trinton.make_music(
 #     lambda _: trinton.select_target(_, (2, 3)),
