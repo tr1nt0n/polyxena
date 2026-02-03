@@ -11,13 +11,10 @@ import polyxena
 def polyxena_score(time_signatures):
     score = trinton.make_empty_score(
         instruments=[
-            abjad.EnglishHorn(),
-            abjad.SopranoSaxophone(),
-            abjad.ClarinetInBFlat(),
-            abjad.BassClarinet(),
-            abjad.Bassoon(),
+            abjad.Cello(),
+            abjad.Guitar(),
         ],
-        groups=[1, 1, 1, 1, 1],
+        groups=[1, 1],
         # staff_types=[
         #     ["bowContactStaff", "Staff"],
         #     ["bowContactStaff", "Staff"],
@@ -104,25 +101,6 @@ def attach_patterned_dynamics(
 
 
 # notation tools
-
-
-def color_teeth_slurs(selector=trinton.pleaves()):
-    def color_slurs(argument):
-        selections = selector(argument)
-
-        for selection in selections:
-
-            if abjad.get.has_indicator(selection, abjad.StartSlur):
-                abjad.detach(abjad.StartSlur, selection)
-                abjad.attach(
-                    abjad.bundle(
-                        abjad.StartSlur(), r"- \tweak color #(css-color 'darkred)"
-                    ),
-                    selection,
-                    direction=abjad.UP,
-                )
-
-    return color_slurs
 
 
 def graphic_bow_pressure_spanner(
@@ -239,41 +217,6 @@ def color_voice(color, selector=trinton.select_leaves_by_index([0, -1])):
 # pitch tools
 
 
-def transpose_to_first_octave(selector, instrument, lowest_octave=True):
-    def transpose(argument):
-        _instrument_to_transposition_and_threshold = {
-            "english horn": (7, 10),
-            "clarinet": (-2, 3),
-            "saxophone": (-2, 9),
-            "bass clarinet": (14, -1),
-            "bassoon": (0, -15),
-        }
-
-        selections = selector(argument)
-
-        logical_ties = abjad.select.logical_ties(selections, pitched=True)
-
-        transposition = _instrument_to_transposition_and_threshold[instrument][0]
-        threshold = _instrument_to_transposition_and_threshold[instrument][1]
-
-        for tie in logical_ties:
-
-            abjad.mutate.transpose(tie, transposition)
-
-            if lowest_octave is True:
-                for _ in range(0, 4):
-                    if tie[0].written_pitch.number > threshold:
-                        abjad.mutate.transpose(tie, -12)
-
-            if tie[0].written_pitch.name == abjad.NamedPitch("es") or tie[
-                0
-            ].written_pitch.name == abjad.NamedPitch("bs"):
-                respell = trinton.respell_with_flats()
-                respell(tie)
-
-    return transpose
-
-
 # markups
 
 
@@ -317,66 +260,30 @@ def half_note_signifier(
 
 all_instrument_names = [
     abjad.InstrumentName(
-        context="Staff",
+        context="GrandStaff",
         markup=abjad.Markup(
-            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { Cor Anglais }'
+            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { Gambe }'
         ),
     ),
     abjad.InstrumentName(
-        context="Staff",
+        context="GrandStaff",
         markup=abjad.Markup(
-            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { Clarinet in B-flat }'
-        ),
-    ),
-    abjad.InstrumentName(
-        context="Staff",
-        markup=abjad.Markup(
-            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { Soprano Saxophone }'
-        ),
-    ),
-    abjad.InstrumentName(
-        context="Staff",
-        markup=abjad.Markup(
-            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { Bass Clarinet }'
-        ),
-    ),
-    abjad.InstrumentName(
-        context="Staff",
-        markup=abjad.Markup(
-            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { Bassoon }'
+            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { Theorbe }'
         ),
     ),
 ]
 
 all_short_instrument_names = [
     abjad.ShortInstrumentName(
-        context="Staff",
+        context="GrandStaff",
         markup=abjad.Markup(
-            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { ca. }'
+            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { gambe }'
         ),
     ),
     abjad.ShortInstrumentName(
-        context="Staff",
+        context="GrandStaff",
         markup=abjad.Markup(
-            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { cl. }'
-        ),
-    ),
-    abjad.ShortInstrumentName(
-        context="Staff",
-        markup=abjad.Markup(
-            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { s. sax. }'
-        ),
-    ),
-    abjad.ShortInstrumentName(
-        context="Staff",
-        markup=abjad.Markup(
-            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { b. cl. }'
-        ),
-    ),
-    abjad.ShortInstrumentName(
-        context="Staff",
-        markup=abjad.Markup(
-            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { bsn. }'
+            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { theorbe }'
         ),
     ),
 ]
@@ -384,13 +291,7 @@ all_short_instrument_names = [
 
 def write_instrument_names(score):
     for voice_name, markup in zip(
-        [
-            "englishhorn voice",
-            "clarinetinbflat voice",
-            "sopranosaxophone voice",
-            "bassclarinet voice",
-            "bassoon voice",
-        ],
+        ["cello voice", "guitar voice"],
         all_instrument_names,
     ):
         trinton.attach(
@@ -403,11 +304,8 @@ def write_instrument_names(score):
 def write_short_instrument_names(score):
     for voice_name, markup in zip(
         [
-            "englishhorn voice",
-            "clarinetinbflat voice",
-            "sopranosaxophone voice",
-            "bassclarinet voice",
-            "bassoon voice",
+            "cello voice",
+            "guitar voice",
         ],
         all_short_instrument_names,
     ):
