@@ -13,11 +13,11 @@ numerator_sequence = [3, 6, 7, 8]
 
 denominator_sequence = [32, 16, 8, 4]
 
-retrograde_corners = library.corners_list[::-1]
+retrograde_corners = library.tetrahedroncorners_list[::-1]
 
 time_signatures = []
 
-for num_index, denom_index in zip(library.corners_list, retrograde_corners):
+for num_index, denom_index in zip(library.tetrahedron_corners_list, retrograde_corners):
     numerator = numerator_sequence[num_index]
     denominator = denominator_sequence[denom_index]
 
@@ -33,7 +33,7 @@ def write_section_time_signatures(section_amount, measure_amount_per_section):
 
     time_signature_change_frequency = []
 
-    for _ in trinton.rotated_sequence(library.corners_list, 0):
+    for _ in trinton.rotated_sequence(library.tetrahedron_corners_list, 0):
         time_signature_change_frequency.append(time_signature_change_frequency_root[_])
 
     time_signature_super_counter = 0

@@ -37,15 +37,17 @@ def polyxena_score(time_signatures):
 
 # immutables
 
-pyramid = combinatorics.polyhedron.tetrahedron
+pyramid_1 = combinatorics.polyhedron.tetrahedron
 
-corners_list = []
+tetrahedron_corners_list = []
 
 for _ in range(0, 7):
-    pyramid.rotate(_)
-    corners = pyramid.corners
+    pyramid_1.rotate(_)
+    corners = pyramid_1.corners
     for corner in corners:
-        corners_list.append(corner)
+        tetrahedron_corners_list.append(corner)
+
+retrograded_tetrahedron_corners_list = tetrahedron_corners_list[::-1]
 
 # dynamics
 

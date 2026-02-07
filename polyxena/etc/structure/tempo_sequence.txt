@@ -1,0 +1,34 @@
+Section 1's tempi are 48 and 84.
+The tempo changes every measure.
+
+
+Section 2's tempi are 112 and 63.
+The tempo changes every measure.
+
+
+Section 3's tempi are 84 and 112.
+The tempo changes halfway through section.
+
+
+Section 4's tempi are 48 and 63.
+The tempo changes incisionally at midpoint.
+
+
+Section 5's tempi are 112 and 84.
+The tempo changes as accelerando/ritardando.
+
+
+Section 6's tempi are 48 and 63.
+The tempo changes incisionally at midpoint.
+
+
+Section 7's tempi are 84 and 112.
+The tempo changes as accelerando/ritardando.
+
+
+Section 8's tempi are 63 and 48.
+The tempo changes every measure.
+
+
+Section 9's tempi are 112 and 84.
+The tempo changes halfway through section.
