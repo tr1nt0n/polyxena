@@ -1,0 +1,118 @@
+In section 1, the Gambe has 3 moments
+Transition 1 between moments 1 and 2 is microformal
+Transition 2 between moments 2 and 3 is incised
+
+In section 1, the Theorbe has 5 moments
+Transition 1 between moments 1 and 2 is evolutional
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is oppositional
+Transition 4 between moments 4 and 5 is microformal
+_______________
+
+In section 2, the Gambe has 4 moments
+Transition 1 between moments 1 and 2 is microformal
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is evolutional
+
+In section 2, the Theorbe has 6 moments
+Transition 1 between moments 1 and 2 is evolutional
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is oppositional
+Transition 4 between moments 4 and 5 is microformal
+Transition 5 between moments 5 and 6 is microformal
+_______________
+
+In section 3, the Gambe has 5 moments
+Transition 1 between moments 1 and 2 is microformal
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is evolutional
+Transition 4 between moments 4 and 5 is oppositional
+
+In section 3, the Theorbe has 7 moments
+Transition 1 between moments 1 and 2 is evolutional
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is oppositional
+Transition 4 between moments 4 and 5 is microformal
+Transition 5 between moments 5 and 6 is microformal
+Transition 6 between moments 6 and 7 is oppositional
+_______________
+
+In section 4, the Gambe has 6 moments
+Transition 1 between moments 1 and 2 is microformal
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is evolutional
+Transition 4 between moments 4 and 5 is oppositional
+Transition 5 between moments 5 and 6 is incised
+
+In section 4, the Theorbe has 4 moments
+Transition 1 between moments 1 and 2 is evolutional
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is oppositional
+_______________
+
+In section 5, the Gambe has 7 moments
+Transition 1 between moments 1 and 2 is microformal
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is evolutional
+Transition 4 between moments 4 and 5 is oppositional
+Transition 5 between moments 5 and 6 is incised
+Transition 6 between moments 6 and 7 is evolutional
+
+In section 5, the Theorbe has 3 moments
+Transition 1 between moments 1 and 2 is evolutional
+Transition 2 between moments 2 and 3 is incised
+_______________
+
+In section 6, the Gambe has 3 moments
+Transition 1 between moments 1 and 2 is microformal
+Transition 2 between moments 2 and 3 is incised
+
+In section 6, the Theorbe has 5 moments
+Transition 1 between moments 1 and 2 is evolutional
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is oppositional
+Transition 4 between moments 4 and 5 is microformal
+_______________
+
+In section 7, the Gambe has 5 moments
+Transition 1 between moments 1 and 2 is microformal
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is evolutional
+Transition 4 between moments 4 and 5 is oppositional
+
+In section 7, the Theorbe has 4 moments
+Transition 1 between moments 1 and 2 is evolutional
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is oppositional
+_______________
+
+In section 8, the Gambe has 6 moments
+Transition 1 between moments 1 and 2 is microformal
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is evolutional
+Transition 4 between moments 4 and 5 is oppositional
+Transition 5 between moments 5 and 6 is incised
+
+In section 8, the Theorbe has 7 moments
+Transition 1 between moments 1 and 2 is evolutional
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is oppositional
+Transition 4 between moments 4 and 5 is microformal
+Transition 5 between moments 5 and 6 is microformal
+Transition 6 between moments 6 and 7 is oppositional
+_______________
+
+In section 9, the Gambe has 7 moments
+Transition 1 between moments 1 and 2 is microformal
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is evolutional
+Transition 4 between moments 4 and 5 is oppositional
+Transition 5 between moments 5 and 6 is incised
+Transition 6 between moments 6 and 7 is evolutional
+
+In section 9, the Theorbe has 6 moments
+Transition 1 between moments 1 and 2 is evolutional
+Transition 2 between moments 2 and 3 is incised
+Transition 3 between moments 3 and 4 is oppositional
+Transition 4 between moments 4 and 5 is microformal
+Transition 5 between moments 5 and 6 is microformal
