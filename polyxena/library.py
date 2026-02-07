@@ -4,6 +4,7 @@ import evans
 import trinton
 import itertools
 import polyxena
+from sympy import combinatorics
 
 # score
 
@@ -33,6 +34,18 @@ def polyxena_score(time_signatures):
 
     return score
 
+
+# immutables
+
+pyramid = combinatorics.polyhedron.tetrahedron
+
+corners_list = []
+
+for _ in range(0, 7):
+    pyramid.rotate(_)
+    corners = pyramid.corners
+    for corner in corners:
+        corners_list.append(corner)
 
 # dynamics
 
