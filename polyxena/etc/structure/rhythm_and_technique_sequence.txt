@@ -1,0 +1,1586 @@
+-- Section 1 --
+
+Gambe:
+
+
+The Gambe's Moment 1 of Section 1 has a rhythmic prolation of (1, 2)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains no tremoli
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Gambe's Moment 1 of Section 1 uses chords of 4 note(s)
+- The left hand is positioned at the strings behind the bridge
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with full finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with 1/2 of the bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Gambe's Moment 2 of Section 1 has a rhythmic prolation of (3, 2)
+- The talea denominator is 8
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains accents on all but the longest duration
+
+The Gambe's Moment 2 of Section 1 uses chords of 1 note(s)
+- The left hand is positioned at the tailpiece
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with percussive finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Gambe's Moment 3 of Section 1 has a rhythmic prolation of (7, 4)
+- The talea denominator is 4
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains no accents
+
+The Gambe's Moment 3 of Section 1 uses chords of 2 note(s)
+- The left hand is positioned at the strings behind the bridge
+- The right hand hand is positioned at the tailpiece
+- The left hand plays with harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand horizontally
+____________________________
+
+The Gambe's next moment should start at index 3
+
+Theorbe:
+
+
+The Theorbe's Moment 1 of Section 1 has a rhythmic prolation of (7, 4)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on the smallest durations
+
+The Theorbe's Moment 1 of Section 1 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the tasto position
+- The left hand plays with percussive finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Theorbe's Moment 2 of Section 1 has a rhythmic prolation of (3, 2)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 2 of Section 1 uses chords of 2 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with full finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the fingertips
+- The musician draws their right hand vertically
+____________________________
+
+
+The Theorbe's Moment 3 of Section 1 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Theorbe's Moment 3 of Section 1 uses chords of 4 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the ponticello position
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with the fingertips
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Theorbe's Moment 4 of Section 1 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains no accents
+
+The Theorbe's Moment 4 of Section 1 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the normale position
+- The left hand plays with harmonic finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with the finger pads
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Theorbe's Moment 5 of Section 1 has a rhythmic prolation of (1, 2)
+- The talea denominator is 8
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 5 of Section 1 uses chords of 1 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with harmonic finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand downward diagonally
+____________________________
+
+The Theorbe's next moment should start at index 5
+____________________________________________________
+
+-- Section 2 --
+
+Gambe:
+
+
+The Gambe's Moment 1 of Section 2 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Gambe's Moment 1 of Section 2 uses chords of 1 note(s)
+- The left hand is positioned at the tailpiece
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with 1/4 of the bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Gambe's Moment 2 of Section 2 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains no tremoli
+- The rhythm contains no accents
+
+The Gambe's Moment 2 of Section 2 uses chords of 1 note(s)
+- The left hand is positioned at the strings behind the bridge
+- The right hand hand is positioned at the bridge and the strings behind the bridge
+- The left hand plays with harmonic finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand vertically
+____________________________
+
+
+The Gambe's Moment 3 of Section 2 has a rhythmic prolation of (1, 1)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains no accents
+
+The Gambe's Moment 3 of Section 2 uses chords of 2 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the tailpiece
+- The left hand plays with harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with the entire bow
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Gambe's Moment 4 of Section 2 has a rhythmic prolation of (7, 4)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest durations
+
+The Gambe's Moment 4 of Section 2 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the fingerboard
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with full finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with 1/2 of the bow
+- The musician draws their right hand vertically
+____________________________
+
+The Gambe's next moment should start at index 7
+
+Theorbe:
+
+
+The Theorbe's Moment 1 of Section 2 has a rhythmic prolation of (7, 4)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on the smallest durations
+
+The Theorbe's Moment 1 of Section 2 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the tasto position
+- The left hand plays with percussive finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Theorbe's Moment 2 of Section 2 has a rhythmic prolation of (3, 2)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 2 of Section 2 uses chords of 2 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with full finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the fingertips
+- The musician draws their right hand vertically
+____________________________
+
+
+The Theorbe's Moment 3 of Section 2 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Theorbe's Moment 3 of Section 2 uses chords of 4 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the ponticello position
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with the fingertips
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Theorbe's Moment 4 of Section 2 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains no accents
+
+The Theorbe's Moment 4 of Section 2 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the normale position
+- The left hand plays with harmonic finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with the finger pads
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Theorbe's Moment 5 of Section 2 has a rhythmic prolation of (1, 2)
+- The talea denominator is 8
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 5 of Section 2 uses chords of 1 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with harmonic finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Theorbe's Moment 6 of Section 2 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Theorbe's Moment 6 of Section 2 uses chords of 4 note(s)
+- The left hand is positioned at the strings between the last fret and the bridge
+- The right hand hand is positioned at the ponticello position
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the fingernails
+- The musician draws their right hand vertically
+____________________________
+
+The Theorbe's next moment should start at index 11
+____________________________________________________
+
+-- Section 3 --
+
+Gambe:
+
+
+The Gambe's Moment 1 of Section 3 has a rhythmic prolation of (3, 2)
+- The talea denominator is 4
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Gambe's Moment 1 of Section 3 uses chords of 3 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the bridge and the strings behind the bridge
+- The left hand plays with percussive finger pressure
+- The right hand plays with rest pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Gambe's Moment 2 of Section 3 has a rhythmic prolation of (7, 4)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Gambe's Moment 2 of Section 3 uses chords of 4 note(s)
+- The left hand is positioned at the lower half of the fingerboard
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with full finger pressure
+- The right hand plays with rest pressure
+- The musician plays with 1/4 of the bow
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Gambe's Moment 3 of Section 3 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Gambe's Moment 3 of Section 3 uses chords of 3 note(s)
+- The left hand is positioned at the tailpiece
+- The right hand hand is positioned at the lower half of the fingerboard
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with 1/2 of the bow
+- The musician draws their right hand vertically
+____________________________
+
+
+The Gambe's Moment 4 of Section 3 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Gambe's Moment 4 of Section 3 uses chords of 2 note(s)
+- The left hand is positioned at the strings behind the bridge
+- The right hand hand is positioned at the lower half of the fingerboard
+- The left hand plays with percussive finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with the entire bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Gambe's Moment 5 of Section 3 has a rhythmic prolation of (7, 4)
+- The talea denominator is 8
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains no tremoli
+- The rhythm contains accents on the smallest durations
+
+The Gambe's Moment 5 of Section 3 uses chords of 1 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with full finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand upward diagonally
+____________________________
+
+The Gambe's next moment should start at index 12
+
+Theorbe:
+
+
+The Theorbe's Moment 1 of Section 3 has a rhythmic prolation of (7, 4)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on the smallest durations
+
+The Theorbe's Moment 1 of Section 3 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the tasto position
+- The left hand plays with percussive finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Theorbe's Moment 2 of Section 3 has a rhythmic prolation of (3, 2)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 2 of Section 3 uses chords of 2 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with full finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the fingertips
+- The musician draws their right hand vertically
+____________________________
+
+
+The Theorbe's Moment 3 of Section 3 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Theorbe's Moment 3 of Section 3 uses chords of 4 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the ponticello position
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with the fingertips
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Theorbe's Moment 4 of Section 3 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains no accents
+
+The Theorbe's Moment 4 of Section 3 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the normale position
+- The left hand plays with harmonic finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with the finger pads
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Theorbe's Moment 5 of Section 3 has a rhythmic prolation of (1, 2)
+- The talea denominator is 8
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 5 of Section 3 uses chords of 1 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with harmonic finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Theorbe's Moment 6 of Section 3 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Theorbe's Moment 6 of Section 3 uses chords of 4 note(s)
+- The left hand is positioned at the strings between the last fret and the bridge
+- The right hand hand is positioned at the ponticello position
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the fingernails
+- The musician draws their right hand vertically
+____________________________
+
+
+The Theorbe's Moment 7 of Section 3 has a rhythmic prolation of (3, 2)
+- The talea denominator is 32
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on the smallest durations
+
+The Theorbe's Moment 7 of Section 3 uses chords of 3 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the tasto position
+- The left hand plays with full finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with the fingertips
+- The musician draws their right hand upward diagonally
+____________________________
+
+The Theorbe's next moment should start at index 18
+____________________________________________________
+
+-- Section 4 --
+
+Gambe:
+
+
+The Gambe's Moment 1 of Section 4 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains no accents
+
+The Gambe's Moment 1 of Section 4 uses chords of 3 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with harmonic finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Gambe's Moment 2 of Section 4 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Gambe's Moment 2 of Section 4 uses chords of 4 note(s)
+- The left hand is positioned at the lower half of the fingerboard
+- The right hand hand is positioned at the bridge and the strings behind the bridge
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with 1/4 of the bow
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Gambe's Moment 3 of Section 4 has a rhythmic prolation of (3, 2)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Gambe's Moment 3 of Section 4 uses chords of 2 note(s)
+- The left hand is positioned at the lower half of the fingerboard
+- The right hand hand is positioned at the tailpiece
+- The left hand plays with full finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with 1/4 of the bow
+- The musician draws their right hand vertically
+____________________________
+
+
+The Gambe's Moment 4 of Section 4 has a rhythmic prolation of (7, 4)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on the smallest durations
+
+The Gambe's Moment 4 of Section 4 uses chords of 3 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the lower half of the fingerboard
+- The left hand plays with percussive finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the entire bow
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Gambe's Moment 5 of Section 4 has a rhythmic prolation of (1, 2)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains no tremoli
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Gambe's Moment 5 of Section 4 uses chords of 4 note(s)
+- The left hand is positioned at the strings behind the bridge
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with full finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with 1/2 of the bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Gambe's Moment 6 of Section 4 has a rhythmic prolation of (3, 2)
+- The talea denominator is 8
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains accents on all but the longest duration
+
+The Gambe's Moment 6 of Section 4 uses chords of 1 note(s)
+- The left hand is positioned at the tailpiece
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with percussive finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+The Gambe's next moment should start at index 18
+
+Theorbe:
+
+
+The Theorbe's Moment 1 of Section 4 has a rhythmic prolation of (7, 4)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on the smallest durations
+
+The Theorbe's Moment 1 of Section 4 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the tasto position
+- The left hand plays with percussive finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Theorbe's Moment 2 of Section 4 has a rhythmic prolation of (3, 2)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 2 of Section 4 uses chords of 2 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with full finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the fingertips
+- The musician draws their right hand vertically
+____________________________
+
+
+The Theorbe's Moment 3 of Section 4 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Theorbe's Moment 3 of Section 4 uses chords of 4 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the ponticello position
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with the fingertips
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Theorbe's Moment 4 of Section 4 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains no accents
+
+The Theorbe's Moment 4 of Section 4 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the normale position
+- The left hand plays with harmonic finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with the finger pads
+- The musician draws their right hand horizontally
+____________________________
+
+The Theorbe's next moment should start at index 22
+____________________________________________________
+
+-- Section 5 --
+
+Gambe:
+
+
+The Gambe's Moment 1 of Section 5 has a rhythmic prolation of (1, 1)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains no accents
+
+The Gambe's Moment 1 of Section 5 uses chords of 2 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the tailpiece
+- The left hand plays with harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with the entire bow
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Gambe's Moment 2 of Section 5 has a rhythmic prolation of (7, 4)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest durations
+
+The Gambe's Moment 2 of Section 5 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the fingerboard
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with full finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with 1/2 of the bow
+- The musician draws their right hand vertically
+____________________________
+
+
+The Gambe's Moment 3 of Section 5 has a rhythmic prolation of (3, 2)
+- The talea denominator is 8
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Gambe's Moment 3 of Section 5 uses chords of 4 note(s)
+- The left hand is positioned at the lower half of the fingerboard
+- The right hand hand is positioned at the lower half of the fingerboard
+- The left hand plays with percussive finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with the entire bow
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Gambe's Moment 4 of Section 5 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Gambe's Moment 4 of Section 5 uses chords of 2 note(s)
+- The left hand is positioned at the strings behind the bridge
+- The right hand hand is positioned at the tailpiece
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with 1/2 of the bow
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Gambe's Moment 5 of Section 5 has a rhythmic prolation of (1, 2)
+- The talea denominator is 16
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains accents on the smallest durations
+
+The Gambe's Moment 5 of Section 5 uses chords of 1 note(s)
+- The left hand is positioned at the tailpiece
+- The right hand hand is positioned at the bridge and the strings behind the bridge
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with 1/4 of the bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Gambe's Moment 6 of Section 5 has a rhythmic prolation of (1, 1)
+- The talea denominator is 8
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains no tremoli
+- The rhythm contains no accents
+
+The Gambe's Moment 6 of Section 5 uses chords of 4 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the tailpiece
+- The left hand plays with harmonic finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Gambe's Moment 7 of Section 5 has a rhythmic prolation of (3, 2)
+- The talea denominator is 4
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Gambe's Moment 7 of Section 5 uses chords of 3 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the bridge and the strings behind the bridge
+- The left hand plays with percussive finger pressure
+- The right hand plays with rest pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand horizontally
+____________________________
+
+The Gambe's next moment should start at index 25
+
+Theorbe:
+
+
+The Theorbe's Moment 1 of Section 5 has a rhythmic prolation of (7, 4)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on the smallest durations
+
+The Theorbe's Moment 1 of Section 5 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the tasto position
+- The left hand plays with percussive finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Theorbe's Moment 2 of Section 5 has a rhythmic prolation of (3, 2)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 2 of Section 5 uses chords of 2 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with full finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the fingertips
+- The musician draws their right hand vertically
+____________________________
+
+
+The Theorbe's Moment 3 of Section 5 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Theorbe's Moment 3 of Section 5 uses chords of 4 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the ponticello position
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with the fingertips
+- The musician draws their right hand horizontally
+____________________________
+
+The Theorbe's next moment should start at index 25
+____________________________________________________
+
+-- Section 6 --
+
+Gambe:
+
+
+The Gambe's Moment 1 of Section 6 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Gambe's Moment 1 of Section 6 uses chords of 4 note(s)
+- The left hand is positioned at the tailpiece
+- The right hand hand is positioned at the bridge and the strings behind the bridge
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with 1/2 of the bow
+- The musician draws their right hand vertically
+____________________________
+
+
+The Gambe's Moment 2 of Section 6 has a rhythmic prolation of (1, 2)
+- The talea denominator is 8
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Gambe's Moment 2 of Section 6 uses chords of 1 note(s)
+- The left hand is positioned at the strings behind the bridge
+- The right hand hand is positioned at the tailpiece
+- The left hand plays with harmonic finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with the entire bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Gambe's Moment 3 of Section 6 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains no accents
+
+The Gambe's Moment 3 of Section 6 uses chords of 3 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with harmonic finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand horizontally
+____________________________
+
+The Gambe's next moment should start at index 28
+
+Theorbe:
+
+
+The Theorbe's Moment 1 of Section 6 has a rhythmic prolation of (7, 4)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on the smallest durations
+
+The Theorbe's Moment 1 of Section 6 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the tasto position
+- The left hand plays with percussive finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Theorbe's Moment 2 of Section 6 has a rhythmic prolation of (3, 2)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 2 of Section 6 uses chords of 2 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with full finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the fingertips
+- The musician draws their right hand vertically
+____________________________
+
+
+The Theorbe's Moment 3 of Section 6 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Theorbe's Moment 3 of Section 6 uses chords of 4 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the ponticello position
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with the fingertips
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Theorbe's Moment 4 of Section 6 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains no accents
+
+The Theorbe's Moment 4 of Section 6 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the normale position
+- The left hand plays with harmonic finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with the finger pads
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Theorbe's Moment 5 of Section 6 has a rhythmic prolation of (1, 2)
+- The talea denominator is 8
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 5 of Section 6 uses chords of 1 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with harmonic finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand downward diagonally
+____________________________
+
+The Theorbe's next moment should start at index 30
+____________________________________________________
+
+-- Section 7 --
+
+Gambe:
+
+
+The Gambe's Moment 1 of Section 7 has a rhythmic prolation of (1, 2)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains no tremoli
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Gambe's Moment 1 of Section 7 uses chords of 4 note(s)
+- The left hand is positioned at the strings behind the bridge
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with full finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with 1/2 of the bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Gambe's Moment 2 of Section 7 has a rhythmic prolation of (3, 2)
+- The talea denominator is 8
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains accents on all but the longest duration
+
+The Gambe's Moment 2 of Section 7 uses chords of 1 note(s)
+- The left hand is positioned at the tailpiece
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with percussive finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Gambe's Moment 3 of Section 7 has a rhythmic prolation of (7, 4)
+- The talea denominator is 4
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains no accents
+
+The Gambe's Moment 3 of Section 7 uses chords of 2 note(s)
+- The left hand is positioned at the strings behind the bridge
+- The right hand hand is positioned at the tailpiece
+- The left hand plays with harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Gambe's Moment 4 of Section 7 has a rhythmic prolation of (1, 1)
+- The talea denominator is 4
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on the smallest durations
+
+The Gambe's Moment 4 of Section 7 uses chords of 2 note(s)
+- The left hand is positioned at the tailpiece
+- The right hand hand is positioned at the bridge and the strings behind the bridge
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with 1/4 of the bow
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Gambe's Moment 5 of Section 7 has a rhythmic prolation of (3, 2)
+- The talea denominator is 8
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest durations
+
+The Gambe's Moment 5 of Section 7 uses chords of 4 note(s)
+- The left hand is positioned at the lower half of the fingerboard
+- The right hand hand is positioned at the lower half of the fingerboard
+- The left hand plays with percussive finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with 1/2 of the bow
+- The musician draws their right hand vertically
+____________________________
+
+The Gambe's next moment should start at index 33
+
+Theorbe:
+
+
+The Theorbe's Moment 1 of Section 7 has a rhythmic prolation of (7, 4)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on the smallest durations
+
+The Theorbe's Moment 1 of Section 7 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the tasto position
+- The left hand plays with percussive finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Theorbe's Moment 2 of Section 7 has a rhythmic prolation of (3, 2)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 2 of Section 7 uses chords of 2 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with full finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the fingertips
+- The musician draws their right hand vertically
+____________________________
+
+
+The Theorbe's Moment 3 of Section 7 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Theorbe's Moment 3 of Section 7 uses chords of 4 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the ponticello position
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with the fingertips
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Theorbe's Moment 4 of Section 7 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains no accents
+
+The Theorbe's Moment 4 of Section 7 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the normale position
+- The left hand plays with harmonic finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with the finger pads
+- The musician draws their right hand horizontally
+____________________________
+
+The Theorbe's next moment should start at index 34
+____________________________________________________
+
+-- Section 8 --
+
+Gambe:
+
+
+The Gambe's Moment 1 of Section 8 has a rhythmic prolation of (3, 2)
+- The talea denominator is 8
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Gambe's Moment 1 of Section 8 uses chords of 4 note(s)
+- The left hand is positioned at the lower half of the fingerboard
+- The right hand hand is positioned at the lower half of the fingerboard
+- The left hand plays with percussive finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with the entire bow
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Gambe's Moment 2 of Section 8 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Gambe's Moment 2 of Section 8 uses chords of 2 note(s)
+- The left hand is positioned at the strings behind the bridge
+- The right hand hand is positioned at the tailpiece
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with 1/2 of the bow
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Gambe's Moment 3 of Section 8 has a rhythmic prolation of (1, 2)
+- The talea denominator is 16
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains accents on the smallest durations
+
+The Gambe's Moment 3 of Section 8 uses chords of 1 note(s)
+- The left hand is positioned at the tailpiece
+- The right hand hand is positioned at the bridge and the strings behind the bridge
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with 1/4 of the bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Gambe's Moment 4 of Section 8 has a rhythmic prolation of (1, 1)
+- The talea denominator is 8
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains no tremoli
+- The rhythm contains no accents
+
+The Gambe's Moment 4 of Section 8 uses chords of 4 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the tailpiece
+- The left hand plays with harmonic finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Gambe's Moment 5 of Section 8 has a rhythmic prolation of (3, 2)
+- The talea denominator is 4
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Gambe's Moment 5 of Section 8 uses chords of 3 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the bridge and the strings behind the bridge
+- The left hand plays with percussive finger pressure
+- The right hand plays with rest pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Gambe's Moment 6 of Section 8 has a rhythmic prolation of (7, 4)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Gambe's Moment 6 of Section 8 uses chords of 4 note(s)
+- The left hand is positioned at the lower half of the fingerboard
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with full finger pressure
+- The right hand plays with rest pressure
+- The musician plays with 1/4 of the bow
+- The musician draws their right hand upward diagonally
+____________________________
+
+The Gambe's next moment should start at index 39
+
+Theorbe:
+
+
+The Theorbe's Moment 1 of Section 8 has a rhythmic prolation of (7, 4)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on the smallest durations
+
+The Theorbe's Moment 1 of Section 8 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the tasto position
+- The left hand plays with percussive finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Theorbe's Moment 2 of Section 8 has a rhythmic prolation of (3, 2)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 2 of Section 8 uses chords of 2 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with full finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the fingertips
+- The musician draws their right hand vertically
+____________________________
+
+
+The Theorbe's Moment 3 of Section 8 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Theorbe's Moment 3 of Section 8 uses chords of 4 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the ponticello position
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with the fingertips
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Theorbe's Moment 4 of Section 8 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains no accents
+
+The Theorbe's Moment 4 of Section 8 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the normale position
+- The left hand plays with harmonic finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with the finger pads
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Theorbe's Moment 5 of Section 8 has a rhythmic prolation of (1, 2)
+- The talea denominator is 8
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 5 of Section 8 uses chords of 1 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with harmonic finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Theorbe's Moment 6 of Section 8 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Theorbe's Moment 6 of Section 8 uses chords of 4 note(s)
+- The left hand is positioned at the strings between the last fret and the bridge
+- The right hand hand is positioned at the ponticello position
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the fingernails
+- The musician draws their right hand vertically
+____________________________
+
+
+The Theorbe's Moment 7 of Section 8 has a rhythmic prolation of (3, 2)
+- The talea denominator is 32
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on the smallest durations
+
+The Theorbe's Moment 7 of Section 8 uses chords of 3 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the tasto position
+- The left hand plays with full finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with the fingertips
+- The musician draws their right hand upward diagonally
+____________________________
+
+The Theorbe's next moment should start at index 41
+____________________________________________________
+
+-- Section 9 --
+
+Gambe:
+
+
+The Gambe's Moment 1 of Section 9 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Gambe's Moment 1 of Section 9 uses chords of 4 note(s)
+- The left hand is positioned at the tailpiece
+- The right hand hand is positioned at the bridge and the strings behind the bridge
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with 1/2 of the bow
+- The musician draws their right hand vertically
+____________________________
+
+
+The Gambe's Moment 2 of Section 9 has a rhythmic prolation of (1, 2)
+- The talea denominator is 8
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Gambe's Moment 2 of Section 9 uses chords of 1 note(s)
+- The left hand is positioned at the strings behind the bridge
+- The right hand hand is positioned at the tailpiece
+- The left hand plays with harmonic finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with the entire bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Gambe's Moment 3 of Section 9 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains no accents
+
+The Gambe's Moment 3 of Section 9 uses chords of 3 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with harmonic finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with less than an inch of bow
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Gambe's Moment 4 of Section 9 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Gambe's Moment 4 of Section 9 uses chords of 4 note(s)
+- The left hand is positioned at the lower half of the fingerboard
+- The right hand hand is positioned at the bridge and the strings behind the bridge
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with 1/4 of the bow
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Gambe's Moment 5 of Section 9 has a rhythmic prolation of (3, 2)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Gambe's Moment 5 of Section 9 uses chords of 2 note(s)
+- The left hand is positioned at the lower half of the fingerboard
+- The right hand hand is positioned at the tailpiece
+- The left hand plays with full finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with 1/4 of the bow
+- The musician draws their right hand vertically
+____________________________
+
+
+The Gambe's Moment 6 of Section 9 has a rhythmic prolation of (7, 4)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on the smallest durations
+
+The Gambe's Moment 6 of Section 9 uses chords of 3 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the lower half of the fingerboard
+- The left hand plays with percussive finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the entire bow
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Gambe's Moment 7 of Section 9 has a rhythmic prolation of (1, 2)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains no tremoli
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Gambe's Moment 7 of Section 9 uses chords of 4 note(s)
+- The left hand is positioned at the strings behind the bridge
+- The right hand hand is positioned at the upper half of the finger board
+- The left hand plays with full finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with 1/2 of the bow
+- The musician draws their right hand downward diagonally
+____________________________
+
+The Gambe's next moment should start at index 46
+
+Theorbe:
+
+
+The Theorbe's Moment 1 of Section 9 has a rhythmic prolation of (7, 4)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains tremoli on the smallest durations
+- The rhythm contains accents on the smallest durations
+
+The Theorbe's Moment 1 of Section 9 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the tasto position
+- The left hand plays with percussive finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand upward diagonally
+____________________________
+
+
+The Theorbe's Moment 2 of Section 9 has a rhythmic prolation of (3, 2)
+- The talea denominator is 4
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 2 of Section 9 uses chords of 2 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with full finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the fingertips
+- The musician draws their right hand vertically
+____________________________
+
+
+The Theorbe's Moment 3 of Section 9 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains an elaboration on all but the highest durations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Theorbe's Moment 3 of Section 9 uses chords of 4 note(s)
+- The left hand is positioned at the extension strings below the finger board
+- The right hand hand is positioned at the ponticello position
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with rest pressure
+- The musician plays with the fingertips
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Theorbe's Moment 4 of Section 9 has a rhythmic prolation of (1, 2)
+- The talea denominator is 32
+- The rhythm contains an elaboration on the smallest and second smallest durations
+- The rhythm contains no tremoli
+- The rhythm contains no accents
+
+The Theorbe's Moment 4 of Section 9 uses chords of 3 note(s)
+- The left hand is positioned at the lower half of the finger board
+- The right hand hand is positioned at the normale position
+- The left hand plays with harmonic finger pressure
+- The right hand plays with f-fff pressure
+- The musician plays with the finger pads
+- The musician draws their right hand horizontally
+____________________________
+
+
+The Theorbe's Moment 5 of Section 9 has a rhythmic prolation of (1, 2)
+- The talea denominator is 8
+- The rhythm contains an elaboration on the smallest durations
+- The rhythm contains tremoli on the smallest and second smallest durations
+- The rhythm contains accents on all but the longest duration
+
+The Theorbe's Moment 5 of Section 9 uses chords of 1 note(s)
+- The left hand is positioned at the upper half of the finger board
+- The right hand hand is positioned at the bridge
+- The left hand plays with harmonic finger pressure
+- The right hand plays with mp-mf pressure
+- The musician plays with the flat of the nails
+- The musician draws their right hand downward diagonally
+____________________________
+
+
+The Theorbe's Moment 6 of Section 9 has a rhythmic prolation of (1, 1)
+- The talea denominator is 16
+- The rhythm contains no elaborations
+- The rhythm contains tremoli on every tie
+- The rhythm contains accents on the smallest and second smallest durations
+
+The Theorbe's Moment 6 of Section 9 uses chords of 4 note(s)
+- The left hand is positioned at the strings between the last fret and the bridge
+- The right hand hand is positioned at the ponticello position
+- The left hand plays with half harmonic finger pressure
+- The right hand plays with ppp-p pressure
+- The musician plays with the fingernails
+- The musician draws their right hand vertically
+____________________________
+
+The Theorbe's next moment should start at index 47
+____________________________________________________
