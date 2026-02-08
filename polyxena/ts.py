@@ -13,7 +13,7 @@ numerator_sequence = [3, 6, 7, 8]
 
 denominator_sequence = [32, 16, 8, 4]
 
-retrograde_corners = library.tetrahedroncorners_list[::-1]
+retrograde_corners = library.tetrahedron_corners_list[::-1]
 
 time_signatures = []
 
@@ -42,17 +42,17 @@ def write_section_time_signatures(section_amount, measure_amount_per_section):
         # label section and determine length in measure amounts
         section_number = _ + 1
         measure_amount = measure_amount_per_section[_]
-        print("")
-        print(f"Section {section_number} has {measure_amount} measure(s).")
+        # print("")
+        # print(f"Section {section_number} has {measure_amount} measure(s).")
 
         # negotiate time signatures
         time_signature_change = time_signature_change_frequency[_]
-        if time_signature_change == 0:
-            print("The time signature does not change.")
-        else:
-            print(
-                f"The time signature changes every {time_signature_change} measure(s)."
-            )
+        # if time_signature_change == 0:
+        #     print("The time signature does not change.")
+        # else:
+        #     print(
+        #         f"The time signature changes every {time_signature_change} measure(s)."
+        #     )
 
         rotated_time_signatures = trinton.rotated_sequence(
             time_signatures, time_signature_super_counter
@@ -79,9 +79,9 @@ def write_section_time_signatures(section_amount, measure_amount_per_section):
             time_signature_progress = int(time_signature_progress)
             time_signature_super_counter += time_signature_progress
 
-        print("The section's time signature sequence is:")
-        for _ in section_time_signatures:
-            print(_)
+        # print("The section's time signature sequence is:")
+        # for _ in section_time_signatures:
+        #     print(_)
 
         final_time_signature_list.append(section_time_signatures)
 

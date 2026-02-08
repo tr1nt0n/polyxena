@@ -13,21 +13,15 @@ def polyxena_score(time_signatures):
     score = trinton.make_empty_score(
         instruments=[
             abjad.Cello(),
+            abjad.Cello(),
+            abjad.Guitar(),
             abjad.Guitar(),
         ],
-        groups=[1, 1],
-        # staff_types=[
-        #     ["bowContactStaff", "Staff"],
-        #     ["bowContactStaff", "Staff"],
-        #     [
-        #         "bowContactStaff",
-        #         "Staff",
-        #     ],
-        #     [
-        #         "bowContactStaff",
-        #         "Staff",
-        #     ],
-        # ],
+        groups=[2, 2],
+        staff_types=[
+            ["disappearingStaff", "Staff"],
+            ["disappearingStaff", "Staff"],
+        ],
         time_signatures=time_signatures,
         filler=abjad.Skip,
     )
@@ -306,7 +300,7 @@ all_short_instrument_names = [
 
 def write_instrument_names(score):
     for voice_name, markup in zip(
-        ["cello voice", "guitar voice"],
+        ["cello 1 voice", "guitar 1 voice"],
         all_instrument_names,
     ):
         trinton.attach(
@@ -319,8 +313,8 @@ def write_instrument_names(score):
 def write_short_instrument_names(score):
     for voice_name, markup in zip(
         [
-            "cello voice",
-            "guitar voice",
+            "cello 1 voice",
+            "guitar 1 voice",
         ],
         all_short_instrument_names,
     ):

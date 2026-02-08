@@ -1,7 +1,7 @@
 \version "2.23.81"
 \language english
 #(set-default-paper-size '(cons (* 17 in) (* 11 in)))
-#(set-global-staff-size 14)
+#(set-global-staff-size 17)
 #(ly:set-option 'relative-includes #t)
 
 \include "../library.ily"
@@ -11,10 +11,10 @@
 \include "/Users/trintonprater/abjad-ext-microtones/abjadext/microtones/lilypond/ekmelos-ji-accidental-markups.ily"
 
 % \header {
-%     dedication = \markup \column {\line \override #'(font-name . "Bodoni72 Book Italic") { \fontsize #4 { "to" \override #'(font-name . "Bodoni72 Book") "Solstice Reed Quintet"  } } \line { \fontsize #0.01 \with-color #white "."} }
-%     title = \markup \override #'(font-name . "Bodoni72 Book Italic") \center-column { \line \fontsize #14 { "polyxena / iliac" } \fontsize #0.01 \with-color #white "."}
+%     dedication = \markup \column {\line \override #'(font-name . "Bodoni72 Book Italic") { \fontsize #4 { "to" \override #'(font-name . "Bodoni72 Book") "Athena Zenker Díaz" \override #'(font-name . "Bodoni72 Book Italic") "and" \override #'(font-name . "Bodoni72 Book") "Mauricio Galeano" } } \line { \fontsize #0.01 \with-color #white "."} }
+%     title = \markup \override #'(font-name . "Bodoni72 Book Italic") \center-column { \line \fontsize #14 { "polyxena / ilium sherds" } \fontsize #0.01 \with-color #white "."}
 %     subtitle = \markup \fontsize #4 \center-column { \line { \override #'(font-name . "Bodoni72 Book Italic") { "( four talismans )" } } \fontsize #0.01 \with-color #white "."}
-%     composer = \markup \column { \override #'(font-name . "Bodoni72") \fontsize #4 {"Trinity Hlynn Prater (*2000)"} \fontsize #0.01 \with-color #white "."}
+%     composer = \markup \column { \override #'(font-name . "Bodoni72") \fontsize #4 {"Trinity Hlynn Prater (*2000)"} \fontsize #35 \with-color #white "."}
 % }
 
 afterGraceFraction = #(cons 15 16)
@@ -151,8 +151,8 @@ afterGraceFraction = #(cons 15 16)
 
         \override Stem.stemlet-length = 2
         \override Stem.thickness = #0.5
-        \override Stem.details.beamed-lengths = #'(6)
-        \override Stem.details.lengths = #'(6)
+        \override Stem.details.beamed-lengths = #'(7.5)
+        \override Stem.details.lengths = #'(6.5)
 
         % \override StemTremolo.stencil = #ly:text-interface::print
         % \override StemTremolo.text = \markup {
@@ -199,7 +199,6 @@ afterGraceFraction = #(cons 15 16)
         \override TupletNumber.whiteout = 1
         \override TupletNumber.text = #tuplet-number::calc-fraction-text
         \override TupletNumber.font-name = "Bodoni72 Book Italic"
-        % \override TupletBracket.avoid-slur = #'ignore
         % \override TupletBracket.stencil =
         %     #(lambda (grob)
         %        (let* ((pos (ly:grob-property grob 'positions))
@@ -216,7 +215,7 @@ afterGraceFraction = #(cons 15 16)
 
     \context {
         \Staff
-        fontSize = #-1.3
+        fontSize = #0
         \remove Time_signature_engraver
         \consists Duration_line_engraver
         \consists Grid_point_engraver
@@ -244,8 +243,31 @@ afterGraceFraction = #(cons 15 16)
         % \override TimeSignature.whiteout-style = #'outline
         % \override TimeSignature.whiteout = 1
         % \override TimeSignature.layer = 4
+        % \RemoveAllEmptyStaves
+        % \RemoveEmptyStaves
+    }
+
+    \context{
+        \Staff
+        \name disappearingStaff
+        \alias Staff
+
         \RemoveAllEmptyStaves
-        % \RemoveEmptyStavesß
+    }
+
+    \context{
+        \GrandStaff
+        % \remove Time_signature_engraver
+        \accepts disappearingStaff
+        \consists Grob_pq_engraver
+        % \consists Measure_spanner_engraver
+
+        \consists #Interrupt_heads_engraver
+        \consists #Explicit_interrupt_heads_engraver
+        \consists #Follow_lines_engraver
+        \consists #Switch_heads_engraver
+        \consists #Hocket_lines_engraver
+        \override VoiceFollower.layer = -20
     }
 
     \context {
