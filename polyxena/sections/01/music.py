@@ -25,7 +25,79 @@ score = library.polyxena_score(section_ts)
 trinton.make_music(
     lambda _: trinton.select_target(_, (1, 2)),
     evans.RhythmHandler(
-        rhythm.main_talea(index=0, denominator=16, prolations=[(1, 2), (3, 2)])
+        rhythm.main_talea(
+            index=0, denominator=16, prolations=[(1, 2), (3, 2)], elaboration_level=3
+        )
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    trinton.attachment_command(
+        attachments=[abjad.Articulation(">")],
+        selector=trinton.durational_selector(
+            durations=[abjad.Duration((1, 16)), abjad.Duration((1, 8))],
+            preselector=abjad.select.logical_ties,
+            preprolated=True,
+            first=True,
+        ),
+    ),
+    voice=score["cello 2 voice"],
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (3,)),
+    evans.RhythmHandler(
+        rhythm.main_talea(
+            index=10, denominator=8, prolations=[(3, 2)], elaboration_level=1
+        )
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    trinton.attachment_command(
+        attachments=[abjad.Articulation(">")],
+        selector=trinton.durational_selector(
+            durations=[
+                abjad.Duration((1, 4)),
+            ],
+            preselector=abjad.select.logical_ties,
+            preprolated=True,
+            first=True,
+        ),
+    ),
+    voice=score["cello 2 voice"],
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (4, 5)),
+    evans.RhythmHandler(
+        rhythm.main_talea(
+            index=12, denominator=8, prolations=[(7, 4), (3, 2)], elaboration_level=2
+        )
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    trinton.attachment_command(
+        attachments=[abjad.Articulation(">")],
+        selector=trinton.select_logical_ties_by_index([1], pitched=True, first=True),
+    ),
+    trinton.tremolo_command(
+        selector=trinton.durational_selector(
+            durations=[
+                abjad.Duration((1, 8)),
+            ],
+            preselector=abjad.select.logical_ties,
+            preprolated=True,
+            first=False,
+        ),
+    ),
+    voice=score["cello 2 voice"],
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (6,)),
+    evans.RhythmHandler(
+        rhythm.main_talea(
+            index=17, denominator=4, prolations=[(7, 4)], elaboration_level=2
+        )
     ),
     trinton.rewrite_meter_command(boundary_depth=-1),
     voice=score["cello 2 voice"],
@@ -33,6 +105,142 @@ trinton.make_music(
 )
 
 # theorbe music
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (1,)),
+    evans.RhythmHandler(
+        rhythm.main_talea(
+            index=0,
+            denominator=32,
+            prolations=[(7, 4)],
+            elaboration_level=2,
+            retrograde=True,
+        )
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    trinton.attachment_command(
+        attachments=[abjad.Articulation(">")],
+        selector=trinton.durational_selector(
+            durations=[
+                abjad.Duration((1, 64)),
+            ],
+            preselector=abjad.select.logical_ties,
+            preprolated=True,
+            first=True,
+        ),
+    ),
+    trinton.tremolo_command(
+        selector=trinton.durational_selector(
+            durations=[
+                abjad.Duration((7, 64)),
+                abjad.Duration((6, 64)),
+            ],
+            preselector=abjad.select.logical_ties,
+            preprolated=True,
+            first=False,
+        ),
+    ),
+    voice=score["guitar 2 voice"],
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (2,)),
+    evans.RhythmHandler(
+        rhythm.main_talea(
+            index=12,
+            denominator=4,
+            prolations=[(3, 2)],
+            elaboration_level=0,
+            retrograde=True,
+        )
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    trinton.attachment_command(
+        attachments=[abjad.Articulation(">")],
+        selector=trinton.durational_selector(
+            durations=[
+                abjad.Duration((1, 4)),
+            ],
+            preselector=abjad.select.logical_ties,
+            preprolated=True,
+            first=True,
+        ),
+    ),
+    trinton.tremolo_command(
+        selector=trinton.durational_selector(
+            durations=[
+                abjad.Duration((1, 4)),
+            ],
+            preselector=abjad.select.logical_ties,
+            preprolated=True,
+            first=False,
+        ),
+    ),
+    voice=score["guitar 2 voice"],
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (3,)),
+    evans.RhythmHandler(
+        rhythm.main_talea(
+            index=14,
+            denominator=16,
+            prolations=[(1, 1)],
+            elaboration_level=3,
+            retrograde=True,
+        )
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    trinton.attachment_command(
+        attachments=[abjad.Articulation(">")],
+        selector=trinton.durational_selector(
+            durations=[
+                abjad.Duration((1, 16)),
+                abjad.Duration((3, 32)),
+            ],
+            preselector=abjad.select.logical_ties,
+            preprolated=True,
+            first=True,
+        ),
+    ),
+    trinton.tremolo_command(selector=trinton.pleaves()),
+    voice=score["guitar 2 voice"],
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (4,)),
+    evans.RhythmHandler(
+        rhythm.main_talea(
+            index=20,
+            denominator=32,
+            prolations=[(1, 2)],
+            elaboration_level=2,
+            retrograde=True,
+        )
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    voice=score["guitar 2 voice"],
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (5, 6)),
+    evans.RhythmHandler(
+        rhythm.main_talea(
+            index=27,
+            denominator=8,
+            prolations=[(1, 2)],
+            elaboration_level=1,
+            retrograde=True,
+        )
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    voice=score["guitar 2 voice"],
+    beam_meter=True,
+)
 
 # globals
 

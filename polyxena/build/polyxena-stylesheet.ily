@@ -154,15 +154,15 @@ afterGraceFraction = #(cons 15 16)
         \override Stem.details.beamed-lengths = #'(7.5)
         \override Stem.details.lengths = #'(6.5)
 
-        % \override StemTremolo.stencil = #ly:text-interface::print
-        % \override StemTremolo.text = \markup {
-        %     \fontsize #3.5
-        %     \override #'(font-name . "ekmelos")
-        %     \lower #1
-        %     {
-        %         \char ##xe222
-        %     }
-        % }
+        \override StemTremolo.stencil = #ly:text-interface::print
+        \override StemTremolo.text = \markup {
+            \fontsize #3.5
+            \override #'(font-name . "ekmelos")
+            \lower #1
+            {
+                \char ##xe222
+            }
+        }
         \override StemTremolo.whiteout-style = #'outline
         \override StemTremolo.whiteout = 1
         \override StemTremolo.layer = 2
@@ -308,7 +308,7 @@ afterGraceFraction = #(cons 15 16)
                 \fontsize #2
                 {
                     \override #'(font-name . "Bodoni72 Book Italic")
-                    "polyxena / iliac sherds"
+                    "polyxena / ilium sherds"
                     \override #'(font-name . "Bodoni72 Book")
                     " - Trinity Hlynn Prater"
                 }
@@ -331,7 +331,7 @@ afterGraceFraction = #(cons 15 16)
                 \fontsize #2
                 {
                     \override #'(font-name . "Bodoni72 Book Italic")
-                    "polyxena / iliac sherds"
+                    "polyxena / ilium sherds"
                     \override #'(font-name . "Bodoni72 Book")
                     " - Trinity Hlynn Prater"
                 }

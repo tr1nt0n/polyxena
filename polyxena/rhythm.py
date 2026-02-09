@@ -84,7 +84,7 @@ for i, index in enumerate(library.tetrahedron_corners_list):
     numerator_sequence.append(numerator)
 
 
-def main_talea(index, denominator, prolations, elaboration_level=0):
+def main_talea(index, denominator, prolations, elaboration_level=0, retrograde=False):
     def return_rhythms(time_signatures):
         if len(prolations) > 2:
             raise Exception("Length of prolations must be 1 or 2.")
@@ -164,6 +164,9 @@ def main_talea(index, denominator, prolations, elaboration_level=0):
             numerator_sequence, index % len(numerator_sequence)
         )
 
+        if retrograde is True:
+            talea_numerators = talea_numerators[::-1]
+
         rhythm_selections = rmakers.talea(
             durations,
             talea_numerators,
@@ -175,6 +178,33 @@ def main_talea(index, denominator, prolations, elaboration_level=0):
         trinton.respell_tuplets(abjad.select.tuplets(container), rewrite_brackets=False)
 
         # put elaboration section here
+
+        if elaboration_level > 0:
+            largest_to_smallest_numerator = [7, 6, 4, 3, 2, 1]
+            relevant_numerators = largest_to_smallest_numerator[:elaboration_level]
+            relevant_durations = [(_, denominator) for _ in relevant_numerators]
+
+            logical_ties = abjad.select.logical_ties(container, pitched=True)
+            for i, tie in enumerate(logical_ties):
+                tie_duration = abjad.get.duration(tie, preprolated=True)
+                for comparative_duration in relevant_durations:
+                    if tie_duration == abjad.Duration(comparative_duration):
+                        if i % 2 == 0:
+                            tuplet = rmakers.tuplet(
+                                [abjad.get.duration(tie[0], preprolated=True)],
+                                [(1, 1, 1)],
+                            )
+                        else:
+                            tuplet = rmakers.tuplet(
+                                [abjad.get.duration(tie[0], preprolated=True)], [(4, 3)]
+                            )
+
+                        rmakers.rewrite_dots(tuplet)
+                        trinton.respell_tuplets(tuplet, rewrite_brackets=False)
+                        if len(tie) > 1:
+                            abjad.attach(abjad.Tie(), abjad.select.leaf(tuplet, -1))
+
+                        abjad.mutate.replace(tie[0], tuplet)
 
         treat_tuplets = trinton.treat_tuplets()
         treat_tuplets(container)
