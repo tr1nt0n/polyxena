@@ -84,7 +84,7 @@ for i, index in enumerate(library.tetrahedron_corners_list):
     numerator_sequence.append(numerator)
 
 
-def distorted_talea(index, prolations, elaboration_level=0, retrograde=False):
+def distorted_talea(start_index, prolations, elaboration_level=0, retrograde=False):
     def return_rhythms(time_signatures):
         durations = []
 
@@ -101,9 +101,15 @@ def distorted_talea(index, prolations, elaboration_level=0, retrograde=False):
                 subdivision = subdivision_cycle[subdivision_index]
 
                 for beat_group in subdivision:
-                    durations.append(
-                        abjad.Duration(beat_group, time_signature_denominator)
-                    )
+                    if (
+                        time_signature_denominator == 7
+                        or time_signature_denominator == 14
+                        or time_signature_denominator == 28
+                    ):
+                        duration_denominator = time_signature_denominator * 2
+                    else:
+                        duration_denominator = time_signature_denominator
+                    durations.append(abjad.Duration(beat_group, duration_denominator))
 
                 three_counter += 1
 
@@ -135,11 +141,17 @@ def distorted_talea(index, prolations, elaboration_level=0, retrograde=False):
 
                 eight_counter += 1
 
+        if retrograde is True:
+            talea_sequence = numerator_sequence[::-1]
+        else:
+            talea_sequence = numerator_sequence
+
         talea_weights = trinton.rotated_sequence(
-            numerator_sequence, start_index % len(numerator_sequence)
+            talea_sequence, start_index % len(numerator_sequence)
         )
 
         talea_counter = 0
+        tuplet_ratios = []
         for duration, prolation in zip(durations, itertools.cycle(prolations)):
             if duration >= abjad.Duration((1, 1)):
                 attack_amount = 5
@@ -152,181 +164,339 @@ def distorted_talea(index, prolations, elaboration_level=0, retrograde=False):
             if duration <= abjad.Duration((1, 4)):
                 attack_amount = 2
 
-            talea_start = talea_counter
+            talea_start = talea_counter % len(talea_weights)
             talea_stop = attack_amount + talea_start
 
             talea_section = talea_weights[talea_start:talea_stop]
+            # print(f"talea section: {talea_section}")
 
             talea_sum = sum(talea_section)
 
-            tuplet_ratio = []
             if talea_sum != prolation:
-                if talea_sum > prolation:
-                    prolation_difference = talea_sum - prolation
-                    target_sum = prolation * 2
-                    target_sum_difference = target_sum - prolation
+                # print("talea sum does not equal prolation")
+                if talea_sum / 2 == prolation or talea_sum / 4 == prolation:
+                    # print("talea sum is a multiple of prolation")
+                    talea_section = tuple(talea_section)
+                    tuplet_ratios.append(talea_section)
+                else:
+                    # print("talea sum is not a multiple of prolation")
+                    if talea_sum > prolation:
+                        # print("talea sum is larger than duration")
+                        prolation_difference = talea_sum - prolation
+                        target_sum = prolation * 2
+                        target_sum_difference = target_sum - prolation
 
-                    if prolation_difference < target_sum_difference:
-                        target_sum = prolation
+                        if prolation_difference < target_sum_difference:
+                            target_sum = prolation
 
-                    for _ in range(0, 100):
-                        talea_section = []
-                        for _ in talea_section:
-                            if _ == 1:
-                                talea_section.append(_)
+                        # print(f"target sum: {target_sum}")
+                        # print(f"talea sum: {talea_sum}")
+
+                        for _ in range(0, 100):
+                            new_talea_section = []
+                            for _ in talea_section:
+                                if _ == 1:
+                                    new_talea_section.append(_)
+                                else:
+                                    reduced_pulse = _ - 1
+                                    new_talea_section.append(reduced_pulse)
+
+                            # print(f"reduced talea: {new_talea_section}")
+
+                            if sum(new_talea_section) <= target_sum:
+                                # print(f"sufficiently reduced talea: {new_talea_section}")
+                                break
                             else:
-                                reduced_pulse = _ - 1
-                                talea_section.append(reduced_pulse)
+                                talea_section = new_talea_section
 
-                        if sum(talea_section) <= target_sum:
-                            break
+                        if sum(new_talea_section) < target_sum:
+                            # print("sufficiently reduced talea is less than target sum")
+                            largest_pulse = max(new_talea_section)
+                            # print(f"talea section's largest pulse: {largest_pulse}")
 
-                    if sum(talea_section) < target_sum:
+                            final_talea_section = []
+
+                            difference = target_sum - sum(new_talea_section)
+
+                            largest_pulse_counter = 0
+                            for _ in new_talea_section:
+                                if _ == largest_pulse and largest_pulse_counter == 0:
+                                    # print("found the largest pulse")
+                                    new_pulse = _ + difference
+                                    final_talea_section.append(new_pulse)
+                                    largest_pulse_counter += 1
+                                else:
+                                    final_talea_section.append(_)
+
+                            final_talea_section = tuple(final_talea_section)
+
+                            tuplet_ratios.append(final_talea_section)
+
+                        else:
+                            talea_section = tuple(new_talea_section)
+                            tuplet_ratios.append(new_talea_section)
+
+                    else:
+                        prolation_difference = talea_sum - prolation
+                        target_sum = prolation * 2
+                        target_sum_difference = target_sum - prolation
+                        if prolation_difference < target_sum_difference:
+                            target_sum = prolation
+
                         largest_pulse = max(talea_section)
 
                         new_talea_section = []
 
                         difference = target_sum - sum(talea_section)
 
+                        largest_pulse_counter = 0
                         for _ in talea_section:
-                            if _ == largest_pulse:
+                            if _ == largest_pulse and largest_pulse_counter == 0:
                                 new_pulse = _ + difference
                                 new_talea_section.append(new_pulse)
+                                largest_pulse_counter += 1
                             else:
                                 new_talea_section.append(_)
 
-                        for _ in new_talea_section:
-                            tuplet_ratio.append(new_talea_section)
+                        new_talea_section = tuple(new_talea_section)
+
+                        tuplet_ratios.append(new_talea_section)
+
+            else:
+                talea_section = tuple(talea_section)
+                tuplet_ratios.append(talea_section)
+
+            talea_counter += attack_amount
+
+        #     print("")
+        #
+        # print(f"tuplet ratios: {tuplet_ratios}")
+        #
+        # breakpoint()
+
+        container = abjad.Container()
+        tuplets = rmakers.tuplet(durations, tuplet_ratios)
+        container.extend(tuplets)
+
+        rmakers.rewrite_dots(abjad.select.tuplets(container))
+        trinton.respell_tuplets(abjad.select.tuplets(container), rewrite_brackets=False)
+
+        denominator_sequence = []
+
+        if elaboration_level > 0:
+            durations = [
+                abjad.get.duration(tie, preprolated=True)
+                for tie in abjad.select.logical_ties(container)
+            ]
+            durations.sort()
+            sorted_durations = durations[::-1]
+            sorted_durations = trinton.remove_adjacent(sorted_durations)
+            relevant_durations = sorted_durations[0:elaboration_level]
+
+            logical_ties = abjad.select.logical_ties(container, pitched=True)
+            duration_match_counter = start_index
+            for tie in logical_ties:
+                tie_duration = abjad.get.duration(tie, preprolated=True)
+                for comparative_duration in relevant_durations:
+                    if tie_duration == comparative_duration:
+                        tie_parent = abjad.get.parentage(
+                            abjad.select.leaf(tie, 0)
+                        ).parent
+                        if isinstance(tie_parent, abjad.Tuplet):
+                            tuplet_prolation = tie_parent.implied_prolation
+                            tuplet_numerator = tuplet_prolation.denominator
+                            if tuplet_numerator % 3 == 0:
+                                tuplet_list = [(3, 3, 1), (2, 1, 1, 3), (4, 3)]
+                            else:
+                                tuplet_list = [(2, 1), (1, 1, 1), (2, 2, 1, 1)]
+                        else:
+                            tuplet_list = [
+                                (3, 3, 1),
+                                (2, 1),
+                                (2, 1, 1, 3),
+                                (1, 1, 1),
+                                (4, 3),
+                                (2, 2, 1, 1),
+                            ]
+
+                        tuplet_ratio = tuplet_list[
+                            duration_match_counter % len(tuplet_list)
+                        ]
+                        duration_match_counter += 1
+                        tuplet = rmakers.tuplet(
+                            [abjad.get.duration(tie[0], preprolated=True)],
+                            [tuplet_ratio],
+                        )
+
+                        rmakers.rewrite_dots(tuplet)
+                        trinton.respell_tuplets(tuplet, rewrite_brackets=False)
+                        if len(tie) > 1:
+                            abjad.attach(abjad.Tie(), abjad.select.leaf(tuplet, -1))
+
+                        abjad.mutate.replace(tie[0], tuplet)
+
+        treat_tuplets = trinton.treat_tuplets()
+        treat_tuplets(container)
+        trinton.respell_tuplets(abjad.select.tuplets(container), rewrite_brackets=False)
+        rhythm_selections = abjad.mutate.eject_contents(container)
+        return rhythm_selections
 
     return return_rhythms
 
 
-# def main_talea(index, denominator, prolations, elaboration_level=0, retrograde=False):
-#     def return_rhythms(time_signatures):
-#         if len(prolations) > 2:
-#             raise Exception("Length of prolations must be 1 or 2.")
-#
-#         durations = []
-#
-#         for i, time_signature in enumerate(time_signatures):
-#             time_signature_numerator = time_signature.numerator
-#             time_signature_denominator = time_signature.denominator
-#             if time_signature_numerator == 3:
-#                 if i % 2 == 0:
-#                     first_denominator = time_signature_denominator
-#                     second_denominator = time_signature_denominator / 2
-#                 else:
-#                     first_denominator = time_signature_denominator / 2
-#                     second_denominator = time_signature_denominator
-#
-#                 duration_1 = abjad.Duration((1, first_denominator))
-#                 duration_2 = abjad.Duration((1, second_denominator))
-#                 durations.append(duration_1)
-#                 durations.append(duration_2)
-#
-#             if time_signature_numerator == 6:
-#                 half_duration = time_signature.duration / 2
-#
-#                 durations.append(half_duration)
-#                 durations.append(half_duration)
-#
-#             if time_signature_numerator == 7:
-#                 if i % 2 == 0:
-#                     first_duration = abjad.Duration((3, time_signature_denominator))
-#                     second_duration = abjad.Duration((4, time_signature_denominator))
-#                 else:
-#                     first_duration = abjad.Duration((4, time_signature_denominator))
-#                     second_duration = abjad.Duration((3, time_signature_denominator))
-#
-#                 durations.append(first_duration)
-#                 durations.append(second_duration)
-#
-#             if time_signature_numerator == 8:
-#                 if i % 2 == 0:
-#                     first_duration = abjad.Duration((3, time_signature_denominator))
-#                     second_duration = abjad.Duration((2, time_signature_denominator))
-#                     third_duration = abjad.Duration((3, time_signature_denominator))
-#                 else:
-#                     first_duration = abjad.Duration((3, time_signature_denominator))
-#                     second_duration = abjad.Duration((3, time_signature_denominator))
-#                     third_duration = abjad.Duration((2, time_signature_denominator))
-#
-#                 durations.append(first_duration)
-#                 durations.append(second_duration)
-#                 durations.append(third_duration)
-#
-#         extra_counts = []
-#
-#         for i, duration in enumerate(durations):
-#             duration_numerator = duration.numerator
-#             duration_denominator = duration.denominator
-#             if i % 2 == 0:
-#                 relevant_prolation = prolations[0]
-#             else:
-#                 relevant_prolation = prolations[-1]
-#
-#             target_prolation = abjad.Duration(
-#                 (relevant_prolation[0], duration_denominator * relevant_prolation[-1])
-#             )
-#             difference = target_prolation - duration
-#             difference = difference.numerator
-#             numerator_multiplier = denominator / target_prolation.denominator
-#             numerator_multiplier = int(numerator_multiplier)
-#             extra_count = difference * numerator_multiplier
-#             extra_counts.append(extra_count)
-#
-#         container = abjad.Container()
-#
-#         talea_numerators = trinton.rotated_sequence(
-#             numerator_sequence, index % len(numerator_sequence)
-#         )
-#
-#         if retrograde is True:
-#             talea_numerators = talea_numerators[::-1]
-#
-#         rhythm_selections = rmakers.talea(
-#             durations,
-#             talea_numerators,
-#             denominator=denominator,
-#             extra_counts=extra_counts,
-#         )
-#         container.extend(rhythm_selections)
-#         rmakers.rewrite_dots(abjad.select.tuplets(container))
-#         trinton.respell_tuplets(abjad.select.tuplets(container), rewrite_brackets=False)
-#
-#         # put elaboration section here
-#
-#         if elaboration_level > 0:
-#             largest_to_smallest_numerator = [7, 6, 4, 3, 2, 1]
-#             relevant_numerators = largest_to_smallest_numerator[:elaboration_level]
-#             relevant_durations = [(_, denominator) for _ in relevant_numerators]
-#
-#             logical_ties = abjad.select.logical_ties(container, pitched=True)
-#             for i, tie in enumerate(logical_ties):
-#                 tie_duration = abjad.get.duration(tie, preprolated=True)
-#                 for comparative_duration in relevant_durations:
-#                     if tie_duration == abjad.Duration(comparative_duration):
-#                         if i % 2 == 0:
-#                             tuplet = rmakers.tuplet(
-#                                 [abjad.get.duration(tie[0], preprolated=True)],
-#                                 [(1, 1, 1)],
-#                             )
-#                         else:
-#                             tuplet = rmakers.tuplet(
-#                                 [abjad.get.duration(tie[0], preprolated=True)], [(4, 3)]
-#                             )
-#
-#                         rmakers.rewrite_dots(tuplet)
-#                         trinton.respell_tuplets(tuplet, rewrite_brackets=False)
-#                         if len(tie) > 1:
-#                             abjad.attach(abjad.Tie(), abjad.select.leaf(tuplet, -1))
-#
-#                         abjad.mutate.replace(tie[0], tuplet)
-#
-#         treat_tuplets = trinton.treat_tuplets()
-#         treat_tuplets(container)
-#         trinton.respell_tuplets(abjad.select.tuplets(container), rewrite_brackets=False)
-#         rhythm_selections = abjad.mutate.eject_contents(container)
-#         return rhythm_selections
-#
-#     return return_rhythms
+def maintained_talea(
+    index, denominator, prolations, elaboration_level=0, retrograde=False
+):
+    def return_rhythms(time_signatures):
+        if len(prolations) > 2:
+            raise Exception("Length of prolations must be 1 or 2.")
+
+        durations = []
+
+        three_counter = 0
+        seven_counter = 0
+        eight_counter = 0
+        for time_signature in time_signatures:
+            time_signature_numerator = time_signature.numerator
+            time_signature_denominator = time_signature.denominator
+
+            if time_signature_numerator == 3:
+                subdivision_cycle = [[2, 1], [1, 2], [1, 1, 1]]
+                subdivision_index = three_counter % 3
+                subdivision = subdivision_cycle[subdivision_index]
+
+                for beat_group in subdivision:
+                    if (
+                        time_signature_denominator == 7
+                        or time_signature_denominator == 14
+                        or time_signature_denominator == 28
+                    ):
+                        duration_denominator = time_signature_denominator * 2
+                    else:
+                        duration_denominator = time_signature_denominator
+                    durations.append(abjad.Duration(beat_group, duration_denominator))
+
+                three_counter += 1
+
+            if time_signature_numerator == 6:
+                durations.append(abjad.Duration((3, time_signature_denominator)))
+                durations.append(abjad.Duration((3, time_signature_denominator)))
+
+            if time_signature_numerator == 7:
+                subdivision_cycle = [[4, 3], [2, 3, 2], [3, 4]]
+                subdivision_index = seven_counter % 3
+                subdivision = subdivision_cycle[subdivision_index]
+
+                for beat_group in subdivision:
+                    durations.append(
+                        abjad.Duration(beat_group, time_signature_denominator)
+                    )
+
+                seven_counter += 1
+
+            if time_signature_numerator == 8:
+                subdivision_cycle = [[3, 3, 2], [3, 2, 3], [2, 3, 3]]
+                subdivision_index = seven_counter % 3
+                subdivision = subdivision_cycle[subdivision_index]
+
+                for beat_group in subdivision:
+                    durations.append(
+                        abjad.Duration(beat_group, time_signature_denominator)
+                    )
+
+                eight_counter += 1
+
+        extra_counts = []
+
+        for relevant_prolation, duration in zip(itertools.cycle(prolations), durations):
+            duration_numerator = duration.numerator
+            duration_denominator = duration.denominator
+
+            target_prolation = abjad.Duration(
+                (relevant_prolation[0], duration_denominator * relevant_prolation[-1])
+            )
+            difference = target_prolation - duration
+            difference = difference.numerator
+            numerator_multiplier = denominator / target_prolation.denominator
+            numerator_multiplier = int(numerator_multiplier)
+            extra_count = difference * numerator_multiplier
+            extra_counts.append(extra_count)
+
+        container = abjad.Container()
+
+        talea_numerators = trinton.rotated_sequence(
+            numerator_sequence, index % len(numerator_sequence)
+        )
+
+        if retrograde is True:
+            talea_numerators = talea_numerators[::-1]
+
+        rhythm_selections = rmakers.talea(
+            durations,
+            talea_numerators,
+            denominator=denominator,
+            extra_counts=extra_counts,
+        )
+        container.extend(rhythm_selections)
+        rmakers.rewrite_dots(abjad.select.tuplets(container))
+        trinton.respell_tuplets(abjad.select.tuplets(container), rewrite_brackets=False)
+
+        if elaboration_level > 0:
+            durations = [
+                abjad.get.duration(tie, preprolated=True)
+                for tie in abjad.select.logical_ties(container)
+            ]
+            durations.sort()
+            sorted_durations = durations[::-1]
+            sorted_durations = trinton.remove_adjacent(sorted_durations)
+            relevant_durations = sorted_durations[0:elaboration_level]
+
+            logical_ties = abjad.select.logical_ties(container, pitched=True)
+            duration_match_counter = 0
+            for tie in logical_ties:
+                tie_duration = abjad.get.duration(tie, preprolated=True)
+                for comparative_duration in relevant_durations:
+                    if tie_duration == comparative_duration:
+                        tie_parent = abjad.get.parentage(
+                            abjad.select.leaf(tie, 0)
+                        ).parent
+                        if isinstance(tie_parent, abjad.Tuplet):
+                            tuplet_prolation = tie_parent.implied_prolation
+                            tuplet_numerator = tuplet_prolation.denominator
+                            if tuplet_numerator % 3 == 0:
+                                tuplet_list = [(3, 3, 1), (2, 1, 1, 3), (4, 3)]
+                            else:
+                                tuplet_list = [(2, 1), (1, 1, 1), (2, 2, 1, 1)]
+                        else:
+                            tuplet_list = [
+                                (3, 3, 1),
+                                (2, 1),
+                                (2, 1, 1, 3),
+                                (1, 1, 1),
+                                (4, 3),
+                                (2, 2, 1, 1),
+                            ]
+
+                        tuplet_list = trinton.rotated_sequence(
+                            tuplet_list, duration_match_counter % len(tuplet_list)
+                        )
+                        tuplet = rmakers.tuplet(
+                            [abjad.get.duration(tie[0], preprolated=True)],
+                            tuplet_list,
+                        )
+
+                        rmakers.rewrite_dots(tuplet)
+                        trinton.respell_tuplets(tuplet, rewrite_brackets=False)
+                        if len(tie) > 1:
+                            abjad.attach(abjad.Tie(), abjad.select.leaf(tuplet, -1))
+
+                        abjad.mutate.replace(tie[0], tuplet)
+                        duration_match_counter += 1
+
+        treat_tuplets = trinton.treat_tuplets()
+        treat_tuplets(container)
+        trinton.respell_tuplets(abjad.select.tuplets(container), rewrite_brackets=False)
+        rhythm_selections = abjad.mutate.eject_contents(container)
+        return rhythm_selections
+
+    return return_rhythms

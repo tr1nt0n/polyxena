@@ -90,102 +90,173 @@
                             {
                                 \context Voice = "cello 2 voice"
                                 {
-                                    \times 2/3
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
                                     {
                                         \override Staff.Stem.stemlet-length = 0.75
-                                        c'8
-                                        - \accent
+                                        c'8.
                                         [
-                                        c'8
-                                        - \accent
-                                        \revert Staff.Stem.stemlet-length
-                                        c'8
-                                        ]
-                                        ~
-                                    }
-                                    \times 4/6
-                                    {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'8
-                                        [
-                                        c'16
-                                        - \accent
                                         c'8.
                                         \revert Staff.Stem.stemlet-length
                                         c'16
-                                        - \accent
                                         ]
-                                        c'4
-                                        ~
-                                        c'16
-                                        ~
                                     }
-                                    c'4
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        c'8.
+                                        [
+                                        \revert Staff.Stem.stemlet-length
+                                        c'32
+                                        ]
+                                    }
                                     \tweak text #tuplet-number::calc-fraction-text
                                     \times 8/7
                                     {
                                         \override Staff.Stem.stemlet-length = 0.75
                                         c'8
-                                        - \accent
+                                        [
+                                        ~
+                                        c'32
+                                        \revert Staff.Stem.stemlet-length
+                                        c'16
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        c'16
+                                        [
+                                        c'16
+                                        \times 2/3
+                                        {
+                                            c'8
+                                            c'8
+                                            c'16
+                                            c'16
+                                            ~
+                                        }
+                                        \revert Staff.Stem.stemlet-length
+                                        c'16
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        c'16
+                                        [
+                                        c'8
+                                        ~
+                                        \revert Staff.Stem.stemlet-length
+                                        c'32
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        c'32
+                                        [
+                                        \revert Staff.Stem.stemlet-length
+                                        c'8.
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        c'32
+                                        [
+                                        \revert Staff.Stem.stemlet-length
+                                        c'8.
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        c'8
+                                        \times 2/3
+                                        {
+                                            c'4
+                                            \override Staff.Stem.stemlet-length = 0.75
+                                            c'8
+                                            [
+                                        }
+                                        \revert Staff.Stem.stemlet-length
+                                        c'16
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        c'8.
+                                        [
+                                        \revert Staff.Stem.stemlet-length
+                                        c'32
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        c'8.
+                                        [
+                                        \revert Staff.Stem.stemlet-length
+                                        c'32
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        c'16
+                                        [
+                                        c'16
+                                        \times 2/3
+                                        {
+                                            c'8
+                                            c'8
+                                            c'8
+                                            ~
+                                        }
+                                        \revert Staff.Stem.stemlet-length
+                                        c'16
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        c'32
+                                        [
+                                        \revert Staff.Stem.stemlet-length
+                                        c'8.
+                                        ]
+                                    }
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        c'8
                                         [
                                         \revert Staff.Stem.stemlet-length
                                         c'16.
                                         ]
                                     }
-                                    \times 2/3
-                                    {
-                                        \times 2/3
-                                        {
-                                            \override Staff.Stem.stemlet-length = 0.75
-                                            c'8
-                                            - \accent
-                                            [
-                                            c'8
-                                            - \accent
-                                            c'8
-                                            - \accent
-                                        }
-                                        c'16
-                                        - \accent
-                                        \revert Staff.Stem.stemlet-length
-                                        c'16
-                                        - \accent
-                                        ]
-                                    }
-                                    c'4
-                                    ~
-                                    \times 2/3
-                                    {
-                                        c'2
-                                        c'4
-                                        - \accent
-                                    }
-                                    c'4
-                                    ~
-                                    \times 4/6
-                                    {
-                                        c'4
-                                        c'8
-                                        :64
-                                        - \accent
-                                        c'4.
-                                        ~
-                                    }
                                     \tweak text #tuplet-number::calc-fraction-text
                                     \times 8/7
                                     {
-                                        c'4
                                         \override Staff.Stem.stemlet-length = 0.75
-                                        c'8
-                                        :64
+                                        c'32
                                         [
                                         \revert Staff.Stem.stemlet-length
-                                        c'16
+                                        c'8.
                                         ]
-                                        ~
                                     }
-                                    c'4
-                                    c'2.
                                       %! +SCORE
                                     \once \override MultiMeasureRest.transparent = ##t
                                       %! +SCORE
@@ -237,111 +308,12 @@
                             {
                                 \context Voice = "guitar 2 voice"
                                 {
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
-                                    {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'32
-                                        [
-                                        c'16..
-                                        :128
-                                        c'64
-                                        - \accent
-                                        \revert Staff.Stem.stemlet-length
-                                        c'16
-                                        ]
-                                    }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
-                                    {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'32.
-                                        [
-                                        c'16.
-                                        :128
-                                        c'64
-                                        - \accent
-                                        c'32.
-                                        c'64
-                                        - \accent
-                                        c'32.
-                                        c'32.
-                                        c'16.
-                                        :128
-                                        \revert Staff.Stem.stemlet-length
-                                        c'32
-                                        ]
-                                    }
-                                    c'4
-                                    ~
-                                    \times 2/3
-                                    {
-                                        c'2
-                                        c'4
-                                        :32
-                                        - \accent
-                                    }
-                                    c'16
-                                    :128
-                                    - \accent
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 6/7
-                                    {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'8
-                                        :64
-                                        [
-                                        \revert Staff.Stem.stemlet-length
-                                        c'16.
-                                        :128
-                                        ]
-                                        ~
-                                    }
-                                    \override Staff.Stem.stemlet-length = 0.75
-                                    c'16
-                                    :128
-                                    [
-                                    \revert Staff.Stem.stemlet-length
-                                    c'8.
-                                    :64
-                                    ]
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
-                                    {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'8
-                                        :64
-                                        [
-                                        \revert Staff.Stem.stemlet-length
-                                        c'16.
-                                        :128
-                                        - \accent
-                                        ]
-                                    }
-                                    c'16
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 6/7
-                                    {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'8
-                                        [
-                                        \revert Staff.Stem.stemlet-length
-                                        c'16.
-                                        ]
-                                    }
-                                    \override Staff.Stem.stemlet-length = 0.75
-                                    c'16
-                                    [
-                                    c'16
-                                    c'16
-                                    \revert Staff.Stem.stemlet-length
-                                    c'16
-                                    ]
-                                    ~
-                                    c'4
-                                    c'2.
-                                    ~
-                                    c'2.
+                                    s1 * 3/4
+                                    s1 * 3/4
+                                    s1 * 3/4
+                                    s1 * 3/4
+                                    s1 * 3/4
+                                    s1 * 3/4
                                       %! +SCORE
                                     \once \override MultiMeasureRest.transparent = ##t
                                       %! +SCORE
