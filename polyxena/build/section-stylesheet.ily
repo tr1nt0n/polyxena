@@ -70,7 +70,7 @@ afterGraceFraction = #(cons 15 16)
         \consists Grid_line_span_engraver
         % \consists Measure_spanner_engraver
         \remove Bar_number_engraver
-        proportionalNotationDuration = #(ly:make-moment 1 20)
+        proportionalNotationDuration = #(ly:make-moment 1 30)
         pedalSustainStyle = #'mixed
 
         \override StaffGrouper.staffgroup-staff-spacing = #'((basic-distance . 7) (minimum distance . 7) (padding . 7) (stretchability . 0))
@@ -115,7 +115,7 @@ afterGraceFraction = #(cons 15 16)
         \override Clef.whiteout-style = #'outline
         \override Clef.whiteout = 1
 
-        \override DynamicText.font-size = #1
+        \override DynamicText.font-size = #-0.75
         \override DynamicText.layer = 2
         \override DynamicText.whiteout-style = #'outline
         \override DynamicText.whiteout = 1
@@ -154,15 +154,15 @@ afterGraceFraction = #(cons 15 16)
         \override Stem.details.beamed-lengths = #'(7.5)
         \override Stem.details.lengths = #'(6.5)
 
-        % \override StemTremolo.stencil = #ly:text-interface::print
-        % \override StemTremolo.text = \markup {
-        %     \fontsize #3.5
-        %     \override #'(font-name . "ekmelos")
-        %     \lower #1
-        %     {
-        %         \char ##xe222
-        %     }
-        % }
+        \override StemTremolo.stencil = #ly:text-interface::print
+        \override StemTremolo.text = \markup {
+            \fontsize #3.5
+            \override #'(font-name . "ekmelos")
+            \lower #1
+            {
+                \char ##xe222
+            }
+        }
         \override StemTremolo.whiteout-style = #'outline
         \override StemTremolo.whiteout = 1
         \override StemTremolo.layer = 2
@@ -289,9 +289,9 @@ afterGraceFraction = #(cons 15 16)
 	        #:brace "haydn"
 	))
     min-systems-per-page = 1
-    max-systems-per-page = 2
+    max-systems-per-page = 3
     system-separator-markup = \markup \fontsize #12 { \tremolo-moderato }
-    % system-system-spacing = #'((basic-distance . 30) (minimum-distance . 30) (padding . 0) (stretchability . 30))
+    system-system-spacing = #'((basic-distance . 30) (minimum-distance . 30) (padding . 0) (stretchability . 30))
     indent = 25\mm
     short-indent = 15\mm
     bottom-margin = 10\mm

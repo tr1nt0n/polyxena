@@ -2,29 +2,53 @@
     <<
         \context TimeSignatureContext = "Global Context"
         {
+              %! +SCORE
+            \tempo 8=48
             \time 3/4
             s1 * 3/4
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0.5 \raise #11.5 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 48" } } }
+              %! +SCORE
+            \noBreak
             \once \override Score.TimeSignature.stencil = ##f
+              %! +SCORE
+            \tempo 8=84
             \time 3/4
             s1 * 3/4
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0 \raise #11.5 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 84" } } }
+              %! +SCORE
+            \noBreak
             \once \override Score.TimeSignature.stencil = ##f
+              %! +SCORE
+            \tempo 8=48
             \time 3/4
             s1 * 3/4
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0 \raise #11.5 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 48" } } }
+              %! +SCORE
+            \break
             \once \override Score.TimeSignature.stencil = ##f
+              %! +SCORE
+            \tempo 8=84
             \time 3/4
             s1 * 3/4
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0 \raise #11.5 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 84" } } }
+              %! +SCORE
+            \noBreak
             \once \override Score.TimeSignature.stencil = ##f
+              %! +SCORE
+            \tempo 8=48
             \time 3/4
             s1 * 3/4
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0 \raise #11.5 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 48" } } }
+              %! +SCORE
+            \noBreak
             \once \override Score.TimeSignature.stencil = ##f
+              %! +SCORE
+            \tempo 8=84
             \time 3/4
             s1 * 3/4
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0 \raise #11.5 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 84" } } }
+              %! +SCORE
+            \noBreak
             \once \override Score.BarLine.transparent = ##f
             \once \override MultiMeasureRest.transparent = ##t
             \once \override Score.TimeSignature.stencil = ##f
@@ -34,6 +58,8 @@
             _ \short-fermata
             \bar "||"
             \once \override Score.BarLine.transparent = ##f
+              %! +SCORE
+            \pageBreak
         }
         \tag #'group1
         {
@@ -76,181 +102,184 @@
                             {
                                 \context Voice = "cello 2 voice"
                                 {
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
+                                    \times 2/3
                                     {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'8.
-                                        [
-                                        c'8.
-                                        \revert Staff.Stem.stemlet-length
-                                        c'16
-                                        ]
-                                    }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
-                                    {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'8.
-                                        [
-                                        \revert Staff.Stem.stemlet-length
-                                        c'32
-                                        ]
-                                    }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
-                                    {
-                                        \override Staff.Stem.stemlet-length = 0.75
                                         c'8
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
                                         [
-                                        ~
-                                        c'32
-                                        \revert Staff.Stem.stemlet-length
-                                        c'16
+                                        \tweak text #tuplet-number::calc-fraction-text
+                                        \times 8/7
+                                        {
+                                            c'8.
+                                            c'8.
+                                            c'16
+                                        }
+                                        c'8
                                         ]
                                     }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
+                                    c'8.
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.4
+                                                #:dynamic "fff"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    [
+                                    c'16
+                                    ]
+                                    c'8.
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mf"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    [
+                                    c'16
+                                    ]
+                                    \times 2/3
                                     {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'16
-                                        [
-                                        c'16
-                                        \times 2/3
+                                        \tweak text #tuplet-number::calc-fraction-text
+                                        \times 8/7
                                         {
                                             c'8
+                                            _ #(make-dynamic-script
+                                                (markup
+                                                    #:whiteout
+                                                    #:line (
+                                                        #:general-align Y -2 #:normal-text #:larger "“"
+                                                        #:hspace -0.4
+                                                        #:dynamic "ff"
+                                                        #:hspace -0.2
+                                                        #:general-align Y -2 #:normal-text #:larger "”"
+                                                        )
+                                                    )
+                                                )
+                                            [
+                                            c'16
+                                            c'16
+                                            c'8.
+                                        }
+                                        c'8
+                                        c'8
+                                        ]
+                                    }
+                                    \times 2/3
+                                    {
+                                        c'16
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        [
+                                        \tweak text #tuplet-number::calc-fraction-text
+                                        \times 8/7
+                                        {
                                             c'8
-                                            c'16
-                                            c'16
+                                            \set stemLeftBeamCount = 2
+                                            \set stemRightBeamCount = 1
+                                            c'16.
                                             ~
                                         }
-                                        \revert Staff.Stem.stemlet-length
                                         c'16
                                         ]
                                     }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
+                                    \times 2/3
                                     {
-                                        \override Staff.Stem.stemlet-length = 0.75
+                                        c'8
+                                        c'4
+                                    }
+                                    \times 2/3
+                                    {
+                                        c'8
+                                        c'4
+                                    }
+                                    \times 4/6
+                                    {
+                                        c'8
+                                        [
+                                        c'8
                                         c'16
-                                        [
-                                        c'8
-                                        ~
-                                        \revert Staff.Stem.stemlet-length
-                                        c'32
-                                        ]
-                                    }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
-                                    {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'32
-                                        [
-                                        \revert Staff.Stem.stemlet-length
+                                        c'16
+                                        c'8.
                                         c'8.
                                         ]
                                     }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
+                                    r4
+                                    \times 2/3
                                     {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'32
-                                        [
-                                        \revert Staff.Stem.stemlet-length
-                                        c'8.
-                                        ]
-                                    }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
-                                    {
-                                        c'8
-                                        \times 2/3
+                                        \tweak text #tuplet-number::calc-fraction-text
+                                        \times 8/7
                                         {
-                                            c'4
-                                            \override Staff.Stem.stemlet-length = 0.75
                                             c'8
                                             [
+                                            \set stemLeftBeamCount = 2
+                                            \set stemRightBeamCount = 1
+                                            c'16.
+                                            ~
                                         }
-                                        \revert Staff.Stem.stemlet-length
+                                        \set stemLeftBeamCount = 1
+                                        \set stemRightBeamCount = 2
+                                        c'16
                                         c'16
                                         ]
                                     }
                                     \tweak text #tuplet-number::calc-fraction-text
                                     \times 8/7
                                     {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'8.
-                                        [
-                                        \revert Staff.Stem.stemlet-length
-                                        c'32
-                                        ]
-                                    }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
-                                    {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'8.
-                                        [
-                                        \revert Staff.Stem.stemlet-length
-                                        c'32
-                                        ]
-                                    }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
-                                    {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'16
-                                        [
-                                        c'16
                                         \times 2/3
                                         {
-                                            c'8
-                                            c'8
+                                            r4
                                             c'8
                                             ~
                                         }
-                                        \revert Staff.Stem.stemlet-length
                                         c'16
-                                        ]
+                                        r8
                                     }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
-                                    {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'32
-                                        [
-                                        \revert Staff.Stem.stemlet-length
-                                        c'8.
-                                        ]
-                                    }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
-                                    {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'8
-                                        [
-                                        \revert Staff.Stem.stemlet-length
-                                        c'16.
-                                        ]
-                                    }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
-                                    {
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'32
-                                        [
-                                        \revert Staff.Stem.stemlet-length
-                                        c'8.
-                                        ]
-                                    }
+                                      %! +SCORE
+                                    \once \override Staff.BarLine.transparent = ##f
                                       %! +SCORE
                                     \once \override MultiMeasureRest.transparent = ##t
+                                    R1 * 3/4
                                       %! +SCORE
+                                    \once \override Staff.BarLine.transparent = ##f
+                                    \once \override MultiMeasureRest.transparent = ##t
                                     \once \override Rest.transparent = ##t
-                                      %! +SCORE
                                     \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
-                                    s1 * 1/4
                                       %! +SCORE
+                                    \once \override MultiMeasureRest.transparent = ##t
+                                    R1 * 1/4
                                     \stopStaff \startStaff
                                 }
                             }
@@ -294,12 +323,168 @@
                             {
                                 \context Voice = "guitar 2 voice"
                                 {
-                                    s1 * 3/4
-                                    s1 * 3/4
-                                    s1 * 3/4
-                                    s1 * 3/4
-                                    s1 * 3/4
-                                    s1 * 3/4
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 8/7
+                                    {
+                                        c'16..
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "p"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        [
+                                        \>
+                                        c'64
+                                        c'16
+                                        c'32.
+                                        c'16..
+                                        c'32
+                                        c'16
+                                        ]
+                                        ~
+                                    }
+                                    \times 4/6
+                                    {
+                                        c'8
+                                        [
+                                        c'16
+                                        c'8.
+                                        ]
+                                        ~
+                                    }
+                                    c'16
+                                    [
+                                    c'16
+                                    ~
+                                    \set stemLeftBeamCount = 2
+                                    \set stemRightBeamCount = 1
+                                    c'16
+                                    \times 2/3
+                                    {
+                                        \set stemLeftBeamCount = 1
+                                        \set stemRightBeamCount = 2
+                                        c'16
+                                        c'32
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "ppp"
+                                                    #:hspace -0.25
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ]
+                                        ~
+                                    }
+                                    c'2
+                                    \times 2/3
+                                    {
+                                        r4
+                                        c'2
+                                        ~
+                                    }
+                                    c'4
+                                    ~
+                                    c'4
+                                    r2
+                                    c'4
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.4
+                                                #:dynamic "fff"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    c'8
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mp"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    [
+                                    \times 2/3
+                                    {
+                                        c'8
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.4
+                                                    #:dynamic "ff"
+                                                    #:hspace -0.2
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        c'16
+                                        _ #(make-dynamic-script
+                                            (markup
+                                                #:whiteout
+                                                #:line (
+                                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                                    #:hspace -0.1
+                                                    #:dynamic "mf"
+                                                    #:hspace -0.2
+                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                    )
+                                                )
+                                            )
+                                        ]
+                                        ~
+                                    }
+                                    c'4
+                                    ~
+                                    c'4
+                                    c'4
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.4
+                                                #:dynamic "fff"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    c'4
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "mp"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
                                       %! +SCORE
                                     \once \override MultiMeasureRest.transparent = ##t
                                       %! +SCORE

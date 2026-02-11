@@ -14,7 +14,7 @@
     dedication = \markup \column {\line \override #'(font-name . "Bodoni72 Book Italic") { \fontsize #4 { "to" \override #'(font-name . "Bodoni72 Book") "Athena Zenker Díaz" \override #'(font-name . "Bodoni72 Book Italic") "and" \override #'(font-name . "Bodoni72 Book") "Mauricio Galeano" } } \line { \fontsize #0.01 \with-color #white "."} }
     title = \markup \override #'(font-name . "Bodoni72 Book Italic") \center-column { \line \fontsize #14 { "polyxena / ilium sherds" } \fontsize #0.01 \with-color #white "."}
     subtitle = \markup \fontsize #4 \center-column { \line { \override #'(font-name . "Bodoni72 Book Italic") { "( four talismans )" } } \fontsize #0.01 \with-color #white "."}
-    composer = \markup \column { \override #'(font-name . "Bodoni72") \fontsize #4 {"Trinity Hlynn Prater (*2000)"} \fontsize #35 \with-color #white "."}
+    composer = \markup \column { \override #'(font-name . "Bodoni72") \fontsize #4 {"Trinity Hlynn Prater (*2000)"} \fontsize #25 \with-color #white "."}
 }
 
 afterGraceFraction = #(cons 15 16)
@@ -70,7 +70,7 @@ afterGraceFraction = #(cons 15 16)
         \consists Grid_line_span_engraver
         % \consists Measure_spanner_engraver
         \remove Bar_number_engraver
-        proportionalNotationDuration = #(ly:make-moment 1 20)
+        proportionalNotationDuration = #(ly:make-moment 1 30)
         pedalSustainStyle = #'mixed
 
         \override StaffGrouper.staffgroup-staff-spacing = #'((basic-distance . 7) (minimum distance . 7) (padding . 7) (stretchability . 0))
@@ -115,7 +115,7 @@ afterGraceFraction = #(cons 15 16)
         \override Clef.whiteout-style = #'outline
         \override Clef.whiteout = 1
 
-        \override DynamicText.font-size = #1
+        \override DynamicText.font-size = #-0.75
         \override DynamicText.layer = 2
         \override DynamicText.whiteout-style = #'outline
         \override DynamicText.whiteout = 1
@@ -135,6 +135,8 @@ afterGraceFraction = #(cons 15 16)
         \override MeasureSpanner.font-size = 7
         \override MeasureSpanner.font-name = "Bodoni72 Book"
         \override MeasureSpanner.padding = 4
+
+        \override MetronomeMark.stencil = ##f
 
         \override NoteCollision.merge-differently-dotted = ##t
         \override NoteCollision.merge-differently-headed = ##t
@@ -289,9 +291,9 @@ afterGraceFraction = #(cons 15 16)
 	        #:brace "haydn"
 	))
     min-systems-per-page = 1
-    max-systems-per-page = 2
+    max-systems-per-page = 3
     system-separator-markup = \markup \fontsize #12 { \tremolo-moderato }
-    % system-system-spacing = #'((basic-distance . 30) (minimum-distance . 30) (padding . 0) (stretchability . 30))
+    system-system-spacing = #'((basic-distance . 30) (minimum-distance . 30) (padding . 0) (stretchability . 30))
     indent = 25\mm
     short-indent = 15\mm
     bottom-margin = 10\mm

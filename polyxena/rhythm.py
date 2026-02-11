@@ -348,9 +348,6 @@ def maintained_talea(
     index, denominator, prolations, elaboration_level=0, retrograde=False
 ):
     def return_rhythms(time_signatures):
-        if len(prolations) > 2:
-            raise Exception("Length of prolations must be 1 or 2.")
-
         durations = []
 
         three_counter = 0
