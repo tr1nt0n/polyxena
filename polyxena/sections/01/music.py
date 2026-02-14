@@ -23,6 +23,81 @@ score = library.polyxena_score(section_ts)
 # gambe music
 
 trinton.make_music(
+    lambda _: trinton.select_target(_, (1, 5)),
+    evans.RhythmHandler(
+        trinton.handwrite_nested_tuplets(
+            tuplet_ratios=[(1, 4, 1), (1,), (1,), (1,), (1,), (-1,), (1,), (4, 1, -2)],
+            # preprocessor=trinton.fuse_quarters_preprocessor((2, 1)),
+            nested_ratios=[(4, 3), (-2, 1)],
+            triple_nested_ratios=None,
+            nested_vectors=None,
+            nested_period=None,
+            triple_nested_vectors=None,
+            triple_nested_period=None,
+            extract_trivial_tuplets=True,
+            nested_selector=trinton.select_logical_ties_by_index(
+                [1, -2], pitched=True, grace=False
+            ),
+        ),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.Tie(),
+        ],
+        selector=trinton.select_leaves_by_index([0, 2, -2], pitched=True, grace=False),
+    ),
+    rhythm.replace_with_tremolo_container(
+        selector=trinton.select_logical_ties_by_index(
+            [2, 4], pitched=True, grace=False
+        ),
+        count=2,
+    ),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle(
+            [
+                abjad.LilyPondLiteral(
+                    r'\change Staff = "cello 2 staff"', site="before"
+                ),
+                abjad.LilyPondLiteral(
+                    r'\change Staff = "cello 1 staff"', site="absolute_after"
+                ),
+            ]
+        ),
+        selector=trinton.select_logical_ties_by_index(
+            [2, 3, 5, 6], first=True, pitched=True
+        ),
+    ),
+    trinton.change_notehead_command(
+        notehead="harmonic-mixed",
+        selector=trinton.select_logical_ties_by_index(
+            [2, 5], pitched=True, grace=False
+        ),
+    ),
+    library.change_staff_type(
+        selector=trinton.select_leaves_by_index([0, -1]),
+        staff_type="tablature",
+        auto_reversion=True,
+    ),
+    # trinton.linear_attachment_command(
+    #     attachments=itertools.cycle(
+    #         [
+    #             abjad.StartBeam(),
+    #             abjad.StopBeam(),
+    #         ]
+    #     ),
+    #     selector=trinton.select_leaves_by_index([0, 4])
+    # ),
+    voice=score["cello 1 voice"],
+    preprocessor=trinton.fuse_quarters_preprocessor((2, 1, 1, 2, 5, 1, 1, 2)),
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (3, 5)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    voice=score["cello 1 voice"],
+)
+
+trinton.make_music(
     lambda _: trinton.select_target(_, (1, 3)),
     evans.RhythmHandler(
         rhythm.distorted_talea(
@@ -63,15 +138,37 @@ trinton.make_music(
     trinton.linear_attachment_command(
         attachments=itertools.cycle(
             [
-                abjad.Dynamic('"mp"'),
-                abjad.Dynamic('"fff"'),
-                abjad.Dynamic('"mf"'),
-                abjad.Dynamic('"ff"'),
+                abjad.LilyPondLiteral(
+                    r'\change Staff = "cello 1 staff"', site="before"
+                ),
+                abjad.LilyPondLiteral(
+                    r'\change Staff = "cello 2 staff"', site="absolute_after"
+                ),
             ]
         ),
         selector=trinton.select_logical_ties_by_index(
-            [0, 5, 7, 9, 15], first=True, pitched=True, grace=False
+            [5, 6, 9, 14], first=True, pitched=True
         ),
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.Dynamic('"fff"'),
+            abjad.Dynamic('"ff"'),
+        ],
+        selector=trinton.select_logical_ties_by_index(
+            [5, 9], first=True, pitched=True, grace=False
+        ),
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.Dynamic('"mp"'),
+            abjad.Dynamic('"fff"'),
+            abjad.Dynamic('"mp"'),
+        ],
+        selector=trinton.select_logical_ties_by_index(
+            [0, 7, 15], first=True, pitched=True, grace=False
+        ),
+        direction=abjad.UP,
     ),
     voice=score["cello 2 voice"],
 )
@@ -464,6 +561,14 @@ library.write_short_instrument_names(score=score)
 # beautification
 
 trinton.remove_redundant_time_signatures(score=score)
+trinton.whiteout_empty_staves(
+    score=score,
+    voice_names=["cello 1 voice", "guitar 1 voice"],
+    cutaway="blank",
+    tag=abjad.Tag("+SCORE"),
+    last_segment=False,
+)
+
 trinton.whiteout_empty_staves(
     score=score,
     voice_names=["cello 2 voice"],

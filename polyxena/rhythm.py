@@ -497,3 +497,39 @@ def maintained_talea(
         return rhythm_selections
 
     return return_rhythms
+
+
+def replace_with_tremolo_container(selector, count=2):
+    def replace(argument):
+        selections = selector(argument)
+
+        for selection in selections:
+            selection_duration = abjad.get.duration(selection, preprolated=True)
+
+            content_duration_divisor = count * 2
+            content_duration = selection_duration / content_duration_divisor
+
+            content_duration_numerator = content_duration.numerator
+            content_duration_denominator = content_duration.denominator
+
+            if content_duration_numerator != 1:
+                if content_duration_numerator == 3:
+                    lilypond_duration = rf"{content_duration_denominator}."
+                if content_duration_numerator == 5:
+                    lilypond_duration = rf"{content_duration_denominator}~ c'{content_duration_denominator * 2}"
+                if content_duration_numerator == 7:
+                    lilypond_duration = rf"{content_duration_denominator}.."
+                if content_duration_numerator == 15:
+                    lilypond_duration = rf"{content_duration_denominator}..."
+            else:
+                lilypond_duration = content_duration_denominator
+
+            contents = rf"c'{lilypond_duration} c'{lilypond_duration}"
+
+            container = abjad.TremoloContainer(count=2, components=contents)
+
+            abjad.slur(container)
+
+            abjad.mutate.replace(selection, container)
+
+    return replace

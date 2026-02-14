@@ -112,6 +112,57 @@ def attach_patterned_dynamics(
 # notation tools
 
 
+def change_staff_type(
+    selector, staff_type, reversion_line_count=5, auto_reversion=True
+):
+    def change(argument):
+        if staff_type != "tablature" and staff_type != "stringing":
+            raise Exception("Available staff types are tablature and stringing.")
+        selections = selector(argument)
+
+        for i, selection in enumerate(selections):
+            if i % 2 == 1:
+                if auto_reversion is True:
+                    revert_literal = abjad.LilyPondLiteral(
+                        [
+                            r"\revert Staff.Clef.stencil",
+                            r"\revert Staff.StaffSymbol.line-positions",
+                            rf"\staff-line-count {reversion_line_count}",
+                            r"\revert Staff.BarLine.bar-extent",
+                            r"\revert Staff.Accidental.stencil",
+                            r"\revert Staff.NoteHead.no-ledgers",
+                        ],
+                        site="absolute_after",
+                    )
+
+                    abjad.attach(revert_literal, selection)
+
+            else:
+                _staff_type_to_literal_strings = {
+                    "tablature": [
+                        r"\override Staff.Clef.stencil = #ly:text-interface::print",
+                        r"\override Staff.Clef.text = \string-clef",
+                        r"\staff-line-count 4",
+                        r"\override Staff.StaffSymbol.line-positions = #'(9 7 0 -9)",
+                        r"\override Staff.BarLine.bar-extent = #'(-4.5 . 4.5)",
+                        # r"\override Rest.staff-position = #0",
+                        r"\override Staff.Accidental.stencil = ##f",
+                        r"\override Staff.NoteHead.no-ledgers = ##t",
+                    ],
+                    "stringing": [
+                        r"\override Staff.Clef.stencil = #ly:text-interface::print",
+                        r"\override Staff.Clef.text = \stringing-clef",
+                        r"\staff-line-count 4",
+                    ],
+                }
+
+                literal_strings = _staff_type_to_literal_strings[staff_type]
+                staff_literal = abjad.LilyPondLiteral(literal_strings, site="before")
+                abjad.attach(staff_literal, selection)
+
+    return change
+
+
 def graphic_bow_pressure_spanner(
     selector=trinton.logical_ties(first=True, pitched=True),
     peaks=[0, 1, 4, 2],
