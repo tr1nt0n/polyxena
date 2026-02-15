@@ -116,8 +116,14 @@ def change_staff_type(
     selector, staff_type, reversion_line_count=5, auto_reversion=True
 ):
     def change(argument):
-        if staff_type != "tablature" and staff_type != "stringing":
-            raise Exception("Available staff types are tablature and stringing.")
+        if (
+            staff_type != "tablature"
+            and staff_type != "stringing gambe"
+            and staff_type != "stringing theorbe"
+        ):
+            raise Exception(
+                "Available staff types are tablature, stringing gambe, and stringing theorbe"
+            )
         selections = selector(argument)
 
         for i, selection in enumerate(selections):
@@ -149,10 +155,19 @@ def change_staff_type(
                         r"\override Staff.Accidental.stencil = ##f",
                         r"\override Staff.NoteHead.no-ledgers = ##t",
                     ],
-                    "stringing": [
+                    "stringing gambe": [
                         r"\override Staff.Clef.stencil = #ly:text-interface::print",
-                        r"\override Staff.Clef.text = \stringing-clef",
-                        r"\staff-line-count 4",
+                        r"\override Staff.Clef.text = \six-string-clef",
+                        r"\staff-line-count 6",
+                        r"\override Staff.Accidental.stencil = ##f",
+                        r"\override Staff.NoteHead.no-ledgers = ##t",
+                    ],
+                    "stringing theorbe": [
+                        r"\override Staff.Clef.stencil = #ly:text-interface::print",
+                        r"\override Staff.Clef.text = \fourteen-string-clef",
+                        r"\staff-line-count 14",
+                        r"\override Staff.Accidental.stencil = ##f",
+                        r"\override Staff.NoteHead.no-ledgers = ##t",
                     ],
                 }
 

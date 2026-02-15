@@ -111,7 +111,7 @@ bow-clef = \markup {
     }
 }
 
-stringing-clef = \markup {
+six-string-clef = \markup {
     \fontsize #-5
     \raise #1
     \override #'(baseline-skip . 1)
@@ -121,6 +121,32 @@ stringing-clef = \markup {
             \line { II }
             \line { III }
             \line { IV }
+            \line { V }
+            \line { VI }
+        }
+    }
+}
+
+fourteen-string-clef = \markup {
+    \fontsize #-5
+    \raise #1
+    \override #'(baseline-skip . 1)
+    {
+        \center-column {
+            \line { I }
+            \line { II }
+            \line { III }
+            \line { IV }
+            \line { V }
+            \line { VI }
+            \line { VII }
+            \line { VIII }
+            \line { IX }
+            \line { X }
+            \line { XI }
+            \line { XII }
+            \line { XIII }
+            \line { XIV }
         }
     }
 }
@@ -272,50 +298,98 @@ big-half-harmonic = {
 
 % string articulations
 
-bow-tip-up = \markup {
+spazzolato = \markup {
     \fontsize #4.5
     \override #'(font-name . "ekmelos")
     \override #'(whiteout-style . "outline")
     \override #'(whiteout . 1)
     \override #'(layer . 27)
-    \rotate #135
+    \override #'(baseline-skip . 0)
+    \circle
     {
-        \char ##xe7F1
+        \center-column {
+            \combine
+            \line {
+                % \rotate #180
+                \char ##xe27b
+            }
+            \line {
+                \rotate #-180
+                \char ##xe27b
+            }
+        }
     }
 }
 
-bow-tip-half-up = \markup {
+
+downward-diagonal-draw = \markup {
     \fontsize #4.5
     \override #'(font-name . "ekmelos")
     \override #'(whiteout-style . "outline")
     \override #'(whiteout . 1)
     \override #'(layer . 27)
-    \rotate #-180
+    \override #'(baseline-skip . 0)
+    \circle
     {
-        \char ##xe7F1
+        \center-column {
+            \combine
+            \line {
+                \rotate #-45
+                % \raise #1.5
+                \char ##xe27b
+            }
+            \line {
+                \rotate #135
+                % \lower #1.5
+                % \char ##xe27a
+                \char ##xe27b
+            }
+        }
     }
 }
 
-normale-bow-rotation = \markup {
+normale-draw = \markup {
     \fontsize #4.5
     \override #'(font-name . "ekmelos")
     \override #'(whiteout-style . "outline")
     \override #'(whiteout . 1)
     \override #'(layer . 27)
-    \rotate #-135
+    \override #'(baseline-skip . 0)
+    \circle
     {
-        \char ##xe7F1
+        \center-column {
+            \combine
+            \line {
+                \rotate #-90
+                \char ##xe27b
+            }
+            \line {
+                \rotate #90
+                \char ##xe27b
+            }
+        }
     }
 }
 
-bow-tip-half-down = \markup {
+upward-diagonal-draw = \markup {
     \fontsize #4.5
     \override #'(font-name . "ekmelos")
     \override #'(whiteout-style . "outline")
     \override #'(whiteout . 1)
     \override #'(layer . 27)
-    \rotate #-90
+    \override #'(baseline-skip . 0)
+    \circle
     {
-        \char ##xe7F1
+        \center-column {
+            \combine
+            \line {
+                \rotate #-135
+                \char ##xe27b
+            }
+            \line {
+                \rotate #45
+                \char ##xe27b
+            }
+        }
     }
 }
