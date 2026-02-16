@@ -113,7 +113,7 @@ bow-clef = \markup {
 
 six-string-clef = \markup {
     \fontsize #-5
-    \raise #1
+    \raise #2.25
     \override #'(baseline-skip . 1)
     {
         \center-column {

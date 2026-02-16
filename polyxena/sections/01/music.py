@@ -69,12 +69,6 @@ trinton.make_music(
             [2, 3, 5, 6], first=True, pitched=True
         ),
     ),
-    trinton.change_notehead_command(
-        notehead="harmonic-mixed",
-        selector=trinton.select_logical_ties_by_index(
-            [2, 5], pitched=True, grace=False
-        ),
-    ),
     library.change_staff_type(
         selector=trinton.select_leaves_by_index([0, -1]),
         staff_type="tablature",
@@ -118,9 +112,22 @@ trinton.make_music(
         )
     ),
     trinton.pitch_with_selector_command(
-        pitch_list=["g'", "c'", "b'", "a'", "g'"], selector=trinton.pleaves(grace=True)
+        pitch_list=["g'", "c'", "b'", "a'", "g'"],
+        selector=trinton.pleaves(grace=True),
+    ),
+    trinton.pitch_with_selector_command(
+        pitch_list=[["g", "b", "d'", "f'"]],
+        selector=trinton.select_logical_ties_by_index(
+            [2, 3, 5, 6], pitched=True, grace=False
+        ),
     ),
     trinton.noteheads_only(selector=trinton.pleaves(grace=True)),
+    trinton.change_notehead_command(
+        notehead="harmonic-mixed",
+        selector=trinton.select_logical_ties_by_index(
+            [2, 5], pitched=True, grace=False
+        ),
+    ),
     trinton.continuous_glissando(
         selector=trinton.logical_ties(exclude=[2, 3, 5, 6], pitched=True, grace=False),
         zero_padding=True,
@@ -139,8 +146,14 @@ trinton.make_music(
         ),
         direction=abjad.UP,
     ),
+    trinton.attachment_command(
+        attachments=[abjad.Articulation(">")],
+        selector=trinton.select_logical_ties_by_index(
+            [3, 6], first=True, pitched=True, grace=False
+        ),
+    ),
     trinton.hooked_spanner_command(
-        string="""I-V""",
+        string="""II-V""",
         selector=trinton.select_leaves_by_index([0, -1], pitched=True),
         padding=19.5,
         direction=None,
@@ -173,6 +186,51 @@ trinton.make_music(
             # r"""- \tweak bound-details.left.Y #7.5""",
             # r"""- \tweak bound-details.right.Y #11""",
         ],
+    ),
+    library.change_staff_type(
+        selector=trinton.select_logical_ties_by_index(
+            [2, 3], first=True, pitched=True, grace=False
+        ),
+        staff_type="stringing gambe",
+        reversion_line_count=1,
+        auto_reversion=False,
+    ),
+    library.change_staff_type(
+        selector=trinton.select_logical_ties_by_index(
+            [
+                5,
+            ],
+            first=True,
+            pitched=True,
+            grace=False,
+        ),
+        staff_type="stringing gambe",
+        reversion_line_count=1,
+        auto_reversion=False,
+    ),
+    trinton.hooked_spanner_command(
+        string="""DP""",
+        selector=trinton.select_logical_ties_by_index([3, 4, 7, 8], first=True),
+        padding=6,
+        direction=None,
+        right_padding=2,
+        full_string=False,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="Two",
+        tag=None,
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book" """,
+            r"""- \tweak font-size 4""",
+            # r"""- \tweak bound-details.left.Y #7.5""",
+            # r"""- \tweak bound-details.right.Y #11""",
+        ],
+    ),
+    library.footnote_command(
+        text_string="Schnell wechseln zwischen dem Berühren der Saiten hinter dem Steg mit Fingerdruck, wie einen Flageolet spielen, und festen Herunterdrücken der Saiten. Dadurch sollte das Instrument vibrieren und ein unberechenbares Vibrato erzeugen.",
+        selector=trinton.select_logical_ties_by_index([3], first=True),
+        position_pair=(-1, 1),
+        site="before",
     ),
     voice=score["cello 1 voice"],
 )
@@ -243,12 +301,21 @@ trinton.make_music(
     ),
     trinton.linear_attachment_command(
         attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override DynamicLineSpanner.staff-padding = #12", site="before"
+            ),
             abjad.Dynamic('"mp"'),
+            abjad.LilyPondLiteral(
+                r"\once \override DynamicLineSpanner.staff-padding = #12", site="before"
+            ),
             abjad.Dynamic('"mf"'),
+            abjad.LilyPondLiteral(
+                r"\once \override DynamicLineSpanner.staff-padding = #12", site="before"
+            ),
             abjad.Dynamic('"mp"'),
         ],
         selector=trinton.select_logical_ties_by_index(
-            [0, 7, 15], first=True, pitched=True, grace=False
+            [0, 0, 7, 7, 15, 15], first=True, pitched=True, grace=False
         ),
         direction=abjad.UP,
     ),
@@ -339,6 +406,57 @@ trinton.make_music(
             [5, 6, 9, 10, 11, 12, 13, 14], first=True, pitched=True, grace=False
         ),
         direction=abjad.DOWN,
+    ),
+    voice=score["cello 2 voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (1, 5)),
+    # trinton.annotate_leaves_locally(
+    #     selector=trinton.logical_ties(first=True, pitched=True)
+    # ),
+    trinton.change_lines(
+        lines=1,
+        selector=trinton.select_logical_ties_by_index(
+            [0, 9, 23], first=True, pitched=True
+        ),
+        clef="percussion",
+        invisible_barlines=False,
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(r"\override Staff.Clef.stencil = ##f", site="before")
+        ],
+        selector=trinton.select_logical_ties_by_index(
+            [0, 9, 23], first=True, pitched=True
+        ),
+    ),
+    trinton.change_notehead_command(
+        notehead="cross",
+        selector=trinton.logical_ties(
+            pitched=True,
+            exclude=[5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+        ),
+    ),
+    trinton.hooked_spanner_command(
+        string="""\markup { \column { \line { Saitenhalter } \line { antippen } } }""",
+        selector=trinton.select_logical_ties_by_index(
+            [0, 4, 9, 10, 23, -1], first=True
+        ),
+        padding=4,
+        direction=None,
+        right_padding=2,
+        full_string=True,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="",
+        tag=None,
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
+            r"""- \tweak font-size 2""",
+            # r"""- \tweak bound-details.left.Y #7.5""",
+            # r"""- \tweak bound-details.right.Y #11""",
+        ],
     ),
     voice=score["cello 2 voice"],
 )
@@ -638,7 +756,7 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             abjad.LilyPondLiteral(
-                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (11 30 30 30 30)))",
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (11 20 30 30 30)))",
                 site="absolute_before",
             ),
         ],

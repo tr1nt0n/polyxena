@@ -4,6 +4,7 @@ import evans
 import trinton
 import itertools
 import polyxena
+import statistics
 from sympy import combinatorics
 
 # score
@@ -112,6 +113,29 @@ def attach_patterned_dynamics(
 # notation tools
 
 
+def footnote_command(
+    text_string="",
+    selector=trinton.select_leaves_by_index([0]),
+    position_pair=(-2, 1),
+    site="before",
+):
+    def footnote(argument):
+        selections = selector(argument)
+
+        if isinstance(text_string, list):
+            text = [f"\line {{ {_} }} " for _ in text_string]
+            text = "".join(text)
+            footnote = rf"""\footnote #'({position_pair[0]} . {position_pair[-1]}) \markup \fontsize #1 {{ \override #'(font-name . "Bodoni72 Book Italic") {{ \column {{ {text} }} }} }}"""
+        else:
+            footnote = rf"""\footnote #'({position_pair[0]} . {position_pair[-1]}) \markup \fontsize #1 {{ \override #'(font-name . "Bodoni72 Book Italic") {{ \column {{ " {text_string} " }} }} }}"""
+
+        for selection in selections:
+            footnote = abjad.LilyPondLiteral(footnote, site=site)
+            abjad.attach(footnote, selection)
+
+    return footnote
+
+
 def change_staff_type(
     selector, staff_type, reversion_line_count=5, auto_reversion=True
 ):
@@ -171,9 +195,25 @@ def change_staff_type(
                     ],
                 }
 
+                if staff_type != "tablature":
+                    clef = abjad.Clef("percussion")
+                else:
+                    clef = abjad.Clef("treble")
+
                 literal_strings = _staff_type_to_literal_strings[staff_type]
                 staff_literal = abjad.LilyPondLiteral(literal_strings, site="before")
                 abjad.attach(staff_literal, selection)
+                abjad.attach(clef, selection)
+                abjad.attach(
+                    abjad.LilyPondLiteral(r"\set Staff.forceClef = ##t", site="before"),
+                    selection,
+                )
+                abjad.attach(
+                    abjad.LilyPondLiteral(
+                        r"\set Staff.forceClef = ##f", site="absolute_after"
+                    ),
+                    selection,
+                )
 
     return change
 

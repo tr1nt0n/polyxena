@@ -3,7 +3,7 @@
         \context TimeSignatureContext = "Global Context"
         {
               %! +SCORE
-        %%% \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (11 30 30 30 30)))
+        %%% \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (11 20 30 30 30)))
               %! +SCORE
         %%% \tempo 8=48
             \time 3/4
@@ -90,6 +90,8 @@
                                         \set GrandStaff.instrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { Gambe }
                                           %! +SCORE
                                     %%% \set GrandStaff.shortInstrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { gambe }
+                                        \set Staff.forceClef = ##t
+                                        \clef "treble"
                                         a8
                                         ^ \half-up-bow
                                           %! abjad.glissando(7)
@@ -100,7 +102,7 @@
                                         - \tweak font-size 4
                                         - \tweak padding #19.5
                                         - \abjad-dashed-line-with-hook
-                                        - \tweak bound-details.left.text \markup \concat { \upright { "I-V" } \hspace #0.5 }
+                                        - \tweak bound-details.left.text \markup \concat { \upright { "II-V" } \hspace #0.5 }
                                         \startTextSpan
                                         - \tweak font-size 1
                                         - \tweak padding #16
@@ -108,6 +110,7 @@
                                         - \tweak bound-details.left.text \markup \concat { \downward-diagonal-draw \hspace #0.5 }
                                         \startTextSpanOne
                                         ~
+                                        \set Staff.forceClef = ##f
                                         \tweak text #tuplet-number::calc-fraction-text
                                         \times 8/7
                                         {
@@ -170,11 +173,37 @@
                                     }
                                     \repeat tremolo 2 {
                                         \change Staff = "cello 2 staff"
-                                        \tweak style #'harmonic-mixed
-                                        c'16
+                                        \footnote #'(-1 . 1) \markup \fontsize #1 { \override #'(font-name . "Bodoni72 Book Italic") { \column { " Schnell wechseln zwischen dem Berühren der Saiten hinter dem Steg mit Fingerdruck, wie einen Flageolet spielen, und festen Herunterdrücken der Saiten. Dadurch sollte das Instrument vibrieren und ein unberechenbares Vibrato erzeugen. " } } }
+                                        \override Staff.Clef.stencil = #ly:text-interface::print
+                                        \override Staff.Clef.text = \six-string-clef
+                                        \staff-line-count 6
+                                        \override Staff.Accidental.stencil = ##f
+                                        \override Staff.NoteHead.no-ledgers = ##t
+                                        \set Staff.forceClef = ##t
+                                        \clef "percussion"
+                                        <
+                                            \tweak style #'harmonic-mixed
+                                            g
+                                            \tweak style #'harmonic-mixed
+                                            b
+                                            \tweak style #'harmonic-mixed
+                                            d'
+                                            \tweak style #'harmonic-mixed
+                                            f'
+                                        >16
                                         (
-                                        c'16
+                                        - \tweak font-name "Bodoni72 Book" 
+                                        - \tweak font-size 4
+                                        - \tweak padding #6
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { \upright { "DP" } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -2
+                                        \startTextSpanTwo
+                                        \set Staff.forceClef = ##f
+                                        <g b d' f'>16
+                                        - \accent
                                         )
+                                        \stopTextSpanTwo
                                         \change Staff = "cello 1 staff"
                                     }
                                     \override Dots.staff-position = #2
@@ -211,11 +240,36 @@
                                     }
                                     \repeat tremolo 2 {
                                         \change Staff = "cello 2 staff"
-                                        \tweak style #'harmonic-mixed
-                                        c'8
+                                        \override Staff.Clef.stencil = #ly:text-interface::print
+                                        \override Staff.Clef.text = \six-string-clef
+                                        \staff-line-count 6
+                                        \override Staff.Accidental.stencil = ##f
+                                        \override Staff.NoteHead.no-ledgers = ##t
+                                        \set Staff.forceClef = ##t
+                                        \clef "percussion"
+                                        <
+                                            \tweak style #'harmonic-mixed
+                                            g
+                                            \tweak style #'harmonic-mixed
+                                            b
+                                            \tweak style #'harmonic-mixed
+                                            d'
+                                            \tweak style #'harmonic-mixed
+                                            f'
+                                        >8
                                         (
-                                        c'8
+                                        - \tweak font-name "Bodoni72 Book" 
+                                        - \tweak font-size 4
+                                        - \tweak padding #6
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { \upright { "DP" } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -2
+                                        \startTextSpanTwo
+                                        \set Staff.forceClef = ##f
+                                        <g b d' f'>8
+                                        - \accent
                                         )
+                                        \stopTextSpanTwo
                                         \change Staff = "cello 1 staff"
                                     }
                                     \override Dots.staff-position = #2
@@ -387,6 +441,11 @@
                                 {
                                     \times 2/3
                                     {
+                                        \staff-line-count 1
+                                        \once \override DynamicLineSpanner.staff-padding = #12
+                                        \override Staff.Clef.stencil = ##f
+                                        \clef "percussion"
+                                        \tweak style #'cross
                                         c'8
                                         ^ #(make-dynamic-script
                                             (markup
@@ -401,14 +460,26 @@
                                                 )
                                             )
                                         [
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #4
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { { \column { \line { Saitenhalter } \line { antippen } } } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -2
+                                        \startTextSpan
                                         \tweak text #tuplet-number::calc-fraction-text
                                         \times 8/7
                                         {
+                                            \tweak style #'cross
                                             c'8.
+                                            \tweak style #'cross
                                             c'8.
+                                            \tweak style #'cross
                                             c'16
                                         }
+                                        \tweak style #'cross
                                         c'8
+                                        \stopTextSpan
                                         ]
                                     }
                                     \change Staff = "cello 1 staff"
@@ -503,6 +574,11 @@
                                         b16
                                     }
                                     \change Staff = "cello 2 staff"
+                                    \staff-line-count 1
+                                    \once \override DynamicLineSpanner.staff-padding = #12
+                                    \override Staff.Clef.stencil = ##f
+                                    \clef "percussion"
+                                    \tweak style #'cross
                                     c'8.
                                     ^ #(make-dynamic-script
                                         (markup
@@ -517,7 +593,16 @@
                                             )
                                         )
                                     [
+                                    - \tweak font-name "Bodoni72 Book Italic" 
+                                    - \tweak font-size 2
+                                    - \tweak padding #4
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { \column { \line { Saitenhalter } \line { antippen } } } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding -2
+                                    \startTextSpan
+                                    \tweak style #'cross
                                     c'16
+                                    \stopTextSpan
                                     ]
                                     \times 2/3
                                     {
@@ -772,6 +857,11 @@
                                     }
                                     \times 2/3
                                     {
+                                        \staff-line-count 1
+                                        \once \override DynamicLineSpanner.staff-padding = #12
+                                        \override Staff.Clef.stencil = ##f
+                                        \clef "percussion"
+                                        \tweak style #'cross
                                         c'16
                                         ^ #(make-dynamic-script
                                             (markup
@@ -786,36 +876,56 @@
                                                 )
                                             )
                                         [
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #4
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { { \column { \line { Saitenhalter } \line { antippen } } } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -2
+                                        \startTextSpan
                                         \tweak text #tuplet-number::calc-fraction-text
                                         \times 8/7
                                         {
+                                            \tweak style #'cross
                                             c'8
                                             \set stemLeftBeamCount = 2
                                             \set stemRightBeamCount = 1
+                                            \tweak style #'cross
                                             c'16.
                                             ~
                                         }
+                                        \tweak style #'cross
                                         c'16
                                         ]
                                     }
                                     \times 2/3
                                     {
+                                        \tweak style #'cross
                                         c'8
+                                        \tweak style #'cross
                                         c'4
                                     }
                                     \times 2/3
                                     {
+                                        \tweak style #'cross
                                         c'8
+                                        \tweak style #'cross
                                         c'4
                                     }
                                     \times 4/6
                                     {
+                                        \tweak style #'cross
                                         c'8
                                         [
+                                        \tweak style #'cross
                                         c'8
+                                        \tweak style #'cross
                                         c'16
+                                        \tweak style #'cross
                                         c'16
+                                        \tweak style #'cross
                                         c'8.
+                                        \tweak style #'cross
                                         c'8.
                                         ]
                                     }
@@ -825,16 +935,20 @@
                                         \tweak text #tuplet-number::calc-fraction-text
                                         \times 8/7
                                         {
+                                            \tweak style #'cross
                                             c'8
                                             [
                                             \set stemLeftBeamCount = 2
                                             \set stemRightBeamCount = 1
+                                            \tweak style #'cross
                                             c'16.
                                             ~
                                         }
                                         \set stemLeftBeamCount = 1
                                         \set stemRightBeamCount = 2
+                                        \tweak style #'cross
                                         c'16
+                                        \tweak style #'cross
                                         c'16
                                         ]
                                     }
@@ -844,11 +958,14 @@
                                         \times 2/3
                                         {
                                             r4
+                                            \tweak style #'cross
                                             c'8
                                             ~
                                         }
+                                        \tweak style #'cross
                                         c'16
                                         r8
+                                        \stopTextSpan
                                     }
                                       %! +SCORE
                                 %%% \once \override Staff.BarLine.transparent = ##f
