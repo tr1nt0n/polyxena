@@ -597,7 +597,7 @@ trinton.make_music(
     trinton.octavation(
         octave=-1,
         selector=trinton.select_logical_ties_by_index(
-            [7, 8, 9, 10], pitched=True, grace=False
+            [8, 9, 10], pitched=True, grace=False
         ),
     ),
     trinton.octavation(
@@ -748,7 +748,7 @@ trinton.make_music(
     trinton.octavation(
         octave=-1,
         selector=trinton.select_logical_ties_by_index(
-            [7, 8, 9, 10], pitched=True, grace=False
+            [8, 9, 10], pitched=True, grace=False
         ),
     ),
     trinton.octavation(

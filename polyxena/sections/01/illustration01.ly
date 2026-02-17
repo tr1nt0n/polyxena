@@ -1215,7 +1215,7 @@
                                                 [
                                                 \set stemLeftBeamCount = 2
                                                 \set stemRightBeamCount = 1
-                                                <f, g,>16
+                                                <f g>16
                                                 <fs, a, bf,>8.
                                                 ]
                                                 ~
@@ -1378,7 +1378,7 @@
                                                 <c ef e>8
                                                 \set stemLeftBeamCount = 2
                                                 \set stemRightBeamCount = 1
-                                                <f, g,>16
+                                                <f g>16
                                                 - \tweak X-extent #'(0 . 0)
                                                 - \tweak Y-extent #'(0 . 0)
                                                 - \tweak stencil #ly:text-interface::print
