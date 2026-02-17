@@ -3,12 +3,12 @@
         \context TimeSignatureContext = "Global Context"
         {
               %! +SCORE
-            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (11 20 30 30 30)))
+            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (1 20 38 18)))
               %! +SCORE
             \tempo 8=48
             \time 3/4
             s1 * 3/4
-            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0.5 \raise #11.5 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 48" } } }
+            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0.5 \raise #22 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 48" } } }
               %! +SCORE
             \noBreak
             \once \override Score.TimeSignature.stencil = ##f
@@ -16,7 +16,7 @@
             \tempo 8=84
             \time 3/4
             s1 * 3/4
-            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0 \raise #11.5 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 84" } } }
+            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0 \raise #20 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 84" } } }
               %! +SCORE
             \noBreak
             \once \override Score.TimeSignature.stencil = ##f
@@ -24,7 +24,7 @@
             \tempo 8=48
             \time 3/4
             s1 * 3/4
-            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0 \raise #11.5 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 48" } } }
+            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0 \raise #20 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 48" } } }
               %! +SCORE
             \break
             \once \override Score.TimeSignature.stencil = ##f
@@ -998,6 +998,7 @@
                                 {
                                       %! +SCORE
                                     \once \override Staff.BarLine.transparent = ##f
+                                    \override Staff.Clef.stencil = ##f
                                     \set GrandStaff.instrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { Theorbe }
                                     \set GrandStaff.shortInstrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { theorbe }
                                       %! +SCORE
@@ -1009,21 +1010,65 @@
                                       %! +SCORE
                                     \once \override MultiMeasureRest.transparent = ##t
                                     R1 * 3/4
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "p"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    \>
                                       %! +SCORE
                                     \stopStaff \startStaff
-                                      %! +SCORE
-                                    \once \override Staff.BarLine.transparent = ##f
-                                      %! +SCORE
-                                    \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
-                                      %! +SCORE
-                                    \once \override Staff.TimeSignature.transparent = ##t
-                                      %! +SCORE
-                                    \once \override MultiMeasureRest.transparent = ##t
-                                      %! +SCORE
-                                    \once \override MultiMeasureRest.transparent = ##t
-                                    R1 * 3/4
-                                      %! +SCORE
-                                    \stopStaff \startStaff
+                                    \staff-line-count 1
+                                    \once \override Accidental.stencil = ##f
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
+                                    \once \override NoteHead.transparent = ##t
+                                    \clef "percussion"
+                                    c'4.
+                                    ~
+                                    \once \override Accidental.stencil = ##f
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
+                                    \once \override NoteHead.transparent = ##t
+                                    c'32
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.transparent = ##t
+                                    r4
+                                    _ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.1
+                                                #:dynamic "ppp"
+                                                #:hspace -0.25
+                                                #:general-align Y -2 #:normal-text #:larger "”"
+                                                )
+                                            )
+                                        )
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.transparent = ##t
+                                    r16.
                                       %! +SCORE
                                     \once \override Staff.BarLine.transparent = ##f
                                       %! +SCORE
@@ -1102,83 +1147,363 @@
                             {
                                 \context Voice = "guitar 2 voice"
                                 {
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 8/7
-                                    {
-                                        c'16..
-                                        _ #(make-dynamic-script
-                                            (markup
-                                                #:whiteout
-                                                #:line (
-                                                    #:general-align Y -2 #:normal-text #:larger "“"
-                                                    #:hspace -0.1
-                                                    #:dynamic "p"
-                                                    #:hspace -0.25
-                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                    <<
+                                        \context Voice = "guitar 2 voice right hand"
+                                        {
+                                            \tweak text #tuplet-number::calc-fraction-text
+                                            \times 8/7
+                                            {
+                                                \clef "bass"
+                                                \voiceOne
+                                                <df af bf>16..
+                                                [
+                                                - \tweak bound-details.left.Y #11
+                                                - \tweak bound-details.right.Y #25
+                                                - \tweak font-size 1
+                                                - \tweak padding #12
+                                                - \abjad-solid-line-with-arrow
+                                                - \tweak bound-details.left.text \markup \concat { \upward-diagonal-draw \hspace #0.5 }
+                                                - \tweak bound-details.right.text \normale-draw
+                                                - \tweak bound-details.right.padding -4.5
+                                                \startTextSpanThree
+                                                - \tweak bound-details.left.Y #4.5
+                                                - \tweak bound-details.right.Y #18.5
+                                                - \tweak font-name "Bodoni72 Book" 
+                                                - \tweak font-size 4
+                                                - \tweak padding #12
+                                                - \abjad-solid-line-with-arrow
+                                                - \tweak bound-details.left.text \markup \concat { \upright { "ST" } \hspace #0.5 }
+                                                - \tweak bound-details.right.text \markup \upright { "Steg" }
+                                                - \tweak bound-details.right.padding -3.5
+                                                \startTextSpanOne
+                                                - \tweak bound-details.left.Y #7.5
+                                                - \tweak bound-details.right.Y #21.5
+                                                - \tweak font-name "Bodoni72 Book" 
+                                                - \tweak font-size 2
+                                                - \tweak padding #12
+                                                - \abjad-solid-line-with-arrow
+                                                - \tweak bound-details.left.text \markup \concat { \upright { "Nagelvorderseite" } \hspace #0.5 }
+                                                - \tweak bound-details.right.text \markup \upright { "Fingerspitze" }
+                                                - \tweak bound-details.right.padding -3.5
+                                                \startTextSpanTwo
+                                                <c g b>64
+                                                <g a bf,>16
+                                                <d f! fs>32.
+                                                <c ef b,>16..
+                                                <df bf,>32
+                                                <c ef e>16
+                                                ]
+                                                ~
+                                            }
+                                            \times 4/6
+                                            {
+                                                <c ef e>8
+                                                [
+                                                \set stemLeftBeamCount = 2
+                                                \set stemRightBeamCount = 1
+                                                <f, g,>16
+                                                <fs, a, bf,>8.
+                                                ]
+                                                ~
+                                            }
+                                            <fs, a, bf,>16..
+                                            [
+                                            <af, b,>64
+                                            ~
+                                            <af, b,>8
+                                            ]
+                                            ~
+                                            <af, b,>16
+                                            [
+                                            ~
+                                            \set stemLeftBeamCount = 4
+                                            \set stemRightBeamCount = 1
+                                            <af, b,>64
+                                            \tweak text #tuplet-number::calc-fraction-text
+                                            \times 7/6
+                                            {
+                                                \set stemLeftBeamCount = 1
+                                                \set stemRightBeamCount = 2
+                                                <fs, a,>16
+                                                \stopTextSpanOne
+                                                \stopTextSpanThree
+                                                \stopTextSpanTwo
+                                                \change Staff = "guitar 1 staff"
+                                                \once \override Dots.staff-position = #2
+                                                \set stemLeftBeamCount = 3
+                                                \set stemRightBeamCount = 1
+                                                c'32
+                                                  %! abjad.glissando(7)
+                                                - \abjad-zero-padding-glissando
+                                                  %! abjad.glissando(7)
+                                                \glissando
+                                                ~
+                                            }
+                                            \once \override Dots.staff-position = #2
+                                              %! abjad.glissando(1)
+                                            \hide NoteHead
+                                              %! abjad.glissando(1)
+                                            \override Accidental.stencil = ##f
+                                              %! abjad.glissando(1)
+                                            \override NoteColumn.glissando-skip = ##t
+                                              %! abjad.glissando(1)
+                                            \override NoteHead.no-ledgers = ##t
+                                            c'16
+                                            ]
+                                            ~
+                                            \once \override Dots.staff-position = #2
+                                            c'4
+                                            ~
+                                            \once \override Dots.staff-position = #2
+                                            \afterGrace
+                                            c'8.
+                                            {
+                                                \once \override Accidental.stencil = ##f
+                                                \once \override Dots.staff-position = #2
+                                                \once \override NoteHead.no-ledgers = ##t
+                                                \once \override RepeatTie.transparent = ##t
+                                                \once \override Beam.stencil = ##f
+                                                \once \override Flag.stencil = ##f
+                                                \once \override Dots.stencil = ##f
+                                                \once \override Tie.stencil = ##f
+                                                \once \override NoteHead.duration-log = 2
+                                                \once \override Stem.stencil = ##f
+                                                \once \override NoteHead.transparent = ##t
+                                                  %! abjad.glissando(6)
+                                                \revert Accidental.stencil
+                                                  %! abjad.glissando(6)
+                                                \revert NoteColumn.glissando-skip
+                                                  %! abjad.glissando(6)
+                                                \revert NoteHead.no-ledgers
+                                                  %! abjad.glissando(6)
+                                                \undo \hide NoteHead
+                                                c'16
+                                            }
+                                            \change Staff = "guitar 2 staff"
+                                        }
+                                        \context Voice = "theorbe left hand voice"
+                                        {
+                                            \tweak text #tuplet-number::calc-fraction-text
+                                            \times 8/7
+                                            {
+                                                \once \override Voice.DynamicLineSpanner.staff-padding = #15
+                                                \override Voice.TupletBracket.stencil = ##f
+                                                \override Voice.TupletNumber.stencil = ##f
+                                                \override Voice.NoteHead.transparent = ##t
+                                                \override Voice.Dots.stencil = ##f
+                                                \override Voice.NoteHead.X-extent = #'(0 . 0)
+                                                \voiceTwo
+                                                <df af bf>16..
+                                                - \tweak X-extent #'(0 . 0)
+                                                - \tweak Y-extent #'(0 . 0)
+                                                - \tweak stencil #ly:text-interface::print
+                                                - \tweak text \markup { \hspace #-1 H }
+                                                :128
+                                                - \accent
+                                                _ #(make-dynamic-script
+                                                    (markup
+                                                        #:whiteout
+                                                        #:line (
+                                                            #:general-align Y -2 #:normal-text #:larger "“"
+                                                            #:hspace -0.4
+                                                            #:dynamic "ff"
+                                                            #:hspace -0.2
+                                                            #:general-align Y -2 #:normal-text #:larger "”"
+                                                            )
+                                                        )
                                                     )
-                                                )
-                                            )
-                                        [
-                                        \>
-                                        c'64
-                                        c'16
-                                        c'32.
-                                        c'16..
-                                        c'32
-                                        c'16
-                                        ]
-                                        ~
-                                    }
-                                    \times 4/6
-                                    {
-                                        c'8
-                                        [
-                                        c'16
-                                        c'8.
-                                        ]
-                                        ~
-                                    }
-                                    c'16
-                                    [
-                                    c'16
-                                    ~
-                                    \set stemLeftBeamCount = 2
-                                    \set stemRightBeamCount = 1
-                                    c'16
-                                    \times 2/3
-                                    {
-                                        \set stemLeftBeamCount = 1
-                                        \set stemRightBeamCount = 2
-                                        c'16
-                                        c'32
-                                        _ #(make-dynamic-script
-                                            (markup
-                                                #:whiteout
-                                                #:line (
-                                                    #:general-align Y -2 #:normal-text #:larger "“"
-                                                    #:hspace -0.1
-                                                    #:dynamic "ppp"
-                                                    #:hspace -0.25
-                                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                                [
+                                                - \tweak circled-tip ##t
+                                                \>
+                                                <c g b>64
+                                                - \tweak X-extent #'(0 . 0)
+                                                - \tweak Y-extent #'(0 . 0)
+                                                - \tweak stencil #ly:text-interface::print
+                                                - \tweak text \markup { \hspace #-1 H }
+                                                :128
+                                                - \accent
+                                                <g a bf,>16
+                                                - \tweak X-extent #'(0 . 0)
+                                                - \tweak Y-extent #'(0 . 0)
+                                                - \tweak stencil #ly:text-interface::print
+                                                - \tweak text \markup { \hspace #-1 H }
+                                                :32
+                                                - \accent
+                                                <d f fs>32.
+                                                - \tweak X-extent #'(0 . 0)
+                                                - \tweak Y-extent #'(0 . 0)
+                                                - \tweak stencil #ly:text-interface::print
+                                                - \tweak text \markup { \hspace #-1 H }
+                                                :128
+                                                - \accent
+                                                <c ef b,>16..
+                                                - \tweak X-extent #'(0 . 0)
+                                                - \tweak Y-extent #'(0 . 0)
+                                                - \tweak stencil #ly:text-interface::print
+                                                - \tweak text \markup { \hspace #-1 H }
+                                                :128
+                                                - \accent
+                                                <df bf,>32
+                                                - \tweak X-extent #'(0 . 0)
+                                                - \tweak Y-extent #'(0 . 0)
+                                                - \tweak stencil #ly:text-interface::print
+                                                - \tweak text \markup { \hspace #-1 H }
+                                                :64
+                                                - \accent
+                                                <c ef e>16
+                                                - \tweak X-extent #'(0 . 0)
+                                                - \tweak Y-extent #'(0 . 0)
+                                                - \tweak stencil #ly:text-interface::print
+                                                - \tweak text \markup { \hspace #-1 H }
+                                                :32
+                                                - \accent
+                                                ~
+                                            }
+                                            \times 4/6
+                                            {
+                                                <c ef e>8
+                                                \set stemLeftBeamCount = 2
+                                                \set stemRightBeamCount = 1
+                                                <f, g,>16
+                                                - \tweak X-extent #'(0 . 0)
+                                                - \tweak Y-extent #'(0 . 0)
+                                                - \tweak stencil #ly:text-interface::print
+                                                - \tweak text \markup { \hspace #-1 H }
+                                                :32
+                                                - \accent
+                                                <fs, a, bf,>8.
+                                                - \tweak X-extent #'(0 . 0)
+                                                - \tweak Y-extent #'(0 . 0)
+                                                - \tweak stencil #ly:text-interface::print
+                                                - \tweak text \markup { \hspace #-1 H }
+                                                :32
+                                                - \accent
+                                                ~
+                                            }
+                                            <fs, a, bf,>16..
+                                            <af, b,>8..
+                                            - \tweak X-extent #'(0 . 0)
+                                            - \tweak Y-extent #'(0 . 0)
+                                            - \tweak stencil #ly:text-interface::print
+                                            - \tweak text \markup { \hspace #-1 H }
+                                            :64
+                                            - \accent
+                                            \tweak text #tuplet-number::calc-fraction-text
+                                            \times 7/6
+                                            {
+                                                <fs, a,>16
+                                                - \tweak X-extent #'(0 . 0)
+                                                - \tweak Y-extent #'(0 . 0)
+                                                - \tweak stencil #ly:text-interface::print
+                                                - \tweak text \markup { \hspace #-1 H }
+                                                :32
+                                                - \accent
+                                                \override Dots.staff-position = #2
+                                                \override Staff.Clef.stencil = #ly:text-interface::print
+                                                \override Staff.Clef.text = \string-clef
+                                                \staff-line-count 4
+                                                \override Staff.StaffSymbol.line-positions = #'(9 7 0 -9)
+                                                \override Staff.BarLine.bar-extent = #'(-4.5 . 4.5)
+                                                \override Staff.Accidental.stencil = ##f
+                                                \override Staff.NoteHead.no-ledgers = ##t
+                                                \revert Voice.NoteHead.transparent
+                                                \revert Voice.Dots.stencil
+                                                \revert Voice.NoteHead.X-extent
+                                                \set Staff.forceClef = ##t
+                                                \set stemLeftBeamCount = 3
+                                                \set stemRightBeamCount = 1
+                                                \clef "treble"
+                                                c'32
+                                                _ #(make-dynamic-script
+                                                    (markup
+                                                        #:whiteout
+                                                        #:line (
+                                                            #:general-align Y -2 #:normal-text #:larger "“"
+                                                            #:hspace -0.1
+                                                            #:dynamic "ppp"
+                                                            #:hspace -0.25
+                                                            #:general-align Y -2 #:normal-text #:larger "”"
+                                                            )
+                                                        )
                                                     )
-                                                )
-                                            )
-                                        ]
-                                        ~
-                                    }
-                                    c'2
+                                                  %! abjad.glissando(7)
+                                                - \abjad-zero-padding-glissando
+                                                  %! abjad.glissando(7)
+                                                \glissando
+                                                - \tweak font-name "Bodoni72 Book" 
+                                                - \tweak font-size 4
+                                                - \tweak padding #7
+                                                - \abjad-dashed-line-with-hook
+                                                - \tweak bound-details.left.text \markup \concat { \upright { "XIII-XIV" } \hspace #0.5 }
+                                                \startTextSpan
+                                                ~
+                                                \set Staff.forceClef = ##f
+                                            }
+                                              %! abjad.glissando(1)
+                                            \hide NoteHead
+                                              %! abjad.glissando(1)
+                                            \override Accidental.stencil = ##f
+                                              %! abjad.glissando(1)
+                                            \override NoteColumn.glissando-skip = ##t
+                                              %! abjad.glissando(1)
+                                            \override NoteHead.no-ledgers = ##t
+                                            c'16
+                                            ~
+                                            c'8
+                                            ~
+                                            c'8
+                                            ~
+                                            \afterGrace
+                                            c'8.
+                                            ]
+                                            {
+                                                \once \override RepeatTie.transparent = ##t
+                                                \once \override Beam.stencil = ##f
+                                                \once \override Flag.stencil = ##f
+                                                \once \override Dots.stencil = ##f
+                                                \once \override Tie.stencil = ##f
+                                                \once \override NoteHead.duration-log = 2
+                                                \once \override Stem.stencil = ##f
+                                                \once \override Stem.stencil = ##f
+                                                \once \override Flag.stencil = ##f
+                                                \once \override NoteHead.no-ledgers = ##t
+                                                \once \override Accidental.stencil = ##f
+                                                \revert Dots.staff-position
+                                                \once \override NoteHead.transparent = ##t
+                                                  %! abjad.glissando(6)
+                                                \revert Accidental.stencil
+                                                  %! abjad.glissando(6)
+                                                \revert NoteColumn.glissando-skip
+                                                  %! abjad.glissando(6)
+                                                \revert NoteHead.no-ledgers
+                                                  %! abjad.glissando(6)
+                                                \undo \hide NoteHead
+                                                g16
+                                                \stopTextSpan
+                                            }
+                                        }
+                                    >>
+                                    \oneVoice
                                     \times 2/3
                                     {
                                         r4
                                         c'2
                                         ~
                                     }
-                                    c'4
+                                    c'16
                                     ~
-                                    c'4
-                                    r2
-                                    c'4
-                                    _ #(make-dynamic-script
+                                    c'2.
+                                    ~
+                                    c'16.
+                                    [
+                                    r32
+                                    r8
+                                    ]
+                                    r4
+                                    r16.
+                                    [
+                                    c'32
+                                    ^ #(make-dynamic-script
                                         (markup
                                             #:whiteout
                                             #:line (
@@ -1190,8 +1515,14 @@
                                                 )
                                             )
                                         )
+                                    ~
                                     c'8
-                                    _ #(make-dynamic-script
+                                    ]
+                                    ~
+                                    c'16..
+                                    [
+                                    c'64
+                                    ^ #(make-dynamic-script
                                         (markup
                                             #:whiteout
                                             #:line (
@@ -1203,24 +1534,40 @@
                                                 )
                                             )
                                         )
+                                    ~
+                                    c'8
+                                    ]
+                                    ~
+                                    c'16
                                     [
-                                    \times 2/3
-                                    {
-                                        c'8
-                                        _ #(make-dynamic-script
-                                            (markup
-                                                #:whiteout
-                                                #:line (
-                                                    #:general-align Y -2 #:normal-text #:larger "“"
-                                                    #:hspace -0.4
-                                                    #:dynamic "ff"
-                                                    #:hspace -0.2
-                                                    #:general-align Y -2 #:normal-text #:larger "”"
-                                                    )
+                                    ~
+                                    c'64
+                                    c'32.
+                                    ^ #(make-dynamic-script
+                                        (markup
+                                            #:whiteout
+                                            #:line (
+                                                #:general-align Y -2 #:normal-text #:larger "“"
+                                                #:hspace -0.4
+                                                #:dynamic "ff"
+                                                #:hspace -0.2
+                                                #:general-align Y -2 #:normal-text #:larger "”"
                                                 )
                                             )
+                                        )
+                                    ~
+                                    \set stemLeftBeamCount = 2
+                                    \set stemRightBeamCount = 1
+                                    c'16
+                                    ~
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 7/6
+                                    {
+                                        \set stemLeftBeamCount = 1
+                                        \set stemRightBeamCount = 2
                                         c'16
-                                        _ #(make-dynamic-script
+                                        c'8
+                                        ^ #(make-dynamic-script
                                             (markup
                                                 #:whiteout
                                                 #:line (
@@ -1232,38 +1579,10 @@
                                                     )
                                                 )
                                             )
-                                        ]
                                         ~
                                     }
-                                    c'4
-                                    ~
-                                    c'4
-                                    c'4
-                                    _ #(make-dynamic-script
-                                        (markup
-                                            #:whiteout
-                                            #:line (
-                                                #:general-align Y -2 #:normal-text #:larger "“"
-                                                #:hspace -0.4
-                                                #:dynamic "fff"
-                                                #:hspace -0.2
-                                                #:general-align Y -2 #:normal-text #:larger "”"
-                                                )
-                                            )
-                                        )
-                                    c'4
-                                    _ #(make-dynamic-script
-                                        (markup
-                                            #:whiteout
-                                            #:line (
-                                                #:general-align Y -2 #:normal-text #:larger "“"
-                                                #:hspace -0.1
-                                                #:dynamic "mp"
-                                                #:hspace -0.25
-                                                #:general-align Y -2 #:normal-text #:larger "”"
-                                                )
-                                            )
-                                        )
+                                    c'16.
+                                    ]
                                       %! +SCORE
                                     \once \override MultiMeasureRest.transparent = ##t
                                       %! +SCORE

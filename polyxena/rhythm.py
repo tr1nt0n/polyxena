@@ -345,63 +345,73 @@ def distorted_talea(start_index, prolations, elaboration_level=0, retrograde=Fal
 
 
 def maintained_talea(
-    index, denominator, prolations, elaboration_level=0, retrograde=False
+    index,
+    denominator,
+    prolations,
+    elaboration_level=0,
+    retrograde=False,
+    parse_meter=True,
 ):
     def return_rhythms(time_signatures):
-        durations = []
+        if parse_meter is True:
+            durations = []
 
-        three_counter = 0
-        seven_counter = 0
-        eight_counter = 0
-        for time_signature in time_signatures:
-            time_signature_numerator = time_signature.numerator
-            time_signature_denominator = time_signature.denominator
+            three_counter = 0
+            seven_counter = 0
+            eight_counter = 0
+            for time_signature in time_signatures:
+                time_signature_numerator = time_signature.numerator
+                time_signature_denominator = time_signature.denominator
 
-            if time_signature_numerator == 3:
-                subdivision_cycle = [[2, 1], [1, 2], [1, 1, 1]]
-                subdivision_index = three_counter % 3
-                subdivision = subdivision_cycle[subdivision_index]
+                if time_signature_numerator == 3:
+                    subdivision_cycle = [[2, 1], [1, 2], [1, 1, 1]]
+                    subdivision_index = three_counter % 3
+                    subdivision = subdivision_cycle[subdivision_index]
 
-                for beat_group in subdivision:
-                    if (
-                        time_signature_denominator == 7
-                        or time_signature_denominator == 14
-                        or time_signature_denominator == 28
-                    ):
-                        duration_denominator = time_signature_denominator * 2
-                    else:
-                        duration_denominator = time_signature_denominator
-                    durations.append(abjad.Duration(beat_group, duration_denominator))
+                    for beat_group in subdivision:
+                        if (
+                            time_signature_denominator == 7
+                            or time_signature_denominator == 14
+                            or time_signature_denominator == 28
+                        ):
+                            duration_denominator = time_signature_denominator * 2
+                        else:
+                            duration_denominator = time_signature_denominator
+                        durations.append(
+                            abjad.Duration(beat_group, duration_denominator)
+                        )
 
-                three_counter += 1
+                    three_counter += 1
 
-            if time_signature_numerator == 6:
-                durations.append(abjad.Duration((3, time_signature_denominator)))
-                durations.append(abjad.Duration((3, time_signature_denominator)))
+                if time_signature_numerator == 6:
+                    durations.append(abjad.Duration((3, time_signature_denominator)))
+                    durations.append(abjad.Duration((3, time_signature_denominator)))
 
-            if time_signature_numerator == 7:
-                subdivision_cycle = [[4, 3], [2, 3, 2], [3, 4]]
-                subdivision_index = seven_counter % 3
-                subdivision = subdivision_cycle[subdivision_index]
+                if time_signature_numerator == 7:
+                    subdivision_cycle = [[4, 3], [2, 3, 2], [3, 4]]
+                    subdivision_index = seven_counter % 3
+                    subdivision = subdivision_cycle[subdivision_index]
 
-                for beat_group in subdivision:
-                    durations.append(
-                        abjad.Duration(beat_group, time_signature_denominator)
-                    )
+                    for beat_group in subdivision:
+                        durations.append(
+                            abjad.Duration(beat_group, time_signature_denominator)
+                        )
 
-                seven_counter += 1
+                    seven_counter += 1
 
-            if time_signature_numerator == 8:
-                subdivision_cycle = [[3, 3, 2], [3, 2, 3], [2, 3, 3]]
-                subdivision_index = seven_counter % 3
-                subdivision = subdivision_cycle[subdivision_index]
+                if time_signature_numerator == 8:
+                    subdivision_cycle = [[3, 3, 2], [3, 2, 3], [2, 3, 3]]
+                    subdivision_index = seven_counter % 3
+                    subdivision = subdivision_cycle[subdivision_index]
 
-                for beat_group in subdivision:
-                    durations.append(
-                        abjad.Duration(beat_group, time_signature_denominator)
-                    )
+                    for beat_group in subdivision:
+                        durations.append(
+                            abjad.Duration(beat_group, time_signature_denominator)
+                        )
 
-                eight_counter += 1
+                    eight_counter += 1
+        else:
+            durations = time_signatures
 
         extra_counts = []
 

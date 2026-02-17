@@ -113,6 +113,26 @@ def attach_patterned_dynamics(
 # notation tools
 
 
+def hammer_on_stem(selector):
+    def attach(argument):
+        selections = selector(argument)
+
+        for selection in selections:
+            selection_duration = abjad.get.duration(selection, preprolated=True)
+            duration_denominator = selection_duration.denominator
+            stem_tremolo = abjad.bundle(
+                abjad.StemTremolo(duration_denominator * 2),
+                r"- \tweak stencil #ly:text-interface::print",
+                r"- \tweak text \markup { \hspace #-1 H }",
+                r"- \tweak X-extent #'(0 . 0)",
+                r"- \tweak Y-extent #'(0 . 0)",
+            )
+
+            abjad.attach(stem_tremolo, selection)
+
+    return attach
+
+
 def footnote_command(
     text_string="",
     selector=trinton.select_leaves_by_index([0]),

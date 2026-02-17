@@ -14,7 +14,7 @@
 %     dedication = \markup \column {\line \override #'(font-name . "Bodoni72 Book Italic") { \fontsize #4 { "to" \override #'(font-name . "Bodoni72 Book") "Athena Zenker Díaz" \override #'(font-name . "Bodoni72 Book Italic") "and" \override #'(font-name . "Bodoni72 Book") "Mauricio Galeano" } } \line { \fontsize #0.01 \with-color #white "."} }
 %     title = \markup \override #'(font-name . "Bodoni72 Book Italic") \center-column { \line \fontsize #14 { "polyxena / ilium sherds" } \fontsize #0.01 \with-color #white "."}
 %     subtitle = \markup \fontsize #4 \center-column { \line { \override #'(font-name . "Bodoni72 Book Italic") { "( four talismans )" } } \fontsize #0.01 \with-color #white "."}
-%     composer = \markup \column { \override #'(font-name . "Bodoni72") \fontsize #4 {"Trinity Hlynn Prater (*2000)"} \fontsize #35 \with-color #white "."}
+%     composer = \markup \column { \override #'(font-name . "Bodoni72") \fontsize #4 {"Trinity Hlynn Prater (*2000)"} \fontsize #30 \with-color #white "."}
 % }
 
 afterGraceFraction = #(cons 15 16)
@@ -42,7 +42,7 @@ afterGraceFraction = #(cons 15 16)
         \override BarNumber.Y-offset = 5
         \override BarNumber.X-extent = ##f
         \override BarNumber.X-offset = -6.5
-        \override BarNumber.font-size = 6
+        \override BarNumber.font-size = 4.5
         \override BarNumber.padding = 1
         \override BarNumber.font-name = "Bodoni72 Book"
         \override MetronomeMark.stencil = ##f
@@ -135,6 +135,8 @@ afterGraceFraction = #(cons 15 16)
         \override MeasureSpanner.font-size = 7
         \override MeasureSpanner.font-name = "Bodoni72 Book"
         \override MeasureSpanner.padding = 4
+
+        \override MetronomeMark.stencil = ##f
 
         \override NoteCollision.merge-differently-dotted = ##t
         \override NoteCollision.merge-differently-headed = ##t

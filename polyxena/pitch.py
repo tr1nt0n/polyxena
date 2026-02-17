@@ -27,16 +27,31 @@ for i, transposition in enumerate(decachord):
 
             pitch_list.append(new_pitch)
 
-partitioned_pitch_list = abjad.select.partition_by_counts(
-    pitch_list,
-    [5, 7, 4, 8, 9],
-    cyclic=True,
-    overhang=True,
-)
+# partitioned_pitch_list = abjad.select.partition_by_counts(
+#     pitch_list,
+#     [5, 7, 4, 8, 9],
+#     cyclic=True,
+#     overhang=True,
+# )
+#
+# final_pitch_groups = []
+#
+# for group, index in zip(partitioned_pitch_list, itertools.cycle([4, 6, 3, 7, 8])):
+#     index = index % len(group)
+#     del group[index]
+#     final_pitch_groups.append(group)
 
-final_pitch_groups = []
 
-for group, index in zip(partitioned_pitch_list, itertools.cycle([4, 6, 3, 7, 8])):
-    index = index % len(group)
-    del group[index]
-    final_pitch_groups.append(group)
+def return_pitch_list(index, chord_groups=None):
+    rotated_pitch_list = trinton.rotated_sequence(pitch_list, index % len(pitch_list))
+
+    if chord_groups is None:
+        return rotated_pitch_list
+    else:
+        chord_partitions = abjad.select.partition_by_counts(
+            rotated_pitch_list,
+            chord_groups,
+            cyclic=True,
+            overhang=True,
+        )
+        return chord_partitions
