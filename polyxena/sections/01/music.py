@@ -524,21 +524,6 @@ trinton.make_music(
         ],
         selector=trinton.select_leaves_by_index([8, 14, 15, 16, 37, 38]),
     ),
-    trinton.linear_attachment_command(
-        attachments=[
-            # abjad.Dynamic('"p"'),
-            # abjad.StartHairpin(">"),
-            # abjad.Dynamic('"ppp"'),
-            abjad.Dynamic('"fff"'),
-            abjad.Dynamic('"mp"'),
-            abjad.Dynamic('"ff"'),
-            abjad.Dynamic('"mf"'),
-        ],
-        selector=trinton.select_logical_ties_by_index(
-            [13, 14, 15, 16], first=True, pitched=True, grace=False
-        ),
-        direction=abjad.UP,
-    ),
     voice=score["guitar 2 voice"],
     preprocessor=trinton.fuse_thirty_seconds_preprocessor(
         (16, 8, 14, 16, 16, 29, 16, 5, 14, 7, 1000)
@@ -556,7 +541,7 @@ trinton.make_music(
                     (1, 2, 1),
                     (1,),
                     (1,),
-                    (1,),
+                    # (1,),
                     (1,),
                 ],
                 # preprocessor=trinton.fuse_quarters_preprocessor((2, 1)),
@@ -575,7 +560,7 @@ trinton.make_music(
         selector=trinton.select_leaves_by_index(list(range(0, 20)), pitched=True),
         direction=abjad.DOWN,
         voice_name="theorbe left hand voice",
-        preprocessor=trinton.fuse_thirty_seconds_preprocessor((16, 8, 14, 2, 4, 4, 6)),
+        preprocessor=trinton.fuse_thirty_seconds_preprocessor((16, 8, 14, 2, 8, 6)),
         temp_name="right hand",
         tag=None,
     ),
@@ -719,9 +704,12 @@ trinton.make_music(
     lambda _: trinton.select_target(_, (1, 3)),
     trinton.attachment_command(
         attachments=[abjad.Tie()],
-        selector=trinton.select_leaves_by_index([6, 9, 13, 14, 15, 16]),
+        selector=trinton.select_leaves_by_index([6, 9, 13, 14, 15]),
     ),
-    abjad.beam,
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle([abjad.StartBeam(), abjad.StopBeam()]),
+        selector=trinton.select_leaves_by_index([0, 12]),
+    ),
     trinton.aftergrace_command(
         selector=trinton.select_logical_ties_by_index([-1], pitched=True, grace=False),
         invisible=True,
@@ -781,6 +769,8 @@ trinton.make_music(
                     r"\revert Voice.NoteHead.transparent",
                     r"\revert Voice.Dots.stencil",
                     r"\revert Voice.NoteHead.X-extent",
+                    r"\revert Voice.TupletBracket.stencil",
+                    r"\revert Voice.TupletNumber.stencil",
                 ],
                 site="before",
             ),
@@ -801,10 +791,10 @@ trinton.make_music(
     trinton.linear_attachment_command(
         attachments=[
             abjad.BeamCount(left=2, right=1),
-            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=2),
             # abjad.BeamCount(left=1, right=2),
         ],
-        selector=trinton.select_leaves_by_index([8, 13, 14]),
+        selector=trinton.select_leaves_by_index([8, 12]),
     ),
     trinton.linear_attachment_command(
         attachments=[
@@ -834,6 +824,31 @@ trinton.make_music(
         reversion_line_count=5,
         auto_reversion=False,
     ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                [
+                    r"\override Voice.Flag.stencil = ##f",
+                    r"\override Voice.Stem.direction = #UP",
+                    r"\override Voice.Stem.Y-extent = ##f",
+                    r"\override Voice.Stem.X-extent = ##f",
+                    r"\override Voice.Stem.details.lengths = #'(24)",
+                ],
+                site="before",
+            ),
+            abjad.LilyPondLiteral(
+                [
+                    r"\revert Voice.Flag.stencil",
+                    r"\revert Voice.Stem.direction",
+                    r"\revert Voice.Stem.Y-extent",
+                    r"\revert Voice.Stem.X-extent",
+                    r"\revert Voice.Stem.details.lengths",
+                ],
+                site="absolute_after",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([13, -1], pitched=True, grace=False),
+    ),
     trinton.hooked_spanner_command(
         string="""XIII-XIV""",
         selector=trinton.select_logical_ties_by_index(
@@ -855,6 +870,383 @@ trinton.make_music(
         ],
     ),
     voice=score["theorbe left hand voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (3, 5)),
+    evans.RhythmHandler(
+        trinton.handwrite_nested_tuplets(
+            tuplet_ratios=[(-1,), (1, 2, 1, 2), (1, 1), (-1,)],
+            nested_ratios=[(1, 2)],
+            triple_nested_ratios=None,
+            nested_vectors=None,
+            nested_period=None,
+            triple_nested_vectors=None,
+            triple_nested_period=None,
+            extract_trivial_tuplets=True,
+            nested_selector=trinton.select_logical_ties_by_index(
+                [4, 5], pitched=True, grace=False
+            ),
+        ),
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    trinton.invisible_rests(selector=trinton.select_leaves_by_index([0])),
+    trinton.duration_line(
+        selector=trinton.logical_ties(pitched=True, grace=False),
+    ),
+    trinton.noteheads_only(selector=trinton.pleaves(grace=True)),
+    trinton.hooked_spanner_command(
+        string="""( Steg, mit Fingerspitze )""",
+        selector=trinton.select_logical_ties_by_index(
+            [0, -1], first=True, pitched=True
+        ),
+        padding=5,
+        direction=None,
+        right_padding=0,
+        full_string=False,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="One",
+        tag=None,
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book" """,
+            r"""- \tweak font-size 2""",
+            # r"""- \tweak bound-details.left.Y #7.5""",
+            # r"""- \tweak bound-details.right.Y #11""",
+        ],
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                [
+                    r"\stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff",
+                    r"\override Staff.Rest.transparent = ##t",
+                    r"\override Staff.Dots.transparent = ##t",
+                ],
+                site="before",
+            ),
+            abjad.LilyPondLiteral(
+                [
+                    r"\stopStaff \startStaff",
+                    r"\revert Staff.Rest.transparent",
+                    r"\revert Staff.Dots.transparent",
+                ],
+                site="absolute_after",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([-1]),
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\override Staff.TupletBracket.direction = #UP",
+                site="before",
+            ),
+            abjad.LilyPondLiteral(
+                r"\revert Staff.TupletBracket.direction", site="absolute_after"
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0, -1]),
+    ),
+    voice=score["guitar 1 voice"],
+    preprocessor=trinton.fuse_thirty_seconds_preprocessor((6, 16, 28, 1000)),
+)
+
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (3, 5)),
+    trinton.aftergrace_command(
+        selector=trinton.select_logical_ties_by_index([24], pitched=True, grace=False),
+        invisible=True,
+    ),
+    # trinton.annotate_leaves_locally(
+    #     # selector=trinton.logical_ties(first=True, pitched=True, grace=False)
+    #     selector=trinton.logical_ties(first=True, pitched=True),
+    # ),
+    trinton.noteheads_only(selector=trinton.pleaves(grace=True)),
+    trinton.pitch_with_selector_command(
+        pitch_list=[["c'", "d'"], ["g", "e'"]],
+        selector=trinton.select_logical_ties_by_index([26, 27], pitched=True),
+    ),
+    trinton.continuous_glissando(
+        selector=trinton.select_logical_ties_by_index([26, 27], pitched=True),
+        zero_padding=True,
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\override Staff.TupletBracket.direction = #DOWN",
+                site="before",
+            ),
+            abjad.LilyPondLiteral(
+                r"\revert Staff.TupletBracket.direction", site="absolute_after"
+            ),
+        ],
+        selector=trinton.select_logical_ties_by_index([25, 27], first=True),
+    ),
+    trinton.hooked_spanner_command(
+        string="""XII-XIII""",
+        selector=trinton.select_logical_ties_by_index(
+            [26, 27], first=True, pitched=True
+        ),
+        padding=7,
+        direction=None,
+        right_padding=0,
+        full_string=False,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="",
+        tag=None,
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book" """,
+            r"""- \tweak font-size 4""",
+            # r"""- \tweak bound-details.left.Y #7.5""",
+            # r"""- \tweak bound-details.right.Y #11""",
+        ],
+    ),
+    voice=score["guitar 2 voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (6,)),
+    evans.RhythmHandler(evans.tuplet([(-1,), (1,), (-1,), (-1, 2), (1,)])),
+    rmakers.rewrite_dots,
+    trinton.respell_tuplets_command(rewrite_brackets=False),
+    trinton.attachment_command(
+        attachments=[abjad.Tie()], selector=trinton.select_leaves_by_index([-2])
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    trinton.duration_line(selector=trinton.logical_ties(pitched=True, grace=False)),
+    trinton.noteheads_only(selector=trinton.pleaves(grace=True)),
+    trinton.invisible_rests(),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.BeamCount(left=2, right=1),
+            abjad.BeamCount(left=1, right=2),
+        ],
+        selector=trinton.select_leaves_by_index([6, 7], grace=False),
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                [
+                    r"\override Staff.Stem.direction = #DOWN",
+                    r"\override Staff.Flag.stencil = ##f",
+                    r"\override Staff.TupletBracket.stencil = ##f",
+                    r"\override Staff.TupletNumber.stencil = ##f",
+                ],
+                site="before",
+            ),
+            abjad.LilyPondLiteral(
+                [
+                    r"\revert Flag.stencil",
+                    r"\revert Staff.TupletBracket.stencil",
+                    r"\revert Staff.TupletNumber.stencil",
+                    r"\revert Staff.Stem.direction",
+                ],
+                site="absolute_after",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0, -1]),
+    ),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle(
+            [
+                abjad.LilyPondLiteral(
+                    [
+                        r"\stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff",
+                        r"\override Staff.Rest.transparent = ##t",
+                        r"\override Staff.Dots.transparent = ##t",
+                    ],
+                    site="before",
+                ),
+                abjad.LilyPondLiteral(
+                    [
+                        r"\stopStaff \startStaff",
+                        r"\revert Staff.Rest.transparent",
+                        r"\revert Staff.Dots.transparent",
+                    ],
+                    site="before",
+                ),
+            ]
+        ),
+        selector=trinton.select_leaves_by_index([0, 1, 6, 9]),
+    ),
+    trinton.hooked_spanner_command(
+        string="""\markup { \column { \line { "Steg mit" } \line { Nagelvorderseite } } }""",
+        selector=trinton.logical_ties(first=True, pitched=True),
+        padding=4.5,
+        direction=None,
+        right_padding=0,
+        full_string=True,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="One",
+        tag=None,
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book" """,
+            r"""- \tweak font-size 0.5""",
+            # r"""- \tweak bound-details.left.Y #7.5""",
+            # r"""- \tweak bound-details.right.Y #11""",
+        ],
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                [
+                    r"\override Voice.Flag.stencil = ##f",
+                    r"\override Voice.Stem.direction = #DOWN",
+                    r"\override Voice.Stem.Y-extent = ##f",
+                    r"\override Voice.Stem.X-extent = ##f",
+                    r"\override Voice.Stem.details.lengths = #'(18)",
+                ],
+                site="before",
+            ),
+            abjad.LilyPondLiteral(
+                [
+                    r"\revert Voice.Flag.stencil",
+                    r"\revert Voice.Stem.direction",
+                    r"\revert Voice.Stem.Y-extent",
+                    r"\revert Voice.Stem.X-extent",
+                    r"\revert Voice.Stem.details.lengths",
+                ],
+                site="absolute_after",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0, -1], pitched=True, grace=False),
+    ),
+    voice=score["guitar 1 voice"],
+    preprocessor=trinton.fuse_sixty_fourths_preprocessor((7, 14, 7, 14, 6)),
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (5, 6)),
+    # trinton.annotate_leaves_locally(
+    #     selector=trinton.logical_ties(first=True, pitched=True)
+    # ),
+    trinton.pitch_with_selector_command(
+        pitch_list=pitch.return_pitch_list(index=20, chord_groups=[3, 1]),
+        selector=trinton.pleaves(grace=False),
+    ),
+    trinton.octavation(
+        octave=-1,
+        selector=trinton.select_logical_ties_by_index([2], pitched=True, grace=False),
+    ),
+    trinton.octavation(
+        octave=-1,
+        selector=trinton.notehead_selector(
+            chord_indices=[2, 3, 4, 9, 10, 11],
+            head_indices_lists=[[2], [2], [2], [2], [2], [2]],
+        ),
+    ),
+    trinton.octavation(
+        octave=1,
+        selector=trinton.select_logical_ties_by_index(
+            [1, 3], pitched=True, grace=False
+        ),
+    ),
+    trinton.respell_with_flats(
+        selector=trinton.select_logical_ties_by_index([2], pitched=True, grace=False)
+    ),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle([abjad.Clef("treble"), abjad.Clef("bass")]),
+        selector=trinton.select_logical_ties_by_index(
+            [1, 2, 3], first=True, pitched=True, grace=False
+        ),
+    ),
+    library.multiple_muting(
+        selector=trinton.select_logical_ties_by_index([2], pitched=True, grace=False),
+        closed_fundamental=False,
+    ),
+    trinton.change_notehead_command(
+        notehead="harmonic",
+        selector=trinton.select_leaves_by_index(
+            [1, 2, 3, 4, 5, 6, 7, 11, 12], pitched=True, grace=False
+        ),
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.Dynamic('"fff"'),
+            abjad.Dynamic('"ff"'),
+        ],
+        selector=trinton.select_logical_ties_by_index(
+            [0, 2], first=True, pitched=True, grace=False
+        ),
+        direction=abjad.DOWN,
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.Dynamic('"mp"'),
+            abjad.Dynamic('"mf"'),
+        ],
+        selector=trinton.select_logical_ties_by_index(
+            [1, 3], first=True, pitched=True, grace=False
+        ),
+        direction=abjad.UP,
+    ),
+    library.change_staff_type(
+        selector=trinton.select_logical_ties_by_index(
+            [0], first=True, pitched=True, grace=False
+        ),
+        staff_type="reversion",
+        auto_reversion=False,
+        reversion_line_count=5,
+        reversion_clef="bass",
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                [
+                    r"\override Staff.Stem.direction = #DOWN",
+                ],
+                site="before",
+            ),
+            abjad.LilyPondLiteral(
+                [
+                    r"\revert Staff.Stem.direction",
+                ],
+                site="absolute_after",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([4, -1], pitched=True, grace=False),
+    ),
+    trinton.hooked_spanner_command(
+        string="""Flachfinger""",
+        selector=trinton.select_leaves_by_index([1, 3], grace=False, pitched=True),
+        padding=6,
+        direction=None,
+        right_padding=2,
+        full_string=False,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="One",
+        tag=None,
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book" """,
+            r"""- \tweak font-size 2""",
+            # r"""- \tweak bound-details.left.Y #7.5""",
+            # r"""- \tweak bound-details.right.Y #11""",
+        ],
+    ),
+    trinton.hooked_spanner_command(
+        string="""Flachfinger""",
+        selector=trinton.select_leaves_by_index([8, 10], grace=False, pitched=True),
+        padding=3.5,
+        direction=None,
+        right_padding=3,
+        full_string=False,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="One",
+        tag=None,
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book" """,
+            r"""- \tweak font-size 2""",
+            # r"""- \tweak bound-details.left.Y #7.5""",
+            # r"""- \tweak bound-details.right.Y #11""",
+        ],
+    ),
+    voice=score["guitar 2 voice"],
 )
 
 # globals
@@ -883,7 +1275,7 @@ trinton.fermata_measures(
     clef_whitespace=True,
     blank=True,
     last_measure=False,
-    # padding=-5,
+    padding=10,
     # extra_offset=2.5,
     tag=abjad.Tag("+SCORE"),
 )
@@ -917,7 +1309,7 @@ trinton.make_music(
 )
 
 for tempo, measure_number, padding in zip(
-    itertools.cycle([84, 48]), list(range(2, 7)), [20, 20, 11.5, 11.5, 11.5]
+    itertools.cycle([84, 48]), list(range(2, 7)), [20, 20, 6.5, 6.5, -27.5]
 ):
     trinton.make_music(
         lambda _: trinton.select_target(_, (measure_number,)),
@@ -1034,6 +1426,27 @@ trinton.make_music(
         ],
         selector=trinton.select_leaves_by_index([0]),
         tag=abjad.Tag("+SCORE"),
+    ),
+    voice=score["Global Context"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (4,)),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (15 15 30 15)))",
+                site="absolute_before",
+            ),
+            abjad.bundle(
+                abjad.Markup(r"\markup { \fontsize #25 { . } }"),
+                r"- \tweak padding #7",
+                r"- \tweak color #white",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        tag=abjad.Tag("+SCORE"),
+        direction=abjad.UP,
     ),
     voice=score["Global Context"],
 )

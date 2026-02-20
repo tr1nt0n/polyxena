@@ -113,6 +113,54 @@ def attach_patterned_dynamics(
 # notation tools
 
 
+def multiple_muting(selector=abjad.select.chords, closed_fundamental=False):
+    def change_noteheads(argument):
+        selections = selector(argument)
+
+        for chord in abjad.select.chords(selections):
+            for leaf in abjad.select.leaves(chord):
+                leaf_duration = abjad.get.duration(leaf, preprolated=True)
+                if leaf_duration > abjad.Duration(
+                    (7, 16)
+                ) and leaf_duration > abjad.Duration((7, 32)):
+                    head_shape = "harmonic-mixed"
+                else:
+                    head_shape = "harmonic"
+
+                if closed_fundamental is False:
+                    for head in leaf.note_heads:
+                        abjad.tweak(head, rf"\tweak style #'{head_shape}")
+                else:
+                    noteheads = leaf.note_heads
+                    notehead_pitches = [head.named_pitch.number for head in noteheads]
+                    notehead_pitches.sort()
+                    lowest_pitch = notehead_pitches[0]
+
+                    for head in noteheads:
+                        if head.named_pitch.number != lowest_pitch:
+                            abjad.tweak(head, rf"\tweak style #'{head_shape}")
+
+                noteheads = leaf.note_heads
+                notehead_pitches = [head.named_pitch.number for head in noteheads]
+                notehead_pitches.sort()
+                lowest_pitch = notehead_pitches[0]
+
+                for notehead in noteheads:
+                    if notehead.named_pitch.number != lowest_pitch:
+                        abjad.tweak(notehead, r"\tweak Accidental.font-size #-2.5")
+                        abjad.tweak(
+                            notehead,
+                            r"\tweak Accidental.color #(x11-color 'LightSlateBlue)",
+                        )
+                        abjad.tweak(notehead, r"\tweak Accidental.parenthesized ##t")
+                        abjad.tweak(
+                            notehead, r"\tweak color #(x11-color 'LightSlateBlue)"
+                        )
+                        abjad.tweak(notehead, r"\tweak font-size #-2.5")
+
+    return change_noteheads
+
+
 def hammer_on_stem(selector):
     def attach(argument):
         selections = selector(argument)
@@ -157,16 +205,21 @@ def footnote_command(
 
 
 def change_staff_type(
-    selector, staff_type, reversion_line_count=5, auto_reversion=True
+    selector,
+    staff_type,
+    auto_reversion=True,
+    reversion_line_count=5,
+    reversion_clef=None,
 ):
     def change(argument):
         if (
             staff_type != "tablature"
             and staff_type != "stringing gambe"
             and staff_type != "stringing theorbe"
+            and staff_type != "reversion"
         ):
             raise Exception(
-                "Available staff types are tablature, stringing gambe, and stringing theorbe"
+                "Available staff types are tablature, stringing gambe, tringing theorbe, and reversion"
             )
         selections = selector(argument)
 
@@ -184,56 +237,86 @@ def change_staff_type(
                         ],
                         site="absolute_after",
                     )
-
                     abjad.attach(revert_literal, selection)
 
             else:
-                _staff_type_to_literal_strings = {
-                    "tablature": [
-                        r"\override Staff.Clef.stencil = #ly:text-interface::print",
-                        r"\override Staff.Clef.text = \string-clef",
-                        r"\staff-line-count 4",
-                        r"\override Staff.StaffSymbol.line-positions = #'(9 7 0 -9)",
-                        r"\override Staff.BarLine.bar-extent = #'(-4.5 . 4.5)",
-                        # r"\override Rest.staff-position = #0",
-                        r"\override Staff.Accidental.stencil = ##f",
-                        r"\override Staff.NoteHead.no-ledgers = ##t",
-                    ],
-                    "stringing gambe": [
-                        r"\override Staff.Clef.stencil = #ly:text-interface::print",
-                        r"\override Staff.Clef.text = \six-string-clef",
-                        r"\staff-line-count 6",
-                        r"\override Staff.Accidental.stencil = ##f",
-                        r"\override Staff.NoteHead.no-ledgers = ##t",
-                    ],
-                    "stringing theorbe": [
-                        r"\override Staff.Clef.stencil = #ly:text-interface::print",
-                        r"\override Staff.Clef.text = \fourteen-string-clef",
-                        r"\staff-line-count 14",
-                        r"\override Staff.Accidental.stencil = ##f",
-                        r"\override Staff.NoteHead.no-ledgers = ##t",
-                    ],
-                }
+                if staff_type != "reversion":
+                    _staff_type_to_literal_strings = {
+                        "tablature": [
+                            r"\override Staff.Clef.stencil = #ly:text-interface::print",
+                            r"\override Staff.Clef.text = \string-clef",
+                            r"\staff-line-count 4",
+                            r"\override Staff.StaffSymbol.line-positions = #'(9 7 0 -9)",
+                            r"\override Staff.BarLine.bar-extent = #'(-4.5 . 4.5)",
+                            # r"\override Rest.staff-position = #0",
+                            r"\override Staff.Accidental.stencil = ##f",
+                            r"\override Staff.NoteHead.no-ledgers = ##t",
+                        ],
+                        "stringing gambe": [
+                            r"\override Staff.Clef.stencil = #ly:text-interface::print",
+                            r"\override Staff.Clef.text = \six-string-clef",
+                            r"\staff-line-count 6",
+                            r"\override Staff.Accidental.stencil = ##f",
+                            r"\override Staff.NoteHead.no-ledgers = ##t",
+                        ],
+                        "stringing theorbe": [
+                            r"\override Staff.Clef.stencil = #ly:text-interface::print",
+                            r"\override Staff.Clef.text = \fourteen-string-clef",
+                            r"\staff-line-count 14",
+                            r"\override Staff.Accidental.stencil = ##f",
+                            r"\override Staff.NoteHead.no-ledgers = ##t",
+                        ],
+                    }
 
-                if staff_type != "tablature":
-                    clef = abjad.Clef("percussion")
-                else:
-                    clef = abjad.Clef("treble")
+                    if staff_type != "tablature":
+                        clef = abjad.Clef("percussion")
+                    else:
+                        clef = abjad.Clef("treble")
 
-                literal_strings = _staff_type_to_literal_strings[staff_type]
-                staff_literal = abjad.LilyPondLiteral(literal_strings, site="before")
-                abjad.attach(staff_literal, selection)
-                abjad.attach(clef, selection)
-                abjad.attach(
-                    abjad.LilyPondLiteral(r"\set Staff.forceClef = ##t", site="before"),
-                    selection,
-                )
-                abjad.attach(
-                    abjad.LilyPondLiteral(
-                        r"\set Staff.forceClef = ##f", site="absolute_after"
-                    ),
-                    selection,
-                )
+                    literal_strings = _staff_type_to_literal_strings[staff_type]
+                    staff_literal = abjad.LilyPondLiteral(
+                        literal_strings, site="before"
+                    )
+                    abjad.attach(staff_literal, selection)
+                    abjad.attach(clef, selection)
+                    abjad.attach(
+                        abjad.LilyPondLiteral(
+                            r"\set Staff.forceClef = ##t", site="before"
+                        ),
+                        selection,
+                    )
+                    abjad.attach(
+                        abjad.LilyPondLiteral(
+                            r"\set Staff.forceClef = ##f", site="absolute_after"
+                        ),
+                        selection,
+                    )
+                if staff_type == "reversion":
+                    revert_literal = abjad.LilyPondLiteral(
+                        [
+                            r"\revert Staff.Clef.stencil",
+                            r"\revert Staff.StaffSymbol.line-positions",
+                            rf"\staff-line-count {reversion_line_count}",
+                            r"\revert Staff.BarLine.bar-extent",
+                            r"\revert Staff.Accidental.stencil",
+                            r"\revert Staff.NoteHead.no-ledgers",
+                        ],
+                        site="before",
+                    )
+                    abjad.attach(revert_literal, selection)
+                    abjad.attach(abjad.Clef(reversion_clef), selection)
+                    abjad.attach(
+                        abjad.LilyPondLiteral(
+                            r"\set Staff.forceClef = ##t", site="before"
+                        ),
+                        selection,
+                    )
+                    abjad.attach(
+                        abjad.LilyPondLiteral(
+                            r"\set Staff.forceClef = ##f", site="absolute_after"
+                        ),
+                        selection,
+                    )
 
     return change
 
