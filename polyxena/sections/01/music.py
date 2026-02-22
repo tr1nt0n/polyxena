@@ -227,7 +227,7 @@ trinton.make_music(
         ],
     ),
     library.footnote_command(
-        text_string="Schnell wechseln zwischen dem Berühren der Saiten hinter dem Steg mit Fingerdruck, wie einen Flageolet spielen, und festen Herunterdrücken der Saiten. Dadurch sollte das Instrument vibrieren und ein unberechenbares Vibrato erzeugen.",
+        text_string="Rapid alternation between touching the strings behind the bridge with harmonic finger pressure, and firmly pressing down on the strings. This should cause the instrument to irregularly shake, and subtly stretch the strings, resulting in an unpredictable vibrato.",
         selector=trinton.select_logical_ties_by_index([3], first=True),
         position_pair=(-1, 1),
         site="before",
@@ -439,11 +439,11 @@ trinton.make_music(
         ),
     ),
     trinton.hooked_spanner_command(
-        string="""\markup { \column { \line { Saitenhalter } \line { antippen } } }""",
+        string="""\markup { \column { \line { Tap tailpiece } \line { with fingertips } } }""",
         selector=trinton.select_logical_ties_by_index(
             [0, 4, 9, 10, 23, -1], first=True
         ),
-        padding=4,
+        padding=4.5,
         direction=None,
         right_padding=2,
         full_string=True,
@@ -620,7 +620,7 @@ trinton.make_music(
         ],
     ),
     trinton.spanner_command(
-        strings=["Nagelvorderseite", r"Fingerspitze"],
+        strings=["Flat of nail", r"Fingertip"],
         selector=trinton.select_logical_ties_by_index(
             [0, -2], first=True, pitched=True, grace=False
         ),
@@ -631,14 +631,14 @@ trinton.make_music(
         full_string=False,
         command="Two",
         tweaks=[
-            r"""- \tweak font-name "Bodoni72 Book" """,
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
             r"""- \tweak font-size 2""",
             r"""- \tweak bound-details.left.Y #7.5""",
             r"""- \tweak bound-details.right.Y #21.5""",
         ],
     ),
     trinton.spanner_command(
-        strings=["ST", r"Steg"],
+        strings=["ST", r"OB"],
         selector=trinton.select_logical_ties_by_index(
             [0, -2], first=True, pitched=True, grace=False
         ),
@@ -896,7 +896,7 @@ trinton.make_music(
     ),
     trinton.noteheads_only(selector=trinton.pleaves(grace=True)),
     trinton.hooked_spanner_command(
-        string="""( Steg, mit Fingerspitze )""",
+        string="""( Bridge, with fingertip )""",
         selector=trinton.select_logical_ties_by_index(
             [0, -1], first=True, pitched=True
         ),
@@ -909,7 +909,7 @@ trinton.make_music(
         command="One",
         tag=None,
         tweaks=[
-            r"""- \tweak font-name "Bodoni72 Book" """,
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
             r"""- \tweak font-size 2""",
             # r"""- \tweak bound-details.left.Y #7.5""",
             # r"""- \tweak bound-details.right.Y #11""",
@@ -1073,7 +1073,7 @@ trinton.make_music(
         selector=trinton.select_leaves_by_index([0, 1, 6, 9]),
     ),
     trinton.hooked_spanner_command(
-        string="""\markup { \column { \line { "Steg mit" } \line { Nagelvorderseite } } }""",
+        string="""\markup { \column { \line { "On the bridge" } \line { "with flat of nail" } } }""",
         selector=trinton.logical_ties(first=True, pitched=True),
         padding=4.5,
         direction=None,
@@ -1084,7 +1084,7 @@ trinton.make_music(
         command="One",
         tag=None,
         tweaks=[
-            r"""- \tweak font-name "Bodoni72 Book" """,
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
             r"""- \tweak font-size 0.5""",
             # r"""- \tweak bound-details.left.Y #7.5""",
             # r"""- \tweak bound-details.right.Y #11""",
@@ -1211,7 +1211,7 @@ trinton.make_music(
         selector=trinton.select_leaves_by_index([4, -1], pitched=True, grace=False),
     ),
     trinton.hooked_spanner_command(
-        string="""Flachfinger""",
+        string="""Finger pads""",
         selector=trinton.select_leaves_by_index([1, 3], grace=False, pitched=True),
         padding=6,
         direction=None,
@@ -1222,14 +1222,14 @@ trinton.make_music(
         command="One",
         tag=None,
         tweaks=[
-            r"""- \tweak font-name "Bodoni72 Book" """,
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
             r"""- \tweak font-size 2""",
             # r"""- \tweak bound-details.left.Y #7.5""",
             # r"""- \tweak bound-details.right.Y #11""",
         ],
     ),
     trinton.hooked_spanner_command(
-        string="""Flachfinger""",
+        string="""Finger pads""",
         selector=trinton.select_leaves_by_index([8, 10], grace=False, pitched=True),
         padding=3.5,
         direction=None,
@@ -1240,7 +1240,7 @@ trinton.make_music(
         command="One",
         tag=None,
         tweaks=[
-            r"""- \tweak font-name "Bodoni72 Book" """,
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
             r"""- \tweak font-size 2""",
             # r"""- \tweak bound-details.left.Y #7.5""",
             # r"""- \tweak bound-details.right.Y #11""",

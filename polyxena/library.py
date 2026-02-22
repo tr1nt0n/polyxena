@@ -480,13 +480,13 @@ all_instrument_names = [
     abjad.InstrumentName(
         context="GrandStaff",
         markup=abjad.Markup(
-            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { Gambe }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Viola da Gamba }'
         ),
     ),
     abjad.InstrumentName(
         context="GrandStaff",
         markup=abjad.Markup(
-            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { Theorbe }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Theorbo }'
         ),
     ),
 ]
@@ -495,13 +495,13 @@ all_short_instrument_names = [
     abjad.ShortInstrumentName(
         context="GrandStaff",
         markup=abjad.Markup(
-            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { gambe }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { gambe }'
         ),
     ),
     abjad.ShortInstrumentName(
         context="GrandStaff",
         markup=abjad.Markup(
-            '\markup \\fontsize #4 \override #\'(font-name . "Bodoni72 Book Italic") { theorbe }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { thb. }'
         ),
     ),
 ]

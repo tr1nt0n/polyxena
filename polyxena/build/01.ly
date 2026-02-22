@@ -96,9 +96,9 @@
                                         \override Staff.BarLine.bar-extent = #'(-4.5 . 4.5)
                                         \override Staff.Accidental.stencil = ##f
                                         \override Staff.NoteHead.no-ledgers = ##t
-                                        \set GrandStaff.instrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { Gambe }
+                                        \set GrandStaff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Viola da Gamba }
                                           %! +SCORE
-                                        \set GrandStaff.shortInstrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { gambe }
+                                        \set GrandStaff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { gambe }
                                         \set Staff.forceClef = ##t
                                         \clef "treble"
                                         a8
@@ -182,7 +182,7 @@
                                     }
                                     \repeat tremolo 2 {
                                         \change Staff = "cello 2 staff"
-                                        \footnote #'(-1 . 1) \markup \fontsize #1 { \override #'(font-name . "Bodoni72 Book Italic") { \column { " Schnell wechseln zwischen dem Berühren der Saiten hinter dem Steg mit Fingerdruck, wie einen Flageolet spielen, und festen Herunterdrücken der Saiten. Dadurch sollte das Instrument vibrieren und ein unberechenbares Vibrato erzeugen. " } } }
+                                        \footnote #'(-1 . 1) \markup \fontsize #1 { \override #'(font-name . "Bodoni72 Book Italic") { \column { " Rapid alternation between touching the strings behind the bridge with harmonic finger pressure, and firmly pressing down on the strings. This should cause the instrument to irregularly shake, and subtly stretch the strings, resulting in an unpredictable vibrato. " } } }
                                         \override Staff.Clef.stencil = #ly:text-interface::print
                                         \override Staff.Clef.text = \six-string-clef
                                         \staff-line-count 6
@@ -471,9 +471,9 @@
                                         [
                                         - \tweak font-name "Bodoni72 Book Italic" 
                                         - \tweak font-size 2
-                                        - \tweak padding #4
+                                        - \tweak padding #4.5
                                         - \abjad-dashed-line-with-hook
-                                        - \tweak bound-details.left.text \markup \concat { { \column { \line { Saitenhalter } \line { antippen } } } \hspace #0.5 }
+                                        - \tweak bound-details.left.text \markup \concat { { \column { \line { Tap tailpiece } \line { with fingertips } } } \hspace #0.5 }
                                         - \tweak bound-details.right.padding -2
                                         \startTextSpan
                                         \tweak text #tuplet-number::calc-fraction-text
@@ -604,9 +604,9 @@
                                     [
                                     - \tweak font-name "Bodoni72 Book Italic" 
                                     - \tweak font-size 2
-                                    - \tweak padding #4
+                                    - \tweak padding #4.5
                                     - \abjad-dashed-line-with-hook
-                                    - \tweak bound-details.left.text \markup \concat { { \column { \line { Saitenhalter } \line { antippen } } } \hspace #0.5 }
+                                    - \tweak bound-details.left.text \markup \concat { { \column { \line { Tap tailpiece } \line { with fingertips } } } \hspace #0.5 }
                                     - \tweak bound-details.right.padding -2
                                     \startTextSpan
                                     \tweak style #'cross
@@ -887,9 +887,9 @@
                                         [
                                         - \tweak font-name "Bodoni72 Book Italic" 
                                         - \tweak font-size 2
-                                        - \tweak padding #4
+                                        - \tweak padding #4.5
                                         - \abjad-dashed-line-with-hook
-                                        - \tweak bound-details.left.text \markup \concat { { \column { \line { Saitenhalter } \line { antippen } } } \hspace #0.5 }
+                                        - \tweak bound-details.left.text \markup \concat { { \column { \line { Tap tailpiece } \line { with fingertips } } } \hspace #0.5 }
                                         - \tweak bound-details.right.padding -2
                                         \startTextSpan
                                         \tweak text #tuplet-number::calc-fraction-text
@@ -1008,8 +1008,8 @@
                                       %! +SCORE
                                     \once \override Staff.BarLine.transparent = ##f
                                     \override Staff.Clef.stencil = ##f
-                                    \set GrandStaff.instrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { Theorbe }
-                                    \set GrandStaff.shortInstrumentName = \markup \fontsize #4 \override #'(font-name . "Bodoni72 Book Italic") { theorbe }
+                                    \set GrandStaff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Theorbo }
+                                    \set GrandStaff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { thb. }
                                       %! +SCORE
                                     \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                                       %! +SCORE
@@ -1091,11 +1091,11 @@
                                         - \abjad-zero-padding-glissando
                                           %! abjad.glissando(7)
                                         \glissando
-                                        - \tweak font-name "Bodoni72 Book" 
+                                        - \tweak font-name "Bodoni72 Book Italic" 
                                         - \tweak font-size 2
                                         - \tweak padding #5
                                         - \abjad-dashed-line-with-hook
-                                        - \tweak bound-details.left.text \markup \concat { \upright { "( Steg, mit Fingerspitze )" } \hspace #0.5 }
+                                        - \tweak bound-details.left.text \markup \concat { \upright { "( Bridge, with fingertip )" } \hspace #0.5 }
                                         \startTextSpanOne
                                         {
                                             \once \override Accidental.stencil = ##f
@@ -1429,11 +1429,11 @@
                                     - \abjad-zero-padding-glissando
                                       %! abjad.glissando(7)
                                     \glissando
-                                    - \tweak font-name "Bodoni72 Book" 
+                                    - \tweak font-name "Bodoni72 Book Italic" 
                                     - \tweak font-size 0.5
                                     - \tweak padding #4.5
                                     - \abjad-dashed-line-with-hook
-                                    - \tweak bound-details.left.text \markup \concat { { \column { \line { "Steg mit" } \line { Nagelvorderseite } } } \hspace #0.5 }
+                                    - \tweak bound-details.left.text \markup \concat { { \column { \line { "On the bridge" } \line { "with flat of nail" } } } \hspace #0.5 }
                                     \startTextSpanOne
                                     ~
                                     \once \override Dots.staff-position = #2
@@ -1504,11 +1504,11 @@
                                         - \abjad-zero-padding-glissando
                                           %! abjad.glissando(7)
                                         \glissando
-                                        - \tweak font-name "Bodoni72 Book" 
+                                        - \tweak font-name "Bodoni72 Book Italic" 
                                         - \tweak font-size 0.5
                                         - \tweak padding #4.5
                                         - \abjad-dashed-line-with-hook
-                                        - \tweak bound-details.left.text \markup \concat { { \column { \line { "Steg mit" } \line { Nagelvorderseite } } } \hspace #0.5 }
+                                        - \tweak bound-details.left.text \markup \concat { { \column { \line { "On the bridge" } \line { "with flat of nail" } } } \hspace #0.5 }
                                         \startTextSpanOne
                                         ~
                                     }
@@ -1607,17 +1607,17 @@
                                                 - \tweak padding #12
                                                 - \abjad-solid-line-with-arrow
                                                 - \tweak bound-details.left.text \markup \concat { \upright { "ST" } \hspace #0.5 }
-                                                - \tweak bound-details.right.text \markup \upright { "Steg" }
+                                                - \tweak bound-details.right.text \markup \upright { "OB" }
                                                 - \tweak bound-details.right.padding -3.5
                                                 \startTextSpanOne
                                                 - \tweak bound-details.left.Y #7.5
                                                 - \tweak bound-details.right.Y #21.5
-                                                - \tweak font-name "Bodoni72 Book" 
+                                                - \tweak font-name "Bodoni72 Book Italic" 
                                                 - \tweak font-size 2
                                                 - \tweak padding #12
                                                 - \abjad-solid-line-with-arrow
-                                                - \tweak bound-details.left.text \markup \concat { \upright { "Nagelvorderseite" } \hspace #0.5 }
-                                                - \tweak bound-details.right.text \markup \upright { "Fingerspitze" }
+                                                - \tweak bound-details.left.text \markup \concat { \upright { "Flat of nail" } \hspace #0.5 }
+                                                - \tweak bound-details.right.text \markup \upright { "Fingertip" }
                                                 - \tweak bound-details.right.padding -3.5
                                                 \startTextSpanTwo
                                                 <c g b>64
@@ -2035,11 +2035,11 @@
                                                 )
                                             )
                                         )
-                                    - \tweak font-name "Bodoni72 Book" 
+                                    - \tweak font-name "Bodoni72 Book Italic" 
                                     - \tweak font-size 2
                                     - \tweak padding #6
                                     - \abjad-dashed-line-with-hook
-                                    - \tweak bound-details.left.text \markup \concat { \upright { "Flachfinger" } \hspace #0.5 }
+                                    - \tweak bound-details.left.text \markup \concat { \upright { "Finger pads" } \hspace #0.5 }
                                     - \tweak bound-details.right.padding -2
                                     \startTextSpanOne
                                     ~
@@ -2130,11 +2130,11 @@
                                                 )
                                             )
                                         )
-                                    - \tweak font-name "Bodoni72 Book" 
+                                    - \tweak font-name "Bodoni72 Book Italic" 
                                     - \tweak font-size 2
                                     - \tweak padding #3.5
                                     - \abjad-dashed-line-with-hook
-                                    - \tweak bound-details.left.text \markup \concat { \upright { "Flachfinger" } \hspace #0.5 }
+                                    - \tweak bound-details.left.text \markup \concat { \upright { "Finger pads" } \hspace #0.5 }
                                     - \tweak bound-details.right.padding -3
                                     \startTextSpanOne
                                     ~
