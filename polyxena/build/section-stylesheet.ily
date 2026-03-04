@@ -310,7 +310,7 @@ afterGraceFraction = #(cons 15 16)
                 \fontsize #2
                 {
                     \override #'(font-name . "Bodoni72 Book Italic")
-                    "polyxena / ilium sherds"
+                    "irredeemabilities"
                     \override #'(font-name . "Bodoni72 Book")
                     " - Trinity Hlynn Prater"
                 }
@@ -333,7 +333,7 @@ afterGraceFraction = #(cons 15 16)
                 \fontsize #2
                 {
                     \override #'(font-name . "Bodoni72 Book Italic")
-                    "polyxena / ilium sherds"
+                    "irredeemabilities"
                     \override #'(font-name . "Bodoni72 Book")
                     " - Trinity Hlynn Prater"
                 }

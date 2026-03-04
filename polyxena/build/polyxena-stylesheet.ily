@@ -12,7 +12,7 @@
 
 \header {
     dedication = \markup \column {\line \override #'(font-name . "Bodoni72 Book Italic") { \fontsize #4 { "to" \override #'(font-name . "Bodoni72 Book") "Athena Zenker Díaz" \override #'(font-name . "Bodoni72 Book Italic") "and" \override #'(font-name . "Bodoni72 Book") "Mauricio Galeano" } } \line { \fontsize #0.01 \with-color #white "."} }
-    title = \markup \override #'(font-name . "Bodoni72 Book Italic") \center-column { \line \fontsize #14 { "polyxena / ilium sherds" } \fontsize #0.01 \with-color #white "."}
+    title = \markup \override #'(font-name . "Bodoni72 Book Italic") \center-column { \line \fontsize #14 { "irredeemabilities" } \fontsize #0.01 \with-color #white "."}
     subtitle = \markup \fontsize #4 \center-column { \line { \override #'(font-name . "Bodoni72 Book Italic") { "( four talismans )" } } \fontsize #0.01 \with-color #white "."}
     composer = \markup \column { \override #'(font-name . "Bodoni72") \fontsize #4 {"Trinity Hlynn Prater (*2000)"} \fontsize #30 \with-color #white "."}
 }
@@ -310,7 +310,7 @@ afterGraceFraction = #(cons 15 16)
                 \fontsize #2
                 {
                     \override #'(font-name . "Bodoni72 Book Italic")
-                    "polyxena / ilium sherds"
+                    "irredeemabilities"
                     \override #'(font-name . "Bodoni72 Book")
                     " - Trinity Hlynn Prater"
                 }
@@ -333,7 +333,7 @@ afterGraceFraction = #(cons 15 16)
                 \fontsize #2
                 {
                     \override #'(font-name . "Bodoni72 Book Italic")
-                    "polyxena / ilium sherds"
+                    "irredeemabilities"
                     \override #'(font-name . "Bodoni72 Book")
                     " - Trinity Hlynn Prater"
                 }

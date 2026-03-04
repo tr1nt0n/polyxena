@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage{fontspec}
+\usepackage[utf8]{inputenc}
+\setmainfont{Bodoni 72 Book}
+\usepackage[paperwidth=17in,paperheight=11in,margin=1in,headheight=0.0in,footskip=0.5in,includehead,includefoot,portrait]{geometry}
+\usepackage[absolute]{textpos}
+\TPGrid[0.5in, 0.25in]{23}{24}
+\parindent=0pt
+\parskip=12pt
+\usepackage[dvipsnames]{xcolor}
+\usepackage{nopageno}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{amsmath}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+
+\begin{document}
+
+\vspace*{10\baselineskip}
+
+\begingroup
+\begin{center}
+\huge FOREWORD
+\end{center}
+\endgroup
+
+\vspace*{3\baselineskip}
+
+\begingroup
+\begin{center}
+\leftskip0.5in
+\large ``. . . what if we said, for example, not that it is wrong to think of so-called passive sex as `demeaning,' but rather that \textit{the value of sexuality itself is to demean the seriousness of efforts to redeem it}?"
+\rightskip\leftskip
+\phantom{text} \hfill - \textbf{Leo Bersani}
+\end{center}
+\endgroup
+
+
+\end{document}
