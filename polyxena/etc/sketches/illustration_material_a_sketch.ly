@@ -252,6 +252,8 @@
                         \set Staff.forceClef = ##t
                         \clef "percussion"
                         a,4
+                        - \tweak padding #7
+                        ^ \markup \fontsize #7 { Unprolated shards }
                         - \abjad-zero-padding-glissando
                         \glissando
                         \set Staff.forceClef = ##f
@@ -792,34 +794,500 @@
                         \revert Staff.Stem.stemlet-length
                         fqs8
                         ]
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 7/16
-                        s1 * 1/4
-                        s1 * 3/16
-                        s1 * 3/8
-                        s1 * 2
-                        s1 * 7/16
-                        s1 * 1/2
-                        s1 * 7/32
-                        s1 * 3/2
-                        s1 * 3/8
-                        s1 * 3/16
-                        s1 * 3/2
-                        s1 * 7/8
-                        s1 * 1/4
-                        s1 * 3/4
-                        s1 * 7/8
-                        s1 * 1/2
-                        s1 * 3/16
-                        s1 * 7/32
-                        s1 * 1/2
-                        s1 * 3/8
-                        s1 * 3/2
-                        s1 * 3/4
-                        s1 * 2
-                        s1 * 7/32
-                        s1 * 3/16
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 12/11
+                        {
+                            \override Dots.staff-position = #2
+                            fqs16
+                            - \tweak padding #7
+                            ^ \markup \fontsize #7 { Shards prolated to measure groups }
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            af4.
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            gqs'4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        e''4
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        cs'2
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 11/9
+                        {
+                            fs'2
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            gqs'16
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 9/11
+                        {
+                            a,4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            aqf'16
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            e''4.
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        aqf'1.
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        e''2
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 37/40
+                        {
+                            a,4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \revert Dots.staff-position
+                            bf'1
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 12/11
+                        {
+                            \override Dots.staff-position = #2
+                            cs'16
+                            - \tweak padding #7
+                            ^ \markup \fontsize #7 { Shards prolated to beat groups }
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            fs'2
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            gqs'8
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        a,4
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        ~
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        \override Staff.Stem.stemlet-length = 0.75
+                        a,8
+                        [
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        aqf'8
+                        ]
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        ~
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        aqf'4
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/5
+                        {
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            e''4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            aqf'16
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/7
+                        {
+                            \override Staff.Stem.stemlet-length = 0.75
+                            e''16
+                            [
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            a,32
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \revert Staff.Stem.stemlet-length
+                            bf'8
+                            ]
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 3/4
+                        {
+                            cs'2.
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            gqs'4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 12/9
+                        {
+                            e''16
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            e'2
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 16/13
+                        {
+                            \override Staff.Stem.stemlet-length = 0.75
+                            fqs32
+                            [
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \revert Staff.Stem.stemlet-length
+                            gqs'8
+                            ]
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            a,4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 12/9
+                        {
+                            bf4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            eqf32
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \times 4/5
+                        {
+                            a,4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            gqs'16
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \times 4/5
+                        {
+                            e''4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            af4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            fqs8
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \times 8/11
+                        {
+                            cs'16.
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            gqs'4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 16/13
+                        {
+                            \override Staff.Stem.stemlet-length = 0.75
+                            e''64
+                            [
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \revert Staff.Stem.stemlet-length
+                            aqf'8.
+                            ]
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 12/15
+                        {
+                            e''4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \override Staff.Stem.stemlet-length = 0.75
+                            fs'32
+                            [
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \revert Staff.Stem.stemlet-length
+                            gqs'8.
+                            ]
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 8/7
+                        {
+                            \override Staff.Stem.stemlet-length = 0.75
+                            a,16.
+                            [
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \revert Staff.Stem.stemlet-length
+                            aqf'8
+                            ]
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \times 8/11
+                        {
+                            e''2
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            cs'8.
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 12/13
+                        {
+                            \override Staff.Stem.stemlet-length = 0.75
+                            bf'16
+                            [
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            fqs8
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \revert Staff.Stem.stemlet-length
+                            gqs'64
+                            ]
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 7/9
+                        {
+                            e''4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            e'32
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \times 2/3
+                        {
+                            bf4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            eqf2
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 12/9
+                        {
+                            \override Staff.Stem.stemlet-length = 0.75
+                            gqs'8
+                            [
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            a,32
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \revert Staff.Stem.stemlet-length
+                            gqs'8
+                            ]
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/5
+                        {
+                            e''2
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            a,8
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        gqs'4
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        ~
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        \override Staff.Stem.stemlet-length = 0.75
+                        gqs'8
+                        [
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        e''8
+                        ]
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        ~
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        e''4
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 12/17
+                        {
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            cs'4.
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \override Staff.Stem.stemlet-length = 0.75
+                            gqs'32
+                            [
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \revert Staff.Stem.stemlet-length
+                            a,8
+                            ]
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/5
+                        {
+                            aqf'4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            e''16
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \times 8/9
+                        {
+                            fs'2
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            aqf'16
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 12/9
+                        {
+                            e''4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            a,16
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            bf'4
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                        }
+                        cs'4
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        ~
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        cs'4
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        e'4
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        fqs32
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        gqs'8.
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 12/9
+                        {
+                            \override Staff.Stem.stemlet-length = 0.75
+                            e''64
+                            [
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            gqs'16
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \revert Dots.staff-position
+                            \revert Staff.Stem.stemlet-length
+                            a,16
+                            ]
+                        }
                     }
                 }
             >>

@@ -25,9 +25,71 @@ trinton.make_music(
         auto_reversion=False,
     ),
     trinton.continuous_glissando(selector=trinton.pleaves(), zero_padding=True),
+    trinton.attachment_command(
+        attachments=[
+            abjad.bundle(
+                abjad.Markup(r"""\markup \fontsize #7 { Unprolated shards }"""),
+                r"- \tweak padding #7",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.UP,
+    ),
     voice=score["guitar 2 voice"],
     beam_meter=True,
-    # preprocessor=trinton.fuse_preprocessor((3, 2, 1, 1, 1, 2))
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (11, 20)),
+    evans.RhythmHandler(rhythm.shuffled_gesture(index=6, stage=1)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    trinton.continuous_glissando(selector=trinton.pleaves(), zero_padding=True),
+    trinton.attachment_command(
+        attachments=[
+            abjad.bundle(
+                abjad.Markup(
+                    r"""\markup \fontsize #7 { Shards prolated to measure groups }"""
+                ),
+                r"- \tweak padding #7",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.UP,
+    ),
+    voice=score["guitar 2 voice"],
+    beam_meter=True,
+    preprocessor=trinton.fuse_preprocessor(
+        (
+            1,
+            1,
+            2,
+            2,
+            1,
+            3,
+            1,
+        )
+    ),
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (21, 38)),
+    evans.RhythmHandler(rhythm.shuffled_gesture(index=12, stage=3)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    trinton.continuous_glissando(selector=trinton.pleaves(), zero_padding=True),
+    trinton.attachment_command(
+        attachments=[
+            abjad.bundle(
+                abjad.Markup(
+                    r"""\markup \fontsize #7 { Shards prolated to beat groups }"""
+                ),
+                r"- \tweak padding #7",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.UP,
+    ),
+    voice=score["guitar 2 voice"],
+    beam_meter=True,
 )
 
 # instrument names
