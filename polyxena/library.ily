@@ -86,6 +86,33 @@ boxed-markup = #(
 
 % U+E078
 
+rasgueado-clef = \markup {
+    \fontsize #8.5
+    \override #'(font-name . "ekmelos")
+    \override #'(whiteout-style . "outline")
+    \override #'(whiteout . 1)
+    \override #'(layer . 27)
+    \override #'(baseline-skip . 0)
+    \raise #3
+    {
+        \center-column {
+            % \combine
+            \line {
+                \char ##xe7e3
+            }
+            \line {
+                \char ##xeb60
+            }
+            \line {
+                \char ##xeb64
+            }
+            \line {
+                \char ##xe7e5
+            }
+        }
+    }
+}
+
 string-clef = \markup {
     % \hspace #0.6
     \fontsize #8

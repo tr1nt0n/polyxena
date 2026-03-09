@@ -216,10 +216,11 @@ def change_staff_type(
             staff_type != "tablature"
             and staff_type != "stringing gambe"
             and staff_type != "stringing theorbe"
+            and staff_type != "rasgueado"
             and staff_type != "reversion"
         ):
             raise Exception(
-                "Available staff types are tablature, stringing gambe, tringing theorbe, and reversion"
+                "Available staff types are tablature, stringing gambe, tringing theorbe, rasgueado, and reversion"
             )
         selections = selector(argument)
 
@@ -263,6 +264,14 @@ def change_staff_type(
                             r"\override Staff.Clef.stencil = #ly:text-interface::print",
                             r"\override Staff.Clef.text = \fourteen-string-clef",
                             r"\staff-line-count 14",
+                            r"\override Staff.Accidental.stencil = ##f",
+                            r"\override Staff.NoteHead.no-ledgers = ##t",
+                        ],
+                        "rasgueado": [
+                            r"\override Staff.Clef.stencil = #ly:text-interface::print",
+                            r"\override Staff.Clef.text = \rasgueado-clef",
+                            r"\override Staff.StaffSymbol.line-positions = #'(9 0 -9)",
+                            r"\staff-line-count 3",
                             r"\override Staff.Accidental.stencil = ##f",
                             r"\override Staff.NoteHead.no-ledgers = ##t",
                         ],
@@ -495,7 +504,7 @@ all_short_instrument_names = [
     abjad.ShortInstrumentName(
         context="GrandStaff",
         markup=abjad.Markup(
-            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { gambe }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { viol. }'
         ),
     ),
     abjad.ShortInstrumentName(

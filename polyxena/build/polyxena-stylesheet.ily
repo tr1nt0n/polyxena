@@ -94,7 +94,7 @@ afterGraceFraction = #(cons 15 16)
         \override BarLine.hair-thickness = 0.5
         \override BarLine.thick-thickness = #10
         \override BarLine.layer = 2
-        \override BarLine.bar-extent = #'(-2 . 2)
+        % \override BarLine.bar-extent = #'(-2 . 2)
 
         autoBeaming = ##f
         \override Beam.breakable = ##t
@@ -299,7 +299,7 @@ afterGraceFraction = #(cons 15 16)
     bottom-margin = 10\mm
     left-margin = 10\mm
     right-margin = 10\mm
-    top-margin = 20\mm
+    top-margin = 30\mm
 
     oddHeaderMarkup = \markup ""
     evenHeaderMarkup = \markup ""

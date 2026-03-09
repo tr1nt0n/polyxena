@@ -83,8 +83,10 @@ for i, index in enumerate(library.tetrahedron_corners_list):
     numerator = numerators[index]
     numerator_sequence.append(numerator)
 
+# material rhythm makers
 
-def distorted_talea(start_index, prolations, elaboration_level=0, retrograde=False):
+
+def weighted_talea(start_index, prolations, elaboration_level=0, retrograde=False):
     def return_rhythms(time_signatures):
         durations = []
 
@@ -96,50 +98,80 @@ def distorted_talea(start_index, prolations, elaboration_level=0, retrograde=Fal
             time_signature_denominator = time_signature.denominator
 
             if time_signature_numerator == 3:
-                subdivision_cycle = [[2, 1], [1, 2], [1, 1, 1]]
-                subdivision_index = three_counter % 3
-                subdivision = subdivision_cycle[subdivision_index]
+                if time_signature_denominator >= 8:
+                    durations.append(
+                        abjad.Duration(
+                            time_signature_numerator, time_signature_denominator
+                        )
+                    )
+                else:
+                    subdivision_cycle = [[2, 1], [1, 2], [1, 1, 1]]
+                    subdivision_index = three_counter % 3
+                    subdivision = subdivision_cycle[subdivision_index]
 
-                for beat_group in subdivision:
-                    if (
-                        time_signature_denominator == 7
-                        or time_signature_denominator == 14
-                        or time_signature_denominator == 28
-                    ):
-                        duration_denominator = time_signature_denominator * 2
-                    else:
-                        duration_denominator = time_signature_denominator
-                    durations.append(abjad.Duration(beat_group, duration_denominator))
+                    for beat_group in subdivision:
+                        if (
+                            time_signature_denominator == 7
+                            or time_signature_denominator == 14
+                            or time_signature_denominator == 28
+                        ):
+                            duration_denominator = time_signature_denominator * 2
+                        else:
+                            duration_denominator = time_signature_denominator
+                        durations.append(
+                            abjad.Duration(beat_group, duration_denominator)
+                        )
 
-                three_counter += 1
+                    three_counter += 1
 
             if time_signature_numerator == 6:
-                durations.append(abjad.Duration((3, time_signature_denominator)))
-                durations.append(abjad.Duration((3, time_signature_denominator)))
+                if time_signature_denominator >= 16:
+                    durations.append(
+                        abjad.Duration(
+                            time_signature_numerator, time_signature_denominator
+                        )
+                    )
+                else:
+                    durations.append(abjad.Duration((3, time_signature_denominator)))
+                    durations.append(abjad.Duration((3, time_signature_denominator)))
 
             if time_signature_numerator == 7:
-                subdivision_cycle = [[4, 3], [2, 3, 2], [3, 4]]
-                subdivision_index = seven_counter % 3
-                subdivision = subdivision_cycle[subdivision_index]
-
-                for beat_group in subdivision:
+                if time_signature_denominator >= 16:
                     durations.append(
-                        abjad.Duration(beat_group, time_signature_denominator)
+                        abjad.Duration(
+                            time_signature_numerator, time_signature_denominator
+                        )
                     )
+                else:
+                    subdivision_cycle = [[4, 3], [2, 3, 2], [3, 4]]
+                    subdivision_index = seven_counter % 3
+                    subdivision = subdivision_cycle[subdivision_index]
 
-                seven_counter += 1
+                    for beat_group in subdivision:
+                        durations.append(
+                            abjad.Duration(beat_group, time_signature_denominator)
+                        )
+
+                    seven_counter += 1
 
             if time_signature_numerator == 8:
-                subdivision_cycle = [[3, 3, 2], [3, 2, 3], [2, 3, 3]]
-                subdivision_index = seven_counter % 3
-                subdivision = subdivision_cycle[subdivision_index]
-
-                for beat_group in subdivision:
+                if time_signature_denominator >= 16:
                     durations.append(
-                        abjad.Duration(beat_group, time_signature_denominator)
+                        abjad.Duration(
+                            time_signature_numerator, time_signature_denominator
+                        )
                     )
+                else:
+                    subdivision_cycle = [[3, 3, 2], [3, 2, 3], [2, 3, 3]]
+                    subdivision_index = seven_counter % 3
+                    subdivision = subdivision_cycle[subdivision_index]
 
-                eight_counter += 1
+                    for beat_group in subdivision:
+                        durations.append(
+                            abjad.Duration(beat_group, time_signature_denominator)
+                        )
+
+                    eight_counter += 1
 
         if retrograde is True:
             talea_sequence = numerator_sequence[::-1]
@@ -344,7 +376,7 @@ def distorted_talea(start_index, prolations, elaboration_level=0, retrograde=Fal
     return return_rhythms
 
 
-def maintained_talea(
+def prolated_talea(
     index,
     denominator,
     prolations,
@@ -507,6 +539,296 @@ def maintained_talea(
         return rhythm_selections
 
     return return_rhythms
+
+
+def shuffled_gesture(index, stage=1):
+    def return_rhythms(time_signatures):
+        container = abjad.Container()
+
+        working_containers = [
+            abjad.Container(
+                [abjad.Note("a,1"), abjad.Note("e''2.."), abjad.Note("a,4.")]
+            )
+            for _ in range(0, 3)
+        ]
+
+        durations_list = [
+            [abjad.Duration((9, 32))],
+            [
+                abjad.Duration((5, 16)),
+                abjad.Duration((5, 16)),
+                abjad.Duration((5, 16)),
+                abjad.Duration((5, 16)),
+                abjad.Duration((5, 16)),
+                abjad.Duration((3, 16)),
+            ],
+            [abjad.Duration((3, 4))],
+        ]
+
+        for durations, working_container in zip(durations_list, working_containers):
+            abjad.mutate.split(
+                working_container[:],
+                durations=durations,
+                cyclic=True,
+            )
+
+        eighth_divisions = []
+        seventh_divisions = []
+        third_divisions = []
+
+        eighth_pitch_list = [
+            "a,",
+            "fqs",
+            "cs'",
+            "aqf'",
+            "e''",
+            "bf'",
+            "e'",
+            "bf",
+            "eqf",
+            "a,",
+        ]
+        seventh_pitch_list = ["a,", "fqs", "cs'", "aqf'", "e''", "fs'", "gs", "a,"]
+        third_pitch_list = ["a,", "gqs'", "e''", "gqs'", "a,"]
+
+        pitch_lists = [eighth_pitch_list, seventh_pitch_list, third_pitch_list]
+
+        for duration_list, pitch_list, working_container in zip(
+            durations_list, pitch_lists, working_containers
+        ):
+            reference_duration = duration_list[0]
+            duration_group = []
+            pitch_counter = 0
+            for leaf in abjad.select.leaves(working_container):
+                if abjad.get.duration(duration_group) < reference_duration:
+                    leaf.written_pitch = pitch_list[pitch_counter % len(pitch_list)]
+                    if abjad.get.has_indicator(leaf, abjad.Tie) is False:
+                        pitch_counter += 1
+                    duration_group.append(leaf)
+                else:
+                    last_leaf_of_group = abjad.select.leaf(duration_group, -1)
+                    abjad.detach(abjad.Tie, last_leaf_of_group)
+                    if reference_duration == abjad.Duration((9, 32)):
+                        eighth_divisions.append(abjad.mutate.copy(duration_group))
+                    if reference_duration == abjad.Duration((5, 16)):
+                        seventh_divisions.append(abjad.mutate.copy(duration_group))
+                    if reference_duration == abjad.Duration((3, 4)):
+                        third_divisions.append(abjad.mutate.copy(duration_group))
+                    duration_group.clear()
+                    pitch_counter += 1
+                    leaf.written_pitch = pitch_list[pitch_counter % len(pitch_list)]
+                    if abjad.get.has_indicator(leaf, abjad.Tie) is False:
+                        pitch_counter += 1
+                    duration_group.append(leaf)
+
+            if reference_duration == abjad.Duration((9, 32)):
+                eighth_divisions.append(abjad.mutate.copy(duration_group))
+            if reference_duration == abjad.Duration((5, 16)):
+                seventh_divisions.append(abjad.mutate.copy(duration_group))
+            if reference_duration == abjad.Duration((3, 4)):
+                third_divisions.append(abjad.mutate.copy(duration_group))
+
+        shuffled_shards = []
+
+        for eighth_division, seventh_division, third_division in zip(
+            eighth_divisions,
+            itertools.cycle(seventh_divisions[::-1]),
+            itertools.cycle(third_divisions),
+        ):
+            shuffled_shards.append(eighth_division)
+            shuffled_shards.append(seventh_division),
+            shuffled_shards.append(third_division)
+
+        partitions = []
+
+        for _ in range(0, len(shuffled_shards)):
+            partitions.append(3)
+            partitions.append(2)
+            partitions.append(2)
+
+        partitioned_shards = abjad.sequence.partition_by_counts(
+            sequence=shuffled_shards,
+            counts=partitions,
+            overhang=True,
+        )
+
+        helianthated_shards = baca.sequence.helianthate(partitioned_shards, n=-1, m=1)
+
+        shard_sequence = [_ for _ in abjad.select.leaves(helianthated_shards)]
+
+        shard_sequence = trinton.rotated_sequence(
+            shard_sequence, index % len(shard_sequence)
+        )
+
+        shard_partitions = abjad.sequence.partition_by_counts(
+            sequence=shard_sequence,
+            counts=partitions,
+            overhang=True,
+        )
+
+        if stage < 3:
+            durations = [
+                abjad.Duration((time_signature.numerator, time_signature.denominator))
+                for time_signature in time_signatures
+            ]
+
+        if stage == 3:
+            three_counter = 0
+            seven_counter = 0
+            eight_counter = 0
+            durations = []
+            for time_signature in time_signatures:
+                time_signature_numerator = time_signature.numerator
+                time_signature_denominator = time_signature.denominator
+
+                if time_signature_numerator == 3:
+                    if time_signature_denominator >= 8:
+                        durations.append(
+                            abjad.Duration(
+                                time_signature_numerator, time_signature_denominator
+                            )
+                        )
+                    else:
+                        subdivision_cycle = [[2, 1], [1, 2], [1, 1, 1]]
+                        subdivision_index = three_counter % 3
+                        subdivision = subdivision_cycle[subdivision_index]
+
+                        for beat_group in subdivision:
+                            if (
+                                time_signature_denominator == 7
+                                or time_signature_denominator == 14
+                                or time_signature_denominator == 28
+                            ):
+                                duration_denominator = time_signature_denominator * 2
+                            else:
+                                duration_denominator = time_signature_denominator
+                            durations.append(
+                                abjad.Duration(beat_group, duration_denominator)
+                            )
+
+                        three_counter += 1
+
+                if time_signature_numerator == 6:
+                    if time_signature_denominator >= 16:
+                        durations.append(
+                            abjad.Duration(
+                                time_signature_numerator, time_signature_denominator
+                            )
+                        )
+                    else:
+                        durations.append(
+                            abjad.Duration((3, time_signature_denominator))
+                        )
+                        durations.append(
+                            abjad.Duration((3, time_signature_denominator))
+                        )
+
+                if time_signature_numerator == 7:
+                    if time_signature_denominator >= 16:
+                        durations.append(
+                            abjad.Duration(
+                                time_signature_numerator, time_signature_denominator
+                            )
+                        )
+                    else:
+                        subdivision_cycle = [[4, 3], [2, 3, 2], [3, 4]]
+                        subdivision_index = seven_counter % 3
+                        subdivision = subdivision_cycle[subdivision_index]
+
+                        for beat_group in subdivision:
+                            durations.append(
+                                abjad.Duration(beat_group, time_signature_denominator)
+                            )
+
+                        seven_counter += 1
+
+                if time_signature_numerator == 8:
+                    if time_signature_denominator >= 16:
+                        durations.append(
+                            abjad.Duration(
+                                time_signature_numerator, time_signature_denominator
+                            )
+                        )
+                    else:
+                        subdivision_cycle = [[3, 3, 2], [3, 2, 3], [2, 3, 3]]
+                        subdivision_index = seven_counter % 3
+                        subdivision = subdivision_cycle[subdivision_index]
+
+                        for beat_group in subdivision:
+                            durations.append(
+                                abjad.Duration(beat_group, time_signature_denominator)
+                            )
+
+                        eight_counter += 1
+
+        if stage == 2:
+            shard_durations = [abjad.get.duration(shard) for shard in shard_sequence]
+
+            shard_denominators = [_.denominator for _ in shard_durations]
+
+            largest_denominator = max(shard_denominators)
+
+            talea_numerators = []
+
+            for shard in shard_sequence:
+                shard_duration = abjad.get.duration(shard)
+                if shard_duration.denominator == largest_denominator:
+                    talea_numerators.append(shard_duration.numerator)
+                else:
+                    difference = largest_denominator / shard_duration.denominator
+                    new_numerator = shard_duration.numerator * difference
+                    new_numerator = int(new_numerator)
+                    talea_numerators.append(new_numerator)
+
+            talea = rmakers.talea(durations, talea_numerators, largest_denominator)
+
+            container.extend(talea)
+
+        else:
+            for duration, shard_group in zip(durations, shard_partitions):
+                shard_group = abjad.sequence.flatten(shard_group)
+
+                shard_durations = [abjad.get.duration(shard) for shard in shard_group]
+
+                shard_denominators = [_.denominator for _ in shard_durations]
+
+                largest_denominator = max(shard_denominators)
+
+                tuplet_ratio = []
+                for shard_duration in shard_durations:
+                    if shard_duration.denominator == largest_denominator:
+                        tuplet_ratio.append(shard_duration.numerator)
+                    else:
+                        difference = largest_denominator / shard_duration.denominator
+                        new_numerator = shard_duration.numerator * difference
+                        new_numerator = int(new_numerator)
+                        tuplet_ratio.append(new_numerator)
+
+                tuplet_ratio = tuple(tuplet_ratio)
+
+                tuplets = rmakers.tuplet([duration], [tuplet_ratio])
+                # pitch_list = [_.written_pitch.number for _ in shard_group]
+                # pitch_handler = evans.PitchHandler(pitch_list=pitch_list)
+                # pitch_handler(tuplets)
+                container.extend(tuplets)
+
+        treat_tuplets = trinton.treat_tuplets()
+        treat_tuplets(abjad.select.tuplets(container))
+        trinton.respell_tuplets(abjad.select.tuplets(container), rewrite_brackets=False)
+        # if stage == 2:
+        pitch_list = [
+            _[0].written_pitch.number for _ in abjad.select.logical_ties(shard_sequence)
+        ]
+        pitch_list = trinton.remove_adjacent(pitch_list)
+        pitch_handler = evans.PitchHandler(pitch_list=pitch_list)
+        pitch_handler(container)
+        rhythm_selections = abjad.mutate.eject_contents(container)
+        return rhythm_selections
+
+    return return_rhythms
+
+
+# rhythm tools
 
 
 def replace_with_tremolo_container(selector, count=2):
