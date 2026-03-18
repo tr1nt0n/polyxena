@@ -155,8 +155,8 @@ six-string-clef = \markup {
 }
 
 fourteen-string-clef = \markup {
-    \fontsize #-5
-    \raise #1
+    \fontsize #-6
+    \raise #6
     \override #'(baseline-skip . 1)
     {
         \center-column {
@@ -418,5 +418,31 @@ upward-diagonal-draw = \markup {
                 \char ##xe27b
             }
         }
+    }
+}
+
+open-hand = \markup {
+    \fontsize #8.5
+    \override #'(font-name . "ekmelos")
+    \override #'(whiteout-style . "outline")
+    \override #'(whiteout . 1)
+    \override #'(layer . 27)
+    % \override #'(baseline-skip . 0)
+    % \raise #3
+    {
+        \char ##xe7e3
+    }
+}
+
+closed-hand = \markup {
+    \fontsize #8.5
+    \override #'(font-name . "ekmelos")
+    \override #'(whiteout-style . "outline")
+    \override #'(whiteout . 1)
+    \override #'(layer . 27)
+    % \override #'(baseline-skip . 0)
+    % \raise #3
+    {
+        \char ##xe7e5
     }
 }

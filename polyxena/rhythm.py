@@ -541,14 +541,12 @@ def prolated_talea(
     return return_rhythms
 
 
-def shuffled_gesture(index, stage=1):
+def shuffled_gesture(index, instrument, stage=1):
     def return_rhythms(time_signatures):
         container = abjad.Container()
 
         working_containers = [
-            abjad.Container(
-                [abjad.Note("a,1"), abjad.Note("e''2.."), abjad.Note("a,4.")]
-            )
+            abjad.Container([abjad.Note("b1"), abjad.Note("b''2.."), abjad.Note("b4.")])
             for _ in range(0, 3)
         ]
 
@@ -576,20 +574,67 @@ def shuffled_gesture(index, stage=1):
         seventh_divisions = []
         third_divisions = []
 
-        eighth_pitch_list = [
-            "a,",
-            "fqs",
-            "cs'",
-            "aqf'",
-            "e''",
-            "bf'",
-            "e'",
-            "bf",
-            "eqf",
-            "a,",
-        ]
-        seventh_pitch_list = ["a,", "fqs", "cs'", "aqf'", "e''", "fs'", "gs", "a,"]
-        third_pitch_list = ["a,", "gqs'", "e''", "gqs'", "a,"]
+        if instrument == "theorbe":
+            eighth_pitch_list = [
+                "b",
+                "f'",
+                "a'",
+                "c''",
+                "g''",
+                "b''",
+                "g''",
+                "c''",
+                "f'",
+                "b",
+            ]
+            seventh_pitch_list = ["d'", "a'", "e''", "b''", "e''", "a'", "d'", "b"]
+            third_pitch_list = ["b", "c''", "b''", "c''", "b"]
+
+        else:
+            eighth_pitch_list = [
+                "g",
+                "bqf",
+                "d'",
+                "fqs'",
+                "a'",
+                "cqs''",
+                "e''",
+                "gqs''",
+                "b''",
+                "gqs''",
+                "e''",
+                "cqs''",
+                "a'",
+                "fqs'",
+                "d'",
+                "bqf",
+                "g",
+            ]
+            seventh_pitch_list = [
+                "g",
+                "b",
+                "ef'",
+                "g'",
+                "b'",
+                "ef''",
+                "g''",
+                "b''",
+                "g''",
+                "ef''",
+                "b'",
+                "g'",
+                "ef'",
+                "b",
+            ]
+            third_pitch_list = [
+                "g",
+                "eqs'",
+                "d''",
+                "bqs''",
+                "d''",
+                "eqs'",
+                "g",
+            ]
 
         pitch_lists = [eighth_pitch_list, seventh_pitch_list, third_pitch_list]
 
@@ -815,13 +860,18 @@ def shuffled_gesture(index, stage=1):
         treat_tuplets = trinton.treat_tuplets()
         treat_tuplets(abjad.select.tuplets(container))
         trinton.respell_tuplets(abjad.select.tuplets(container), rewrite_brackets=False)
-        # if stage == 2:
+        # # if stage == 2:
         pitch_list = [
-            _[0].written_pitch.number for _ in abjad.select.logical_ties(shard_sequence)
+            _[0].written_pitch.number
+            for _ in abjad.select.logical_ties(shard_partitions)
         ]
         pitch_list = trinton.remove_adjacent(pitch_list)
-        pitch_handler = evans.PitchHandler(pitch_list=pitch_list)
-        pitch_handler(container)
+        for tie, pitch in zip(
+            abjad.select.logical_ties(container), itertools.cycle(pitch_list)
+        ):
+            for leaf in abjad.select.leaves(tie):
+                leaf.written_pitch = abjad.NumberedPitch(pitch).name
+
         rhythm_selections = abjad.mutate.eject_contents(container)
         return rhythm_selections
 
