@@ -255,8 +255,8 @@ def change_staff_type(
                         ],
                         "stringing gambe": [
                             r"\override Staff.Clef.stencil = #ly:text-interface::print",
-                            r"\override Staff.Clef.text = \six-string-clef",
-                            r"\staff-line-count 6",
+                            r"\override Staff.Clef.text = \seven-string-clef",
+                            r"\staff-line-count 7",
                             r"\override Staff.Accidental.stencil = ##f",
                             r"\override Staff.NoteHead.no-ledgers = ##t",
                         ],

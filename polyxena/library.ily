@@ -138,9 +138,9 @@ bow-clef = \markup {
     }
 }
 
-six-string-clef = \markup {
+seven-string-clef = \markup {
     \fontsize #-5
-    \raise #2.25
+    \raise #2.75
     \override #'(baseline-skip . 1)
     {
         \center-column {
@@ -150,6 +150,7 @@ six-string-clef = \markup {
             \line { IV }
             \line { V }
             \line { VI }
+            \line { VII }
         }
     }
 }
