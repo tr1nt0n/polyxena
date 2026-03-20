@@ -21,12 +21,14 @@ trinton.make_music(
         rhythm.weighted_talea(
             start_index=0,
             prolations=[1, 3, 6, 7, 8],
-            elaboration_level=0,
+            elaboration_level=4,
             retrograde=False,
         )
     ),
     trinton.rewrite_meter_command(boundary_depth=-1),
-    pitch.strange_bariolage_pitching(index=1),
+    pitch.strange_bariolage_pitching(index=1, instrument="gambe"),
+    library.articulate_bariolage(index=1),
+    trinton.noteheads_only(selector=trinton.pleaves(grace=True)),
     library.change_staff_type(
         selector=trinton.select_leaves_by_index([0]),
         staff_type="stringing gambe",

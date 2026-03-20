@@ -3,7 +3,9 @@ import baca
 import evans
 import trinton
 import itertools
+import numpy
 import polyxena
+import random
 import statistics
 from sympy import combinatorics
 
@@ -111,6 +113,77 @@ def attach_patterned_dynamics(
 
 
 # notation tools
+
+
+def articulate_bariolage(
+    index, seed=7, selector=trinton.logical_ties(pitched=True, grace=False)
+):
+    def slur(argument):
+        selections = selector(argument)
+        starting_pitches = polyxena.pitch.return_pitch_list(index=index)
+
+        string_amounts = [_ % 7 for _ in starting_pitches]
+
+        string_ranges = []
+
+        for amount in string_amounts:
+            if amount == 0 or amount == 1:
+                pass
+            else:
+                if amount + amount > 7:
+                    string_range = []
+
+                    for _ in range(0, amount):
+                        string_range.append(amount - _)
+                else:
+                    string_range = []
+
+                    for _ in range(0, amount):
+                        string_range.append(amount + _)
+
+                string_ranges.append(string_range)
+
+        string_figurations = []
+        random.seed(seed)
+        for string_range in string_ranges:
+            order_array = numpy.random.permutation(len(string_range))
+            order_list = order_array.tolist()
+
+            new_range = []
+
+            for _ in order_list:
+                new_range.append(string_range[_])
+
+            reversed_range = new_range[::-1]
+
+            reversed_range = reversed_range[1:]
+
+            for _ in reversed_range:
+                new_range.append(_)
+
+            string_figurations.append(new_range)
+
+        partitioned_selections = abjad.select.partition_by_counts(
+            selections,
+            [len(string_figuration) for string_figuration in string_figurations],
+            cyclic=True,
+            overhang=True,
+        )
+
+        for selection_partition in partitioned_selections:
+            abjad.slur(selection_partition)
+
+            glissando_command = trinton.continuous_glissando(
+                selector=trinton.selectors.logical_ties(),
+                no_ties=False,
+                tweaks=None,
+                zero_padding=True,
+                invisible_center=False,
+                slur=False,
+            )
+            glissando_command(selection_partition)
+
+    return slur
 
 
 def multiple_muting(selector=abjad.select.chords, closed_fundamental=False):

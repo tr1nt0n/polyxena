@@ -327,10 +327,14 @@ def weighted_talea(start_index, prolations, elaboration_level=0, retrograde=Fals
 
             logical_ties = abjad.select.logical_ties(container, pitched=True)
             duration_match_counter = start_index
-            for tie in logical_ties:
+            for i, tie in enumerate(logical_ties):
                 tie_duration = abjad.get.duration(tie, preprolated=True)
-                for comparative_duration in relevant_durations:
+                # print(f"tie {i} duration: {tie_duration}")
+                for i, comparative_duration in enumerate(relevant_durations):
+                    # print(f"comparative duration {i}: {comparative_duration}")
                     if tie_duration == comparative_duration:
+                        # print("duration match")
+                        # print("")
                         tie_parent = abjad.get.parentage(
                             abjad.select.leaf(tie, 0)
                         ).parent
@@ -367,6 +371,7 @@ def weighted_talea(start_index, prolations, elaboration_level=0, retrograde=Fals
 
                         abjad.mutate.replace(tie[0], tuplet)
 
+        rmakers.rewrite_dots(abjad.select.tuplets(container))
         treat_tuplets = trinton.treat_tuplets()
         treat_tuplets(container)
         trinton.respell_tuplets(abjad.select.tuplets(container), rewrite_brackets=False)
@@ -860,7 +865,6 @@ def shuffled_gesture(index, instrument, stage=1):
         treat_tuplets = trinton.treat_tuplets()
         treat_tuplets(abjad.select.tuplets(container))
         trinton.respell_tuplets(abjad.select.tuplets(container), rewrite_brackets=False)
-        # # if stage == 2:
         pitch_list = [
             _[0].written_pitch.number
             for _ in abjad.select.logical_ties(shard_partitions)

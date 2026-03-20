@@ -59,7 +59,7 @@ def return_pitch_list(index, chord_groups=None):
 
 
 def strange_bariolage_pitching(
-    index, seed=7, selector=trinton.logical_ties(pitched=True, grace=False)
+    index, instrument, seed=7, selector=trinton.logical_ties(pitched=True, grace=False)
 ):
     def pitching(argument):
         selections = selector(argument)
