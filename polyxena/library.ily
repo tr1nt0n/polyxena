@@ -75,6 +75,11 @@ boxed-markup = #(
           (markup #:override '(baseline-skip . 2.5) #:number
                   (#:line ((#:fontsize 1 #:column ("X" "X")))))))
 
+#(define ((three-seven-time-signature) grob)
+   (grob-interpret-markup grob
+          (markup #:override '(baseline-skip . 2.5) #:number
+                  (#:line ((#:fontsize 1 #:column ("3" "7")))))))
+
 
 一 = #(rgb-color 190/255 132/255 170/255)
 二 = #(rgb-color 170/255 165/255 230/255)
