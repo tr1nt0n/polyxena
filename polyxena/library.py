@@ -144,14 +144,14 @@ def articulate_bariolage(
                 string_ranges.append(string_range)
 
         string_figurations = []
-        random.seed(seed)
         for string_range in string_ranges:
+            numpy.random.seed(seed)
             order_array = numpy.random.permutation(len(string_range))
             order_list = order_array.tolist()
 
             new_range = []
 
-            for _ in order_list:
+            for _ in order_array:
                 new_range.append(string_range[_])
 
             reversed_range = new_range[::-1]

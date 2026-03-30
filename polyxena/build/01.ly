@@ -3,7 +3,7 @@
         \context TimeSignatureContext = "Global Context"
         {
               %! +SCORE
-            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (1 28.5 31 26.5)))
+            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (1 30 33 26.5)))
             \time 3/4
             s1 * 3/4
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 48" } } }
@@ -114,7 +114,7 @@
                                         \set Staff.forceClef = ##t
                                         \once \override Beam.grow-direction = #left
                                         \clef "percussion"
-                                        b'32 * 5/4
+                                        g'32 * 5/4
                                         \pp
                                         ^ \punta-to-talon
                                         [
@@ -123,29 +123,47 @@
                                         \glissando
                                         - \tweak font-name "Bodoni72 Book Italic" 
                                         - \tweak font-size 2
-                                        - \tweak padding #9
+                                        - \tweak padding #8.5
                                         - \abjad-dashed-line-with-hook
                                         - \tweak bound-details.left.text \markup \concat { { "pont. moltiss." } \hspace #0.5 }
                                         - \tweak bound-details.right.padding -2
                                         \startTextSpanOne
                                         \set Staff.forceClef = ##f
-                                        c'32 * 43/32
+                                        e'32 * 43/32
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        e'32 * 51/32
+                                        c'32 * 51/32
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        g'32 * 65/32
+                                        b'32 * 65/32
                                         - \abjad-zero-padding-glissando
                                         \glissando
-                                        e'32 * 85/32
+                                        c'32 * 85/32
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                         \revert Dots.staff-position
-                                        c'32 * 25/8
+                                        \afterGrace
+                                        e'32 * 25/8
                                         )
-                                        \stopTextSpanOne
                                         ]
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        {
+                                            \once \override RepeatTie.transparent = ##t
+                                            \once \override Beam.stencil = ##f
+                                            \once \override Flag.stencil = ##f
+                                            \once \override Dots.stencil = ##f
+                                            \once \override Tie.stencil = ##f
+                                            \once \override NoteHead.duration-log = 2
+                                            \once \override Stem.stencil = ##f
+                                            \once \override Stem.stencil = ##f
+                                            \once \override Flag.stencil = ##f
+                                            \once \override NoteHead.no-ledgers = ##t
+                                            \once \override Accidental.stencil = ##f
+                                            \once \override NoteHead.transparent = ##t
+                                            b'16
+                                            \stopTextSpanOne
+                                        }
                                     }
                                     \revert TupletNumber.text
                                       %! +SCORE

@@ -87,8 +87,8 @@ def strange_bariolage_pitching(
                 string_ranges.append(string_range)
 
         string_figurations = []
-        random.seed(seed)
         for string_range in string_ranges:
+            numpy.random.seed(seed)
             order_array = numpy.random.permutation(len(string_range))
             order_list = order_array.tolist()
 

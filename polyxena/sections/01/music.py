@@ -137,7 +137,18 @@ trinton.make_music(
     ),
     trinton.rewrite_meter_command(boundary_depth=-1),
     pitch.strange_bariolage_pitching(index=0, instrument="gambe"),
-    library.articulate_bariolage(index=1),
+    library.articulate_bariolage(index=0),
+    trinton.aftergrace_command(
+        selector=trinton.select_logical_ties_by_index([-1], pitched=True, grace=False),
+        invisible=True,
+    ),
+    trinton.pitch_with_selector_command(
+        pitch_list=["b'"], selector=trinton.select_leaves_by_index([-1], pitched=True)
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.Glissando(zero_padding=True)],
+        selector=trinton.select_leaves_by_index([-1], pitched=True, grace=False),
+    ),
     trinton.noteheads_only(selector=trinton.pleaves(grace=True)),
     library.change_staff_type(
         selector=trinton.select_leaves_by_index([0]),
@@ -152,7 +163,7 @@ trinton.make_music(
     trinton.hooked_spanner_command(
         string=r"""\markup { "pont. moltiss." }""",
         selector=trinton.select_leaves_by_index([0, -1], pitched=True),
-        padding=9,
+        padding=8.5,
         direction=None,
         right_padding=2,
         full_string=True,
@@ -658,7 +669,7 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             abjad.LilyPondLiteral(
-                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (1 28.5 31 26.5)))",
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (1 30 33 26.5)))",
                 site="absolute_before",
             ),
         ],
