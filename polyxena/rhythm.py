@@ -919,3 +919,186 @@ def replace_with_tremolo_container(selector, count=2):
             abjad.mutate.replace(selection, container)
 
     return replace
+
+
+def continuous_beam(selector):
+    def beam(argument):
+        selections = selector(argument)
+
+        beamables = []
+
+        for selection in selections:
+            if abjad.get.duration(selection) > abjad.Duration((15, 64)):
+                pass
+            else:
+                beamables.append(selection)
+
+        beam_groups = abjad.select.group_by_contiguity(beamables)
+
+        for group in beam_groups:
+            abjad.beam(group)
+
+    return beam
+
+
+def make_multi_gliss(
+    score,
+    voice_name,
+    measures,
+    pitch_lists,
+    extra_voice="",
+    preprocessor=None,
+    finger_percussion_padding=None,
+    finger_percussion_voice_index=0,
+    notehead=None,
+):
+    tuplet_ratios = []
+
+    for pitch_list in pitch_lists:
+        limit = len(pitch_list) - 1
+        tuplet_ratio = [1 for _ in range(0, limit)]
+        tuplet_ratio = tuple(tuplet_ratio)
+        tuplet_ratios.append(tuplet_ratio)
+
+    # trinton.make_music(
+    #     lambda _: trinton.select_target(_, measures),
+    #     evans.RhythmHandler(evans.tuplet([tuplet_ratios[0]])),
+    #     voice=score[voice_name],
+    #     preprocessor=preprocessor
+    # )
+
+    intermittent_voice_names = []
+
+    voice_counter = 1
+    for tuplet_ratio in tuplet_ratios:
+        intermittent_voice_name = f"{voice_name} gliss {voice_counter} {extra_voice}"
+        percussion_index_comparator = finger_percussion_voice_index + 1
+        if voice_counter == percussion_index_comparator:
+            # voice = score[voice_name]
+            direction = abjad.UP
+        else:
+            #     voice = score[f"{voice_name} gliss {voice_counter - 1}"]
+            direction = abjad.DOWN
+
+        trinton.make_music(
+            lambda _: trinton.select_target(_, measures),
+            trinton.IntermittentVoiceHandler(
+                evans.RhythmHandler(evans.tuplet([tuplet_ratio])),
+                direction=direction,
+                voice_name=intermittent_voice_name,
+                temp_name="",
+                preprocessor=preprocessor,
+            ),
+            voice=score[voice_name],
+        )
+
+        intermittent_voice_names.append(intermittent_voice_name)
+
+        voice_counter += 1
+
+    for intermittent_voice_name, pitch_list in zip(
+        intermittent_voice_names, pitch_lists
+    ):
+        trinton.make_music(
+            lambda _: trinton.select_target(_, measures),
+            trinton.treat_tuplets(),
+            rmakers.rewrite_dots,
+            trinton.respell_tuplets_command(rewrite_brackets=False),
+            trinton.aftergrace_command(
+                selector=trinton.select_logical_ties_by_index(
+                    [-1], pitched=True, grace=False
+                ),
+                invisible=True,
+            ),
+            evans.PitchHandler(pitch_list),
+            trinton.continuous_glissando(zero_padding=True, invisible_center=True),
+            trinton.noteheads_only(selector=trinton.pleaves(grace=True)),
+            voice=score[intermittent_voice_name],
+        )
+
+        if notehead is not None:
+            trinton.make_music(
+                lambda _: trinton.select_target(_, measures),
+                trinton.change_notehead_command(
+                    notehead=notehead,
+                    selector=trinton.select_leaves_by_index(
+                        [0], pitched=True, grace=False
+                    ),
+                ),
+                voice=score[intermittent_voice_name],
+            )
+
+        if (
+            intermittent_voice_name
+            == intermittent_voice_names[finger_percussion_voice_index]
+        ):
+            if finger_percussion_padding is None:
+                trinton.make_music(
+                    lambda _: trinton.select_target(_, measures),
+                    trinton.noteheads_only(),
+                    trinton.invisible_tuplet_brackets(),
+                    abjad.slur,
+                    trinton.attachment_command(
+                        attachments=[
+                            abjad.LilyPondLiteral(
+                                r"\once \override Accidental.stencil = ##f",
+                                site="before",
+                            )
+                        ],
+                        selector=trinton.pleaves(exclude=[0]),
+                    ),
+                    voice=score[intermittent_voice_name],
+                )
+
+            else:
+                trinton.make_music(
+                    lambda _: trinton.select_target(_, measures),
+                    trinton.attachment_command(
+                        attachments=[abjad.Articulation(">")],
+                        selector=trinton.logical_ties(
+                            first=True, pitched=True, grace=False
+                        ),
+                    ),
+                    trinton.hooked_spanner_command(
+                        string=r"""\markup { "( LH finger percussion on accents )" }""",
+                        selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+                        padding=finger_percussion_padding,
+                        direction=None,
+                        right_padding=0,
+                        full_string=True,
+                        style="dashed-line-with-hook",
+                        hspace=None,
+                        command="One",
+                        tag=None,
+                        tweaks=[
+                            r"""- \tweak font-name "Bodoni72 Book Italic" """,
+                            r"""- \tweak font-size 2""",
+                        ],
+                    ),
+                    continuous_beam(trinton.pleaves(grace=False)),
+                    trinton.attachment_command(
+                        attachments=[
+                            abjad.LilyPondLiteral(
+                                r"\once \override Accidental.stencil = ##f",
+                                site="before",
+                            )
+                        ],
+                        selector=trinton.pleaves(exclude=[0]),
+                    ),
+                    voice=score[intermittent_voice_name],
+                )
+        else:
+            trinton.make_music(
+                lambda _: trinton.select_target(_, measures),
+                trinton.noteheads_only(),
+                trinton.invisible_tuplet_brackets(),
+                trinton.attachment_command(
+                    attachments=[
+                        abjad.LilyPondLiteral(
+                            r"\once \override Accidental.stencil = ##f", site="before"
+                        )
+                    ],
+                    selector=trinton.pleaves(exclude=[0]),
+                ),
+                voice=score[intermittent_voice_name],
+            )

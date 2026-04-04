@@ -115,6 +115,74 @@ def attach_patterned_dynamics(
 # notation tools
 
 
+def stringing_noteheads(
+    notehead_list, selector=trinton.logical_ties(first=True, pitched=True)
+):
+    def noteheads(argument):
+        selections = selector(argument)
+        ties = abjad.select.logical_ties(selections)
+
+        for selection, notehead in zip(ties, notehead_list):
+            if isinstance(abjad.select.leaf(selection, 0), abjad.Chord):
+                for leaf in abjad.select.leaves(selection):
+                    noteheads = leaf.note_heads
+
+                    for head, string_number in zip(noteheads, notehead):
+                        for tweak in [
+                            abjad.Tweak(
+                                r"\tweak NoteHead.stencil #ly:text-interface::print"
+                            ),
+                            abjad.Tweak(
+                                rf"\tweak NoteHead.text \markup {{ \fontsize #-1 {{ {string_number} }} }}"
+                            ),
+                        ]:
+                            abjad.tweak(head, tweak)
+
+            else:
+                for leaf in abjad.select.leaves(selection):
+                    for tweak in [
+                        abjad.Tweak(
+                            r"\tweak NoteHead.stencil #ly:text-interface::print"
+                        ),
+                        abjad.Tweak(
+                            rf"\tweak NoteHead.text \markup {{ \fontsize #-1 {{ {notehead} }} }}"
+                        ),
+                    ]:
+                        abjad.tweak(leaf.note_head, tweak)
+
+            for leaf in abjad.select.leaves(selection):
+                abjad.attach(
+                    abjad.LilyPondLiteral(
+                        r"""\once \override NoteHead.stem-attachment = #(lambda (grob)
+                            (let* ((thickness (ly:staff-symbol-line-thickness grob))
+                                  (stem (ly:grob-object grob 'stem))
+                                  (dir (ly:grob-property stem 'direction UP)))
+                              (if (= dir UP)
+                                  (cons
+                                      0
+                                      0.9
+                                  )
+                                  (if (= dir DOWN)
+                                      (cons
+                                          0
+                                          -0.9
+                                      )
+                                  )
+                              )
+                            )
+                        )""",
+                        site="before",
+                    ),
+                    leaf,
+                )
+
+    return noteheads
+
+
+def fingering_markup(fingering):
+    return rf"""\markup {{ \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) \override #'(baseline-skip . 0) \circle {{ " {fingering} " }} }}"""
+
+
 def articulate_bariolage(
     index, seed=7, selector=trinton.logical_ties(pitched=True, grace=False)
 ):
@@ -283,6 +351,7 @@ def change_staff_type(
     auto_reversion=True,
     reversion_line_count=5,
     reversion_clef=None,
+    force_clef=True,
 ):
     def change(argument):
         if (
@@ -387,18 +456,19 @@ def change_staff_type(
                     )
                     abjad.attach(revert_literal, selection)
                     abjad.attach(abjad.Clef(reversion_clef), selection)
-                    abjad.attach(
-                        abjad.LilyPondLiteral(
-                            r"\set Staff.forceClef = ##t", site="before"
-                        ),
-                        selection,
-                    )
-                    abjad.attach(
-                        abjad.LilyPondLiteral(
-                            r"\set Staff.forceClef = ##f", site="absolute_after"
-                        ),
-                        selection,
-                    )
+                    if force_clef is True:
+                        abjad.attach(
+                            abjad.LilyPondLiteral(
+                                r"\set Staff.forceClef = ##t", site="before"
+                            ),
+                            selection,
+                        )
+                        abjad.attach(
+                            abjad.LilyPondLiteral(
+                                r"\set Staff.forceClef = ##f", site="absolute_after"
+                            ),
+                            selection,
+                        )
 
     return change
 

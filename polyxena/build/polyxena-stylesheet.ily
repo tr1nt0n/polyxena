@@ -168,6 +168,9 @@ afterGraceFraction = #(cons 15 16)
         \override StemTremolo.whiteout-style = #'outline
         \override StemTremolo.whiteout = 1
         \override StemTremolo.layer = 2
+        \override StemTremolo.beam-width = 1.5
+        \override StemTremolo.flag-count = 3
+        \override StemTremolo.slope = 0.5
 
         \override TextScript.font-name = "Bodoni72 Book"
         \override TextScript.whiteout-style = #'outline
