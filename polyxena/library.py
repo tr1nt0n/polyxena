@@ -115,37 +115,164 @@ def attach_patterned_dynamics(
 # notation tools
 
 
-def sped_trills(
-    initial_width,
-    y_scale,
-    speed_factor,
-    padding,
-    thickness=3,
+def multiple_muting(selector=abjad.select.chords, closed_fundamental=False):
+    def change_noteheads(argument):
+        selections = selector(argument)
+
+        for chord in abjad.select.chords(selections):
+            for leaf in abjad.select.leaves(chord):
+                leaf_duration = abjad.get.duration(leaf, preprolated=True)
+                if leaf_duration > abjad.Duration(
+                    (7, 16)
+                ) and leaf_duration > abjad.Duration((7, 32)):
+                    head_shape = "harmonic-mixed"
+                else:
+                    head_shape = "harmonic"
+
+                if closed_fundamental is False:
+                    for head in leaf.note_heads:
+                        abjad.tweak(head, rf"\tweak style #'{head_shape}")
+                else:
+                    noteheads = leaf.note_heads
+                    notehead_pitches = [head.named_pitch.number for head in noteheads]
+                    notehead_pitches.sort()
+                    lowest_pitch = notehead_pitches[0]
+
+                    for head in noteheads:
+                        if head.named_pitch.number != lowest_pitch:
+                            abjad.tweak(head, rf"\tweak style #'{head_shape}")
+
+                noteheads = leaf.note_heads
+                notehead_pitches = [head.named_pitch.number for head in noteheads]
+                notehead_pitches.sort()
+                highest_pitch = notehead_pitches[-1]
+
+                for notehead in noteheads:
+                    if notehead.named_pitch.number != highest_pitch:
+                        abjad.tweak(notehead, r"\tweak Accidental.font-size #-2.5")
+                        abjad.tweak(
+                            notehead,
+                            r"\tweak Accidental.color #(x11-color 'LightSlateBlue)",
+                        )
+                        # abjad.tweak(notehead, r"\tweak Accidental.parenthesized ##t")
+                        abjad.tweak(
+                            notehead, r"\tweak color #(x11-color 'LightSlateBlue)"
+                        )
+                        abjad.tweak(notehead, r"\tweak font-size #-2.5")
+
+    return change_noteheads
+
+
+def pressure_trills(
+    head=None,
+    trill_pitch=None,
+    padding=7,
+    right_padding=None,
+    bound_details=None,
+    multimuting=False,
+    closed_fundamental=False,
     selector=trinton.select_leaves_by_index([0, -1], pitched=True),
-    head=False,
 ):
     def trills(argument):
-        if speed_factor > 0.9:
-            raise Exception("Speed factor must be a float value under 1.")
         selections = selector(argument)
 
         it = iter(selections)
         tups = [*zip(it, it)]
 
-        start_trill = abjad.bundle(
-            abjad.LilyPondLiteral(r"\slow-fast-trill", site="after"),
-            rf"- \tweak details.squiggle-Y-scale {y_scale}",
-            rf"- \tweak details.squiggle-initial-width {initial_width}",
-            rf"- \tweak details.squiggle-speed-factor {speed_factor}",
-            rf"- \tweak thickness {thickness}",
-            rf"- \tweak padding {padding}",
-        )
+        if trill_pitch is None:
+            _head_to_character = {
+                "harmonic-open": "\char ##xe614 | \char ##xe0d8",
+                "cross": "\char ##xe614 | \char ##xe0a9",
+            }
 
-        if head is True:
             start_trill = abjad.bundle(
                 abjad.StartTrillSpan(),
-                r"""- \tweak bound-details.left.text \markup { \center-column { \fontsize #5 \override #'(font-name . "ekmelos") \line { \char ##xe614 | \char ##xe0d8 } } }""",
+                rf"""- \tweak bound-details.left.text \markup {{  \fontsize #5 \override #'(font-name . "ekmelos") {{ {_head_to_character[head]} }} }}""",
                 rf"- \tweak padding {padding}",
+            )
+
+        else:
+            trill_pitch_string = "#(lambda (grob) (grob-interpret-markup grob"
+            if head == "cross":
+                trill_pitch_string += (
+                    r""" #{ \markup \musicglyph #"noteheads.s2cross" #}))"""
+                )
+            if head == "harmonic":
+                trill_pitch_string += (
+                    r""" #{ \markup \musicglyph #"noteheads.s0harmonic" #}))"""
+                )
+
+            if len(trill_pitch) > 1:
+                start_span_pitch = None
+                chord_string = r"<"
+                for pitch in trill_pitch:
+                    # chord_string += " \parenthesize "
+                    chord_string += pitch
+                    chord_string += " "
+                chord_string += ">16"
+                chord = abjad.Chord(chord_string)
+                aftergrace_container = abjad.AfterGraceContainer([chord])
+                alteration_literal = abjad.LilyPondLiteral(
+                    [
+                        r"\once \override Stem.stencil = ##f",
+                        r"\once \override Flag.stencil = ##f",
+                        r"\once \override Dots.stencil = ##f",
+                        r"#(define afterGraceFraction (cons 1 16))",
+                    ],
+                    site="before",
+                )
+
+                reset_literal = abjad.LilyPondLiteral(
+                    r"#(define afterGraceFraction (cons 15 16))", site="absolute_after"
+                )
+
+                abjad.attach(
+                    alteration_literal, abjad.select.leaf(aftergrace_container, 0)
+                )
+                # abjad.attach(reset_literal, abjad.select.leaf(aftergrace_container, -1))
+
+                grace_leaves = abjad.select.leaves(aftergrace_container)
+
+                for leaf in grace_leaves:
+                    for leaf_head in leaf.note_heads:
+                        leaf_head.is_parenthesized = True
+                        if head is not None and multimuting is False:
+                            abjad.tweak(leaf_head, rf"\tweak style #'{head}")
+
+                if multimuting is True:
+                    multiple_muting_command = multiple_muting(
+                        selector=abjad.select.chords,
+                        closed_fundamental=closed_fundamental,
+                    )
+                    multiple_muting_command(aftergrace_container)
+
+                for tup in tups:
+                    abjad.attach(aftergrace_container, tup[0])
+
+            else:
+                start_span_pitch = abjad.NamedPitch(trill_pitch[0])
+
+            start_trill = abjad.bundle(
+                abjad.StartTrillSpan(pitch=start_span_pitch),
+                rf"- \tweak TrillPitchHead.stencil {trill_pitch_string}",
+                r"- \tweak TrillPitchHead.whiteout-style #'outline",
+                r"- \tweak TrillPitchHead.whiteout 1",
+                r"- \tweak TrillPitchHead.layer 5",
+                r"- \tweak TrillPitchHead.no-ledgers ##t",
+                r"- \tweak TrillPitchAccidental.stencil ##f",
+            )
+
+        if right_padding is not None:
+            start_trill = abjad.bundle(
+                start_trill, rf"- \tweak bound-details.right.padding #{right_padding}"
+            )
+
+        if bound_details is not None:
+            start_trill = abjad.bundle(
+                start_trill,
+                r"- \tweak Y-extent ##f",
+                rf"""- \tweak bound-details.left.Y #{bound_details[0]}""",
+                rf"""- \tweak bound-details.right.Y #{bound_details[-1]}""",
             )
 
         stop_trill = abjad.StopTrillSpan()
@@ -295,54 +422,6 @@ def articulate_bariolage(
             glissando_command(selection_partition)
 
     return slur
-
-
-def multiple_muting(selector=abjad.select.chords, closed_fundamental=False):
-    def change_noteheads(argument):
-        selections = selector(argument)
-
-        for chord in abjad.select.chords(selections):
-            for leaf in abjad.select.leaves(chord):
-                leaf_duration = abjad.get.duration(leaf, preprolated=True)
-                if leaf_duration > abjad.Duration(
-                    (7, 16)
-                ) and leaf_duration > abjad.Duration((7, 32)):
-                    head_shape = "harmonic-mixed"
-                else:
-                    head_shape = "harmonic"
-
-                if closed_fundamental is False:
-                    for head in leaf.note_heads:
-                        abjad.tweak(head, rf"\tweak style #'{head_shape}")
-                else:
-                    noteheads = leaf.note_heads
-                    notehead_pitches = [head.named_pitch.number for head in noteheads]
-                    notehead_pitches.sort()
-                    lowest_pitch = notehead_pitches[0]
-
-                    for head in noteheads:
-                        if head.named_pitch.number != lowest_pitch:
-                            abjad.tweak(head, rf"\tweak style #'{head_shape}")
-
-                noteheads = leaf.note_heads
-                notehead_pitches = [head.named_pitch.number for head in noteheads]
-                notehead_pitches.sort()
-                highest_pitch = notehead_pitches[-1]
-
-                for notehead in noteheads:
-                    if notehead.named_pitch.number != highest_pitch:
-                        abjad.tweak(notehead, r"\tweak Accidental.font-size #-2.5")
-                        abjad.tweak(
-                            notehead,
-                            r"\tweak Accidental.color #(x11-color 'LightSlateBlue)",
-                        )
-                        abjad.tweak(notehead, r"\tweak Accidental.parenthesized ##t")
-                        abjad.tweak(
-                            notehead, r"\tweak color #(x11-color 'LightSlateBlue)"
-                        )
-                        abjad.tweak(notehead, r"\tweak font-size #-2.5")
-
-    return change_noteheads
 
 
 def hammer_on_stem(selector):
