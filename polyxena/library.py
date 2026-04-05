@@ -318,10 +318,10 @@ def multiple_muting(selector=abjad.select.chords, closed_fundamental=False):
                     noteheads = leaf.note_heads
                     notehead_pitches = [head.named_pitch.number for head in noteheads]
                     notehead_pitches.sort()
-                    highest_pitch = notehead_pitches[-1]
+                    lowest_pitch = notehead_pitches[0]
 
                     for head in noteheads:
-                        if head.named_pitch.number != highest_pitch:
+                        if head.named_pitch.number != lowest_pitch:
                             abjad.tweak(head, rf"\tweak style #'{head_shape}")
 
                 noteheads = leaf.note_heads

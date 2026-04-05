@@ -383,6 +383,81 @@ trinton.make_music(
     beam_meter=True,
 )
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (5, 6)),
+    evans.RhythmHandler(
+        rhythm.weighted_talea(
+            start_index=0, prolations=[7, 3, 1], elaboration_level=0, retrograde=False
+        )
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    trinton.pitch_with_selector_command(
+        pitch_list=[["c'", "a", "f", "d"]],
+        selector=trinton.select_logical_ties_by_index(
+            [1, 2, 3], pitched=True, grace=False
+        ),
+    ),
+    trinton.pitch_with_selector_command(
+        pitch_list=[["a", "d"], ["bf,", "c"], ["c", "a,"], ["c,", "d,"]],
+        selector=trinton.select_logical_ties_by_index(
+            [4, 5, 6, 7], pitched=True, grace=False
+        ),
+    ),
+    trinton.duration_line(
+        selector=trinton.select_logical_ties_by_index([0], pitched=True, grace=False),
+    ),
+    library.multiple_muting(
+        selector=trinton.select_logical_ties_by_index(
+            [4, 5, 6], pitched=True, grace=False
+        ),
+        closed_fundamental=False,
+    ),
+    library.multiple_muting(
+        selector=trinton.select_logical_ties_by_index([7], pitched=True, grace=False),
+        closed_fundamental=True,
+    ),
+    trinton.noteheads_only(selector=trinton.pleaves(grace=True)),
+    trinton.change_lines(
+        lines=1,
+        clef="percussion",
+        selector=trinton.select_leaves_by_index([0], pitched=True, grace=False),
+        invisible_barlines=False,
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                [
+                    r"\revert Staff.Clef.stencil",
+                    r"\override Staff.Clef.stencil = ##f",
+                    r"\revert Staff.StaffSymbol.line-positions",
+                    r"\revert Staff.BarLine.bar-extent",
+                    r"\revert Staff.Accidental.stencil",
+                    r"\revert Staff.NoteHead.no-ledgers",
+                ],
+                site="before",
+            )
+        ],
+        selector=trinton.select_leaves_by_index([0], pitched=True, grace=False),
+    ),
+    library.change_staff_type(
+        selector=trinton.select_leaves_by_index([1], pitched=True, grace=False),
+        staff_type="stringing gambe",
+        auto_reversion=False,
+    ),
+    library.change_staff_type(
+        selector=trinton.select_leaves_by_index([4], pitched=True, grace=False),
+        staff_type="reversion",
+        auto_reversion=False,
+        reversion_clef="bass",
+        reversion_line_count=5,
+    ),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle([abjad.StartBeam(), abjad.StopBeam()]),
+        selector=trinton.select_leaves_by_index([1, 2, 6, 8], grace=False),
+    ),
+    voice=score["cello 2 voice"],
+)
+
 
 # theorbe music
 
