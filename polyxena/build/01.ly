@@ -1519,47 +1519,44 @@
                                     - \tweak font-size 2
                                     - \tweak padding #12
                                     - \abjad-solid-line-with-arrow
-                                    - \tweak bound-details.left.text \markup \concat { \upright { "norm." } \hspace #0.5 }
-                                    \startTextSpanTwo
-                                    - \tweak font-name "Bodoni72 Book Italic" 
-                                    - \tweak font-size 2
-                                    - \tweak padding #9.5
-                                    - \abjad-solid-line-with-arrow
                                     - \tweak bound-details.left.text \markup \concat { \upright { "ob." } \hspace #0.5 }
                                     \startTextSpanOne
+                                    - \tweak font-name "Bodoni72 Book Italic" 
+                                    - \tweak font-size 2
+                                    - \tweak padding #14.5
+                                    - \abjad-solid-line-with-arrow
+                                    - \tweak bound-details.left.text \markup \concat { \upright { "norm." } \hspace #0.5 }
+                                    \startTextSpanTwo
                                     - \tweak bound-details.left.text \markup { \center-column { \fontsize #5 \override #'(font-name . "ekmelos") \line { \char ##xe614 | \char ##xe0d8 } } }
-                                    - \tweak padding 6
+                                    - \tweak padding 0.5
                                     \startTrillSpan
                                     \set Staff.forceClef = ##f
                                     <d f a c'>8
                                     - \accent
-                                    \p
+                                    \mp
                                     \stopTextSpanOne
                                     \stopTextSpanTwo
-                                    - \tweak circled-tip ##t
-                                    - \tweak stencil #abjad-flared-hairpin
-                                    \>
                                     - \tweak font-name "Bodoni72 Book Italic" 
                                     - \tweak font-size 2
                                     - \tweak padding #12
                                     - \abjad-dashed-line-with-hook
-                                    - \tweak bound-details.left.text \markup \concat { \upright { "scr." } \hspace #0.5 }
-                                    \startTextSpanTwo
-                                    - \tweak font-name "Bodoni72 Book Italic" 
-                                    - \tweak font-size 2
-                                    - \tweak padding #9.5
-                                    - \abjad-dashed-line-with-hook
                                     - \tweak bound-details.left.text \markup \concat { \upright { "dp." } \hspace #0.5 }
                                     \startTextSpanOne
+                                    - \tweak font-name "Bodoni72 Book Italic" 
+                                    - \tweak font-size 2
+                                    - \tweak padding #14.5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { \upright { "scr." } \hspace #0.5 }
+                                    \startTextSpanTwo
+                                    \>
                                     \revert Staff.Stem.stemlet-length
                                     \afterGrace
                                     <d f a c'>8
                                     - \accent
                                     \p
                                     ]
-                                    - \tweak circled-tip ##t
-                                    - \tweak stencil #abjad-flared-hairpin
-                                    \>
+                                    - \tweak stencil #constante-hairpin
+                                    \<
                                     {
                                         \once \override Stem.stencil = ##f
                                         \once \override Flag.stencil = ##f
@@ -1639,7 +1636,7 @@
                                     - \tweak padding #17
                                     - \abjad-dashed-line-with-hook
                                     - \tweak bound-details.left.text \markup \concat { { "( rasg. )" } \hspace #0.5 }
-                                    - \tweak bound-details.right.padding -28
+                                    - \tweak bound-details.right.padding -37
                                     \startTextSpanThree
                                     ~
                                     \set Staff.forceClef = ##f
@@ -1935,7 +1932,6 @@
                                     r8
                                     [
                                     \override Dots.staff-position = #2
-                                    \staff-line-count 1
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
                                     \once \override NoteHead.stem-attachment = #(lambda (grob)
@@ -1956,31 +1952,27 @@
                                                                   )
                                                                 )
                                                             )
-                                    \revert Staff.Clef.stencil
-                                    \override Staff.Clef.stencil = ##f
-                                    \revert Staff.StaffSymbol.line-positions
-                                    \revert Staff.BarLine.bar-extent
-                                    \revert Staff.Accidental.stencil
-                                    \revert Staff.NoteHead.no-ledgers
+                                    \override Staff.Clef.stencil = #ly:text-interface::print
+                                    \override Staff.Clef.text = \twisting-clef
+                                    \staff-line-count 4
+                                    \override Staff.StaffSymbol.line-positions = #'(5 0 -5)
+                                    \override Staff.BarLine.bar-extent = #'(-2.5 . 2.5)
+                                    \override Staff.Accidental.stencil = ##f
+                                    \override Staff.NoteHead.no-ledgers = ##t
+                                    \set Staff.forceClef = ##t
                                     \set glissandoMap = #'((0 . 1) (1 . 0))
                                     \clef "percussion"
                                     \afterGrace
                                     <
                                         \tweak NoteHead.stencil #ly:text-interface::print
                                         \tweak NoteHead.text \markup { \fontsize #-1 { XIV } }
-                                        d
+                                        c
                                         \tweak NoteHead.stencil #ly:text-interface::print
                                         \tweak NoteHead.text \markup { \fontsize #-1 { XIII } }
-                                        f'
+                                        a
                                     >16
                                     - \abjad-zero-padding-glissando
                                     \glissando
-                                    - \tweak font-size 10
-                                    - \tweak padding #10.5
-                                    - \abjad-solid-line-with-arrow
-                                    - \tweak bound-details.left.text \markup \concat { \half-harmonic \hspace #0.5 }
-                                    - \tweak bound-details.right.text \full-pressure
-                                    \startTextSpanOne
                                     {
                                         \once \override Accidental.stencil = ##f
                                         \once \override NoteHead.no-ledgers = ##t
@@ -2007,13 +1999,13 @@
                                         <
                                             \tweak NoteHead.stencil #ly:text-interface::print
                                             \tweak NoteHead.text \markup { \fontsize #-1 { XIII } }
-                                            g
+                                            d
                                             \tweak NoteHead.stencil #ly:text-interface::print
                                             \tweak NoteHead.text \markup { \fontsize #-1 { XIV } }
-                                            d'
+                                            b
                                         >16
-                                        \stopTextSpanOne
                                     }
+                                    \set Staff.forceClef = ##f
                                     r16
                                     ]
                                     r4
@@ -2059,7 +2051,7 @@
                                                         \voiceTwo
                                                         \tweak NoteHead.stencil #ly:text-interface::print
                                                         \tweak NoteHead.text \markup { \fontsize #-1 { XIII } }
-                                                        f'16
+                                                        a16
                                                         - \abjad-zero-padding-glissando
                                                         \glissando
                                                         \once \override NoteHead.no-ledgers = ##t
@@ -2084,7 +2076,7 @@
                                                         \once \override Tie.stencil = ##f
                                                         \once \override NoteHead.duration-log = 2
                                                         \once \override Stem.stencil = ##f
-                                                        f'32.
+                                                        c'32.
                                                         - \abjad-zero-padding-glissando
                                                         \glissando
                                                         \once \override NoteHead.no-ledgers = ##t
@@ -2109,7 +2101,7 @@
                                                         \once \override NoteHead.duration-log = 2
                                                         \once \override Stem.stencil = ##f
                                                         \once \override NoteHead.transparent = ##t
-                                                        f'16
+                                                        c'16
                                                           %! abjad.glissando(7)
                                                         - \abjad-zero-padding-glissando
                                                           %! abjad.glissando(7)
@@ -2133,7 +2125,7 @@
                                                         \override NoteColumn.glissando-skip = ##t
                                                           %! abjad.glissando(1)
                                                         \override NoteHead.no-ledgers = ##t
-                                                        f'64
+                                                        c'64
                                                         ~
                                                     }
                                                     \once \override TupletBracket.stencil = ##f
@@ -2150,7 +2142,7 @@
                                                         \once \override NoteHead.duration-log = 2
                                                         \once \override Stem.stencil = ##f
                                                         \once \override NoteHead.transparent = ##t
-                                                        f'16
+                                                        c'16
                                                         \once \override Accidental.stencil = ##f
                                                         \once \override NoteHead.no-ledgers = ##t
                                                         \once \override NoteHead.no-ledgers = ##t
@@ -2185,7 +2177,7 @@
                                                         \once \override Stem.stencil = ##f
                                                         \once \override NoteHead.transparent = ##t
                                                         \afterGrace
-                                                        f'16
+                                                        c'16
                                                         - \abjad-zero-padding-glissando
                                                         \glissando
                                                         {
@@ -2218,7 +2210,7 @@
                                                             \revert Dots.staff-position
                                                             \tweak NoteHead.stencil #ly:text-interface::print
                                                             \tweak NoteHead.text \markup { \fontsize #-1 { XIII } }
-                                                            e16
+                                                            b16
                                                         }
                                                         \revert NoteHead.X-extent
                                                         \revert NoteHead.transparent
@@ -2261,7 +2253,7 @@
                                                         \voiceTwo
                                                         \tweak NoteHead.stencil #ly:text-interface::print
                                                         \tweak NoteHead.text \markup { \fontsize #-1 { XIV } }
-                                                        e16
+                                                        d16
                                                         - \abjad-zero-padding-glissando
                                                         \glissando
                                                         \once \override NoteHead.no-ledgers = ##t
@@ -2275,7 +2267,7 @@
                                                         \override NoteHead.X-extent = #'(0 . 0)
                                                         \override NoteHead.transparent = ##t
                                                         \override NoteHead.no-ledgers = ##t
-                                                        f'8
+                                                        c'8
                                                           %! abjad.glissando(7)
                                                         - \abjad-zero-padding-glissando
                                                           %! abjad.glissando(7)
@@ -2305,7 +2297,7 @@
                                                         \override NoteColumn.glissando-skip = ##t
                                                           %! abjad.glissando(1)
                                                         \override NoteHead.no-ledgers = ##t
-                                                        f'16.
+                                                        c'16.
                                                         \once \override Accidental.stencil = ##f
                                                         \once \override NoteHead.no-ledgers = ##t
                                                         \once \override NoteHead.no-ledgers = ##t
@@ -2340,7 +2332,7 @@
                                                         \once \override Stem.stencil = ##f
                                                         \once \override NoteHead.transparent = ##t
                                                         \afterGrace
-                                                        f'16.
+                                                        c'16.
                                                         - \abjad-zero-padding-glissando
                                                         \glissando
                                                         {
@@ -2373,7 +2365,7 @@
                                                             \revert Dots.staff-position
                                                             \tweak NoteHead.stencil #ly:text-interface::print
                                                             \tweak NoteHead.text \markup { \fontsize #-1 { XIV } }
-                                                            c'16
+                                                            d16
                                                         }
                                                         \revert NoteHead.X-extent
                                                         \revert NoteHead.transparent
@@ -2385,6 +2377,7 @@
                                         }
                                         \context Voice = "XII voice"
                                         {
+                                            \once \override Dots.staff-position = #2
                                             \once \override NoteHead.no-ledgers = ##t
                                             \once \override NoteHead.stem-attachment = #(lambda (grob)
                                                                         (let* ((thickness (ly:staff-symbol-line-thickness grob))
@@ -2408,154 +2401,85 @@
                                             \voiceOne
                                             \tweak NoteHead.stencil #ly:text-interface::print
                                             \tweak NoteHead.text \markup { \fontsize #-1 { XII } }
-                                            e''32
+                                            g'32
                                             [
+                                            - \abjad-zero-padding-glissando
+                                            \glissando
                                             - \tweak font-size 8
-                                            - \tweak padding #13.5
+                                            - \tweak padding #11
                                             - \abjad-dashed-line-with-hook
                                             - \tweak bound-details.left.text \markup \concat { { \override #'(font-name . "ekmelos") { \char ##xe614 } } \hspace #0.5 }
                                             - \tweak bound-details.right.padding 1
                                             \startTextSpanOne
+                                            \once \override Dots.staff-position = #2
                                             \once \override NoteHead.no-ledgers = ##t
-                                            \once \override NoteHead.stem-attachment = #(lambda (grob)
-                                                                        (let* ((thickness (ly:staff-symbol-line-thickness grob))
-                                                                              (stem (ly:grob-object grob 'stem))
-                                                                              (dir (ly:grob-property stem 'direction UP)))
-                                                                          (if (= dir UP)
-                                                                              (cons
-                                                                                  0
-                                                                                  0.9
-                                                                              )
-                                                                              (if (= dir DOWN)
-                                                                                  (cons
-                                                                                      0
-                                                                                      -0.9
-                                                                                  )
-                                                                              )
-                                                                          )
-                                                                        )
-                                                                    )
                                             \set stemLeftBeamCount = 2
                                             \set stemRightBeamCount = 1
-                                            \tweak NoteHead.stencil #ly:text-interface::print
-                                            \tweak NoteHead.text \markup { \fontsize #-1 { XII } }
-                                            e''16.
+                                            \hide NoteHead
+                                            \override Accidental.stencil = ##f
+                                            \override NoteColumn.glissando-skip = ##t
+                                            \override NoteHead.no-ledgers = ##t
+                                            g'16.
                                             \stopTextSpanOne
                                             - \tweak font-size 4
-                                            - \tweak padding #13.5
+                                            - \tweak padding #11
                                             - \abjad-dashed-line-with-hook
                                             - \tweak bound-details.left.text \markup \concat { { \override #'(font-name . "ekmelos") { \char ##xe7fa } } \hspace #0.5 }
                                             - \tweak bound-details.right.padding 1
                                             \startTextSpanOne
                                             ~
+                                            \once \override Dots.staff-position = #2
                                             \once \override NoteHead.no-ledgers = ##t
-                                            \once \override NoteHead.stem-attachment = #(lambda (grob)
-                                                                        (let* ((thickness (ly:staff-symbol-line-thickness grob))
-                                                                              (stem (ly:grob-object grob 'stem))
-                                                                              (dir (ly:grob-property stem 'direction UP)))
-                                                                          (if (= dir UP)
-                                                                              (cons
-                                                                                  0
-                                                                                  0.9
-                                                                              )
-                                                                              (if (= dir DOWN)
-                                                                                  (cons
-                                                                                      0
-                                                                                      -0.9
-                                                                                  )
-                                                                              )
-                                                                          )
-                                                                        )
-                                                                    )
                                             \set stemLeftBeamCount = 1
                                             \set stemRightBeamCount = 3
-                                            \tweak NoteHead.stencil #ly:text-interface::print
-                                            \tweak NoteHead.text \markup { \fontsize #-1 { XII } }
-                                            e''32
+                                            g'32
+                                            \once \override Dots.staff-position = #2
                                             \once \override NoteHead.no-ledgers = ##t
-                                            \once \override NoteHead.stem-attachment = #(lambda (grob)
-                                                                        (let* ((thickness (ly:staff-symbol-line-thickness grob))
-                                                                              (stem (ly:grob-object grob 'stem))
-                                                                              (dir (ly:grob-property stem 'direction UP)))
-                                                                          (if (= dir UP)
-                                                                              (cons
-                                                                                  0
-                                                                                  0.9
-                                                                              )
-                                                                              (if (= dir DOWN)
-                                                                                  (cons
-                                                                                      0
-                                                                                      -0.9
-                                                                                  )
-                                                                              )
-                                                                          )
-                                                                        )
-                                                                    )
-                                            \tweak NoteHead.stencil #ly:text-interface::print
-                                            \tweak NoteHead.text \markup { \fontsize #-1 { XII } }
-                                            e''16
+                                            g'16
                                             \stopTextSpanOne
                                             - \tweak font-size 8
-                                            - \tweak padding #13.5
+                                            - \tweak padding #11
                                             - \abjad-dashed-line-with-hook
                                             - \tweak bound-details.left.text \markup \concat { { \override #'(font-name . "ekmelos") { \char ##xe614 } } \hspace #0.5 }
                                             - \tweak bound-details.right.padding 1
                                             \startTextSpanOne
+                                            \once \override Dots.staff-position = #2
                                             \once \override NoteHead.no-ledgers = ##t
-                                            \once \override NoteHead.stem-attachment = #(lambda (grob)
-                                                                        (let* ((thickness (ly:staff-symbol-line-thickness grob))
-                                                                              (stem (ly:grob-object grob 'stem))
-                                                                              (dir (ly:grob-property stem 'direction UP)))
-                                                                          (if (= dir UP)
-                                                                              (cons
-                                                                                  0
-                                                                                  0.9
-                                                                              )
-                                                                              (if (= dir DOWN)
-                                                                                  (cons
-                                                                                      0
-                                                                                      -0.9
-                                                                                  )
-                                                                              )
-                                                                          )
-                                                                        )
-                                                                    )
-                                            \tweak NoteHead.stencil #ly:text-interface::print
-                                            \tweak NoteHead.text \markup { \fontsize #-1 { XII } }
-                                            e''32
+                                            g'32
                                             \stopTextSpanOne
                                             - \tweak font-size 4
-                                            - \tweak padding #13.5
+                                            - \tweak padding #11
                                             - \abjad-dashed-line-with-hook
                                             - \tweak bound-details.left.text \markup \concat { { \override #'(font-name . "ekmelos") { \char ##xe7fa } } \hspace #0.5 }
                                             - \tweak bound-details.right.padding -8
                                             \startTextSpanOne
                                             ~
+                                            \once \override Dots.staff-position = #2
                                             \once \override NoteHead.no-ledgers = ##t
-                                            \once \override NoteHead.stem-attachment = #(lambda (grob)
-                                                                        (let* ((thickness (ly:staff-symbol-line-thickness grob))
-                                                                              (stem (ly:grob-object grob 'stem))
-                                                                              (dir (ly:grob-property stem 'direction UP)))
-                                                                          (if (= dir UP)
-                                                                              (cons
-                                                                                  0
-                                                                                  0.9
-                                                                              )
-                                                                              (if (= dir DOWN)
-                                                                                  (cons
-                                                                                      0
-                                                                                      -0.9
-                                                                                  )
-                                                                              )
-                                                                          )
-                                                                        )
-                                                                    )
                                             \revert Staff.Stem.stemlet-length
-                                            \tweak NoteHead.stencil #ly:text-interface::print
-                                            \tweak NoteHead.text \markup { \fontsize #-1 { XII } }
-                                            e''8
+                                            \afterGrace
+                                            g'8
                                             \stopTextSpanOne
                                             ]
+                                            {
+                                                \once \override Accidental.stencil = ##f
+                                                \once \override Dots.staff-position = #2
+                                                \once \override NoteHead.no-ledgers = ##t
+                                                \once \override NoteHead.no-ledgers = ##t
+                                                \once \override RepeatTie.transparent = ##t
+                                                \once \override Beam.stencil = ##f
+                                                \once \override Flag.stencil = ##f
+                                                \once \override Dots.stencil = ##f
+                                                \once \override Tie.stencil = ##f
+                                                \once \override NoteHead.duration-log = 2
+                                                \once \override Stem.stencil = ##f
+                                                \once \override NoteHead.transparent = ##t
+                                                \revert Accidental.stencil
+                                                \revert NoteColumn.glissando-skip
+                                                \revert NoteHead.no-ledgers
+                                                \undo \hide NoteHead
+                                                a'16
+                                            }
                                         }
                                     >>
                                     \oneVoice

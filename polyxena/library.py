@@ -403,9 +403,10 @@ def change_staff_type(
             and staff_type != "stringing theorbe"
             and staff_type != "rasgueado"
             and staff_type != "reversion"
+            and staff_type != "twisting"
         ):
             raise Exception(
-                "Available staff types are tablature, stringing gambe, tringing theorbe, rasgueado, and reversion"
+                "Available staff types are tablature, stringing gambe, tringing theorbe, rasgueado, twisting and reversion"
             )
         selections = selector(argument)
 
@@ -457,6 +458,16 @@ def change_staff_type(
                             r"\override Staff.Clef.text = \rasgueado-clef",
                             r"\override Staff.StaffSymbol.line-positions = #'(9 0 -9)",
                             r"\staff-line-count 3",
+                            r"\override Staff.Accidental.stencil = ##f",
+                            r"\override Staff.NoteHead.no-ledgers = ##t",
+                        ],
+                        "twisting": [
+                            r"\override Staff.Clef.stencil = #ly:text-interface::print",
+                            r"\override Staff.Clef.text = \twisting-clef",
+                            r"\staff-line-count 4",
+                            r"\override Staff.StaffSymbol.line-positions = #'(5 0 -5)",
+                            r"\override Staff.BarLine.bar-extent = #'(-2.5 . 2.5)",
+                            # r"\override Rest.staff-position = #0",
                             r"\override Staff.Accidental.stencil = ##f",
                             r"\override Staff.NoteHead.no-ledgers = ##t",
                         ],

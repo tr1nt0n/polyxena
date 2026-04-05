@@ -91,6 +91,19 @@ boxed-markup = #(
 
 % U+E078
 
+twisting-clef = \markup {
+    \fontsize #14
+    \override #'(font-name . "ekmelos")
+    \override #'(whiteout-style . "outline")
+    \override #'(whiteout . 1)
+    \override #'(layer . 27)
+    \raise #-5
+    \rotate #90
+    {
+        \char ##xe851
+    }
+}
+
 rasgueado-clef = \markup {
     \fontsize #8.5
     \override #'(font-name . "ekmelos")

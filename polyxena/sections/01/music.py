@@ -326,10 +326,10 @@ trinton.make_music(
         attachments=[
             abjad.Dynamic("p"),
             abjad.StartHairpin("|>o"),
+            abjad.Dynamic("mp"),
+            abjad.StartHairpin(">"),
             abjad.Dynamic("p"),
-            abjad.StartHairpin("|>o"),
-            abjad.Dynamic("p"),
-            abjad.StartHairpin("|>o"),
+            abjad.StartHairpin("--"),
             abjad.StopHairpin(),
         ],
         selector=trinton.select_leaves_by_index([0, 0, 1, 1, 2, 2, -1]),
@@ -340,7 +340,7 @@ trinton.make_music(
             [0, 1, 1, -1], pitched=True, first=True
         ),
         style="solid-line-with-arrow",
-        padding=9.5,
+        padding=12,
         right_padding=0,
         direction=None,
         full_string=False,
@@ -358,7 +358,7 @@ trinton.make_music(
             [0, 1, 1, -1], pitched=True, first=True
         ),
         style="solid-line-with-arrow",
-        padding=12,
+        padding=14.5,
         right_padding=0,
         direction=None,
         full_string=False,
@@ -374,7 +374,7 @@ trinton.make_music(
         initial_width=4,
         y_scale=1,
         speed_factor=-2,
-        padding=6,
+        padding=0.5,
         thickness=3,
         selector=trinton.select_leaves_by_index([0, -1], pitched=True),
         head=True,
@@ -460,7 +460,7 @@ trinton.make_music(
         selector=trinton.select_leaves_by_index([0, -1], pitched=True),
         padding=17,
         direction=None,
-        right_padding=28,
+        right_padding=37,
         full_string=True,
         style="dashed-line-with-hook",
         hspace=None,
@@ -599,7 +599,7 @@ trinton.make_music(
         selector=trinton.select_logical_ties_by_index([-1], pitched=True, grace=False),
         slash=True,
     ),
-    evans.PitchHandler([["d", "f'"], ["g", "d'"]]),
+    evans.PitchHandler([["a", "c"], ["b", "d"]]),
     trinton.invisible_accidentals_command(selector=trinton.pleaves()),
     trinton.attachment_command(
         attachments=[
@@ -609,27 +609,13 @@ trinton.make_music(
         ],
         selector=trinton.pleaves(),
     ),
-    trinton.change_lines(
-        lines=1,
+    library.change_staff_type(
         selector=trinton.select_leaves_by_index([0], pitched=True),
-        clef="percussion",
-        invisible_barlines=False,
-    ),
-    trinton.attachment_command(
-        attachments=[
-            abjad.LilyPondLiteral(
-                [
-                    r"\revert Staff.Clef.stencil",
-                    r"\override Staff.Clef.stencil = ##f",
-                    r"\revert Staff.StaffSymbol.line-positions",
-                    r"\revert Staff.BarLine.bar-extent",
-                    r"\revert Staff.Accidental.stencil",
-                    r"\revert Staff.NoteHead.no-ledgers",
-                ],
-                site="before",
-            ),
-        ],
-        selector=trinton.select_leaves_by_index([0], pitched=True, grace=False),
+        staff_type="twisting",
+        auto_reversion=False,
+        reversion_line_count=5,
+        reversion_clef=None,
+        force_clef=True,
     ),
     trinton.continuous_glissando(
         selector=trinton.pleaves(),
@@ -652,21 +638,21 @@ trinton.make_music(
         notehead_list=[["XIV", "XIII"], ["XIII", "XIV"]],
         selector=trinton.logical_ties(first=True, pitched=True),
     ),
-    trinton.spanner_command(
-        strings=[r"\half-harmonic", r"\full-pressure"],
-        selector=trinton.select_logical_ties_by_index(
-            [0, -1], pitched=True, first=True
-        ),
-        style="solid-line-with-arrow",
-        padding=10.5,
-        right_padding=0,
-        direction=None,
-        full_string=True,
-        command="One",
-        tweaks=[
-            r"""- \tweak font-size 10""",
-        ],
-    ),
+    # trinton.spanner_command(
+    #     strings=[r"\half-harmonic", r"\full-pressure"],
+    #     selector=trinton.select_logical_ties_by_index(
+    #         [0, -1], pitched=True, first=True
+    #     ),
+    #     style="solid-line-with-arrow",
+    #     padding=10.5,
+    #     right_padding=0,
+    #     direction=None,
+    #     full_string=True,
+    #     command="One",
+    #     tweaks=[
+    #         r"""- \tweak font-size 10""",
+    #     ],
+    # ),
     voice=score["guitar 2 voice"],
 )
 
@@ -812,7 +798,18 @@ trinton.make_music(
 trinton.make_music(
     lambda _: trinton.select_target(_, (4,)),
     trinton.rewrite_meter_command(boundary_depth=-2),
-    evans.PitchHandler(["e''"]),
+    trinton.duration_line(
+        selector=trinton.pleaves(),
+        color=False,
+        sustained=True,
+        visible_grace=False,
+        on_beat_graces=False,
+        fraction=None,
+    ),
+    evans.PitchHandler(["g'"]),
+    trinton.pitch_with_selector_command(
+        pitch_list=["a'"], selector=trinton.pleaves(grace=True)
+    ),
     trinton.linear_attachment_command(
         attachments=[
             abjad.BeamCount(left=2, right=1),
@@ -830,12 +827,15 @@ trinton.make_music(
     ),
     library.stringing_noteheads(
         notehead_list=itertools.cycle(["XII"]),
-        selector=trinton.logical_ties(first=True, pitched=True),
+        selector=trinton.select_logical_ties_by_index(
+            [0], pitched=True, first=True, grace=False
+        ),
     ),
+    trinton.noteheads_only(selector=trinton.pleaves(grace=True)),
     trinton.hooked_spanner_command(
         string=r"""\markup { \override #'(font-name . "ekmelos") { \char ##xe7fa } }""",
         selector=trinton.select_logical_ties_by_index([1, 2], first=True, pitched=True),
-        padding=13.5,
+        padding=11,
         direction=None,
         right_padding=-1,
         full_string=True,
@@ -850,7 +850,7 @@ trinton.make_music(
     trinton.hooked_spanner_command(
         string=r"""\markup { \override #'(font-name . "ekmelos") { \char ##xe614 } }""",
         selector=trinton.select_logical_ties_by_index([0, 1], first=True, pitched=True),
-        padding=13.5,
+        padding=11,
         direction=None,
         right_padding=-1,
         full_string=True,
@@ -865,7 +865,7 @@ trinton.make_music(
     trinton.hooked_spanner_command(
         string=r"""\markup { \override #'(font-name . "ekmelos") { \char ##xe7fa } }""",
         selector=trinton.select_leaves_by_index([4, 5], pitched=True),
-        padding=13.5,
+        padding=11,
         direction=None,
         right_padding=8,
         full_string=True,
@@ -880,7 +880,7 @@ trinton.make_music(
     trinton.hooked_spanner_command(
         string=r"""\markup { \override #'(font-name . "ekmelos") { \char ##xe614 } }""",
         selector=trinton.select_logical_ties_by_index([2, 3], first=True, pitched=True),
-        padding=13.5,
+        padding=11,
         direction=None,
         right_padding=-1,
         full_string=True,
@@ -901,7 +901,10 @@ trinton.make_music(
     trinton.aftergrace_command(
         selector=trinton.select_logical_ties_by_index([-1], pitched=True, grace=False)
     ),
-    evans.PitchHandler(["f'", "e"]),
+    evans.PitchHandler(["c'", "e"]),
+    trinton.pitch_with_selector_command(
+        pitch_list=["a", "b"], selector=trinton.select_logical_ties_by_index([0, -1])
+    ),
     trinton.noteheads_only(),
     trinton.invisible_tuplet_brackets(),
     library.stringing_noteheads(
@@ -934,9 +937,9 @@ trinton.make_music(
     trinton.aftergrace_command(
         selector=trinton.select_logical_ties_by_index([-1], pitched=True, grace=False)
     ),
-    evans.PitchHandler(["e", "f'"]),
+    evans.PitchHandler(["e", "c'"]),
     trinton.pitch_with_selector_command(
-        pitch_list=["c'"], selector=trinton.pleaves(grace=True)
+        pitch_list=["d"], selector=trinton.select_logical_ties_by_index([0, -1])
     ),
     trinton.noteheads_only(),
     trinton.invisible_tuplet_brackets(),
