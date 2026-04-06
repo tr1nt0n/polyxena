@@ -350,7 +350,7 @@ def stringing_noteheads(
 
 
 def fingering_markup(fingering):
-    return rf"""\markup {{ \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) \override #'(baseline-skip . 0) \circle {{ " {fingering} " }} }}"""
+    return rf"""\markup {{ \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) {{ \whiteout \circle {{ " {fingering} " }} }} }}"""
 
 
 def articulate_bariolage(

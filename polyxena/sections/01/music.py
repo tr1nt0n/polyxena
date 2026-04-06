@@ -388,7 +388,11 @@ trinton.make_music(
     ),
     trinton.rewrite_meter_command(boundary_depth=-1),
     trinton.pitch_with_selector_command(
-        pitch_list=[["c'", "a", "f", "d"], ["g'", "e'", "c'", "a"]],
+        pitch_list=[
+            ["c'", "a", "f", "d"],
+            ["g'", "e'", "c'", "a"],
+            ["e'", "c'", "a", "f"],
+        ],
         selector=trinton.select_logical_ties_by_index(
             [1, 2, 3], pitched=True, grace=False
         ),
@@ -1750,16 +1754,16 @@ trinton.make_music(
 
 # final barline
 
-trinton.make_music(
-    lambda _: trinton.select_target(_, (7,)),
-    trinton.attachment_command(
-        attachments=[
-            abjad.BarLine("||", site="after"),
-        ],
-        selector=trinton.select_leaves_by_index([-1]),
-    ),
-    voice=score["Global Context"],
-)
+# trinton.make_music(
+#     lambda _: trinton.select_target(_, (7,)),
+#     trinton.attachment_command(
+#         attachments=[
+#             abjad.BarLine("||", site="after"),
+#         ],
+#         selector=trinton.select_leaves_by_index([-1]),
+#     ),
+#     voice=score["Global Context"],
+# )
 
 # fermate
 
@@ -1848,10 +1852,87 @@ for measure in [2, 4, 6]:
 #     voice=score["Global Context"],
 # )
 
+# trinton.make_music(
+#     lambda _: trinton.select_target(_, (8,)),
+#     trinton.attachment_command(
+#         attachments=[abjad.LilyPondLiteral([r"\magnifyStaff #7/8"], site="before")],
+#         selector=trinton.select_leaves_by_index([0]),
+#     ),
+#     voice=score["cello 2 voice temp"],
+# )
+
+# trinton.make_music(
+#     lambda _: trinton.select_target(_, (10,)),
+#     trinton.attachment_command(
+#         attachments=[
+#             abjad.LilyPondLiteral([r"\magnifyStaff #1"], site="absolute_after")
+#         ],
+#         selector=trinton.select_leaves_by_index([-1], grace=False),
+#     ),
+#     voice=score["cello lower voice"],
+# )
+#
+# for voice_name in ["violin 1 bow voice", "violin 4 voice", "viola 2 voice temp 2"]:
+#     trinton.make_music(
+#         lambda _: trinton.select_target(_, (8, 10)),
+#         trinton.attachment_command(
+#             attachments=[abjad.LilyPondLiteral([r"\magnifyStaff #7/8"], site="before")],
+#             selector=trinton.select_leaves_by_index([0]),
+#         ),
+#         trinton.attachment_command(
+#             attachments=[
+#                 abjad.LilyPondLiteral([r"\magnifyStaff #1"], site="absolute_after")
+#             ],
+#             selector=trinton.select_leaves_by_index([-1]),
+#         ),
+#         voice=score[voice_name],
+#     )
+
+# instrument names
+
+library.write_instrument_names(score=score)
+
+library.write_short_instrument_names(score=score)
+
+# time signature changes
+
+trinton.change_time_signatures(
+    score=score,
+    global_context="Global Context",
+    measure_range=(5,),
+    replacement_signatures=[(3, 8), (3, 8)],
+)
+
+# barlines
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (6, 8)),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.BarLine(".|:", site="before"),
+            abjad.BarLine(":|.", site="after"),
+        ],
+        selector=trinton.select_leaves_by_index([0, -1]),
+    ),
+    voice=score["Global Context"],
+)
+
+# beautification
+
+trinton.remove_redundant_time_signatures(score=score)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (5,)),
+    trinton.detach_command(
+        detachments=[abjad.LilyPondLiteral], selector=abjad.select.leaves
+    ),
+    voice=score["Global Context"],
+)
+
 # breaking
 
 for measure in [
-    7,
+    8,
 ]:
     trinton.make_music(
         lambda _: trinton.select_target(_, (measure,)),
@@ -1863,7 +1944,7 @@ for measure in [
         voice=score["Global Context"],
     )
 
-for measure in [1, 2, 4, 5, 6]:
+for measure in [1, 2, 4, 5, 6, 7]:
     trinton.make_music(
         lambda _: trinton.select_target(_, (measure,)),
         trinton.attachment_command(
@@ -1917,51 +1998,8 @@ trinton.make_music(
     voice=score["Global Context"],
 )
 
-# trinton.make_music(
-#     lambda _: trinton.select_target(_, (8,)),
-#     trinton.attachment_command(
-#         attachments=[abjad.LilyPondLiteral([r"\magnifyStaff #7/8"], site="before")],
-#         selector=trinton.select_leaves_by_index([0]),
-#     ),
-#     voice=score["cello 2 voice temp"],
-# )
+# whiteouts
 
-# trinton.make_music(
-#     lambda _: trinton.select_target(_, (10,)),
-#     trinton.attachment_command(
-#         attachments=[
-#             abjad.LilyPondLiteral([r"\magnifyStaff #1"], site="absolute_after")
-#         ],
-#         selector=trinton.select_leaves_by_index([-1], grace=False),
-#     ),
-#     voice=score["cello lower voice"],
-# )
-#
-# for voice_name in ["violin 1 bow voice", "violin 4 voice", "viola 2 voice temp 2"]:
-#     trinton.make_music(
-#         lambda _: trinton.select_target(_, (8, 10)),
-#         trinton.attachment_command(
-#             attachments=[abjad.LilyPondLiteral([r"\magnifyStaff #7/8"], site="before")],
-#             selector=trinton.select_leaves_by_index([0]),
-#         ),
-#         trinton.attachment_command(
-#             attachments=[
-#                 abjad.LilyPondLiteral([r"\magnifyStaff #1"], site="absolute_after")
-#             ],
-#             selector=trinton.select_leaves_by_index([-1]),
-#         ),
-#         voice=score[voice_name],
-#     )
-
-# instrument names
-
-library.write_instrument_names(score=score)
-
-library.write_short_instrument_names(score=score)
-
-# beautification
-
-trinton.remove_redundant_time_signatures(score=score)
 trinton.whiteout_empty_staves(
     score=score,
     voice_names=["cello 1 voice", "guitar 1 voice"],

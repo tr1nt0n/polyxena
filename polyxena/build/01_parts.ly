@@ -29,10 +29,17 @@
               %! +SCORE
         %%% \noBreak
             \set Score.proportionalNotationDuration = #(ly:make-moment 1/30)
-            \time 3/4
-            s1 * 3/4
+            \time 3/8
+            s1 * 3/8
               %! +SCORE
         %%% \noBreak
+            \bar ".|:"
+            \once \override Score.TimeSignature.stencil = ##f
+            \time 3/8
+            s1 * 3/8
+              %! +SCORE
+        %%% \noBreak
+            \once \override Score.TimeSignature.stencil = ##f
             \once \override TimeSignature.stencil = #(three-seven-time-signature)
             \set Score.proportionalNotationDuration = #(ly:make-moment 2/105)
             \time 3/8
@@ -48,7 +55,7 @@
             - \tweak font-size #'14
             - \tweak padding 4
             _ \short-fermata
-            \bar "||"
+            \bar ":|."
             \once \override Score.BarLine.transparent = ##f
               %! +SCORE
         %%% \pageBreak
@@ -1687,7 +1694,7 @@
                                     \once \override TupletBracket.direction = #DOWN
                                     \times 2/3
                                     {
-                                        <d f a c'>16
+                                        <f a c' e'>16
                                         \p
                                         \once \override Slur.stencil = #flare-tie
                                         \revert Staff.Clef.stencil
@@ -1980,8 +1987,8 @@
                                     - \tweak font-size 2
                                     - \tweak padding #10.5
                                     - \abjad-solid-line-with-arrow
-                                    - \tweak bound-details.left.text \markup \concat { { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) \override #'(baseline-skip . 0) \circle { " p - c " } } \hspace #0.5 }
-                                    - \tweak bound-details.right.text \markup { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) \override #'(baseline-skip . 0) \circle { " i - a " } }
+                                    - \tweak bound-details.left.text \markup \concat { { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) { \whiteout \circle { " p - c " } } } \hspace #0.5 }
+                                    - \tweak bound-details.right.text \markup { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) { \whiteout \circle { " i - a " } } }
                                     \startTextSpanOne
                                     - \tweak font-name "Bodoni72 Book Italic" 
                                     - \tweak font-size 2
@@ -2070,8 +2077,8 @@
                                         - \tweak font-size 2
                                         - \tweak padding #12.5
                                         - \abjad-solid-line-with-arrow
-                                        - \tweak bound-details.left.text \markup \concat { { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) \override #'(baseline-skip . 0) \circle { " i - m " } } \hspace #0.5 }
-                                        - \tweak bound-details.right.text \markup { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) \override #'(baseline-skip . 0) \circle { " p - c " } }
+                                        - \tweak bound-details.left.text \markup \concat { { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) { \whiteout \circle { " i - m " } } } \hspace #0.5 }
+                                        - \tweak bound-details.right.text \markup { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) { \whiteout \circle { " p - c " } } }
                                         \startTextSpanOne
                                         - \tweak font-name "Bodoni72 Book Italic" 
                                         - \tweak font-size 2
@@ -2145,7 +2152,7 @@
                                     - \tweak font-size 2
                                     - \tweak padding #11
                                     - \abjad-solid-line-with-arrow
-                                    - \tweak bound-details.left.text \markup \concat { { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) \override #'(baseline-skip . 0) \circle { " p - c " } } \hspace #0.5 }
+                                    - \tweak bound-details.left.text \markup \concat { { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) { \whiteout \circle { " p - c " } } } \hspace #0.5 }
                                     \startTextSpanOne
                                     - \tweak font-name "Bodoni72 Book Italic" 
                                     - \tweak font-size 2
@@ -2198,8 +2205,8 @@
                                     - \tweak font-size 2
                                     - \tweak padding #11
                                     - \abjad-solid-line-with-arrow
-                                    - \tweak bound-details.left.text \markup \concat { { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) \override #'(baseline-skip . 0) \circle { " i - m " } } \hspace #0.5 }
-                                    - \tweak bound-details.right.text \markup { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) \override #'(baseline-skip . 0) \circle { " p - c " } }
+                                    - \tweak bound-details.left.text \markup \concat { { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) { \whiteout \circle { " i - m " } } } \hspace #0.5 }
+                                    - \tweak bound-details.right.text \markup { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) { \whiteout \circle { " p - c " } } }
                                     \startTextSpanOne
                                     ~
                                       %! abjad.glissando(1)
