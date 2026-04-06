@@ -106,15 +106,27 @@ def strange_bariolage_pitching(
 
             string_figurations.append(new_range)
 
-        _string_number_to_pitch = {
-            1: "b'",
-            2: "g'",
-            3: "e'",
-            4: "c'",
-            5: "a",
-            6: "f",
-            7: "d",
-        }
+        if instrument == "gambe":
+            _string_number_to_pitch = {
+                1: "b'",
+                2: "g'",
+                3: "e'",
+                4: "c'",
+                5: "a",
+                6: "f",
+                7: "d",
+            }
+
+        if instrument == "theorbe":
+            _string_number_to_pitch = {
+                1: "e''",
+                2: "c''",
+                3: "a'",
+                4: "f'",
+                5: "d'",
+                6: "b",
+                7: "g",
+            }
 
         partitioned_selections = abjad.select.partition_by_counts(
             selections,
