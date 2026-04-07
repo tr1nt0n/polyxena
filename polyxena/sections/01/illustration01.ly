@@ -32,6 +32,12 @@
             \set Score.proportionalNotationDuration = #(ly:make-moment 1/30)
             \time 3/4
             s1 * 3/4
+            - \tweak padding #13
+            - \abjad-solid-line-with-arrow
+            - \tweak bound-details.left.text \markup \concat { \override #'(font-name . "Bodoni72 Book Italic") { \hspace #0 \raise #0 \with-dimensions-from \null \concat { \fontsize #8 { " accel. ( to " } \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 112 )" } } } \hspace #0.5 }
+            - \tweak bound-details.right.text \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0 \raise #0 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 112" } } }
+            - \tweak bound-details.right.padding -2
+            \startTextSpanThree
               %! +SCORE
             \break
               %! +SCORE
@@ -40,6 +46,7 @@
             \set Score.proportionalNotationDuration = #(ly:make-moment 2/105)
             \time 3/8
             s1 * 3/8
+            \stopTextSpanThree
               %! +SCORE
             \noBreak
             \set Score.proportionalNotationDuration = #(ly:make-moment 1/30)
@@ -51,6 +58,7 @@
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #-3.5 \raise #9 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 48" } } }
               %! +SCORE
             \noBreak
             \once \override Score.TimeSignature.stencil = ##f

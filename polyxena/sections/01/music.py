@@ -1809,6 +1809,51 @@ trinton.make_music(
     voice=score["Global Context"],
 )
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (3, 4)),
+    trinton.spanner_command(
+        strings=[
+            trinton.tempo_markup(
+                note_value=8,
+                tempo=112,
+                padding=0,
+                note_head_fontsize=0.5,
+                stem_length=2,
+                text_fontsize=8,
+                dotted=False,
+                fraction=None,
+                tempo_change="accel.",
+                site="after",
+                hspace=0,
+                string_only=True,
+            ),
+            trinton.tempo_markup(
+                note_value=8,
+                tempo=112,
+                padding=0,
+                note_head_fontsize=0.5,
+                stem_length=2,
+                text_fontsize=8,
+                dotted=False,
+                fraction=None,
+                tempo_change=None,
+                site="after",
+                hspace=0,
+                string_only=True,
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0, -1]),
+        style="solid-line-with-arrow",
+        padding=13,
+        tweaks=None,
+        right_padding=2,
+        direction=None,
+        full_string=True,
+        command="Three",
+    ),
+    voice=score["Global Context"],
+)
+
 for measure in [2, 4, 6]:
     trinton.make_music(
         lambda _: trinton.select_target(_, (measure,)),
@@ -1901,6 +1946,34 @@ trinton.change_time_signatures(
     global_context="Global Context",
     measure_range=(5,),
     replacement_signatures=[(3, 8), (3, 8)],
+)
+
+# after signature change tempo
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (6,)),
+    trinton.attachment_command(
+        attachments=[
+            trinton.tempo_markup(
+                note_value=8,
+                tempo=48,
+                padding=9,
+                note_head_fontsize=0.5,
+                stem_length=2,
+                text_fontsize=8,
+                dotted=False,
+                fraction=None,
+                tempo_change=None,
+                site="after",
+                hspace=-3.5,
+                string_only=False,
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.UP,
+        # tag=abjad.Tag("+SCORE"),
+    ),
+    voice=score["Global Context"],
 )
 
 # barlines
