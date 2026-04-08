@@ -48,7 +48,7 @@ retrograded_tetrahedron_corners_list = tetrahedron_corners_list[::-1]
 
 # dynamics
 
-_cypher_to_dynamic = {8: '"f"', 7: '"mf"', 6: '"mp"', 4: '"p"', 3: '"pp"'}
+_cypher_to_dynamic = {8: "f", 7: "mf", 6: "mp", 4: "p", 3: "pp"}
 
 dynamic_traversal_root = [4, 6, 3, 7, 8, 6, 3, 7, 8, 4, 3, 7, 8, 4, 6]
 
@@ -115,23 +115,24 @@ def attach_patterned_dynamics(
 # notation tools
 
 
-def multiple_muting(selector=abjad.select.chords, closed_fundamental=False):
+def multiple_muting(
+    selector=abjad.select.chords, closed_fundamental=False, forgo_notehead_change=False
+):
     def change_noteheads(argument):
         selections = selector(argument)
 
         for chord in abjad.select.chords(selections):
             for leaf in abjad.select.leaves(chord):
                 leaf_duration = abjad.get.duration(leaf, preprolated=True)
-                if leaf_duration > abjad.Duration(
-                    (7, 16)
-                ) and leaf_duration > abjad.Duration((7, 32)):
+                if leaf_duration > abjad.Duration((7, 16)):
                     head_shape = "harmonic-mixed"
                 else:
                     head_shape = "harmonic"
 
                 if closed_fundamental is False:
                     for head in leaf.note_heads:
-                        abjad.tweak(head, rf"\tweak style #'{head_shape}")
+                        if forgo_notehead_change is False:
+                            abjad.tweak(head, rf"\tweak style #'{head_shape}")
                 else:
                     noteheads = leaf.note_heads
                     notehead_pitches = [head.named_pitch.number for head in noteheads]
@@ -140,7 +141,8 @@ def multiple_muting(selector=abjad.select.chords, closed_fundamental=False):
 
                     for head in noteheads:
                         if head.named_pitch.number != lowest_pitch:
-                            abjad.tweak(head, rf"\tweak style #'{head_shape}")
+                            if forgo_notehead_change is False:
+                                abjad.tweak(head, rf"\tweak style #'{head_shape}")
 
                 noteheads = leaf.note_heads
                 notehead_pitches = [head.named_pitch.number for head in noteheads]
