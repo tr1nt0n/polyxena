@@ -726,13 +726,15 @@ def color_voice(color, selector=trinton.select_leaves_by_index([0, -1])):
 
 
 def half_note_signifier(
-    selector=trinton.logical_ties(pitched=True, grace=False), direction=abjad.UP
+    selector=trinton.logical_ties(pitched=True, grace=False),
+    direction=abjad.UP,
+    padding=None,
 ):
     def attach_markups(argument):
         selections = selector(argument)
 
         for selection in selections:
-            note_duration = abjad.get.duration(selection)
+            note_duration = abjad.get.duration(selection, preprolated=True)
 
             if note_duration > abjad.Duration(
                 (15, 32)
@@ -755,6 +757,11 @@ def half_note_signifier(
                 )
 
                 note_markup = abjad.Markup(note_markup_string)
+
+                if padding is not None:
+                    note_markup = abjad.bundle(
+                        note_markup, rf"- \tweak padding {padding}"
+                    )
 
                 abjad.attach(
                     note_markup, abjad.select.leaf(selection, 0), direction=direction

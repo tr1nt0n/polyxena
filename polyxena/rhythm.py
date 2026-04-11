@@ -811,6 +811,14 @@ def shuffled_gesture(index, instrument, stage=1):
 
                         eight_counter += 1
 
+                if (
+                    time_signature_numerator != 3
+                    and time_signature_numerator != 6
+                    and time_signature_numerator != 7
+                    and time_signature_numerator != 8
+                ):
+                    durations.append(time_signature)
+
         if stage == 2:
             shard_durations = [abjad.get.duration(shard) for shard in shard_sequence]
 

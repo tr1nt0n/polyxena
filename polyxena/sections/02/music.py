@@ -27,8 +27,8 @@ for measure, text in zip(
         # 1,
         # 7,
         # 9,
-        17,
-        18,
+        # 17,
+        # 18,
         21,
         25,
     ],
@@ -36,8 +36,8 @@ for measure, text in zip(
         # "24 second gambe mute",
         # "13 second w/ theorbe periodic bridge strumming",
         # "theorbe bridge strumming becomes aperiodic",
-        "theorbe transitions to bariolage",
-        "theorbe arrives at bariolage",
+        # "theorbe transitions to bariolage",
+        # "theorbe arrives at bariolage",
         "gambe starts changing mute",
         "gambe becomes bariolage",
     ],
@@ -251,6 +251,144 @@ trinton.make_music(
     voice=score["guitar 2 voice"],
 )
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (11,)),
+    evans.RhythmHandler(
+        rhythm.shuffled_gesture(index=52, instrument="theorbe", stage=3)
+    ),
+    trinton.pitch_with_selector_command(
+        pitch_list=["d,"],
+        selector=trinton.select_logical_ties_by_index([0], pitched=True, grace=False),
+    ),
+    # rhythm.continuous_beam(selector=abjad.select.leaves),
+    library.change_staff_type(
+        selector=trinton.select_leaves_by_index([0]),
+        staff_type="stringing theorbe",
+        auto_reversion=False,
+    ),
+    voice=score["guitar 1 voice"],
+    preprocessor=trinton.fuse_quarters_preprocessor((3, 2, 3)),
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (12, 19)),
+    evans.RhythmHandler(
+        rhythm.shuffled_gesture(index=56, instrument="theorbe", stage=2)
+    ),
+    trinton.rewrite_meter_command(boundary_depth=-2),
+    trinton.aftergrace_command(
+        selector=trinton.select_logical_ties_by_index([-1], pitched=True, grace=False),
+        invisible=True,
+    ),
+    trinton.pitch_with_selector_command(
+        pitch_list=["b"], selector=trinton.pleaves(grace=True)
+    ),
+    voice=score["guitar 1 voice"],
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (11, 19)),
+    trinton.continuous_glissando(invisible_center=True, zero_padding=True),
+    library.half_note_signifier(
+        selector=trinton.pleaves(grace=False), direction=abjad.UP, padding=3
+    ),
+    trinton.transparent_noteheads(selector=trinton.pleaves(grace=False)),
+    # trinton.annotate_leaves_locally(
+    #     selector=trinton.logical_ties(first=True, pitched=True)
+    # ),
+    trinton.hooked_spanner_command(
+        string=r"""\markup { "( ob. )" }""",
+        selector=trinton.select_logical_ties_by_index([0, 5], first=True, pitched=True),
+        padding=8.5,
+        direction=None,
+        right_padding=0,
+        full_string=True,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="One",
+        tag=None,
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
+            r"""- \tweak font-size 2""",
+        ],
+    ),
+    trinton.spanner_command(
+        strings=["", "msp.", "p."],
+        selector=trinton.select_logical_ties_by_index(
+            [5, 10, 10, 12, 12, 18], pitched=True, first=True
+        ),
+        style="solid-line-with-arrow",
+        padding=8.5,
+        right_padding=0,
+        direction=None,
+        full_string=False,
+        end_hook=True,
+        end_hook_right_padding=0,
+        command="One",
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
+            r"""- \tweak font-size 2""",
+        ],
+    ),
+    trinton.spanner_command(
+        strings=["", "xp.", "p.", "xp."],
+        selector=trinton.select_logical_ties_by_index(
+            [18, 22, 22, 26, 26, 28, 28, -1], pitched=True, first=True
+        ),
+        style="solid-line-with-arrow",
+        padding=8.5,
+        right_padding=0,
+        direction=None,
+        full_string=False,
+        end_hook=True,
+        end_hook_right_padding=0,
+        command="One",
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
+            r"""- \tweak font-size 2""",
+        ],
+    ),
+    library.attach_patterned_dynamics(
+        index=46,
+        selector=trinton.patterned_tie_index_selector(
+            [
+                0,
+                2,
+                4,
+                7,
+                10,
+                12,
+            ],
+            15,
+            first=True,
+            pitched=True,
+        ),
+    ),
+    # trinton.annotate_leaves_locally(selector=trinton.pleaves()),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.StartHairpin("<"),
+            abjad.StartHairpin("<"),
+            abjad.StartHairpin("<"),
+            abjad.StartHairpin("<"),
+            abjad.StartHairpin("--"),
+            abjad.StartHairpin("--"),
+            abjad.StartHairpin(">"),
+            abjad.StartHairpin(">"),
+            abjad.StartHairpin("--"),
+            abjad.StartHairpin("<"),
+            abjad.StartHairpin("<"),
+            abjad.StartHairpin(">"),
+        ],
+        selector=trinton.select_logical_ties_by_index(
+            [0, 4, 10, 12, 15, 17, 19, 22, 25, 27, 30, 32], first=True, pitched=True
+        ),
+    ),
+    voice=score["guitar 1 voice"],
+)
+
 # globals
 
 trinton.make_music(
@@ -361,7 +499,7 @@ trinton.make_music(
                 fraction=None,
                 tempo_change="rit.",
                 site="after",
-                hspace=0,
+                hspace=1.5,
                 string_only=True,
             ),
             trinton.tempo_markup(
