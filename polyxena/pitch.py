@@ -7,6 +7,7 @@ import itertools
 import numpy
 import random
 from polyxena import library
+from polyxena import ts
 
 decachord = [4, 6, 3, 7, 8, 5, 3, 6, 2, 1]
 
@@ -56,6 +57,74 @@ def return_pitch_list(index, chord_groups=None):
             overhang=True,
         )
         return chord_partitions
+
+
+def make_bariolage_chords(instrument, string_ranges, index, seed, selector):
+    def make_chords(argument):
+        selections = selector(argument)
+
+        _instrument_to_string_list = {
+            "theorbe": [
+                "b''",
+                "g''",
+                "e''",
+                "c''",
+                "a'",
+                "f'",
+                "d'",
+                "b",
+                "g",
+                "e",
+                "c",
+                "a,",
+                "f,",
+                "d,",
+            ],
+            "gambe": [
+                "b'",
+                "g'",
+                "e'",
+                "c'",
+                "a",
+                "f",
+                "d",
+            ],
+        }
+
+        string_list = _instrument_to_string_list[instrument]
+
+        pitch_list = []
+
+        time_signature_sequence = trinton.rotated_sequence(
+            ts.time_signatures, index % len(time_signature_sequence)
+        )
+        fret_ranges = [
+            time_signature.numerator for time_signature in time_signature_sequence
+        ]
+        interval_sequence = trinton.random_walk(chord=[-1, 1], seed=seed)
+
+        for fret_range, string_range in zip(fret_ranges, string_ranges):
+            chord = []
+
+            range_pitch_start = string_range[0] - 1
+            range_pitch_stop = string_range[-1] - 1
+            range_pitches = string_list[range_pitch_start:range_pitch_stop]
+
+            if len(range_pitches) > 4:
+                numpy.random.seed(seed)
+                order_array = numpy.random.permutation(len(range_pitches))
+                order_list = order_array.tolist()
+
+                for order in order_list:
+                    chord.append(range_pitches[order])
+                    range_pitches.pop(order)
+
+        # for every string range given by the interface:
+        # if the amount of strings affected is greater than four, randomly select four strings to close. Then add the remaining open strings to the chord.
+        # rotate through time signature sequence of 3, 6, 7, and 8 to select a fret range
+        # random walk at a pace of 1 semitone above or below the fret range 4 times or as many times as there are affected strings, if the affected strings are four or fewer
+
+    return make_chords
 
 
 def strange_bariolage_pitching(

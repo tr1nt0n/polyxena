@@ -389,6 +389,40 @@ trinton.make_music(
     voice=score["guitar 1 voice"],
 )
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (11,)),
+    evans.RhythmHandler(
+        evans.tuplet(
+            [
+                (-1,),
+                (4, 1),
+                (1,),
+            ]
+        )
+    ),
+    rmakers.rewrite_dots,
+    trinton.respell_tuplets_command(rewrite_brackets=False),
+    trinton.attachment_command(
+        attachments=[abjad.Tie()],
+        selector=trinton.select_leaves_by_index([1], pitched=True),
+    ),
+    # evans.PitchHandler(
+    #     pitch.return_pitch_list(
+    #         index=0,
+    #         chord_groups=[5, 8]
+    #     ),
+    # ),
+    library.change_staff_type(
+        selector=trinton.select_leaves_by_index([0], pitched=True),
+        staff_type="reversion",
+        auto_reversion=False,
+        reversion_line_count=5,
+        reversion_clef="bass",
+    ),
+    voice=score["guitar 2 voice"],
+    preprocessor=trinton.fuse_quarters_preprocessor((3, 2, 3)),
+)
+
 # globals
 
 trinton.make_music(
@@ -706,6 +740,7 @@ trinton.remove_redundant_time_signatures(score=score)
 for measure in [
     1,
     6,
+    14,
 ]:
     trinton.make_music(
         lambda _: trinton.select_target(_, (measure,)),
@@ -717,9 +752,7 @@ for measure in [
         voice=score["Global Context"],
     )
 
-for measure in [
-    10,
-]:
+for measure in [10, 18]:
     trinton.make_music(
         lambda _: trinton.select_target(_, (measure,)),
         trinton.attachment_command(

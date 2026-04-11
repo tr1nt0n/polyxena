@@ -109,6 +109,8 @@
             s1 * 7/32
               %! +SCORE
             \break
+              %! +SCORE
+            \noPageBreak
             \time 6/4
             s1 * 3/2
             - \tweak font-size #6
@@ -120,6 +122,8 @@
             \time 6/4
             s1 * 3/2
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #1 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 63" } } }
+              %! +SCORE
+            \pageBreak
             \time 7/8
             s1 * 7/8
             - \tweak font-size #6
@@ -2164,7 +2168,23 @@
                                         \revert NoteHead.transparent
                                         \revert NoteHead.no-ledgers
                                     }
-                                    s1 * 2
+                                    r2.
+                                    \times 4/5
+                                    {
+                                        \revert Staff.Clef.stencil
+                                        \revert Staff.StaffSymbol.line-positions
+                                        \staff-line-count 5
+                                        \revert Staff.BarLine.bar-extent
+                                        \revert Staff.Accidental.stencil
+                                        \revert Staff.NoteHead.no-ledgers
+                                        \set Staff.forceClef = ##t
+                                        \clef "bass"
+                                        <ef! e! fs,! g,! af!>2
+                                        \set Staff.forceClef = ##f
+                                        <cs' d' ef' f' fs' g' af' bf'>8
+                                        ~
+                                    }
+                                    <cs' d' ef' f' fs' g' af' bf'>2.
                                     s1 * 7/16
                                     s1 * 1/2
                                     s1 * 7/32
