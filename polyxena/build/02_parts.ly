@@ -72,6 +72,8 @@
         %%% \break
               %! +SCORE
         %%% \pageBreak
+              %! +SCORE
+        %%% \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 22 20)))
             \time 8/4
             s1 * 2
             - \tweak padding #13.5
@@ -97,24 +99,30 @@
         %%% \break
               %! +SCORE
         %%% \noPageBreak
+              %! +SCORE
+        %%% \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (4 28 20)))
             \time 6/4
             s1 * 3/2
-            - \tweak font-size #6
-            ^ \markup { "gambe starts changing mute" }
+              %! +SCORE
+        %%% \noBreak
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+        %%% \noBreak
             \time 3/16
             s1 * 3/16
-            \time 6/4
-            s1 * 3/2
-            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #1 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 63" } } }
               %! +SCORE
         %%% \pageBreak
+              %! +SCORE
+        %%% \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 15 35 18)))
+            \time 6/4
+            s1 * 3/2
+            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #-3.5 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 63" } } }
             \time 7/8
             s1 * 7/8
-            - \tweak font-size #6
-            ^ \markup { "gambe becomes bariolage" }
             \bar "||"
+              %! +SCORE
+        %%% \pageBreak
         }
         \tag #'group1
         {
@@ -355,6 +363,7 @@
                                 %%% \stopStaff \startStaff
                                       %! +SCORE
                                 %%% \once \override Staff.BarLine.transparent = ##f
+                                    \once \override Staff.Clef.stencil = ##f
                                       %! +SCORE
                                 %%% \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                                       %! +SCORE
@@ -366,19 +375,84 @@
                                     R1 * 3/2
                                       %! +SCORE
                                 %%% \stopStaff \startStaff
-                                      %! +SCORE
-                                %%% \once \override Staff.BarLine.transparent = ##f
-                                      %! +SCORE
-                                %%% \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
-                                      %! +SCORE
-                                %%% \once \override Staff.TimeSignature.transparent = ##t
-                                      %! +SCORE
-                                %%% \once \override MultiMeasureRest.transparent = ##t
-                                      %! +SCORE
-                                %%% \once \override MultiMeasureRest.transparent = ##t
-                                    R1 * 7/8
-                                      %! +SCORE
-                                %%% \stopStaff \startStaff
+                                    \times 8/9
+                                    {
+                                        \override Dots.staff-position = #2
+                                        \override Staff.Clef.stencil = #ly:text-interface::print
+                                        \override Staff.Clef.text = \seven-string-clef
+                                        \staff-line-count 7
+                                        \override Staff.Accidental.stencil = ##f
+                                        \override Staff.NoteHead.no-ledgers = ##t
+                                        \set Staff.forceClef = ##t
+                                        \clef "percussion"
+                                        e'8.
+                                        \p
+                                        ^ \talon-to-punta
+                                        [
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #8.5
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { { "( xp. )" } \hspace #0.5 }
+                                        \startTextSpanTwo
+                                        _ (
+                                        \set Staff.forceClef = ##f
+                                        b'16
+                                        ]
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        f4
+                                          %! abjad.glissando(7)
+                                        - \abjad-zero-padding-glissando
+                                          %! abjad.glissando(7)
+                                        \glissando
+                                        ~
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                        f16
+                                        )
+                                    }
+                                      %! abjad.glissando(6)
+                                    \revert Accidental.stencil
+                                      %! abjad.glissando(6)
+                                    \revert NoteColumn.glissando-skip
+                                      %! abjad.glissando(6)
+                                    \revert NoteHead.no-ledgers
+                                      %! abjad.glissando(6)
+                                    \undo \hide NoteHead
+                                    c'16
+                                    ^ \punta-to-talon
+                                    [
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    _ (
+                                    a8..
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    \afterGrace
+                                    g'16.
+                                    ]
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    {
+                                        \once \override Stem.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override Accidental.stencil = ##f
+                                        \revert Dots.staff-position
+                                        \once \override NoteHead.transparent = ##t
+                                        c'16
+                                        )
+                                        \stopTextSpanTwo
+                                    }
                                 }
                             }
                         }
@@ -769,6 +843,7 @@
                                         ef
                                         a
                                     >4..
+                                    \<
                                     ~
                                     \once \override Dots.staff-position = #2
                                     \once \override NoteHead.no-ledgers = ##t
@@ -839,13 +914,792 @@
                                           %! abjad.glissando(6)
                                         \undo \hide NoteHead
                                         <d ef a>16
+                                        \f
                                         \stopTextSpanThree
                                     }
-                                    s1 * 3/2
-                                    s1 * 3/8
-                                    s1 * 3/16
-                                    s1 * 3/2
-                                    s1 * 7/8
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        ef
+                                        \tweak style #'harmonic
+                                        a
+                                    >4
+                                    \mf
+                                    - \tweak font-name "Bodoni72 Book Italic" 
+                                    - \tweak font-size 2
+                                    _ \markup { \hspace #-7 { "legatissimo sempre" } }
+                                    - \tweak bound-details.left.Y #1.5
+                                    - \tweak bound-details.right.Y #6.5
+                                    - \tweak font-size 2
+                                    - \tweak padding #0
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "IV" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding 1.5
+                                    \startTextSpanThree
+                                    - \tweak bound-details.left.Y #4
+                                    - \tweak bound-details.right.Y #8.5
+                                    - \tweak font-name "Bodoni72 Book Italic" 
+                                    - \tweak font-size 2
+                                    - \tweak padding #0
+                                    - \abjad-solid-line-with-arrow
+                                    - \tweak bound-details.left.text \markup \concat { \upright { "ord." } \hspace #0.5 }
+                                    - \tweak bound-details.right.text \markup \upright { "xp." }
+                                    \startTextSpanTwo
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        ef
+                                        \tweak style #'harmonic
+                                        a
+                                    >16
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d
+                                        \tweak style #'harmonic
+                                        a
+                                    >8.
+                                    \p
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d
+                                        \tweak style #'harmonic
+                                        a
+                                    >16.
+                                    [
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        eqf,
+                                        \tweak style #'harmonic
+                                        af,
+                                    >32
+                                    \mp
+                                    \stopTextSpanThree
+                                    - \tweak font-size 2
+                                    - \tweak padding #8.5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "VII" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding 1.5
+                                    \startTextSpanThree
+                                    ~
+                                    \revert Staff.Stem.stemlet-length
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        eqf,
+                                        \tweak style #'harmonic
+                                        af,
+                                    >8
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        eqf,
+                                        \tweak style #'harmonic
+                                        af,
+                                    >32
+                                    [
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        df,
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        eqf,
+                                        \tweak style #'harmonic
+                                        af,
+                                    >16.
+                                    \f
+                                    ~
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        df,
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        eqf,
+                                        \tweak style #'harmonic
+                                        af,
+                                    >16.
+                                    \revert Staff.Stem.stemlet-length
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        bf,
+                                        \tweak style #'harmonic
+                                        eqf
+                                    >32
+                                    \p
+                                    \stopTextSpanThree
+                                    ]
+                                    - \tweak bound-details.left.Y #2.5
+                                    - \tweak bound-details.right.Y #-3
+                                    - \tweak font-size 2
+                                    - \tweak padding #6
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "V" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding 3.5
+                                    \startTextSpanThree
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        bf,
+                                        \tweak style #'harmonic
+                                        eqf
+                                    >8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        bf,
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        eqf
+                                        \tweak style #'harmonic
+                                        fqs
+                                    >8
+                                    \f
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        bf,
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        eqf
+                                        \tweak style #'harmonic
+                                        fqs
+                                    >32
+                                    [
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        d
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        ef
+                                        \tweak style #'harmonic
+                                        a
+                                    >16.
+                                    \mp
+                                    \stopTextSpanThree
+                                    - \tweak font-size 2
+                                    - \tweak padding #5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "VI" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding 1.5
+                                    \startTextSpanThree
+                                    ~
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        d
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        ef
+                                        \tweak style #'harmonic
+                                        a
+                                    >32
+                                    \revert Staff.Stem.stemlet-length
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        ef
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        a
+                                        \tweak style #'harmonic
+                                        c'
+                                    >16.
+                                    \pp
+                                    ]
+                                    \clef "treble"
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        e'
+                                        \tweak style #'harmonic
+                                        gs'
+                                    >8
+                                    \mf
+                                    \stopTextSpanThree
+                                    [
+                                    - \tweak font-size 2
+                                    - \tweak padding #4
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "III" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding 1.5
+                                    \startTextSpanThree
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        e'
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        gs'
+                                        \tweak style #'harmonic
+                                        a'
+                                    >16.
+                                    \mp
+                                    \once \override Staff.Clef.X-extent = #'(-1 . 3)
+                                    \clef "bass"
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        d
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        ef
+                                        \tweak style #'harmonic
+                                        a
+                                    >32
+                                    \p
+                                    \stopTextSpanThree
+                                    - \tweak font-size 2
+                                    - \tweak padding #5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "IV" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding 1.5
+                                    \startTextSpanThree
+                                    ~
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        d
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        ef
+                                        \tweak style #'harmonic
+                                        a
+                                    >16
+                                    \revert Staff.Stem.stemlet-length
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        ef
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        a
+                                        \tweak style #'harmonic
+                                        c'
+                                    >16
+                                    \mp
+                                    ]
+                                    \clef "treble"
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d'
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        gs'
+                                        \tweak style #'harmonic
+                                        a'
+                                    >16
+                                    \pp
+                                    \stopTextSpanThree
+                                    [
+                                    - \tweak font-size 2
+                                    - \tweak padding #9.5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "II" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding 1.5
+                                    \startTextSpanThree
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d'
+                                        \tweak style #'harmonic
+                                        a'
+                                    >16
+                                    \mf
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        f'
+                                        \tweak style #'harmonic
+                                        b'
+                                    >32
+                                    \p
+                                    \stopTextSpanThree
+                                    - \tweak font-size 2
+                                    - \tweak padding #9.5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "I" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding -2
+                                    \startTextSpanThree
+                                    \revert Staff.Stem.stemlet-length
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        f'
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        b'
+                                        \tweak style #'harmonic
+                                        cs''
+                                    >32
+                                    \mf
+                                    \stopTextSpanThree
+                                    \stopTextSpanTwo
+                                    ]
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        f'
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        b'
+                                        \tweak style #'harmonic
+                                        cs''
+                                    >4
+                                    \f
+                                    - \tweak font-name "Bodoni72 Book Italic" 
+                                    - \tweak font-size 2
+                                    - \tweak padding #11
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "( xp. )" } \hspace #0.5 }
+                                    \startTextSpanTwo
+                                    - \tweak font-size 2
+                                    - \tweak padding #8
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "I" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding 5
+                                    \startTextSpanThree
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        f'
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        b'
+                                        \tweak style #'harmonic
+                                        cs''
+                                    >16
+                                    [
+                                    \clef "bass"
+                                    \revert Staff.Stem.stemlet-length
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        ef
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        a
+                                        \tweak style #'harmonic
+                                        c'
+                                    >8.
+                                    \p
+                                    \stopTextSpanThree
+                                    ]
+                                    - \tweak font-size 2
+                                    - \tweak padding #6
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "IV" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding 5
+                                    \startTextSpanThree
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        ef
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        a
+                                        \tweak style #'harmonic
+                                        c'
+                                    >16.
+                                    [
+                                    \clef "treble"
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d'
+                                        \tweak style #'harmonic
+                                        gs'
+                                    >32
+                                    \f
+                                    \stopTextSpanThree
+                                    - \tweak bound-details.left.Y #0.5
+                                    - \tweak bound-details.right.Y #8
+                                    - \tweak font-size 2
+                                    - \tweak padding #0
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "II" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding 1.5
+                                    \startTextSpanThree
+                                    ~
+                                    \revert Staff.Stem.stemlet-length
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d'
+                                        \tweak style #'harmonic
+                                        gs'
+                                    >8
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d'
+                                        \tweak style #'harmonic
+                                        gs'
+                                    >32
+                                    [
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        f'
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        b'
+                                        \tweak style #'harmonic
+                                        cs''
+                                    >16.
+                                    \mp
+                                    \stopTextSpanThree
+                                    - \tweak font-size 2
+                                    - \tweak padding #9.5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "I" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding 1.5
+                                    \startTextSpanThree
+                                    ~
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        f'
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        b'
+                                        \tweak style #'harmonic
+                                        cs''
+                                    >16.
+                                    \revert Staff.Stem.stemlet-length
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d'
+                                        \tweak style #'harmonic
+                                        gs'
+                                    >32
+                                    \pp
+                                    \stopTextSpanThree
+                                    ]
+                                    - \tweak bound-details.left.Y #7
+                                    - \tweak bound-details.right.Y #-2
+                                    - \tweak font-size 2
+                                    - \tweak padding #0
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "II" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding 5
+                                    \startTextSpanThree
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d'
+                                        \tweak style #'harmonic
+                                        gs'
+                                    >8
+                                    [
+                                    \clef "bass"
+                                    \revert Staff.Stem.stemlet-length
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        ef
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        a
+                                        \tweak style #'harmonic
+                                        c'
+                                    >8
+                                    \pp
+                                    \stopTextSpanThree
+                                    ]
+                                    - \tweak font-size 2
+                                    - \tweak padding #5.5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "IV" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding 1.5
+                                    \startTextSpanThree
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        ef
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        a
+                                        \tweak style #'harmonic
+                                        c'
+                                    >32
+                                    [
+                                    \clef "treble"
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d'
+                                        \tweak style #'harmonic
+                                        gs'
+                                    >16.
+                                    \mf
+                                    \stopTextSpanThree
+                                    - \tweak font-size 2
+                                    - \tweak padding #4
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "II" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding 1.5
+                                    \startTextSpanThree
+                                    ~
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d'
+                                        \tweak style #'harmonic
+                                        gs'
+                                    >32
+                                    \revert Staff.Stem.stemlet-length
+                                    \afterGrace
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        e'
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        gs'
+                                        \tweak style #'harmonic
+                                        a'
+                                    >16.
+                                    \f
+                                    \stopTextSpanThree
+                                    ]
+                                    - \tweak font-size 2
+                                    - \tweak padding #4
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "III" } \hspace #0.5 }
+                                    \startTextSpanThree
+                                    {
+                                        \once \override Stem.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                        c'16
+                                        \stopTextSpanThree
+                                        \stopTextSpanTwo
+                                    }
+                                    \clef "bass"
+                                    <fs, bf, d e a f'>2
+                                    <d af b ef'>4.
                                 }
                             }
                         }
@@ -1759,7 +2613,7 @@
                                         \revert NoteHead.no-ledgers
                                           %! abjad.glissando(6)
                                         \undo \hide NoteHead
-                                        b16
+                                        d'16
                                         \stopTextSpanOne
                                     }
                                     \revert NoteHead.X-extent
@@ -2165,20 +3019,70 @@
                                         \revert Staff.NoteHead.no-ledgers
                                         \set Staff.forceClef = ##t
                                         \clef "bass"
-                                        <ef! e! fs,! g,! af!>2
+                                        <a, bf, cs bf>2
                                         \set Staff.forceClef = ##f
-                                        <cs' d' ef' f' fs' g' af' bf'>8
+                                        <g, c e f! fs a b cs'>8
                                         ~
                                     }
-                                    <cs' d' ef' f' fs' g' af' bf'>2.
-                                    s1 * 7/16
-                                    s1 * 1/2
-                                    s1 * 7/32
-                                    s1 * 3/2
-                                    s1 * 3/8
-                                    s1 * 3/16
-                                    s1 * 3/2
-                                    s1 * 7/8
+                                    <g, c e f fs a b cs'>2.
+                                    <g c' d' af'>8.
+                                    ~
+                                    <g c' d' af'>8
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <g c' d' af'>16
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    <g, b, e f a b d'>16
+                                    ]
+                                    ~
+                                    <g, b, e f a b d'>4.
+                                    <bf f' g'>8
+                                    ~
+                                    <bf f' g'>8..
+                                    ~
+                                    <bf f' g'>2.
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <bf f' g'>32
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    <af b cs' ef' f'>8..
+                                    ]
+                                    ~
+                                    <af b cs' ef' f'>2
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <af b cs' ef' f'>8
+                                    [
+                                    ~
+                                    <af b cs' ef' f'>32
+                                    \revert Staff.Stem.stemlet-length
+                                    <a, d a>8..
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <a, d a>8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    <g, c ef e! a b cs'>16
+                                    ]
+                                    ~
+                                    <g, c ef e a b cs'>2.
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    <g, c ef e a b cs'>8..
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    <b, c>32
+                                    ]
+                                    ~
+                                    <b, c>2
+                                    ~
+                                    <b, c>8
+                                    <ef fs g e'>4
+                                    ~
+                                    <ef fs g e'>2
                                 }
                             }
                         }

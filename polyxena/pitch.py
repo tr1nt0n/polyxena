@@ -59,72 +59,89 @@ def return_pitch_list(index, chord_groups=None):
         return chord_partitions
 
 
-def make_bariolage_chords(instrument, string_ranges, index, seed, selector):
-    def make_chords(argument):
-        selections = selector(argument)
+def make_bariolage_chords(instrument, string_ranges, index, seed):
+    _instrument_to_string_list = {
+        "theorbe": [
+            "a",
+            "e",
+            "b",
+            "g",
+            "b,",
+            "a,",
+            "g,",
+            "f,",
+        ],
+        "gambe": [
+            "d'",
+            "a",
+            "e",
+            "c",
+            "g,",
+            "d,",
+            "a,,",
+        ],
+    }
 
-        _instrument_to_string_list = {
-            "theorbe": [
-                "b''",
-                "g''",
-                "e''",
-                "c''",
-                "a'",
-                "f'",
-                "d'",
-                "b",
-                "g",
-                "e",
-                "c",
-                "a,",
-                "f,",
-                "d,",
-            ],
-            "gambe": [
-                "b'",
-                "g'",
-                "e'",
-                "c'",
-                "a",
-                "f",
-                "d",
-            ],
-        }
+    string_list = _instrument_to_string_list[instrument]
 
-        string_list = _instrument_to_string_list[instrument]
+    pitch_list = []
 
-        pitch_list = []
+    time_signature_sequence = trinton.rotated_sequence(
+        ts.time_signatures, index % len(ts.time_signatures)
+    )
 
-        time_signature_sequence = trinton.rotated_sequence(
-            ts.time_signatures, index % len(time_signature_sequence)
-        )
-        fret_ranges = [
-            time_signature.numerator for time_signature in time_signature_sequence
-        ]
-        interval_sequence = trinton.random_walk(chord=[-1, 1], seed=seed)
+    fret_ranges = [time_signature[0] for time_signature in time_signature_sequence]
 
-        for fret_range, string_range in zip(fret_ranges, string_ranges):
-            chord = []
+    interval_sequence = trinton.random_walk(chord=[-1, 0, 1], seed=seed)
 
-            range_pitch_start = string_range[0] - 1
-            range_pitch_stop = string_range[-1] - 1
-            range_pitches = string_list[range_pitch_start:range_pitch_stop]
+    # print("")
+    # print(f"interval sequence: {interval_sequence}")
+    # print("")
+    # breakpoint()
 
-            if len(range_pitches) > 4:
-                numpy.random.seed(seed)
-                order_array = numpy.random.permutation(len(range_pitches))
-                order_list = order_array.tolist()
+    chords = []
 
-                for order in order_list:
-                    chord.append(range_pitches[order])
-                    range_pitches.pop(order)
+    interval_counter = index
+    for fret_range, string_range in zip(itertools.cycle(fret_ranges), string_ranges):
+        chord = []
 
-        # for every string range given by the interface:
-        # if the amount of strings affected is greater than four, randomly select four strings to close. Then add the remaining open strings to the chord.
-        # rotate through time signature sequence of 3, 6, 7, and 8 to select a fret range
-        # random walk at a pace of 1 semitone above or below the fret range 4 times or as many times as there are affected strings, if the affected strings are four or fewer
+        range_pitch_start = string_range[0] - 1
+        range_pitch_stop = string_range[-1]
+        range_pitches = string_list[range_pitch_start:range_pitch_stop]
+        # print("")
+        # print(f"string range pitches: {range_pitches}")
+        # print("")
 
-    return make_chords
+        if len(range_pitches) > 4:
+            numpy.random.seed(seed)
+            order_array = numpy.random.permutation(len(range_pitches))
+            order_list = order_array.tolist()
+
+            limit = len(range_pitches) - 4
+
+            for order in order_list[0:limit]:
+                chord_pitch = range_pitches[order]
+                numbered_pitch = abjad.NamedPitch(chord_pitch).number
+                chord.append(numbered_pitch)
+                range_pitches.pop(order)
+
+        for pitch in range_pitches:
+            interval = interval_sequence[interval_counter % len(interval_sequence)]
+            numbered_pitch = abjad.NamedPitch(pitch).number
+            chord_pitch = numbered_pitch + interval
+            chord_pitch = chord_pitch + fret_range
+            chord.append(chord_pitch)
+
+            interval_counter += 1
+
+        chords.append(chord)
+
+    # print("")
+    # print(f"chords: {chords}")
+    # print("")
+    # breakpoint()
+
+    return chords
 
 
 def strange_bariolage_pitching(

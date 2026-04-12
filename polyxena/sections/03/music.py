@@ -55,8 +55,42 @@ trinton.make_music(
         selector=trinton.select_leaves_by_index([0, 8], pitched=True),
         direction=abjad.UP,
     ),
+    trinton.hooked_spanner_command(
+        string=r"""\markup { "( xp. )" }""",
+        selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+        padding=8.5,
+        direction=None,
+        right_padding=0,
+        full_string=True,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="Two",
+        tag=None,
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
+            r"""- \tweak font-size 2""",
+        ],
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.Dynamic("p")],
+        selector=trinton.select_leaves_by_index([0], pitched=True),
+    ),
     voice=score["cello 1 voice"],
     preprocessor=trinton.fuse_eighths_preprocessor((4, 3, 100)),
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (1, 2)),
+    evans.RhythmHandler(evans.talea([4, -3, 100], 8)),
+    evans.PitchHandler(
+        pitch_list=pitch.make_bariolage_chords(
+            instrument="gambe", string_ranges=[(1, 6), (1, 6)], index=2, seed=37
+        )
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.Clef("bass")], selector=trinton.select_leaves_by_index([0])
+    ),
+    voice=score["cello 2 voice"],
 )
 
 # theorbe music
@@ -82,8 +116,46 @@ trinton.make_music(
         attachments=itertools.cycle([abjad.StartSlur(), abjad.StopSlur()]),
         selector=trinton.select_leaves_by_index([0, 4, 5, -1], pitched=True),
     ),
+    trinton.hooked_spanner_command(
+        string=r"""\markup { "( xp. )" }""",
+        selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+        padding=8.5,
+        direction=None,
+        right_padding=0,
+        full_string=True,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="Two",
+        tag=None,
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
+            r"""- \tweak font-size 2""",
+        ],
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.Dynamic("p")],
+        selector=trinton.select_leaves_by_index([0], pitched=True),
+    ),
     voice=score["guitar 1 voice"],
     preprocessor=trinton.fuse_sixteenths_preprocessor((7,)),
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (1, 2)),
+    evans.RhythmHandler(evans.talea([-7, 7, 100], 16)),
+    trinton.rewrite_meter_command(boundary_depth=-2),
+    evans.PitchHandler(
+        pitch.make_bariolage_chords(
+            instrument="theorbe",
+            string_ranges=[(3, 8), (3, 8)],
+            index=10,
+            seed=37,
+        ),
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.Clef("bass")], selector=trinton.select_leaves_by_index([0])
+    ),
+    voice=score["guitar 2 voice"],
 )
 
 # globals
@@ -106,44 +178,44 @@ trinton.make_music(
 trinton.fermata_measures(
     score=score,
     measures=[3],
-    fermata="very-short-fermata",
+    fermata="middle-fermata",
     voice_names=["cello 1 voice", "cello 2 voice", "guitar 1 voice", "guitar 2 voice"],
     font_size=14,
     clef_whitespace=True,
     blank=True,
     last_measure=False,
-    # padding=4,
+    padding=-6,
     # extra_offset=2.5,
     tag=abjad.Tag("+SCORE"),
 )
 
 # tempi
 
-trinton.make_music(
-    lambda _: trinton.select_target(_, (1,)),
-    trinton.attachment_command(
-        attachments=[
-            trinton.tempo_markup(
-                note_value=8,
-                tempo=63,
-                padding=14,
-                note_head_fontsize=0.5,
-                stem_length=2,
-                text_fontsize=8,
-                dotted=False,
-                fraction=None,
-                tempo_change=None,
-                site="after",
-                hspace=1,
-                string_only=False,
-            ),
-        ],
-        selector=trinton.select_leaves_by_index([0]),
-        direction=abjad.UP,
-        # tag=abjad.Tag("+SCORE"),
-    ),
-    voice=score["Global Context"],
-)
+# trinton.make_music(
+#     lambda _: trinton.select_target(_, (1,)),
+#     trinton.attachment_command(
+#         attachments=[
+#             trinton.tempo_markup(
+#                 note_value=8,
+#                 tempo=63,
+#                 padding=14,
+#                 note_head_fontsize=0.5,
+#                 stem_length=2,
+#                 text_fontsize=8,
+#                 dotted=False,
+#                 fraction=None,
+#                 tempo_change=None,
+#                 site="after",
+#                 hspace=1,
+#                 string_only=False,
+#             ),
+#         ],
+#         selector=trinton.select_leaves_by_index([0]),
+#         direction=abjad.UP,
+#         # tag=abjad.Tag("+SCORE"),
+#     ),
+#     voice=score["Global Context"],
+# )
 
 trinton.make_music(
     lambda _: trinton.select_target(_, (2,)),
@@ -302,21 +374,21 @@ trinton.remove_redundant_time_signatures(score=score)
 
 # spacing
 
-# trinton.make_music(
-#     lambda _: trinton.select_target(_, (1,)),
-#     trinton.attachment_command(
-#         attachments=[
-#             abjad.LilyPondLiteral(
-#                 r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (1 30 33 26.5)))",
-#                 site="absolute_before",
-#             ),
-#         ],
-#         selector=trinton.select_leaves_by_index([0]),
-#         tag=abjad.Tag("+SCORE"),
-#     ),
-#     voice=score["Global Context"],
-# )
-#
+trinton.make_music(
+    lambda _: trinton.select_target(_, (1,)),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (2 21 35 19)))",
+                site="absolute_before",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        tag=abjad.Tag("+SCORE"),
+    ),
+    voice=score["Global Context"],
+)
+
 # trinton.make_music(
 #     lambda _: trinton.select_target(_, (4,)),
 #     trinton.attachment_command(

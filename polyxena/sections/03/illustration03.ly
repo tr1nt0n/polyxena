@@ -16,9 +16,10 @@
     <<
         \context TimeSignatureContext = "Global Context"
         {
+              %! +SCORE
+            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (2 21 35 19)))
             \time 7/8
             s1 * 7/8
-            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #1 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 63" } } }
             \once \override TimeSignature.stencil = #(seven-eighteen-time-signature)
             \set Score.proportionalNotationDuration = #(ly:make-moment 9/240)
             \time 7/16
@@ -30,7 +31,8 @@
             \time 1/4
             R1 * 1/4
             - \tweak font-size #'14
-            _ \very-short-fermata
+            - \tweak padding -6
+            _ \middle-fermata
             \bar "||"
             \once \override Score.BarLine.transparent = ##f
         }
@@ -62,11 +64,18 @@
                                         \set Staff.forceClef = ##t
                                         \clef "percussion"
                                         e'16
+                                        \p
                                         ^ \talon-to-punta
                                         [
                                         (
                                         - \abjad-zero-padding-glissando
                                         \glissando
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #8.5
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { { "( xp. )" } \hspace #0.5 }
+                                        \startTextSpanTwo
                                         \set Staff.forceClef = ##f
                                         b'8
                                         - \abjad-zero-padding-glissando
@@ -130,6 +139,7 @@
                                         \once \override NoteHead.transparent = ##t
                                         c'16
                                         )
+                                        \stopTextSpanTwo
                                     }
                                       %! +SCORE
                                     \once \override Staff.BarLine.transparent = ##f
@@ -157,8 +167,10 @@
                             {
                                 \context Voice = "cello 2 voice"
                                 {
-                                    s1 * 7/8
-                                    s1 * 7/16
+                                    \clef "bass"
+                                    <bf, d e a bf'>2
+                                    r4.
+                                    <af, d e fs a a'>4..
                                       %! +SCORE
                                     \once \override MultiMeasureRest.transparent = ##t
                                       %! +SCORE
@@ -199,9 +211,16 @@
                                     [
                                     \override Dots.staff-position = #2
                                     a'16
+                                    \p
                                     (
                                     - \abjad-zero-padding-glissando
                                     \glissando
+                                    - \tweak font-name "Bodoni72 Book Italic" 
+                                    - \tweak font-size 2
+                                    - \tweak padding #8.5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "( xp. )" } \hspace #0.5 }
+                                    \startTextSpanTwo
                                     e''8
                                     - \abjad-zero-padding-glissando
                                     \glissando
@@ -251,6 +270,7 @@
                                             \once \override NoteHead.transparent = ##t
                                             c'16
                                             )
+                                            \stopTextSpanTwo
                                         }
                                     }
                                       %! +SCORE
@@ -279,8 +299,13 @@
                             {
                                 \context Voice = "guitar 2 voice"
                                 {
-                                    s1 * 7/8
-                                    s1 * 7/16
+                                    \clef "bass"
+                                    r4.
+                                    r16
+                                    <b, c ef g g'>8.
+                                    ~
+                                    <b, c ef g g'>4
+                                    <g, b, c g ef'>4..
                                       %! +SCORE
                                     \once \override MultiMeasureRest.transparent = ##t
                                       %! +SCORE
