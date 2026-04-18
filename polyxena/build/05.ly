@@ -449,39 +449,150 @@
                             {
                                 \context Voice = "cello 2 voice"
                                 {
-                                    \staffHighlight "yellow" 
-                                    s1 * 7/16
-                                    s1 * 1/4
-                                    \stopStaffHighlight
-                                    \staffHighlight "green" 
+                                    \clef "bass"
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        af,
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d
+                                        \tweak style #'harmonic
+                                        ef
+                                    >8.
+                                    \ppp
+                                    ^ \punta-to-talon
+                                    - \tweak bound-details.left.Y #5
+                                    - \tweak bound-details.right.Y #-2
+                                    - \tweak font-name "Bodoni72 Book Italic" 
+                                    - \tweak font-size 2
+                                    - \tweak padding #7
+                                    - \abjad-solid-line-with-arrow
+                                    - \tweak bound-details.left.text \markup \concat { \upright { "xp." } \hspace #0.5 }
+                                    - \tweak bound-details.right.text \markup \upright { "" }
+                                    - \tweak bound-details.right.padding 1
+                                    \startTextSpanOne
+                                    - \tweak font-size 2
+                                    - \tweak padding #14
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "V" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding -14
+                                    \startTextSpanThree
+                                    \<
+                                    \afterGrace
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d
+                                        \tweak style #'harmonic
+                                        ef
+                                    >4
+                                    \p
+                                    \stopTextSpanOne
+                                    - \tweak font-name "Bodoni72 Book Italic" 
+                                    - \tweak font-size 2
+                                    - \tweak padding #5.5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "p." } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding -14
+                                    \startTextSpanOne
+                                    - \tweak TrillPitchAccidental.stencil ##f
+                                    - \tweak TrillPitchHead.layer 5
+                                    - \tweak TrillPitchHead.no-ledgers ##t
+                                    - \tweak TrillPitchHead.stencil #(lambda (grob) (grob-interpret-markup grob #{ \markup \musicglyph #"noteheads.s0harmonic" #}))
+                                    - \tweak TrillPitchHead.whiteout 1
+                                    - \tweak TrillPitchHead.whiteout-style #'outline
+                                    - \tweak bound-details.right.padding #2
+                                    \startTrillSpan
+                                    {
+                                        \once \override Stem.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        #(define afterGraceFraction (cons 1 16))
+                                        <
+                                            \parenthesize
+                                            \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                            \tweak Accidental.font-size #-2.5
+                                            \tweak color #(x11-color 'LightSlateBlue)
+                                            \tweak font-size #-2.5
+                                            af,
+                                            \parenthesize
+                                            \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                            \tweak Accidental.font-size #-2.5
+                                            \tweak color #(x11-color 'LightSlateBlue)
+                                            \tweak font-size #-2.5
+                                            \tweak style #'harmonic
+                                            d
+                                            \parenthesize
+                                            \tweak style #'harmonic
+                                            ef
+                                        >16
+                                    }
+                                    \afterGrace
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        bf,
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d
+                                        \tweak style #'harmonic
+                                        e
+                                    >4
+                                    \stopTextSpanOne
+                                    \stopTextSpanThree
+                                    \stopTrillSpan
+                                    - \tweak TrillPitchAccidental.stencil ##f
+                                    - \tweak TrillPitchHead.layer 5
+                                    - \tweak TrillPitchHead.no-ledgers ##t
+                                    - \tweak TrillPitchHead.stencil #(lambda (grob) (grob-interpret-markup grob #{ \markup \musicglyph #"noteheads.s0harmonic" #}))
+                                    - \tweak TrillPitchHead.whiteout 1
+                                    - \tweak TrillPitchHead.whiteout-style #'outline
+                                    - \tweak bound-details.right.padding #2
+                                    \startTrillSpan
+                                    {
+                                        \once \override Stem.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        #(define afterGraceFraction (cons 1 16))
+                                        <
+                                            \parenthesize
+                                            \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                            \tweak Accidental.font-size #-2.5
+                                            \tweak color #(x11-color 'LightSlateBlue)
+                                            \tweak font-size #-2.5
+                                            \tweak style #'harmonic
+                                            d
+                                            \parenthesize
+                                            \tweak style #'harmonic
+                                            e
+                                        >16
+                                    }
                                     s1 * 3/16
-                                    \stopStaffHighlight
-                                    \staffHighlight "yellow" 
+                                    \stopTrillSpan
                                     s1 * 3/8
-                                    \stopStaffHighlight
-                                    \staffHighlight "blue" 
                                     s1 * 2
-                                    \stopStaffHighlight
-                                    \staffHighlight "green" 
                                     s1 * 7/16
-                                    \stopStaffHighlight
-                                    \staffHighlight "yellow" 
                                     s1 * 1/2
                                     s1 * 7/32
-                                    \stopStaffHighlight
-                                    \staffHighlight "blue" 
                                     s1 * 3/2
-                                    \stopStaffHighlight
-                                    \staffHighlight "red" 
                                     s1 * 3/8
-                                    \stopStaffHighlight
-                                    \staffHighlight "blue" 
                                     s1 * 3/16
-                                    \stopStaffHighlight
-                                    \staffHighlight "green" 
                                     s1 * 3/2
                                     s1 * 7/8
-                                    \stopStaffHighlight
                                     s1 * 1/4
                                     s1 * 3/4
                                     s1 * 7/8
@@ -843,35 +954,129 @@
                             {
                                 \context Voice = "guitar 2 voice"
                                 {
-                                    \staffHighlight "yellow" 
-                                    s1 * 7/16
-                                    \stopStaffHighlight
-                                    \staffHighlight "green" 
-                                    s1 * 1/4
-                                    \stopStaffHighlight
-                                    \staffHighlight "red" 
+                                    \clef "treble"
+                                    \afterGrace
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        c''
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        e''
+                                        \tweak style #'harmonic
+                                        gqf''
+                                    >4..
+                                    :32
+                                    \p
+                                    - \tweak font-name "Bodoni72 Book Italic" 
+                                    - \tweak font-size 2
+                                    - \tweak padding #8.5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "msp." } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding -25
+                                    \startTextSpanTwo
+                                    - \tweak font-size 2
+                                    - \tweak padding #11
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { "III" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding -25
+                                    \startTextSpanThree
+                                    - \tweak TrillPitchAccidental.stencil ##f
+                                    - \tweak TrillPitchHead.layer 5
+                                    - \tweak TrillPitchHead.no-ledgers ##t
+                                    - \tweak TrillPitchHead.stencil #(lambda (grob) (grob-interpret-markup grob #{ \markup \musicglyph #"noteheads.s0harmonic" #}))
+                                    - \tweak TrillPitchHead.whiteout 1
+                                    - \tweak TrillPitchHead.whiteout-style #'outline
+                                    - \tweak bound-details.right.padding #2
+                                    \startTrillSpan
+                                    {
+                                        \once \override Stem.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        #(define afterGraceFraction (cons 1 16))
+                                        <
+                                            \parenthesize
+                                            \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                            \tweak Accidental.font-size #-2.5
+                                            \tweak color #(x11-color 'LightSlateBlue)
+                                            \tweak font-size #-2.5
+                                            \tweak style #'harmonic
+                                            e''
+                                            \parenthesize
+                                            \tweak style #'harmonic
+                                            gqf''
+                                        >16
+                                        \stopTextSpanThree
+                                        \stopTextSpanTwo
+                                    }
+                                    \times 2/3
+                                    {
+                                        \override Stem.direction = #DOWN
+                                        \once \override TupletBracket.direction = #DOWN
+                                        \once \override TupletBracket.stencil =
+                                                                 #(lambda (grob)
+                                                                    (let* ((pos (ly:grob-property grob 'positions))
+                                                                           (dir (ly:grob-property grob 'direction))
+                                                                           (new-pos (if (= dir 1)
+                                                                                        (max (car pos)(cdr pos))
+                                                                                        (min (car pos)(cdr pos)))))
+                                                                      (ly:grob-set-property! grob 'positions (cons new-pos new-pos))
+                                                                      (ly:tuplet-bracket::print grob)))
+                                        \once \override TupletBracket.padding = #-12.5
+                                        r8
+                                        \stopTrillSpan
+                                        - \tweak Beam.positions #'(-9 . -12)
+                                        [
+                                        \once \override Staff.DynamicLineSpanner.staff-padding = #15
+                                        \clef "bass"
+                                        <a, b, ef fs cs'>8.
+                                        - \accent
+                                        - \hammer-on
+                                        \f
+                                        \laissezVibrer
+                                        \override Dots.staff-position = #2
+                                        \once \override Staff.DynamicLineSpanner.staff-padding = #9
+                                        \override Staff.Clef.stencil = #ly:text-interface::print
+                                        \override Staff.Clef.text = \fourteen-string-clef
+                                        \staff-line-count 14
+                                        \override Staff.Accidental.stencil = ##f
+                                        \override Staff.NoteHead.no-ledgers = ##t
+                                        \set Staff.forceClef = ##t
+                                        \clef "percussion"
+                                        \afterGrace
+                                        d,16
+                                        \mp
+                                        ]
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        {
+                                            \once \override Stem.stencil = ##f
+                                            \once \override Flag.stencil = ##f
+                                            \once \override NoteHead.no-ledgers = ##t
+                                            \once \override Accidental.stencil = ##f
+                                            \revert Dots.staff-position
+                                            \once \override NoteHead.transparent = ##t
+                                            a''16
+                                            \revert Stem.direction
+                                        }
+                                        \set Staff.forceClef = ##f
+                                    }
                                     s1 * 3/16
-                                    \stopStaffHighlight
-                                    \staffHighlight "blue" 
                                     s1 * 3/8
                                     s1 * 2
-                                    \stopStaffHighlight
-                                    \staffHighlight "cyan" 
                                     s1 * 7/16
                                     s1 * 1/2
-                                    \stopStaffHighlight
-                                    \staffHighlight "green" 
                                     s1 * 7/32
                                     s1 * 3/2
-                                    \stopStaffHighlight
-                                    \staffHighlight "cyan" 
                                     s1 * 3/8
                                     s1 * 3/16
-                                    \stopStaffHighlight
-                                    \staffHighlight "yellow" 
                                     s1 * 3/2
                                     s1 * 7/8
-                                    \stopStaffHighlight
                                     s1 * 1/4
                                     s1 * 3/4
                                     s1 * 7/8
