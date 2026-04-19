@@ -956,6 +956,7 @@ def make_multi_gliss(
     pitch_lists,
     extra_voice="",
     preprocessor=None,
+    finger_percussion="all",
     finger_percussion_padding=None,
     finger_percussion_voice_index=0,
     notehead=None,
@@ -1045,7 +1046,6 @@ def make_multi_gliss(
                     lambda _: trinton.select_target(_, measures),
                     trinton.noteheads_only(),
                     trinton.invisible_tuplet_brackets(),
-                    abjad.slur,
                     trinton.attachment_command(
                         attachments=[
                             abjad.LilyPondLiteral(
@@ -1059,42 +1059,66 @@ def make_multi_gliss(
                 )
 
             else:
-                trinton.make_music(
-                    lambda _: trinton.select_target(_, measures),
-                    trinton.attachment_command(
-                        attachments=[abjad.Articulation(">")],
-                        selector=trinton.logical_ties(
-                            first=True, pitched=True, grace=False
+                if finger_percussion == "all":
+                    trinton.make_music(
+                        lambda _: trinton.select_target(_, measures),
+                        trinton.attachment_command(
+                            attachments=[abjad.Articulation(">")],
+                            selector=trinton.logical_ties(
+                                first=True, pitched=True, grace=False
+                            ),
                         ),
-                    ),
-                    trinton.hooked_spanner_command(
-                        string=r"""\markup { "( LH finger percussion on accents )" }""",
-                        selector=trinton.select_leaves_by_index([0, -1], pitched=True),
-                        padding=finger_percussion_padding,
-                        direction=None,
-                        right_padding=0,
-                        full_string=True,
-                        style="dashed-line-with-hook",
-                        hspace=None,
-                        command="One",
-                        tag=None,
-                        tweaks=[
-                            r"""- \tweak font-name "Bodoni72 Book Italic" """,
-                            r"""- \tweak font-size 2""",
-                        ],
-                    ),
-                    continuous_beam(trinton.pleaves(grace=False)),
-                    trinton.attachment_command(
-                        attachments=[
-                            abjad.LilyPondLiteral(
-                                r"\once \override Accidental.stencil = ##f",
-                                site="before",
-                            )
-                        ],
-                        selector=trinton.pleaves(exclude=[0]),
-                    ),
-                    voice=score[intermittent_voice_name],
-                )
+                        trinton.hooked_spanner_command(
+                            string=r"""\markup { "( LH finger percussion on accents )" }""",
+                            selector=trinton.select_leaves_by_index(
+                                [0, -1], pitched=True
+                            ),
+                            padding=finger_percussion_padding,
+                            direction=None,
+                            right_padding=0,
+                            full_string=True,
+                            style="dashed-line-with-hook",
+                            hspace=None,
+                            command="One",
+                            tag=None,
+                            tweaks=[
+                                r"""- \tweak font-name "Bodoni72 Book Italic" """,
+                                r"""- \tweak font-size 2""",
+                            ],
+                        ),
+                        continuous_beam(trinton.pleaves(grace=False)),
+                        trinton.attachment_command(
+                            attachments=[
+                                abjad.LilyPondLiteral(
+                                    r"\once \override Accidental.stencil = ##f",
+                                    site="before",
+                                )
+                            ],
+                            selector=trinton.pleaves(exclude=[0]),
+                        ),
+                        voice=score[intermittent_voice_name],
+                    )
+                else:
+                    trinton.make_music(
+                        lambda _: trinton.select_target(_, measures),
+                        trinton.attachment_command(
+                            attachments=[abjad.Articulation(">")],
+                            selector=trinton.select_logical_ties_by_index(
+                                [0], first=True, pitched=True
+                            ),
+                        ),
+                        continuous_beam(trinton.pleaves(grace=False)),
+                        trinton.attachment_command(
+                            attachments=[
+                                abjad.LilyPondLiteral(
+                                    r"\once \override Accidental.stencil = ##f",
+                                    site="before",
+                                )
+                            ],
+                            selector=trinton.pleaves(exclude=[0]),
+                        ),
+                        voice=score[intermittent_voice_name],
+                    )
         else:
             trinton.make_music(
                 lambda _: trinton.select_target(_, measures),
