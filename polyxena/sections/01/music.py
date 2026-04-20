@@ -821,7 +821,7 @@ trinton.make_music(
         selector=trinton.select_leaves_by_index([0, -1], pitched=True),
         padding=17,
         direction=None,
-        right_padding=37,
+        right_padding=33,
         full_string=True,
         style="dashed-line-with-hook",
         hspace=None,

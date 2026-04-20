@@ -1995,7 +1995,7 @@
                                     - \tweak padding #17
                                     - \abjad-dashed-line-with-hook
                                     - \tweak bound-details.left.text \markup \concat { { "( rasg. )" } \hspace #0.5 }
-                                    - \tweak bound-details.right.padding -37
+                                    - \tweak bound-details.right.padding -33
                                     \startTextSpanThree
                                     ~
                                     \set Staff.forceClef = ##f

@@ -76,20 +76,39 @@ trinton.change_time_signatures(
 
 trinton.make_music(
     lambda _: trinton.select_target(_, (1, 14)),
-    evans.RhythmHandler(evans.talea([1000], 4)),
-    evans.PitchHandler([["a", "ef", "d"]]),
+    evans.RhythmHandler(
+        evans.talea([206, 12, 12, 14, 24, -8, 6, -4, 24, -24, 24, 14, 16, 7, -1000], 32)
+    ),
+    evans.PitchHandler(
+        [
+            ["a", "ef", "d"],
+            ["a", "d"],
+            ["a", "ef", "d"],
+            ["c'", "a", "ef"],
+            ["a", "ef", "d"],
+            ["a", "ef", "d"],
+            ["a", "ef", "d"],
+            ["a", "ef", "d"],
+            ["c'", "a", "ef"],
+            ["a", "d"],
+            ["a", "ef"],
+        ]
+    ),
     library.multiple_muting(
         selector=abjad.select.chords,
         closed_fundamental=False,
         forgo_notehead_change=True,
     ),
     trinton.change_notehead_command(
-        notehead="harmonic", selector=trinton.select_leaves_by_index([0])
+        notehead="harmonic",
+        selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+        auto_harmonics=False,
     ),
     trinton.duration_line(
-        selector=trinton.select_logical_ties_by_index([0], pitched=True, grace=False)
+        selector=trinton.logical_ties([0], pitched=True, grace=False)
     ),
     trinton.noteheads_only(),
+    trinton.invisible_rests(),
     trinton.attachment_command(
         attachments=[abjad.Clef("bass"), abjad.Dynamic("pp")],
         selector=trinton.select_leaves_by_index([0]),
@@ -97,7 +116,7 @@ trinton.make_music(
     trinton.hooked_spanner_command(
         string=r"""\markup { "IV" }""",
         selector=trinton.select_leaves_by_index([0, -1], pitched=True),
-        padding=4,
+        padding=4.5,
         direction=None,
         right_padding=0,
         full_string=True,
@@ -114,7 +133,7 @@ trinton.make_music(
 )
 
 trinton.make_music(
-    lambda _: trinton.select_target(_, (3, 6)),
+    lambda _: trinton.select_target(_, (3, 5)),
     trinton.linear_attachment_command(
         attachments=[abjad.StartHairpin("<"), abjad.Dynamic("mp")],
         selector=trinton.select_leaves_by_index([0, -1]),
@@ -1105,13 +1124,13 @@ trinton.make_music(
 # tempi
 
 trinton.make_music(
-    lambda _: trinton.select_target(_, (3, 6)),
-    trinton.spanner_command(
-        strings=[
+    lambda _: trinton.select_target(_, (3,)),
+    trinton.attachment_command(
+        attachments=[
             trinton.tempo_markup(
                 note_value=8,
                 tempo=63,
-                padding=0,
+                padding=14,
                 note_head_fontsize=0.5,
                 stem_length=2,
                 text_fontsize=8,
@@ -1119,58 +1138,25 @@ trinton.make_music(
                 fraction=None,
                 tempo_change=None,
                 site="after",
-                hspace=4.5,
-                string_only=True,
-            ),
-            trinton.tempo_markup(
-                note_value=8,
-                tempo=112,
-                padding=0,
-                note_head_fontsize=0.5,
-                stem_length=2,
-                text_fontsize=8,
-                dotted=False,
-                fraction=None,
-                tempo_change=None,
-                site="after",
-                hspace=0,
-                string_only=True,
+                hspace=3.5,
+                string_only=False,
             ),
         ],
-        selector=trinton.select_leaves_by_index([0, -1]),
-        style="solid-line-with-arrow",
-        padding=13,
-        tweaks=None,
-        right_padding=1.5,
-        direction=None,
-        full_string=True,
-        command="Three",
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.UP,
+        # tag=abjad.Tag("+SCORE"),
     ),
     voice=score["Global Context"],
 )
 
 trinton.make_music(
-    lambda _: trinton.select_target(_, (11, 12)),
-    trinton.spanner_command(
-        strings=[
+    lambda _: trinton.select_target(_, (6,)),
+    trinton.attachment_command(
+        attachments=[
             trinton.tempo_markup(
                 note_value=8,
-                tempo=84,
-                padding=0,
-                note_head_fontsize=0.5,
-                stem_length=2,
-                text_fontsize=8,
-                dotted=False,
-                fraction=None,
-                tempo_change="rit.",
-                site="after",
-                hspace=1.5,
-                string_only=True,
-            ),
-            trinton.tempo_markup(
-                note_value=8,
-                tempo=84,
-                padding=0,
+                tempo=112,
+                padding=14,
                 note_head_fontsize=0.5,
                 stem_length=2,
                 text_fontsize=8,
@@ -1178,18 +1164,129 @@ trinton.make_music(
                 fraction=None,
                 tempo_change=None,
                 site="after",
-                hspace=0,
-                string_only=True,
+                hspace=1,
+                string_only=False,
             ),
         ],
-        selector=trinton.select_leaves_by_index([0, 1]),
-        style="solid-line-with-arrow",
-        padding=13.5,
-        tweaks=None,
-        right_padding=4.5,
-        direction=None,
-        full_string=True,
-        command="Three",
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.UP,
+        # tag=abjad.Tag("+SCORE"),
+    ),
+    voice=score["Global Context"],
+)
+
+# trinton.make_music(
+#     lambda _: trinton.select_target(_, (3, 6)),
+#     trinton.spanner_command(
+#         strings=[
+#             trinton.tempo_markup(
+#                 note_value=8,
+#                 tempo=63,
+#                 padding=0,
+#                 note_head_fontsize=0.5,
+#                 stem_length=2,
+#                 text_fontsize=8,
+#                 dotted=False,
+#                 fraction=None,
+#                 tempo_change=None,
+#                 site="after",
+#                 hspace=4.5,
+#                 string_only=True,
+#             ),
+#             trinton.tempo_markup(
+#                 note_value=8,
+#                 tempo=112,
+#                 padding=0,
+#                 note_head_fontsize=0.5,
+#                 stem_length=2,
+#                 text_fontsize=8,
+#                 dotted=False,
+#                 fraction=None,
+#                 tempo_change=None,
+#                 site="after",
+#                 hspace=0,
+#                 string_only=True,
+#             ),
+#         ],
+#         selector=trinton.select_leaves_by_index([0, -1]),
+#         style="solid-line-with-arrow",
+#         padding=13,
+#         tweaks=None,
+#         right_padding=1.5,
+#         direction=None,
+#         full_string=True,
+#         command="Three",
+#     ),
+#     voice=score["Global Context"],
+# )
+
+# trinton.make_music(
+#     lambda _: trinton.select_target(_, (11, 12)),
+#     trinton.spanner_command(
+#         strings=[
+#             trinton.tempo_markup(
+#                 note_value=8,
+#                 tempo=84,
+#                 padding=0,
+#                 note_head_fontsize=0.5,
+#                 stem_length=2,
+#                 text_fontsize=8,
+#                 dotted=False,
+#                 fraction=None,
+#                 tempo_change="rit.",
+#                 site="after",
+#                 hspace=1.5,
+#                 string_only=True,
+#             ),
+#             trinton.tempo_markup(
+#                 note_value=8,
+#                 tempo=84,
+#                 padding=0,
+#                 note_head_fontsize=0.5,
+#                 stem_length=2,
+#                 text_fontsize=8,
+#                 dotted=False,
+#                 fraction=None,
+#                 tempo_change=None,
+#                 site="after",
+#                 hspace=0,
+#                 string_only=True,
+#             ),
+#         ],
+#         selector=trinton.select_leaves_by_index([0, 1]),
+#         style="solid-line-with-arrow",
+#         padding=13.5,
+#         tweaks=None,
+#         right_padding=4.5,
+#         direction=None,
+#         full_string=True,
+#         command="Three",
+#     ),
+#     voice=score["Global Context"],
+# )
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (12,)),
+    trinton.attachment_command(
+        attachments=[
+            trinton.tempo_markup(
+                note_value=8,
+                tempo=84,
+                padding=14,
+                note_head_fontsize=0.5,
+                stem_length=2,
+                text_fontsize=8,
+                dotted=False,
+                fraction=None,
+                tempo_change=None,
+                site="after",
+                hspace=2,
+                string_only=False,
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.UP,
+        # tag=abjad.Tag("+SCORE"),
     ),
     voice=score["Global Context"],
 )
@@ -1264,7 +1361,30 @@ trinton.make_music(
         attachments=[
             abjad.LilyPondLiteral(
                 [
-                    r"\set Score.proportionalNotationDuration = #(ly:make-moment 1/70)",
+                    r"\set Score.proportionalNotationDuration = #(ly:make-moment 1/60)",
+                ],
+                site="before",
+            ),
+            abjad.LilyPondLiteral(
+                [
+                    r"\set Score.proportionalNotationDuration = #(ly:make-moment 1/30)",
+                ],
+                site="absolute_after",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+    ),
+    voice=score["Global Context"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (5,)),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                [
+                    r"\once \override TimeSignature.stencil = #(three-five-time-signature)",
+                    r"\set Score.proportionalNotationDuration = #(ly:make-moment 1/24)",
                 ],
                 site="before",
             ),
@@ -1600,6 +1720,13 @@ trinton.whiteout_empty_staves(
 #         direction=abjad.DOWN,
 #     ),
 #     voice=score["cello lower voice"],
+# )
+
+# trinton.change_time_signatures(
+#     score=score,
+#     global_context="Global Context",
+#     measure_range=(7, 10),
+#     replacement_signatures=[(5, 4)],
 # )
 
 # extract parts

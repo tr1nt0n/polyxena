@@ -25,15 +25,10 @@
               %! +SCORE
             \noBreak
             \stopMeasureSpanner
-            \set Score.proportionalNotationDuration = #(ly:make-moment 1/70)
+            \set Score.proportionalNotationDuration = #(ly:make-moment 1/60)
             \time 7/32
             s1 * 7/32
-            - \tweak padding #13
-            - \abjad-solid-line-with-arrow
-            - \tweak bound-details.left.text \markup \concat { \override #'(font-name . "Bodoni72 Book") { \hspace #4.5 \raise #0 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 63" } } } \hspace #0.5 }
-            - \tweak bound-details.right.text \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0 \raise #0 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 112" } } }
-            - \tweak bound-details.right.padding -1.5
-            \startTextSpanThree
+            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #3.5 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 63" } } }
               %! +SCORE
             \noBreak
             \set Score.proportionalNotationDuration = #(ly:make-moment 1/30)
@@ -41,13 +36,16 @@
             s1 * 3/16
               %! +SCORE
             \noBreak
+            \once \override TimeSignature.stencil = #(three-five-time-signature)
+            \set Score.proportionalNotationDuration = #(ly:make-moment 1/24)
             \time 3/4
             s1 * 3/4
               %! +SCORE
             \noBreak
+            \set Score.proportionalNotationDuration = #(ly:make-moment 1/30)
             \time 6/8
             s1 * 3/4
-            \stopTextSpanThree
+            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #1 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 112" } } }
               %! +SCORE
             \break
               %! +SCORE
@@ -76,17 +74,11 @@
             \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 22 20)))
             \time 8/4
             s1 * 2
-            - \tweak padding #13.5
-            - \abjad-solid-line-with-arrow
-            - \tweak bound-details.left.text \markup \concat { \override #'(font-name . "Bodoni72 Book Italic") { \hspace #1.5 \raise #0 \with-dimensions-from \null \concat { \fontsize #8 { " rit. ( to " } \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 84 )" } } } \hspace #0.5 }
-            - \tweak bound-details.right.text \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0 \raise #0 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 84" } } }
-            - \tweak bound-details.right.padding -4.5
-            \startTextSpanThree
               %! +SCORE
             \noBreak
             \time 7/16
             s1 * 7/16
-            \stopTextSpanThree
+            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #2 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 84" } } }
               %! +SCORE
             \noBreak
             \time 8/16
@@ -493,7 +485,7 @@
                                       %! abjad.glissando(7)
                                     \glissando
                                     - \tweak font-size 2
-                                    - \tweak padding #4
+                                    - \tweak padding #4.5
                                     - \abjad-dashed-line-with-hook
                                     - \tweak bound-details.left.text \markup \concat { { "IV" } \hspace #0.5 }
                                     \startTextSpanThree
@@ -637,6 +629,7 @@
                                     \once \override NoteHead.duration-log = 2
                                     \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
+                                    \afterGrace
                                     <
                                         \tweak Accidental.color #(x11-color 'LightSlateBlue)
                                         \tweak Accidental.font-size #-2.5
@@ -650,9 +643,29 @@
                                         ef
                                         a
                                     >8.
-                                    ~
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <d ef a>16
+                                    }
                                     \once \override Dots.staff-position = #2
-                                    \once \override NoteHead.no-ledgers = ##t
                                     \once \override RepeatTie.transparent = ##t
                                     \once \override Beam.stencil = ##f
                                     \once \override Flag.stencil = ##f
@@ -660,144 +673,52 @@
                                     \once \override Tie.stencil = ##f
                                     \once \override NoteHead.duration-log = 2
                                     \once \override Stem.stencil = ##f
-                                    \once \override NoteHead.transparent = ##t
+                                    \afterGrace
                                     <
                                         \tweak Accidental.color #(x11-color 'LightSlateBlue)
                                         \tweak Accidental.font-size #-2.5
                                         \tweak color #(x11-color 'LightSlateBlue)
                                         \tweak font-size #-2.5
+                                        \tweak style #'harmonic
                                         d
-                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
-                                        \tweak Accidental.font-size #-2.5
-                                        \tweak color #(x11-color 'LightSlateBlue)
-                                        \tweak font-size #-2.5
-                                        ef
-                                        a
-                                    >2.
-                                    ~
-                                    \once \override Dots.staff-position = #2
-                                    \once \override NoteHead.no-ledgers = ##t
-                                    \once \override RepeatTie.transparent = ##t
-                                    \once \override Beam.stencil = ##f
-                                    \once \override Flag.stencil = ##f
-                                    \once \override Dots.stencil = ##f
-                                    \once \override Tie.stencil = ##f
-                                    \once \override NoteHead.duration-log = 2
-                                    \once \override Stem.stencil = ##f
-                                    \once \override NoteHead.transparent = ##t
-                                    <
-                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
-                                        \tweak Accidental.font-size #-2.5
-                                        \tweak color #(x11-color 'LightSlateBlue)
-                                        \tweak font-size #-2.5
-                                        d
-                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
-                                        \tweak Accidental.font-size #-2.5
-                                        \tweak color #(x11-color 'LightSlateBlue)
-                                        \tweak font-size #-2.5
-                                        ef
-                                        a
-                                    >2.
-                                    \mp
-                                    ~
-                                    \once \override Dots.staff-position = #2
-                                    \once \override NoteHead.no-ledgers = ##t
-                                    \once \override RepeatTie.transparent = ##t
-                                    \once \override Beam.stencil = ##f
-                                    \once \override Flag.stencil = ##f
-                                    \once \override Dots.stencil = ##f
-                                    \once \override Tie.stencil = ##f
-                                    \once \override NoteHead.duration-log = 2
-                                    \once \override Stem.stencil = ##f
-                                    \once \override NoteHead.transparent = ##t
-                                    <
-                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
-                                        \tweak Accidental.font-size #-2.5
-                                        \tweak color #(x11-color 'LightSlateBlue)
-                                        \tweak font-size #-2.5
-                                        d
-                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
-                                        \tweak Accidental.font-size #-2.5
-                                        \tweak color #(x11-color 'LightSlateBlue)
-                                        \tweak font-size #-2.5
-                                        ef
-                                        a
-                                    >4..
-                                    ~
-                                    \once \override Dots.staff-position = #2
-                                    \once \override NoteHead.no-ledgers = ##t
-                                    \once \override RepeatTie.transparent = ##t
-                                    \once \override Beam.stencil = ##f
-                                    \once \override Flag.stencil = ##f
-                                    \once \override Dots.stencil = ##f
-                                    \once \override Tie.stencil = ##f
-                                    \once \override NoteHead.duration-log = 2
-                                    \once \override Stem.stencil = ##f
-                                    \once \override NoteHead.transparent = ##t
-                                    <
-                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
-                                        \tweak Accidental.font-size #-2.5
-                                        \tweak color #(x11-color 'LightSlateBlue)
-                                        \tweak font-size #-2.5
-                                        d
-                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
-                                        \tweak Accidental.font-size #-2.5
-                                        \tweak color #(x11-color 'LightSlateBlue)
-                                        \tweak font-size #-2.5
-                                        ef
-                                        a
-                                    >4
-                                    ~
-                                    \once \override Dots.staff-position = #2
-                                    \once \override NoteHead.no-ledgers = ##t
-                                    \once \override RepeatTie.transparent = ##t
-                                    \once \override Beam.stencil = ##f
-                                    \once \override Flag.stencil = ##f
-                                    \once \override Dots.stencil = ##f
-                                    \once \override Tie.stencil = ##f
-                                    \once \override NoteHead.duration-log = 2
-                                    \once \override Stem.stencil = ##f
-                                    \once \override NoteHead.transparent = ##t
-                                    <
-                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
-                                        \tweak Accidental.font-size #-2.5
-                                        \tweak color #(x11-color 'LightSlateBlue)
-                                        \tweak font-size #-2.5
-                                        d
-                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
-                                        \tweak Accidental.font-size #-2.5
-                                        \tweak color #(x11-color 'LightSlateBlue)
-                                        \tweak font-size #-2.5
-                                        ef
-                                        a
-                                    >8.
-                                    ~
-                                    \once \override Dots.staff-position = #2
-                                    \once \override NoteHead.no-ledgers = ##t
-                                    \once \override RepeatTie.transparent = ##t
-                                    \once \override Beam.stencil = ##f
-                                    \once \override Flag.stencil = ##f
-                                    \once \override Dots.stencil = ##f
-                                    \once \override Tie.stencil = ##f
-                                    \once \override NoteHead.duration-log = 2
-                                    \once \override Stem.stencil = ##f
-                                    \once \override NoteHead.transparent = ##t
-                                    <
-                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
-                                        \tweak Accidental.font-size #-2.5
-                                        \tweak color #(x11-color 'LightSlateBlue)
-                                        \tweak font-size #-2.5
-                                        d
-                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
-                                        \tweak Accidental.font-size #-2.5
-                                        \tweak color #(x11-color 'LightSlateBlue)
-                                        \tweak font-size #-2.5
-                                        ef
+                                        \tweak style #'harmonic
                                         a
                                     >4.
-                                    ~
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <d a>16
+                                    }
                                     \once \override Dots.staff-position = #2
-                                    \once \override NoteHead.no-ledgers = ##t
                                     \once \override RepeatTie.transparent = ##t
                                     \once \override Beam.stencil = ##f
                                     \once \override Flag.stencil = ##f
@@ -805,23 +726,59 @@
                                     \once \override Tie.stencil = ##f
                                     \once \override NoteHead.duration-log = 2
                                     \once \override Stem.stencil = ##f
-                                    \once \override NoteHead.transparent = ##t
+                                    \afterGrace
                                     <
                                         \tweak Accidental.color #(x11-color 'LightSlateBlue)
                                         \tweak Accidental.font-size #-2.5
                                         \tweak color #(x11-color 'LightSlateBlue)
                                         \tweak font-size #-2.5
+                                        \tweak style #'harmonic
                                         d
                                         \tweak Accidental.color #(x11-color 'LightSlateBlue)
                                         \tweak Accidental.font-size #-2.5
                                         \tweak color #(x11-color 'LightSlateBlue)
                                         \tweak font-size #-2.5
+                                        \tweak style #'harmonic
                                         ef
+                                        \tweak style #'harmonic
                                         a
-                                    >\breve
-                                    ~
+                                    >4.
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <d ef a>16
+                                        \mp
+                                    }
                                     \once \override Dots.staff-position = #2
-                                    \once \override NoteHead.no-ledgers = ##t
                                     \once \override RepeatTie.transparent = ##t
                                     \once \override Beam.stencil = ##f
                                     \once \override Flag.stencil = ##f
@@ -829,21 +786,85 @@
                                     \once \override Tie.stencil = ##f
                                     \once \override NoteHead.duration-log = 2
                                     \once \override Stem.stencil = ##f
-                                    \once \override NoteHead.transparent = ##t
+                                    \afterGrace
                                     <
                                         \tweak Accidental.color #(x11-color 'LightSlateBlue)
                                         \tweak Accidental.font-size #-2.5
                                         \tweak color #(x11-color 'LightSlateBlue)
                                         \tweak font-size #-2.5
-                                        d
+                                        \tweak style #'harmonic
+                                        ef
                                         \tweak Accidental.color #(x11-color 'LightSlateBlue)
                                         \tweak Accidental.font-size #-2.5
                                         \tweak color #(x11-color 'LightSlateBlue)
                                         \tweak font-size #-2.5
-                                        ef
+                                        \tweak style #'harmonic
                                         a
+                                        \tweak style #'harmonic
+                                        c'
                                     >4..
-                                    \<
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <ef a c'>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        ef
+                                        \tweak style #'harmonic
+                                        a
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
                                     ~
                                     \once \override Dots.staff-position = #2
                                     \once \override NoteHead.no-ledgers = ##t
@@ -855,6 +876,14 @@
                                     \once \override NoteHead.duration-log = 2
                                     \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
+                                      %! abjad.glissando(1)
+                                    \hide NoteHead
+                                      %! abjad.glissando(1)
+                                    \override Accidental.stencil = ##f
+                                      %! abjad.glissando(1)
+                                    \override NoteColumn.glissando-skip = ##t
+                                      %! abjad.glissando(1)
+                                    \override NoteHead.no-ledgers = ##t
                                     <
                                         \tweak Accidental.color #(x11-color 'LightSlateBlue)
                                         \tweak Accidental.font-size #-2.5
@@ -867,7 +896,7 @@
                                         \tweak font-size #-2.5
                                         ef
                                         a
-                                    >2
+                                    >16
                                     ~
                                     \once \override Dots.staff-position = #2
                                     \once \override NoteHead.no-ledgers = ##t
@@ -892,7 +921,7 @@
                                         \tweak font-size #-2.5
                                         ef
                                         a
-                                    >8..
+                                    >4..
                                     {
                                         \once \override Accidental.stencil = ##f
                                         \once \override Dots.staff-position = #2
@@ -914,6 +943,382 @@
                                           %! abjad.glissando(6)
                                         \undo \hide NoteHead
                                         <d ef a>16
+                                    }
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.transparent = ##t
+                                    r4
+                                    \once \override Dots.staff-position = #2
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        ef
+                                        \tweak style #'harmonic
+                                        a
+                                    >8.
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <d ef a>16
+                                    }
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.transparent = ##t
+                                    r8
+                                    \once \override Dots.staff-position = #2
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        ef
+                                        \tweak style #'harmonic
+                                        a
+                                    >4
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    ~
+                                    \once \override Dots.staff-position = #2
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
+                                    \once \override NoteHead.transparent = ##t
+                                      %! abjad.glissando(1)
+                                    \hide NoteHead
+                                      %! abjad.glissando(1)
+                                    \override Accidental.stencil = ##f
+                                      %! abjad.glissando(1)
+                                    \override NoteColumn.glissando-skip = ##t
+                                      %! abjad.glissando(1)
+                                    \override NoteHead.no-ledgers = ##t
+                                    \afterGrace
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        d
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        ef
+                                        a
+                                    >2
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <d ef a>16
+                                    }
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.transparent = ##t
+                                    r2.
+                                    \once \override Dots.staff-position = #2
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        ef
+                                        \tweak style #'harmonic
+                                        a
+                                    >2.
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <d ef a>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        ef
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        a
+                                        \tweak style #'harmonic
+                                        c'
+                                    >4..
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    \<
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <ef a c'>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        d
+                                        \tweak style #'harmonic
+                                        a
+                                    >2
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <d a>16
+                                    }
+                                    \once \override Dots.staff-position = #2
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
+                                    \afterGrace
+                                    <
+                                        \tweak Accidental.color #(x11-color 'LightSlateBlue)
+                                        \tweak Accidental.font-size #-2.5
+                                        \tweak color #(x11-color 'LightSlateBlue)
+                                        \tweak font-size #-2.5
+                                        \tweak style #'harmonic
+                                        ef
+                                        \tweak style #'harmonic
+                                        a
+                                    >8..
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <ef a>16
                                         \f
                                         \stopTextSpanThree
                                     }
