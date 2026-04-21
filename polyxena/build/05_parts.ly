@@ -32,7 +32,7 @@
         %%% \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 12 30 28)))
             \time 7/16
             s1 * 7/16
-            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #1 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 112" } } }
+            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #5 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 112" } } }
               %! +SCORE
         %%% \noBreak
             \time 8/16
@@ -45,7 +45,7 @@
         %%% \noBreak
             \time 6/4
             s1 * 3/2
-            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #1 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 48" } } }
+            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #-2 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 48" } } }
               %! +SCORE
         %%% \break
             \time 3/8
@@ -3066,9 +3066,11 @@
                                         }
                                     >>
                                     \oneVoice
+                                    \once \override TupletBracket.direction = #UP
                                     \tweak text #tuplet-number::calc-fraction-text
                                     \times 7/6
                                     {
+                                        \once \override Staff.DynamicLineSpanner.staff-padding = #6
                                         \revert Staff.Clef.stencil
                                         \revert Staff.StaffSymbol.line-positions
                                         \staff-line-count 5
@@ -3078,34 +3080,190 @@
                                         \set Staff.forceClef = ##t
                                         \clef "bass"
                                         \override Staff.Stem.stemlet-length = 0.75
-                                        c'8
+                                        <b, ef! e! f>8
+                                        - \accent
+                                        - \hammer-on
+                                        \f
+                                        \laissezVibrer
+                                        - \tweak Beam.positions #'(10 . 10)
+                                        [
+                                        \set Staff.forceClef = ##f
+                                        \override Dots.staff-position = #2
+                                        \override Staff.Clef.stencil = #ly:text-interface::print
+                                        \override Staff.Clef.text = \fourteen-string-clef
+                                        \staff-line-count 14
+                                        \override Staff.Accidental.stencil = ##f
+                                        \override Staff.NoteHead.no-ledgers = ##t
+                                        \set Staff.forceClef = ##t
+                                        \clef "percussion"
+                                        \revert Staff.Stem.stemlet-length
+                                        \afterGrace
+                                        d,16
+                                        \p
+                                        ]
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #15.5
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { { \hspace #-12 { "ob. w/ plectrum" } } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -2
+                                        \startTextSpanTwo
+                                        {
+                                            \once \override Stem.stencil = ##f
+                                            \once \override Flag.stencil = ##f
+                                            \once \override NoteHead.no-ledgers = ##t
+                                            \once \override Accidental.stencil = ##f
+                                            \revert Dots.staff-position
+                                            \once \override NoteHead.transparent = ##t
+                                            b''16
+                                            \stopTextSpanTwo
+                                        }
+                                        \set Staff.forceClef = ##f
+                                    }
+                                    \once \override TupletBracket.direction = #UP
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 6/7
+                                    {
+                                        \revert Staff.Clef.stencil
+                                        \revert Staff.StaffSymbol.line-positions
+                                        \staff-line-count 5
+                                        \revert Staff.BarLine.bar-extent
+                                        \revert Staff.Accidental.stencil
+                                        \revert Staff.NoteHead.no-ledgers
+                                        \set Staff.forceClef = ##t
+                                        \clef "bass"
+                                        <d ef fs g>4
+                                        - \accent
+                                        - \hammer-on
+                                        \f
+                                        \laissezVibrer
+                                        \set Staff.forceClef = ##f
+                                        \override Dots.staff-position = #2
+                                        \once \override Stem.direction = #DOWN
+                                        \override Staff.Clef.stencil = #ly:text-interface::print
+                                        \override Staff.Clef.text = \fourteen-string-clef
+                                        \staff-line-count 14
+                                        \override Staff.Accidental.stencil = ##f
+                                        \override Staff.NoteHead.no-ledgers = ##t
+                                        \set Staff.forceClef = ##t
+                                        \clef "percussion"
+                                        \afterGrace
+                                        d,16
+                                        \p
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #11
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { { "ob." } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -1
+                                        \startTextSpanTwo
+                                        {
+                                            \once \override Stem.stencil = ##f
+                                            \once \override Flag.stencil = ##f
+                                            \once \override NoteHead.no-ledgers = ##t
+                                            \once \override Accidental.stencil = ##f
+                                            \revert Dots.staff-position
+                                            \once \override NoteHead.transparent = ##t
+                                            b''16
+                                        }
+                                        \set Staff.forceClef = ##f
+                                        \override Dots.staff-position = #2
+                                        \afterGrace
+                                        d,4.
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        {
+                                            \once \override Stem.stencil = ##f
+                                            \once \override Flag.stencil = ##f
+                                            \once \override NoteHead.no-ledgers = ##t
+                                            \once \override Accidental.stencil = ##f
+                                            \revert Dots.staff-position
+                                            \once \override NoteHead.transparent = ##t
+                                            b''16
+                                            \stopTextSpanTwo
+                                        }
+                                        \revert Staff.Clef.stencil
+                                        \revert Staff.StaffSymbol.line-positions
+                                        \staff-line-count 5
+                                        \revert Staff.BarLine.bar-extent
+                                        \revert Staff.Accidental.stencil
+                                        \revert Staff.NoteHead.no-ledgers
+                                        \set Staff.forceClef = ##t
+                                        \clef "bass"
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        <c e f>8
+                                        - \accent
+                                        - \hammer-on
+                                        \f
+                                        \laissezVibrer
                                         [
                                         \set Staff.forceClef = ##f
                                         \revert Staff.Stem.stemlet-length
-                                        c'16
-                                        ]
-                                    }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 6/7
-                                    {
-                                        c'4
-                                        c'16
-                                        c'4.
-                                        \override Staff.Stem.stemlet-length = 0.75
-                                        c'8
-                                        [
-                                        \revert Staff.Stem.stemlet-length
-                                        c'16
+                                        <cs d f! fs!>16
+                                        - \accent
+                                        - \hammer-on
                                         ]
                                         ~
                                     }
+                                    \once \override TupletBracket.direction = #UP
                                     \tweak text #tuplet-number::calc-fraction-text
                                     \times 6/7
                                     {
-                                        c'4.
-                                        c'8.
-                                        c'4
-                                        c'16
+                                        <cs d f fs>4.
+                                        \laissezVibrer
+                                        <d f! fs!>8.
+                                        - \accent
+                                        - \hammer-on
+                                        \laissezVibrer
+                                        \override Dots.staff-position = #2
+                                        \override Staff.Clef.stencil = #ly:text-interface::print
+                                        \override Staff.Clef.text = \fourteen-string-clef
+                                        \staff-line-count 14
+                                        \override Staff.Accidental.stencil = ##f
+                                        \override Staff.NoteHead.no-ledgers = ##t
+                                        \set Staff.forceClef = ##t
+                                        \clef "percussion"
+                                        \afterGrace
+                                        d,4
+                                        \p
+                                        - \abjad-zero-padding-glissando
+                                        \glissando
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        - \tweak padding #11
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { { "ob." } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -1
+                                        \startTextSpanTwo
+                                        {
+                                            \once \override Stem.stencil = ##f
+                                            \once \override Flag.stencil = ##f
+                                            \once \override NoteHead.no-ledgers = ##t
+                                            \once \override Accidental.stencil = ##f
+                                            \revert Dots.staff-position
+                                            \once \override NoteHead.transparent = ##t
+                                            b''16
+                                            \stopTextSpanTwo
+                                        }
+                                        \set Staff.forceClef = ##f
+                                        \revert Staff.Clef.stencil
+                                        \revert Staff.StaffSymbol.line-positions
+                                        \staff-line-count 5
+                                        \revert Staff.BarLine.bar-extent
+                                        \revert Staff.Accidental.stencil
+                                        \revert Staff.NoteHead.no-ledgers
+                                        \set Staff.forceClef = ##t
+                                        \clef "bass"
+                                        <a, bf,! b,! d>16
+                                        - \accent
+                                        - \hammer-on
+                                        \f
+                                        \laissezVibrer
+                                        \set Staff.forceClef = ##f
                                     }
                                     s1 * 3/8
                                     s1 * 3/16
