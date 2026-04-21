@@ -3,7 +3,7 @@
         \context TimeSignatureContext = "Global Context"
         {
               %! +SCORE
-        %%% \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 12 22 18)))
+        %%% \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 12 30 18)))
             \time 7/16
             s1 * 7/16
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #3.5 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 112" } } }
@@ -27,9 +27,9 @@
               %! +SCORE
         %%% \break
               %! +SCORE
-        %%% \noPageBreak
+        %%% \pageBreak
               %! +SCORE
-        %%% \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 12)))
+        %%% \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 12 30 28)))
             \time 7/16
             s1 * 7/16
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #1 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 112" } } }
@@ -1939,68 +1939,90 @@
                                         \stopTextSpanThree
                                         ]
                                     }
-                                    \override Staff.Clef.stencil = #ly:text-interface::print
-                                    \override Staff.Clef.text = \fourteen-string-clef
-                                    \staff-line-count 14
-                                    \override Staff.Accidental.stencil = ##f
-                                    \override Staff.NoteHead.no-ledgers = ##t
-                                    \set Staff.forceClef = ##t
-                                    \clef "percussion"
-                                    r8.
-                                    - \tweak font-name "Bodoni72 Book Italic" 
-                                    - \tweak font-size 2
-                                    ^ \markup { \hspace #-5 "( w/o plectrum )" }
-                                    \set Staff.forceClef = ##f
                                     \tweak text #tuplet-number::calc-fraction-text
-                                    \times 6/7
+                                    \times 7/6
                                     {
-                                        <d, f, a,>4
-                                        :32
+                                        r8
+                                        - \tweak font-name "Bodoni72 Book Italic" 
+                                        - \tweak font-size 2
+                                        ^ \markup { \hspace #-8 "( w/o plectrum )" }
+                                        [
+                                        <a,>16
+                                        :128
                                         - \accent
                                         \pp
                                         (
                                         - \tweak font-name "Bodoni72 Book Italic" 
                                         - \tweak font-size 2
-                                        - \tweak padding #12.5
+                                        - \tweak padding #13
                                         - \abjad-solid-line-with-arrow
                                         - \tweak bound-details.left.text \markup \concat { { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) { \whiteout \circle { " i - m " } } } \hspace #0.5 }
                                         - \tweak bound-details.right.text \markup { \override #'(whiteout-style . "outline") \override #'(whiteout . 1) \override #'(layer . 27) { \whiteout \circle { " p - c " } } }
                                         \startTextSpanOne
                                         - \tweak font-name "Bodoni72 Book Italic" 
                                         - \tweak font-size 2
-                                        - \tweak padding #16.5
+                                        - \tweak padding #17
                                         - \abjad-solid-line-with-arrow
                                         - \tweak bound-details.left.text \markup \concat { \upright { "p." } \hspace #0.5 }
                                         - \tweak bound-details.right.text \markup \upright { "xt." }
                                         \startTextSpanTwo
                                         - \tweak font-name "Bodoni72 Book Italic" 
                                         - \tweak font-size 2
-                                        - \tweak padding #19
+                                        - \tweak padding #19.5
                                         - \abjad-dashed-line-with-hook
                                         - \tweak bound-details.left.text \markup \concat { { "( rasg. )" } \hspace #0.5 }
                                         - \tweak bound-details.right.padding -3
                                         \startTextSpanThree
                                         \<
-                                        <d, f, a,>4
-                                        :32
+                                        <d, f, a,>16
+                                        :128
                                         - \accent
                                         \mp
                                         - \tweak stencil #abjad-flared-hairpin
                                         \>
-                                        <d, f, a,>4
-                                        :32
+                                        <d, f, a,>16
+                                        :128
                                         - \accent
                                         \pp
                                         - \tweak stencil #constante-hairpin
                                         \<
+                                        \set stemLeftBeamCount = 2
+                                        \set stemRightBeamCount = 1
+                                        <d, f, a,>16
+                                        :128
+                                        - \accent
+                                        - \tweak circled-tip ##t
+                                        \>
+                                    }
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 2
+                                    <d, f, a,>16
+                                    :128
+                                    - \accent
+                                    \mp
+                                    \>
+                                    ~
+                                    \tweak text #tuplet-number::calc-fraction-text
+                                    \times 7/6
+                                    {
+                                        \set stemLeftBeamCount = 1
+                                        \set stemRightBeamCount = 2
+                                        <d, f, a,>16
+                                        :128
                                         <d, f, a,>8
                                         :64
                                         - \accent
-                                        \mp
+                                        \pp
+                                        \<
+                                        <d, f, a,>8.
+                                        :64
+                                        - \accent
+                                        \p
                                         )
                                         \stopTextSpanOne
                                         \stopTextSpanThree
                                         \stopTextSpanTwo
+                                        ]
                                     }
                                       %! +SCORE
                                 %%% \once \override Staff.BarLine.transparent = ##f
@@ -2674,6 +2696,8 @@
                                             <<
                                                 \context Voice = "guitar 2 voice XIII"
                                                 {
+                                                    \once \override Dots.transparent = ##t
+                                                    \once \override Rest.transparent = ##t
                                                     \override Staff.Clef.stencil = #ly:text-interface::print
                                                     \override Staff.Clef.text = \twisting-clef
                                                     \staff-line-count 4
@@ -2794,6 +2818,8 @@
                                                 }
                                                 \context Voice = "XIV voice"
                                                 {
+                                                    \once \override Dots.transparent = ##t
+                                                    \once \override Rest.transparent = ##t
                                                     \voiceTwo
                                                     r8.
                                                     \override Dots.staff-position = #2
@@ -2906,11 +2932,12 @@
                                         }
                                         \context Voice = "XII voice"
                                         {
-                                            \voiceOne
-                                            r8.
                                             \tweak text #tuplet-number::calc-fraction-text
-                                            \times 6/7
+                                            \times 7/6
                                             {
+                                                \voiceOne
+                                                r8
+                                                [
                                                 \once \override Dots.staff-position = #2
                                                 \once \override NoteHead.no-ledgers = ##t
                                                 \once \override NoteHead.stem-attachment = #(lambda (grob)
@@ -2933,11 +2960,11 @@
                                                                         )
                                                 \tweak NoteHead.stencil #ly:text-interface::print
                                                 \tweak NoteHead.text \markup { \fontsize #-1 { XII } }
-                                                g'8
+                                                g'16
                                                 - \abjad-zero-padding-glissando
                                                 \glissando
                                                 - \tweak font-size 4
-                                                - \tweak padding #11.5
+                                                - \tweak padding #13.5
                                                 - \abjad-dashed-line-with-hook
                                                 - \tweak bound-details.left.text \markup \concat { { \override #'(font-name . "ekmelos") { \char ##xe7fa } } \hspace #0.5 }
                                                 - \tweak bound-details.right.padding 1
@@ -2948,33 +2975,72 @@
                                                 \override Accidental.stencil = ##f
                                                 \override NoteColumn.glissando-skip = ##t
                                                 \override NoteHead.no-ledgers = ##t
-                                                g'4
+                                                g'8
                                                 \stopTextSpanOne
                                                 - \tweak font-size 8
-                                                - \tweak padding #11.5
+                                                - \tweak padding #13.5
                                                 - \abjad-dashed-line-with-hook
                                                 - \tweak bound-details.left.text \markup \concat { { \override #'(font-name . "ekmelos") { \char ##xe614 } } \hspace #0.5 }
                                                 - \tweak bound-details.right.padding 1
                                                 \startTextSpanOne
                                                 \once \override Dots.staff-position = #2
                                                 \once \override NoteHead.no-ledgers = ##t
-                                                g'4
+                                                \set stemLeftBeamCount = 2
+                                                \set stemRightBeamCount = 1
+                                                g'16
                                                 \stopTextSpanOne
                                                 - \tweak font-size 4
-                                                - \tweak padding #13
+                                                - \tweak padding #13.5
+                                                - \abjad-dashed-line-with-hook
+                                                - \tweak bound-details.left.text \markup \concat { { \override #'(font-name . "ekmelos") { \char ##xe7fa } } \hspace #0.5 }
+                                                - \tweak bound-details.right.padding 1
+                                                \startTextSpanOne
+                                            }
+                                            \once \override Dots.staff-position = #2
+                                            \once \override NoteHead.no-ledgers = ##t
+                                            \set stemLeftBeamCount = 1
+                                            \set stemRightBeamCount = 2
+                                            g'16
+                                            \stopTextSpanOne
+                                            - \tweak font-size 8
+                                            - \tweak padding #13.5
+                                            - \abjad-dashed-line-with-hook
+                                            - \tweak bound-details.left.text \markup \concat { { \override #'(font-name . "ekmelos") { \char ##xe614 } } \hspace #0.5 }
+                                            - \tweak bound-details.right.padding 1
+                                            \startTextSpanOne
+                                            \tweak text #tuplet-number::calc-fraction-text
+                                            \times 7/6
+                                            {
+                                                \once \override Dots.staff-position = #2
+                                                \once \override NoteHead.no-ledgers = ##t
+                                                g'8
+                                                \stopTextSpanOne
+                                                - \tweak font-size 4
+                                                - \tweak padding #13.5
                                                 - \abjad-dashed-line-with-hook
                                                 - \tweak bound-details.left.text \markup \concat { { \override #'(font-name . "ekmelos") { \char ##xe7fa } } \hspace #0.5 }
                                                 - \tweak bound-details.right.padding 1
                                                 \startTextSpanOne
                                                 \once \override Dots.staff-position = #2
                                                 \once \override NoteHead.no-ledgers = ##t
-                                                \afterGrace
-                                                g'4
+                                                g'8
                                                 \stopTextSpanOne
                                                 - \tweak font-size 8
-                                                - \tweak padding #11.5
+                                                - \tweak padding #13.5
                                                 - \abjad-dashed-line-with-hook
                                                 - \tweak bound-details.left.text \markup \concat { { \override #'(font-name . "ekmelos") { \char ##xe614 } } \hspace #0.5 }
+                                                - \tweak bound-details.right.padding 1
+                                                \startTextSpanOne
+                                                \once \override Dots.staff-position = #2
+                                                \once \override NoteHead.no-ledgers = ##t
+                                                \afterGrace
+                                                g'8
+                                                \stopTextSpanOne
+                                                ]
+                                                - \tweak font-size 4
+                                                - \tweak padding #13.5
+                                                - \abjad-dashed-line-with-hook
+                                                - \tweak bound-details.left.text \markup \concat { { \override #'(font-name . "ekmelos") { \char ##xe7fa } } \hspace #0.5 }
                                                 \startTextSpanOne
                                                 {
                                                     \once \override Accidental.stencil = ##f
@@ -3000,9 +3066,8 @@
                                         }
                                     >>
                                     \oneVoice
-                                    r32
                                     \tweak text #tuplet-number::calc-fraction-text
-                                    \times 6/7
+                                    \times 7/6
                                     {
                                         \revert Staff.Clef.stencil
                                         \revert Staff.StaffSymbol.line-positions
@@ -3015,19 +3080,19 @@
                                         \override Staff.Stem.stemlet-length = 0.75
                                         c'8
                                         [
-                                        ~
                                         \set Staff.forceClef = ##f
-                                        c'32
                                         \revert Staff.Stem.stemlet-length
                                         c'16
                                         ]
                                     }
                                     \tweak text #tuplet-number::calc-fraction-text
-                                    \times 7/6
+                                    \times 6/7
                                     {
                                         c'4
-                                        \override Staff.Stem.stemlet-length = 0.75
                                         c'16
+                                        c'4.
+                                        \override Staff.Stem.stemlet-length = 0.75
+                                        c'8
                                         [
                                         \revert Staff.Stem.stemlet-length
                                         c'16
@@ -3035,28 +3100,13 @@
                                         ~
                                     }
                                     \tweak text #tuplet-number::calc-fraction-text
-                                    \times 7/6
+                                    \times 6/7
                                     {
+                                        c'4.
+                                        c'8.
                                         c'4
-                                        ~
-                                        \override Staff.Stem.stemlet-length = 0.75
                                         c'16
-                                        [
-                                        \revert Staff.Stem.stemlet-length
-                                        c'16
-                                        ]
-                                        ~
                                     }
-                                    \tweak text #tuplet-number::calc-fraction-text
-                                    \times 7/6
-                                    {
-                                        c'16
-                                        c'4
-                                        ~
-                                        c'16
-                                        ~
-                                    }
-                                    c'8.
                                     s1 * 3/8
                                     s1 * 3/16
                                     s1 * 3/2
