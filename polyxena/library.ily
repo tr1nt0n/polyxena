@@ -73,22 +73,22 @@ boxed-markup = #(
 #(define ((trinton-blank-time-signature) grob)
    (grob-interpret-markup grob
           (markup #:override '(baseline-skip . 2.5) #:number
-                  (#:line ((#:fontsize 1 #:column ("X" "X")))))))
+                  (#:line ((#:column ("X" "X")))))))
 
 #(define ((three-seven-time-signature) grob)
    (grob-interpret-markup grob
           (markup #:override '(baseline-skip . 2.5) #:number
-                  (#:line ((#:fontsize 1 #:column ("3" "7")))))))
+                  (#:line ((#:column ("3" "7")))))))
 
 #(define ((seven-eighteen-time-signature) grob)
    (grob-interpret-markup grob
           (markup #:override '(baseline-skip . 2.5) #:number
-                  (#:line ((#:fontsize 1 #:center-column ("7" "18")))))))
+                  (#:line ((#:center-column ("7" "18")))))))
 
 #(define ((three-five-time-signature) grob)
    (grob-interpret-markup grob
           (markup #:override '(baseline-skip . 2.5) #:number
-                (  #:line ((#:fontsize 1 #:column ("3" "5")))))))
+                (  #:line ((#:column ("3" "5")))))))
 
 
 一 = #(rgb-color 190/255 132/255 170/255)
