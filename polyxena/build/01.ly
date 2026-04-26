@@ -27,6 +27,12 @@
             \time 3/8
             s1 * 3/8
               %! +SCORE
+            - \tweak padding #23
+              %! +SCORE
+            - \tweak transparent ##t
+              %! +SCORE
+            ^ \markup { S }
+              %! +SCORE
             \noBreak
             \set Score.proportionalNotationDuration = #(ly:make-moment 1/30)
             \time 3/4

@@ -109,6 +109,12 @@
             \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 15 35 18)))
             \time 6/4
             s1 * 3/2
+              %! +SCORE
+            - \tweak padding #28
+              %! +SCORE
+            - \tweak transparent ##t
+              %! +SCORE
+            ^ \markup { S }
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #-3.5 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 63" } } }
             \time 7/8
             s1 * 7/8

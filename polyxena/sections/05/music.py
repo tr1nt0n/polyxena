@@ -2403,12 +2403,18 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             abjad.LilyPondLiteral(
-                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 12 30 18)))",
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 12 40 18)))",
                 site="absolute_before",
+            ),
+            abjad.bundle(
+                abjad.Markup(r"\markup { S }"),
+                r"- \tweak transparent ##t",
+                r"- \tweak padding #28",
             ),
         ],
         selector=trinton.select_leaves_by_index([0]),
         tag=abjad.Tag("+SCORE"),
+        direction=abjad.UP,
     ),
     voice=score["Global Context"],
 )
@@ -2418,12 +2424,18 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             abjad.LilyPondLiteral(
-                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 12 30 28)))",
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 12 38 28)))",
                 site="absolute_before",
+            ),
+            abjad.bundle(
+                abjad.Markup(r"\markup { S }"),
+                r"- \tweak transparent ##t",
+                r"- \tweak padding #28",
             ),
         ],
         selector=trinton.select_leaves_by_index([0]),
         tag=abjad.Tag("+SCORE"),
+        direction=abjad.UP,
     ),
     voice=score["Global Context"],
 )

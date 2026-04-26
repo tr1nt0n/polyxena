@@ -3,9 +3,15 @@
         \context TimeSignatureContext = "Global Context"
         {
               %! +SCORE
-        %%% \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 12 30 18)))
+        %%% \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 12 40 18)))
             \time 7/16
             s1 * 7/16
+              %! +SCORE
+        %%% - \tweak padding #28
+              %! +SCORE
+        %%% - \tweak transparent ##t
+              %! +SCORE
+        %%% ^ \markup { S }
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #3.5 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 112" } } }
               %! +SCORE
         %%% \noBreak
@@ -29,9 +35,15 @@
               %! +SCORE
         %%% \pageBreak
               %! +SCORE
-        %%% \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 12 30 28)))
+        %%% \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 12 38 28)))
             \time 7/16
             s1 * 7/16
+              %! +SCORE
+        %%% - \tweak padding #28
+              %! +SCORE
+        %%% - \tweak transparent ##t
+              %! +SCORE
+        %%% ^ \markup { S }
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #5 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 112" } } }
               %! +SCORE
         %%% \noBreak

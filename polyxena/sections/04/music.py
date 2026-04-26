@@ -382,9 +382,15 @@ trinton.make_music(
                 r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (2 21 35 19)))",
                 site="absolute_before",
             ),
+            abjad.bundle(
+                abjad.Markup(r"\markup { S }"),
+                r"- \tweak transparent ##t",
+                r"- \tweak padding #25",
+            ),
         ],
         selector=trinton.select_leaves_by_index([0]),
         tag=abjad.Tag("+SCORE"),
+        direction=abjad.UP,
     ),
     voice=score["Global Context"],
 )

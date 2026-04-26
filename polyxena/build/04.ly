@@ -6,6 +6,12 @@
             \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (2 21 35 19)))
             \time 7/8
             s1 * 7/8
+              %! +SCORE
+            - \tweak padding #25
+              %! +SCORE
+            - \tweak transparent ##t
+              %! +SCORE
+            ^ \markup { S }
             \once \override TimeSignature.stencil = #(seven-eighteen-time-signature)
             \set Score.proportionalNotationDuration = #(ly:make-moment 9/240)
             \time 7/16
