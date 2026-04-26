@@ -173,6 +173,16 @@ def weighted_talea(start_index, prolations, elaboration_level=0, retrograde=Fals
 
                     eight_counter += 1
 
+            if (
+                time_signature_numerator != 3
+                and time_signature_numerator != 6
+                and time_signature_numerator != 7
+                and time_signature_numerator != 8
+            ):
+                durations.append(
+                    abjad.Duration(time_signature_numerator, time_signature_denominator)
+                )
+
         if retrograde is True:
             talea_sequence = numerator_sequence[::-1]
         else:
