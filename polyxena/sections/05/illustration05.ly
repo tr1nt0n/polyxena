@@ -5933,6 +5933,7 @@
                                     r4.
                                     \times 2/3
                                     {
+                                        \tweak TupletBracket.stencil ##f
                                         \tweak text #tuplet-number::calc-fraction-text
                                         \times 8/7
                                         {
@@ -6011,6 +6012,7 @@
                                     \tweak text #tuplet-number::calc-fraction-text
                                     \times 8/7
                                     {
+                                        \once \override TupletBracket.bracket-visibility = ##f
                                         \override Staff.Stem.stemlet-length = 0.75
                                         \tweak style #'harmonic
                                         b'64
@@ -6045,6 +6047,7 @@
                                     s1 * 7/32
                                     \times 2/3
                                     {
+                                        \tweak TupletBracket.stencil ##f
                                         \tweak text #tuplet-number::calc-fraction-text
                                         \times 8/7
                                         {

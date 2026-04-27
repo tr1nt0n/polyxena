@@ -2895,6 +2895,12 @@ trinton.make_music(
         attachments=[abjad.Dynamic("mp")],
         selector=trinton.select_leaves_by_index([0], pitched=True, grace=False),
     ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(r"\tweak TupletBracket.stencil ##f", site="before")
+        ],
+        selector=trinton.select_tuplets_by_index([-1]),
+    ),
     trinton.hooked_spanner_command(
         string=r"""\markup { "t." }""",
         selector=trinton.select_leaves_by_index([0, -1], pitched=True),
@@ -2935,7 +2941,7 @@ trinton.make_music(
         )
     ),
     rmakers.rewrite_dots,
-    trinton.respell_tuplets_command(rewrite_brackets=False),
+    trinton.respell_tuplets_command(rewrite_brackets=True),
     evans.PitchHandler(["b'", "f'", "dqf''", "bf'"]),
     trinton.change_notehead_command(notehead="harmonic"),
     trinton.attachment_command(
@@ -2990,7 +2996,7 @@ trinton.make_music(
         )
     ),
     rmakers.rewrite_dots,
-    trinton.respell_tuplets_command(rewrite_brackets=False),
+    trinton.respell_tuplets_command(rewrite_brackets=True),
     evans.PitchHandler(["b'", "f'", "dqf''", "bf'"]),
     trinton.change_notehead_command(notehead="harmonic"),
     trinton.attachment_command(
@@ -3047,6 +3053,12 @@ trinton.make_music(
     rmakers.rewrite_dots,
     trinton.respell_tuplets_command(rewrite_brackets=False),
     evans.PitchHandler(["b'", "f'", "dqf''", "bf'"]),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(r"\tweak TupletBracket.stencil ##f", site="before")
+        ],
+        selector=trinton.select_tuplets_by_index([-1]),
+    ),
     trinton.change_notehead_command(notehead="harmonic"),
     trinton.attachment_command(
         attachments=[abjad.LaissezVibrer()],
