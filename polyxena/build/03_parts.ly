@@ -56,7 +56,7 @@
             s1 * 7/16
               %! +SCORE
         %%% \noBreak
-            \time 8/32
+            \time 4/16
             s1 * 1/4
               %! +SCORE
         %%% \noBreak
@@ -81,7 +81,7 @@
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #2 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 84" } } }
               %! +SCORE
         %%% \noBreak
-            \time 8/16
+            \time 4/8
             s1 * 1/2
               %! +SCORE
         %%% \noBreak
@@ -2318,14 +2318,21 @@
                                         \glissando
                                         \<
                                     }
+                                    \once \override TupletBracket.stencil = ##f
+                                    \once \override TupletNumber.stencil = ##f
                                     \times 4/5
                                     {
                                         \once \override Accidental.stencil = ##f
                                         \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
                                         \once \override NoteHead.transparent = ##t
                                         c''2
-                                        - \tweak padding 3
-                                        ^ \markup { \hspace #-2 { ( \note {2} #2  ) } }
                                         \stopTextSpanOne
                                         - \abjad-zero-padding-glissando
                                         \glissando
@@ -2337,6 +2344,13 @@
                                         \startTextSpanOne
                                         \once \override Accidental.stencil = ##f
                                         \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
                                         \once \override NoteHead.transparent = ##t
                                         b8
                                         - \abjad-zero-padding-glissando
@@ -2344,6 +2358,13 @@
                                     }
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     \override disappearingStaff.Stem.stemlet-length = 0.75
                                     b''16
@@ -2353,22 +2374,45 @@
                                     \glissando
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     e''16
                                     - \abjad-zero-padding-glissando
                                     \glissando
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     \revert disappearingStaff.Stem.stemlet-length
                                     b''8
                                     ]
                                     - \abjad-zero-padding-glissando
                                     \glissando
+                                    \once \override TupletBracket.stencil = ##f
+                                    \once \override TupletNumber.stencil = ##f
                                     \times 4/5
                                     {
                                         \once \override Accidental.stencil = ##f
                                         \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
                                         \once \override NoteHead.transparent = ##t
                                         a'8
                                         \p
@@ -2384,15 +2428,27 @@
                                         \<
                                         \once \override Accidental.stencil = ##f
                                         \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
                                         \once \override NoteHead.transparent = ##t
                                         c''2
-                                        - \tweak padding 3
-                                        ^ \markup { \hspace #-2 { ( \note {2} #2  ) } }
                                         - \abjad-zero-padding-glissando
                                         \glissando
                                     }
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     \override disappearingStaff.Stem.stemlet-length = 0.75
                                     g''8
@@ -2410,6 +2466,13 @@
                                     \<
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     \revert disappearingStaff.Stem.stemlet-length
                                     a'16
@@ -2421,6 +2484,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -2434,12 +2505,27 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     \override disappearingStaff.Stem.stemlet-length = 0.75
                                     a'16
                                     [
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(6)
                                     \revert Accidental.stencil
@@ -2456,6 +2542,13 @@
                                     \glissando
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     b4.
                                     \f
@@ -2465,6 +2558,13 @@
                                     \<
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     b''8
                                       %! abjad.glissando(7)
@@ -2474,6 +2574,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -2487,12 +2595,27 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     \override disappearingStaff.Stem.stemlet-length = 0.75
                                     b''32
                                     [
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(6)
                                     \revert Accidental.stencil
@@ -2515,6 +2638,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -2525,17 +2656,30 @@
                                       %! abjad.glissando(1)
                                     \override NoteHead.no-ledgers = ##t
                                     e''2
-                                    - \tweak padding 3
-                                    ^ \markup { \hspace #-2 { ( \note {2} #2  ) } }
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     \override disappearingStaff.Stem.stemlet-length = 0.75
                                     e''32
                                     [
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(6)
                                     \revert Accidental.stencil
@@ -2557,6 +2701,13 @@
                                     \startTextSpanOne
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     a'32
                                     \f
@@ -2568,6 +2719,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -2583,12 +2742,27 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     \override disappearingStaff.Stem.stemlet-length = 0.75
                                     a'16.
                                     [
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(6)
                                     \revert Accidental.stencil
@@ -2606,6 +2780,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -2621,12 +2803,27 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     \override disappearingStaff.Stem.stemlet-length = 0.75
                                     c''16.
                                     [
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(6)
                                     \revert Accidental.stencil
@@ -2644,6 +2841,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -2656,6 +2861,13 @@
                                     b''32
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(6)
                                     \revert Accidental.stencil
@@ -2684,6 +2896,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -2699,10 +2919,25 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     g''32
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(6)
                                     \revert Accidental.stencil
@@ -2717,6 +2952,13 @@
                                     \glissando
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     \revert disappearingStaff.Stem.stemlet-length
                                     f'8.
@@ -2728,6 +2970,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -2742,6 +2992,13 @@
                                     [
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(6)
                                     \revert Accidental.stencil
@@ -2759,6 +3016,13 @@
                                     \<
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     \revert disappearingStaff.Stem.stemlet-length
                                     b16
@@ -2777,6 +3041,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -2791,6 +3063,13 @@
                                     [
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(6)
                                     \revert Accidental.stencil
@@ -2812,6 +3091,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -2824,6 +3111,13 @@
                                     d'4..
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(6)
                                     \revert Accidental.stencil
@@ -2848,6 +3142,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -2862,6 +3164,13 @@
                                     [
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(6)
                                     \revert Accidental.stencil
@@ -2876,6 +3185,13 @@
                                     \glissando
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     \revert disappearingStaff.Stem.stemlet-length
                                     b32
@@ -2889,6 +3205,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -2904,10 +3228,25 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     b32
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(6)
                                     \revert Accidental.stencil
@@ -2924,6 +3263,13 @@
                                     \glissando
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                     b4
                                     \f
@@ -2935,6 +3281,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -2947,6 +3301,13 @@
                                     b8
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(6)
                                     \revert Accidental.stencil
@@ -2964,6 +3325,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -2978,6 +3347,13 @@
                                     [
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(6)
                                     \revert Accidental.stencil
@@ -2998,6 +3374,14 @@
                                     ~
                                     \once \override Accidental.stencil = ##f
                                     \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
                                     \once \override NoteHead.transparent = ##t
                                       %! abjad.glissando(1)
                                     \hide NoteHead
@@ -3010,6 +3394,13 @@
                                     \afterGrace
                                     c''4
                                     {
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
                                         \once \override Stem.stencil = ##f
                                         \once \override Flag.stencil = ##f
                                         \once \override NoteHead.no-ledgers = ##t

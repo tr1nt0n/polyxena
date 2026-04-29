@@ -72,6 +72,20 @@ trinton.change_time_signatures(
     replacement_signatures=[(22, 8)],
 )
 
+trinton.change_time_signatures(
+    score=score,
+    global_context="Global Context",
+    measure_range=(8,),
+    replacement_signatures=[(4, 16)],
+)
+
+trinton.change_time_signatures(
+    score=score,
+    global_context="Global Context",
+    measure_range=(13,),
+    replacement_signatures=[(4, 8)],
+)
+
 # gambe music
 
 trinton.make_music(
@@ -895,10 +909,12 @@ trinton.make_music(
 trinton.make_music(
     lambda _: trinton.select_target(_, (11, 19)),
     trinton.continuous_glissando(invisible_center=True, zero_padding=True),
-    library.half_note_signifier(
-        selector=trinton.pleaves(grace=False), direction=abjad.UP, padding=3
-    ),
+    # library.half_note_signifier(
+    #     selector=trinton.pleaves(grace=False), direction=abjad.UP, padding=3
+    # ),
     trinton.transparent_noteheads(selector=trinton.pleaves(grace=False)),
+    trinton.noteheads_only(selector=trinton.pleaves(exclude=[0, 1, 2, 3, 4])),
+    trinton.invisible_tuplet_brackets(selector=trinton.tuplets(exclude=[0, 1])),
     # trinton.annotate_leaves_locally(
     #     selector=trinton.logical_ties(first=True, pitched=True)
     # ),

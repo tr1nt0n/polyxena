@@ -29,7 +29,7 @@
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #3.5 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 112" } } }
               %! +SCORE
             \noBreak
-            \time 8/32
+            \time 2/8
             s1 * 1/4
               %! +SCORE
             \noBreak
@@ -61,7 +61,7 @@
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #5 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 112" } } }
               %! +SCORE
             \noBreak
-            \time 8/16
+            \time 4/8
             s1 * 1/2
               %! +SCORE
             \noBreak
@@ -98,13 +98,13 @@
             s1 * 7/8
             - \tweak padding #13
             - \abjad-solid-line-with-arrow
-            - \tweak bound-details.left.text \markup \concat { \override #'(font-name . "Bodoni72 Book Italic") { \hspace #1.5 \raise #0 \with-dimensions-from \null \concat { \fontsize #8 { " accel. ( to " } \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 84 )" } } } \hspace #0.5 }
+            - \tweak bound-details.left.text \markup \concat { \override #'(font-name . "Bodoni72 Book Italic") { \hspace #0 \raise #0 \with-dimensions-from \null \concat { \fontsize #8 { " accel. ( to " } \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 84 )" } } } \hspace #0.5 }
             - \tweak bound-details.right.text \markup \override #'(font-name . "Bodoni72 Book") { \hspace #0 \raise #0 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 84" } } }
-            - \tweak bound-details.right.padding -4.25
+            - \tweak bound-details.right.padding -1.25
             \startTextSpanThree
               %! +SCORE
             \noBreak
-            \time 8/32
+            \time 2/8
             s1 * 1/4
             \stopTextSpanThree
               %! +SCORE
@@ -121,11 +121,11 @@
             s1 * 7/8
               %! +SCORE
             \noBreak
-            \time 8/16
+            \time 4/8
             s1 * 1/2
               %! +SCORE
             \noBreak
-            \time 6/32
+            \time 3/16
             s1 * 3/16
               %! +SCORE
             \noBreak
@@ -137,7 +137,7 @@
             \noPageBreak
               %! +SCORE
             \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (5 31 16)))
-            \time 8/16
+            \time 4/8
             s1 * 1/2
               %! +SCORE
             \noBreak

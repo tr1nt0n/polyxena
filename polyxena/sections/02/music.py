@@ -405,6 +405,7 @@ trinton.make_music(
     evans.PitchHandler(
         [["b''", "g''", "e''", "c''", "a'"], ["e", "g"], ["a,", "f,", "d,"]]
     ),
+    trinton.noteheads_only(selector=trinton.pleaves(exclude=[-1])),
     library.change_staff_type(
         selector=trinton.select_leaves_by_index([0]),
         staff_type="stringing theorbe",
@@ -445,7 +446,7 @@ trinton.make_music(
             [0, 1, 1, 2], pitched=True, first=True, grace=False
         ),
         style="solid-line-with-arrow",
-        padding=11,
+        padding=10.5,
         right_padding=0,
         direction=None,
         full_string=True,
@@ -461,7 +462,7 @@ trinton.make_music(
             [0, -1], pitched=True, first=True, grace=False
         ),
         style="solid-line-with-arrow",
-        padding=15,
+        padding=14.5,
         right_padding=0,
         direction=None,
         full_string=False,
@@ -478,7 +479,7 @@ trinton.make_music(
     trinton.hooked_spanner_command(
         string=r"""\markup { "( rasg. )" }""",
         selector=trinton.select_leaves_by_index([0, -1], pitched=True),
-        padding=17.5,
+        padding=17,
         direction=None,
         right_padding=0,
         full_string=True,
@@ -491,7 +492,18 @@ trinton.make_music(
             r"""- \tweak font-size 2""",
         ],
     ),
-    trinton.tremolo_command(selector=trinton.pleaves(grace=False)),
+    trinton.tremolo_command(
+        selector=trinton.select_logical_ties_by_index(
+            [-1], first=True, pitched=True, grace=False
+        )
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.Articulation("tremolo-articulation")],
+        selector=trinton.logical_ties(
+            first=True, pitched=True, grace=False, exclude=[-1]
+        ),
+        direction=abjad.DOWN,
+    ),
     trinton.linear_attachment_command(
         attachments=[abjad.StartHairpin("o<"), abjad.Dynamic("p")],
         selector=trinton.select_leaves_by_index([0, -1], pitched=True, grace=False),

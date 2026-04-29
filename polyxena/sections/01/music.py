@@ -781,6 +781,27 @@ trinton.make_music(
         ],
         selector=trinton.select_leaves_by_index([0], -1),
     ),
+    trinton.attachment_command(
+        attachments=[abjad.Articulation("tremolo-articulation")],
+        selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+        direction=abjad.DOWN,
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\unset glissandoMap",
+                site="before",
+            ),
+        ],
+        selector=trinton.select_logical_ties_by_index(
+            [-1], first=True, pitched=True, grace=False
+        ),
+    ),
+    trinton.duration_line(
+        selector=trinton.select_logical_ties_by_index([-1], pitched=True, grace=False),
+    ),
+    trinton.noteheads_only(selector=trinton.pleaves()),
+    trinton.invisible_tuplet_brackets(selector=abjad.select.tuplets),
     trinton.spanner_command(
         strings=[
             library.fingering_markup(fingering="p - c"),
@@ -821,7 +842,7 @@ trinton.make_music(
         selector=trinton.select_leaves_by_index([0, -1], pitched=True),
         padding=17,
         direction=None,
-        right_padding=33,
+        right_padding=0,
         full_string=True,
         style="dashed-line-with-hook",
         hspace=None,
@@ -832,7 +853,6 @@ trinton.make_music(
             r"""- \tweak font-size 2""",
         ],
     ),
-    trinton.tremolo_command(),
     voice=score["guitar 1 voice"],
     preprocessor=trinton.fuse_quarters_preprocessor((2, 1)),
 )
@@ -1371,7 +1391,7 @@ trinton.make_music(
             [0, 1, 1, 2], pitched=True, first=True, grace=False
         ),
         style="solid-line-with-arrow",
-        padding=11,
+        padding=10.5,
         right_padding=0,
         direction=None,
         full_string=True,
@@ -1387,7 +1407,7 @@ trinton.make_music(
             [0, -1], pitched=True, first=True, grace=False
         ),
         style="solid-line-with-arrow",
-        padding=15,
+        padding=14.5,
         right_padding=0,
         direction=None,
         full_string=False,
@@ -1400,7 +1420,7 @@ trinton.make_music(
     trinton.hooked_spanner_command(
         string=r"""\markup { "( rasg. )" }""",
         selector=trinton.select_leaves_by_index([0, -1], pitched=True),
-        padding=17.5,
+        padding=17,
         direction=None,
         right_padding=43,
         full_string=True,
@@ -1413,7 +1433,17 @@ trinton.make_music(
             r"""- \tweak font-size 2""",
         ],
     ),
-    trinton.tremolo_command(),
+    trinton.attachment_command(
+        attachments=[abjad.Articulation("tremolo-articulation")],
+        selector=trinton.logical_ties(
+            exclude=[-1], first=True, pitched=True, grace=False
+        ),
+        direction=abjad.DOWN,
+    ),
+    trinton.tremolo_command(
+        selector=trinton.select_leaves_by_index([-1], pitched=True, grace=False)
+    ),
+    trinton.noteheads_only(selector=trinton.pleaves(exclude=[-1])),
     trinton.linear_attachment_command(
         attachments=[abjad.StartHairpin("o<"), abjad.Dynamic("p")],
         selector=trinton.select_leaves_by_index([0, -1], pitched=True, grace=False),

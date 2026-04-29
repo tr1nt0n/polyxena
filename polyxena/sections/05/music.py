@@ -20,6 +20,48 @@ section_ts = abjad.sequence.flatten(
 
 score = library.polyxena_score(section_ts)
 
+trinton.change_time_signatures(
+    score=score,
+    global_context="Global Context",
+    measure_range=(2,),
+    replacement_signatures=[(2, 8)],
+)
+
+trinton.change_time_signatures(
+    score=score,
+    global_context="Global Context",
+    measure_range=(7,),
+    replacement_signatures=[(4, 8)],
+)
+
+trinton.change_time_signatures(
+    score=score,
+    global_context="Global Context",
+    measure_range=(14,),
+    replacement_signatures=[(2, 8)],
+)
+
+trinton.change_time_signatures(
+    score=score,
+    global_context="Global Context",
+    measure_range=(17,),
+    replacement_signatures=[(4, 8)],
+)
+
+trinton.change_time_signatures(
+    score=score,
+    global_context="Global Context",
+    measure_range=(18,),
+    replacement_signatures=[(3, 16)],
+)
+
+trinton.change_time_signatures(
+    score=score,
+    global_context="Global Context",
+    measure_range=(20,),
+    replacement_signatures=[(4, 8)],
+)
+
 # annotations
 
 # event annotations
@@ -3597,7 +3639,7 @@ trinton.make_music(
                 fraction=None,
                 tempo_change="accel.",
                 site="after",
-                hspace=1.5,
+                hspace=0,
                 string_only=True,
             ),
             trinton.tempo_markup(
@@ -3619,7 +3661,7 @@ trinton.make_music(
         style="solid-line-with-arrow",
         padding=13,
         tweaks=None,
-        right_padding=4.25,
+        right_padding=1.25,
         direction=None,
         full_string=True,
         command="Three",

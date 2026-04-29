@@ -60,7 +60,7 @@ for measure, text in zip(
     ],
     [
         # "bariolage",
-        "bariolage gets sparser",
+        "bariolage gets sparser ( theorbe trans. to extensions )",
         "silence",
         "gambe builds up intensity",
         "gambe solo in full gear",
@@ -128,7 +128,12 @@ trinton.make_music(
         staff_type="stringing gambe",
         auto_reversion=False,
     ),
-    trinton.continuous_glissando(selector=trinton.pleaves(), zero_padding=True),
+    trinton.continuous_glissando(
+        selector=trinton.pleaves(), zero_padding=True, invisible_center=True
+    ),
+    trinton.noteheads_only(selector=trinton.pleaves()),
+    trinton.transparent_noteheads(selector=trinton.pleaves()),
+    trinton.invisible_tuplet_brackets(selector=abjad.select.tuplets),
     # trinton.annotate_leaves_locally(
     #     selector=trinton.logical_ties(first=True, pitched=True)
     # ),
@@ -169,7 +174,7 @@ trinton.make_music(
             [0, 3, 3, 6, 6, 9, 9, 11, 11, 14, 14, 16, 16, -1], first=True, pitched=True
         ),
         style="solid-line-with-arrow",
-        padding=10,
+        padding=9,
         right_padding=0,
         direction=None,
         full_string=False,
@@ -254,6 +259,8 @@ trinton.make_music(
     beam_meter=True,
 )
 
+# theorbe music
+
 trinton.make_music(
     lambda _: trinton.select_target(_, (1, 7)),
     evans.RhythmHandler(
@@ -301,7 +308,14 @@ trinton.make_music(
         staff_type="stringing theorbe",
         auto_reversion=False,
     ),
-    trinton.tremolo_command(selector=trinton.pleaves(grace=False)),
+    # trinton.tremolo_command(selector=trinton.pleaves(grace=False)),
+    trinton.attachment_command(
+        attachments=[abjad.Articulation("tremolo-articulation")],
+        selector=trinton.select_logical_ties_by_index(
+            [0, 2, 5, 6, 8, 11, 14, 15, 17], first=True, pitched=True
+        ),
+        direction=abjad.UP,
+    ),
     library.attach_patterned_dynamics(
         index=36,
         selector=trinton.select_logical_ties_by_index(
@@ -371,7 +385,8 @@ trinton.make_music(
         ],
         selector=trinton.select_leaves_by_index([0, -1], pitched=True),
     ),
-    trinton.noteheads_only(selector=trinton.pleaves(grace=True)),
+    trinton.noteheads_only(selector=trinton.pleaves()),
+    trinton.invisible_tuplet_brackets(selector=abjad.select.tuplets),
     trinton.attachment_command(
         attachments=[abjad.StopHairpin()],
         selector=trinton.select_leaves_by_index([-1], pitched=True),
@@ -445,7 +460,7 @@ trinton.make_music(
             grace=False,
         ),
         style="solid-line-with-arrow",
-        padding=9,
+        padding=11,
         right_padding=0,
         direction=None,
         full_string=False,
@@ -464,7 +479,7 @@ trinton.make_music(
         selector=trinton.select_logical_ties_by_index(
             [0, -1], first=True, pitched=True
         ),
-        padding=12.5,
+        padding=14.5,
         direction=None,
         right_padding=0,
         full_string=True,
@@ -484,7 +499,7 @@ trinton.make_music(
         selector=trinton.select_logical_ties_by_index(
             [0, -1], first=True, pitched=True
         ),
-        padding=16.5,
+        padding=18.5,
         direction=None,
         right_padding=0,
         full_string=False,
@@ -570,6 +585,16 @@ trinton.make_music(
         attachments=itertools.cycle([abjad.Clef("treble"), abjad.Clef("bass")]),
         selector=trinton.select_logical_ties_by_index(
             [6, 8, 11, 17], first=True, pitched=True, grace=False
+        ),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Staff.Clef.X-extent = #'(-1.5 . 2.5)", site="before"
+            )
+        ],
+        selector=trinton.select_logical_ties_by_index(
+            [11], first=True, pitched=True, grace=False
         ),
     ),
     # trinton.annotate_leaves_locally(
@@ -963,7 +988,7 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             abjad.LilyPondLiteral(
-                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 21 40 23)))",
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 18 40 20)))",
                 site="absolute_before",
             ),
             abjad.bundle(
@@ -984,7 +1009,7 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             abjad.LilyPondLiteral(
-                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 21 40 26)))",
+                r"\once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (0 18.5 40 22)))",
                 site="absolute_before",
             ),
             abjad.bundle(
