@@ -50,7 +50,7 @@ trinton.change_time_signatures(
 for measure, text in zip(
     [
         # 1,
-        8,
+        # 8,
         13,
         15,
         22,
@@ -60,7 +60,7 @@ for measure, text in zip(
     ],
     [
         # "bariolage",
-        "bariolage gets sparser ( theorbe trans. to extensions )",
+        # "bariolage gets sparser ( theorbe trans. to extensions )",
         "silence",
         "gambe builds up intensity",
         "gambe solo in full gear",
@@ -257,6 +257,161 @@ trinton.make_music(
     voice=score["cello 2 voice"],
     preprocessor=trinton.fuse_eighths_preprocessor((3, 3, 3, 3, 9, 3, 18, 100)),
     beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (8, 12)),
+    evans.RhythmHandler(
+        rhythm.prolated_talea(
+            index=1,
+            denominator=32,
+            prolations=[
+                (1, 2),
+                (3, 4),
+                (1, 1),
+                (5, 4),
+                (3, 2),
+                (7, 4),
+                (2, 1),
+                (9, 4),
+                (5, 2),
+                (11, 4),
+            ],
+            elaboration_level=0,
+            retrograde=True,
+            parse_meter=True,
+        )
+    ),
+    trinton.force_rest(
+        selector=trinton.select_logical_ties_by_index(
+            [1, 3, 4, 7, 8, 9, 11, 14, 16, 18], pitched=True, grace=False
+        )
+    ),
+    # trinton.rewrite_meter_command(),
+    evans.RewriteMeterCommand(boundary_depth=-2),
+    # trinton.annotate_leaves_locally(
+    #     selector=trinton.logical_ties(pitched=True, grace=False, first=True)
+    # ),
+    trinton.aftergrace_command(
+        selector=trinton.select_logical_ties_by_index(
+            [0, 1, 3, 4, 6, 7, 8], pitched=True, grace=False
+        ),
+        # invisible=True,
+    ),
+    pitch.strange_bariolage_pitching(
+        index=15,
+        instrument="gambe",
+        seed=37,
+        selector=trinton.logical_ties(pitched=True),
+    ),
+    trinton.continuous_glissando(
+        selector=trinton.pleaves(), zero_padding=True, invisible_center=True
+    ),
+    trinton.noteheads_only(selector=trinton.pleaves()),
+    trinton.transparent_noteheads(selector=trinton.pleaves()),
+    trinton.invisible_tuplet_brackets(selector=abjad.select.tuplets),
+    trinton.invisible_rests(),
+    # trinton.annotate_leaves_locally(
+    #     selector=trinton.logical_ties(first=True, pitched=True, grace=False)
+    # ),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle([abjad.StartSlur(), abjad.StopSlur()]),
+        selector=trinton.select_leaves_by_index(
+            [0, 2, 3, 5, 6, 11, 12, 13, 14, 17, 18, 19, 20, 21], pitched=True
+        ),
+        direction=abjad.UP,
+    ),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle(
+            [abjad.Articulation("punta-to-talon"), abjad.Articulation("talon-to-punta")]
+        ),
+        selector=trinton.select_logical_ties_by_index(
+            [0, 1, 2, 4, 5, 7, 8], first=True, pitched=True, grace=False
+        ),
+        direction=abjad.UP,
+    ),
+    library.attach_patterned_dynamics(
+        index=43,
+        selector=trinton.select_logical_ties_by_index(
+            [0, 1, 2, 4, 5, 7, 8], first=True, pitched=True, grace=False
+        ),
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.StartHairpin("--")],
+        selector=trinton.select_logical_ties_by_index(
+            [0, 1, 2, 4, 5, 7, 8], first=True, pitched=True, grace=False
+        ),
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.StopHairpin()],
+        selector=trinton.select_leaves_by_index([-1], pitched=True),
+    ),
+    trinton.spanner_command(
+        strings=["ord.", "xp."],
+        selector=trinton.select_logical_ties_by_index(
+            [0, 3, 3, -1], first=True, pitched=True
+        ),
+        style="solid-line-with-arrow",
+        padding=8.5,
+        right_padding=0,
+        direction=None,
+        full_string=False,
+        end_hook=True,
+        end_hook_right_padding=2,
+        command="One",
+        tweaks=[
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
+            r"""- \tweak font-size 2""",
+            # r"""- \tweak bound-details.left.Y #1.5""",
+            # r"""- \tweak bound-details.right.Y #4""",
+        ],
+    ),
+    voice=score["cello 1 voice"],
+    # beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (8, 12)),
+    evans.RhythmHandler(
+        evans.tuplet(
+            [
+                (8, -2, 7, -3, -2, 7, -1, -4, 3, -1, -2, 10),
+                (-3, 1, -1),
+                (-3, 3, -1),
+                (-1,),
+            ]
+        )
+    ),
+    rmakers.rewrite_dots,
+    trinton.respell_tuplets_command(rewrite_brackets=False),
+    trinton.rewrite_meter_command(),
+    evans.PitchHandler(
+        pitch_list=pitch.make_bariolage_chords(
+            instrument="gambe",
+            string_ranges=[(2, 3), (2, 5), (3, 4), (3, 4), (1, 6), (2, 3), (1, 2)],
+            index=21,
+            seed=37,
+        )
+    ),
+    # trinton.annotate_leaves_locally(selector=abjad.select.leaves),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle([abjad.StartBeam(), abjad.StopBeam()]),
+        selector=trinton.select_leaves_by_index(
+            [1, 3, 4, 5, 6, 8, 9, 11, 12, 13, 14, 15, 18, 20, 21, 23]
+        ),
+    ),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle([abjad.Clef("treble"), abjad.Clef("bass")]),
+        selector=trinton.select_logical_ties_by_index(
+            [5],
+            first=True,
+            pitched=True,
+            grace=False,
+        ),
+    ),
+    voice=score["cello 2 voice"],
+    preprocessor=trinton.fuse_sixteenths_preprocessor((25, 3, 2, 1000)),
+    # beam_meter=True,
 )
 
 # theorbe music
