@@ -131,8 +131,6 @@
         %%% \pageBreak
             \time 3/16
             s1 * 3/16
-            - \tweak font-size #6
-            ^ \markup { "gambe solo in full gear" }
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/16
             s1 * 3/16
@@ -153,8 +151,6 @@
             s1 * 3/16
             \time 3/8
             s1 * 3/8
-            - \tweak font-size #6
-            ^ \markup { "start introducing beating" }
             ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #1 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 48" } } }
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
@@ -1527,6 +1523,9 @@
                                     }
                                     a16
                                     - \accent
+                                    - \tweak font-name "Bodoni72 Book Italic" 
+                                    - \tweak font-size 2
+                                    _ \markup { \raise #-4.5 { \column { \line { "On-the-string," } \line { "full bows as possible" } \line { "but with strong rearticulations." } } } }
                                     [
                                       %! abjad.glissando(7)
                                     - \abjad-zero-padding-glissando
@@ -2434,21 +2433,428 @@
                                         \undo \hide NoteHead
                                         <bf, d>16
                                     }
-                                    s1 * 3/16
-                                    s1 * 3/16
-                                    s1 * 3/16
-                                    s1 * 3/16
-                                    s1 * 3/16
-                                    s1 * 3/16
-                                    s1 * 3/16
-                                    s1 * 3/8
-                                    s1 * 3/8
-                                    s1 * 3/8
-                                    s1 * 3/8
-                                    s1 * 3/8
-                                    s1 * 3/8
-                                    s1 * 3/8
-                                    s1 * 2
+                                    \override Staff.Clef.stencil = #ly:text-interface::print
+                                    \override Staff.Clef.text = \seven-string-clef
+                                    \staff-line-count 7
+                                    \override Staff.Accidental.stencil = ##f
+                                    \override Staff.NoteHead.no-ledgers = ##t
+                                    \set Staff.forceClef = ##t
+                                    \clef "percussion"
+                                    g'32
+                                    - \accent
+                                    ^ \markup 0
+                                    [
+                                    \set Staff.forceClef = ##f
+                                    e'32
+                                    - \accent
+                                    ^ \markup 1
+                                    g'32
+                                    - \accent
+                                    ^ \markup 2
+                                    g'16
+                                    - \accent
+                                    ^ \markup 3
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 1
+                                    e'32
+                                    - \accent
+                                    ^ \markup 4
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 2
+                                    c'16
+                                    - \accent
+                                    ^ \markup 5
+                                    b'32
+                                    - \accent
+                                    ^ \markup 6
+                                    c'32
+                                    - \accent
+                                    ^ \markup 7
+                                    e'32
+                                    - \accent
+                                    ^ \markup 8
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 1
+                                    g'32
+                                    - \accent
+                                    ^ \markup 9
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 2
+                                    e'16
+                                    - \accent
+                                    ^ \markup 10
+                                    c'16
+                                    - \accent
+                                    ^ \markup 11
+                                    b'32
+                                    - \accent
+                                    ^ \markup 12
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 1
+                                    a32
+                                    - \accent
+                                    ^ \markup 13
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 3
+                                    g'32
+                                    - \accent
+                                    ^ \markup 14
+                                    a16
+                                    - \accent
+                                    ^ \markup 15
+                                    b'32
+                                    - \accent
+                                    ^ \markup 16
+                                    \set stemLeftBeamCount = 2
+                                    \set stemRightBeamCount = 1
+                                    c'16
+                                    - \accent
+                                    ^ \markup 17
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 3
+                                    e'32
+                                    - \accent
+                                    ^ \markup 18
+                                    c'32
+                                    - \accent
+                                    ^ \markup 19
+                                    a32
+                                    - \accent
+                                    ^ \markup 20
+                                    f32
+                                    - \accent
+                                    ^ \markup 21
+                                    \set stemLeftBeamCount = 2
+                                    \set stemRightBeamCount = 1
+                                    b'16
+                                    - \accent
+                                    ^ \markup 22
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 2
+                                    g'16
+                                    - \accent
+                                    ^ \markup 23
+                                    e'32
+                                    - \accent
+                                    ^ \markup 24
+                                    g'16
+                                    - \accent
+                                    ^ \markup 25
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 1
+                                    b'32
+                                    - \accent
+                                    ^ \markup 26
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 3
+                                    f32
+                                    - \accent
+                                    ^ \markup 27
+                                    a32
+                                    - \accent
+                                    ^ \markup 28
+                                    c'16
+                                    - \accent
+                                    ^ \markup 29
+                                    g'32
+                                    - \accent
+                                    ^ \markup 30
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 1
+                                    e'32
+                                    - \accent
+                                    ^ \markup 31
+                                    ~
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 3
+                                    e'32
+                                    ^ \markup 32
+                                    ]
+                                    \revert Staff.Clef.stencil
+                                    \revert Staff.StaffSymbol.line-positions
+                                    \staff-line-count 5
+                                    \revert Staff.BarLine.bar-extent
+                                    \revert Staff.Accidental.stencil
+                                    \revert Staff.NoteHead.no-ledgers
+                                    \set Staff.forceClef = ##t
+                                    \clef "bass"
+                                    <dqf,! d,!>16.
+                                    - \accent
+                                    ^ \markup 33
+                                    ~
+                                    \set Staff.forceClef = ##f
+                                    <dqf, d,>8
+                                    ^ \markup 34
+                                    ~
+                                    <dqf, d,>16
+                                    ^ \markup 35
+                                    \override Staff.Clef.stencil = #ly:text-interface::print
+                                    \override Staff.Clef.text = \seven-string-clef
+                                    \staff-line-count 7
+                                    \override Staff.Accidental.stencil = ##f
+                                    \override Staff.NoteHead.no-ledgers = ##t
+                                    \set Staff.forceClef = ##t
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 3
+                                    \clef "percussion"
+                                    g'32
+                                    - \accent
+                                    ^ \markup 36
+                                    [
+                                    \set Staff.forceClef = ##f
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 1
+                                    e'32
+                                    - \accent
+                                    ^ \markup 37
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 2
+                                    c'16
+                                    - \accent
+                                    ^ \markup 38
+                                    b'32
+                                    - \accent
+                                    ^ \markup 39
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 1
+                                    c'32
+                                    - \accent
+                                    ^ \markup 40
+                                    ~
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 3
+                                    c'32
+                                    ^ \markup 41
+                                    e'32
+                                    - \accent
+                                    ^ \markup 42
+                                    g'32
+                                    - \accent
+                                    ^ \markup 43
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 1
+                                    a32
+                                    - \accent
+                                    ^ \markup 44
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 2
+                                    c'16
+                                    - \accent
+                                    ^ \markup 45
+                                    e'32
+                                    - \accent
+                                    ^ \markup 46
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 1
+                                    c'32
+                                    - \accent
+                                    ^ \markup 47
+                                    ~
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 3
+                                    c'32
+                                    ^ \markup 48
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 3
+                                    a32
+                                    - \accent
+                                    ^ \markup 49
+                                    ]
+                                    \revert Staff.Clef.stencil
+                                    \revert Staff.StaffSymbol.line-positions
+                                    \staff-line-count 5
+                                    \revert Staff.BarLine.bar-extent
+                                    \revert Staff.Accidental.stencil
+                                    \revert Staff.NoteHead.no-ledgers
+                                    \set Staff.forceClef = ##t
+                                    \clef "bass"
+                                    <d, eqf,>16
+                                    - \accent
+                                    ^ \markup 50
+                                    ~
+                                    \set Staff.forceClef = ##f
+                                    <d, eqf,>4
+                                    ^ \markup 51
+                                    \override Staff.Clef.stencil = #ly:text-interface::print
+                                    \override Staff.Clef.text = \seven-string-clef
+                                    \staff-line-count 7
+                                    \override Staff.Accidental.stencil = ##f
+                                    \override Staff.NoteHead.no-ledgers = ##t
+                                    \set Staff.forceClef = ##t
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 2
+                                    \clef "percussion"
+                                    e'16
+                                    - \accent
+                                    ^ \markup 52
+                                    [
+                                    \set Staff.forceClef = ##f
+                                    c'32
+                                    - \accent
+                                    ^ \markup 53
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 1
+                                    b'32
+                                    - \accent
+                                    ^ \markup 54
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 3
+                                    c'32
+                                    - \accent
+                                    ^ \markup 55
+                                    \set stemLeftBeamCount = 2
+                                    \set stemRightBeamCount = 2
+                                    e'16
+                                    - \accent
+                                    ^ \markup 56
+                                    ]
+                                    \revert Staff.Clef.stencil
+                                    \revert Staff.StaffSymbol.line-positions
+                                    \staff-line-count 5
+                                    \revert Staff.BarLine.bar-extent
+                                    \revert Staff.Accidental.stencil
+                                    \revert Staff.NoteHead.no-ledgers
+                                    \set Staff.forceClef = ##t
+                                    \clef "bass"
+                                    <cs, d,>32
+                                    - \accent
+                                    ^ \markup 57
+                                    ~
+                                    \set Staff.forceClef = ##f
+                                    <cs, d,>8
+                                    ^ \markup 58
+                                    ~
+                                    <cs, d,>4
+                                    ^ \markup 59
+                                    ~
+                                    <cs, d,>16
+                                    ^ \markup 60
+                                    \override Staff.Clef.stencil = #ly:text-interface::print
+                                    \override Staff.Clef.text = \seven-string-clef
+                                    \staff-line-count 7
+                                    \override Staff.Accidental.stencil = ##f
+                                    \override Staff.NoteHead.no-ledgers = ##t
+                                    \set Staff.forceClef = ##t
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 3
+                                    \clef "percussion"
+                                    g'32
+                                    - \accent
+                                    ^ \markup 61
+                                    [
+                                    \set Staff.forceClef = ##f
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 1
+                                    e'32
+                                    - \accent
+                                    ^ \markup 62
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 2
+                                    c'16
+                                    - \accent
+                                    ^ \markup 63
+                                    b'32
+                                    - \accent
+                                    ^ \markup 64
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 1
+                                    c'32
+                                    - \accent
+                                    ^ \markup 65
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 2
+                                    e'16
+                                    - \accent
+                                    ^ \markup 66
+                                    g'32
+                                    - \accent
+                                    ^ \markup 67
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 1
+                                    g'32
+                                    - \accent
+                                    ^ \markup 68
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 2
+                                    e'16
+                                    - \accent
+                                    ^ \markup 69
+                                    g'32
+                                    - \accent
+                                    ^ \markup 70
+                                    \set stemLeftBeamCount = 3
+                                    \set stemRightBeamCount = 1
+                                    a32
+                                    - \accent
+                                    ^ \markup 71
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 3
+                                    c'32
+                                    - \accent
+                                    ^ \markup 72
+                                    e'32
+                                    - \accent
+                                    ^ \markup 73
+                                    \set stemLeftBeamCount = 2
+                                    \set stemRightBeamCount = 1
+                                    c'16
+                                    - \accent
+                                    ^ \markup 74
+                                    \set stemLeftBeamCount = 1
+                                    \set stemRightBeamCount = 2
+                                    a16
+                                    - \accent
+                                    ^ \markup 75
+                                    ]
+                                    \revert Staff.Clef.stencil
+                                    \revert Staff.StaffSymbol.line-positions
+                                    \staff-line-count 5
+                                    \revert Staff.BarLine.bar-extent
+                                    \revert Staff.Accidental.stencil
+                                    \revert Staff.NoteHead.no-ledgers
+                                    \set Staff.forceClef = ##t
+                                    \clef "bass"
+                                    <dqf,! d,!>16
+                                    - \accent
+                                    ^ \markup 76
+                                    ~
+                                    \set Staff.forceClef = ##f
+                                    <dqf, d,>8
+                                    ^ \markup 77
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    c'8.
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    c'16
+                                    ]
+                                    ~
+                                    c'4
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    c'8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    c'8
+                                    ]
+                                    ~
+                                    c'4
+                                    c'4
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    c'8.
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    c'16
+                                    ]
+                                    ~
+                                    \override Staff.Stem.stemlet-length = 0.75
+                                    c'8
+                                    [
+                                    \revert Staff.Stem.stemlet-length
+                                    c'8
+                                    ]
+                                    ~
+                                    c'4
                                     s1 * 1/4
                                 }
                             }

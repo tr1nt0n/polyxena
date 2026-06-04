@@ -53,8 +53,8 @@ for measure, text in zip(
         # 8,
         # 13,
         # 15,
-        22,
-        29,
+        # 22,
+        # 29,
         36,
         37,
     ],
@@ -63,8 +63,8 @@ for measure, text in zip(
         # "bariolage gets sparser ( theorbe trans. to extensions )",
         # "silence",
         # "gambe builds up intensity",
-        "gambe solo in full gear",
-        "start introducing beating",
+        # "gambe solo in full gear",
+        # "start introducing beating",
         "beating only, articulate bow changes",
         "beating only, don't articulate bow changes",
     ],
@@ -521,6 +521,21 @@ trinton.make_music(
         selector=trinton.select_leaves_by_index([2]),
         direction=abjad.DOWN,
     ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.bundle(
+                abjad.Markup(
+                    r"""\markup { \raise #-4.5 { \column { \line { "On-the-string," } \line { "full bows as possible" } \line { "but with strong rearticulations." } } } }"""
+                ),
+                r"""- \tweak font-name "Bodoni72 Book Italic" """,
+                r"""- \tweak font-size 2""",
+            ),
+        ],
+        selector=trinton.select_logical_ties_by_index(
+            [2], first=True, pitched=True, grace=False
+        ),
+        direction=abjad.DOWN,
+    ),
     voice=score["cello 1 voice"],
 )
 
@@ -565,6 +580,241 @@ trinton.make_music(
         ),
     ),
     voice=score["cello 2 voice"],
+)
+
+talea_tuples = list(itertools.permutations([2, 1, 1, 2, 1, 1]))
+
+talea_list = []
+
+for tup in talea_tuples[2:]:
+    for i in tup:
+        talea_list.append(i)
+
+
+def fuse(tie_lists):
+    def do_fusing(argument):
+        for tie_list in tie_lists:
+            tie_selector = trinton.select_logical_ties_by_index(
+                tie_list, pitched=True, grace=False
+            )
+            ties = tie_selector(argument)
+            leaves = abjad.select.leaves(ties)
+            abjad.mutate.fuse(leaves)
+
+    return do_fusing
+
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (22, 35)),
+    evans.RhythmHandler(evans.talea(trinton.rotated_sequence(talea_list, 1), 32)),
+    # trinton.annotate_leaves_locally(selector=trinton.logical_ties(first=True, pitched=True, grace=False)),
+    fuse(
+        [
+            [32, 33, 34, 35, 36, 37, 38],
+            [51, 52, 53, 54, 55, 56, 57, 58],
+            [64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74],
+            [90, 91, 92, 93, 94],
+        ]
+    ),
+    voice=score["cello 2 voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (29, 35)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    voice=score["cello 2 voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (22, 35)),
+    pitch.strange_bariolage_pitching(
+        index=45,
+        instrument="gambe",
+        seed=37,
+    ),
+    trinton.pitch_with_selector_command(
+        pitch_list=[
+            ["d,", "dqf,"],
+            ["d,", "eqf,"],
+            ["d,", "cs,"],
+        ],
+        selector=trinton.select_logical_ties_by_index(
+            [32, 45, 51, 67], pitched=True, grace=False
+        ),
+    ),
+    library.change_staff_type(
+        selector=trinton.select_logical_ties_by_index(
+            [32], first=True, pitched=True, grace=False
+        ),
+        staff_type="reversion",
+        auto_reversion=False,
+        reversion_clef="bass",
+        reversion_line_count=5,
+    ),
+    library.change_staff_type(
+        selector=trinton.select_logical_ties_by_index(
+            [45], first=True, pitched=True, grace=False
+        ),
+        staff_type="reversion",
+        auto_reversion=False,
+        reversion_clef="bass",
+        reversion_line_count=5,
+    ),
+    library.change_staff_type(
+        selector=trinton.select_logical_ties_by_index(
+            [51], first=True, pitched=True, grace=False
+        ),
+        staff_type="reversion",
+        auto_reversion=False,
+        reversion_clef="bass",
+        reversion_line_count=5,
+    ),
+    library.change_staff_type(
+        selector=trinton.select_logical_ties_by_index(
+            [67], first=True, pitched=True, grace=False
+        ),
+        staff_type="reversion",
+        auto_reversion=False,
+        reversion_clef="bass",
+        reversion_line_count=5,
+    ),
+    library.change_staff_type(
+        selector=trinton.select_logical_ties_by_index(
+            [0], first=True, pitched=True, grace=False
+        ),
+        staff_type="stringing gambe",
+        auto_reversion=False,
+    ),
+    library.change_staff_type(
+        selector=trinton.select_logical_ties_by_index(
+            [33], first=True, pitched=True, grace=False
+        ),
+        staff_type="stringing gambe",
+        auto_reversion=False,
+    ),
+    library.change_staff_type(
+        selector=trinton.select_logical_ties_by_index(
+            [46], first=True, pitched=True, grace=False
+        ),
+        staff_type="stringing gambe",
+        auto_reversion=False,
+    ),
+    library.change_staff_type(
+        selector=trinton.select_logical_ties_by_index(
+            [52], first=True, pitched=True, grace=False
+        ),
+        staff_type="stringing gambe",
+        auto_reversion=False,
+    ),
+    trinton.force_accidentals_command(
+        selector=trinton.select_logical_ties_by_index(
+            [32, 67], first=True, pitched=True, grace=False
+        )
+    ),
+    trinton.annotate_leaves_locally(selector=abjad.select.leaves),
+    trinton.linear_attachment_command(
+        attachments=itertools.cycle([abjad.StartBeam(), abjad.StopBeam()]),
+        selector=trinton.select_leaves_by_index([0, 32, 36, 49, 52, 56, 61, 75]),
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.Articulation(">")],
+        selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=2),
+            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=2),
+            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=3),
+            abjad.BeamCount(left=2, right=1),
+            abjad.BeamCount(left=1, right=3),
+            abjad.BeamCount(left=2, right=1),
+            abjad.BeamCount(left=1, right=2),
+            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=3),
+            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=3),
+            abjad.BeamCount(left=3, right=3),
+            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=2),
+            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=3),
+            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=2),
+            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=3),
+            abjad.BeamCount(left=3, right=3),
+            abjad.BeamCount(left=1, right=2),
+            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=3),
+            abjad.BeamCount(left=2, right=2),
+            abjad.BeamCount(left=3, right=3),
+            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=2),
+            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=2),
+            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=2),
+            abjad.BeamCount(left=3, right=1),
+            abjad.BeamCount(left=1, right=3),
+            abjad.BeamCount(left=2, right=1),
+            abjad.BeamCount(left=1, right=2),
+        ],
+        selector=trinton.select_leaves_by_index(
+            [
+                4,
+                5,
+                9,
+                10,
+                13,
+                14,
+                17,
+                18,
+                22,
+                23,
+                26,
+                27,
+                31,
+                32,
+                36,
+                37,
+                38,
+                40,
+                41,
+                44,
+                45,
+                47,
+                48,
+                49,
+                52,
+                54,
+                55,
+                56,
+                61,
+                62,
+                63,
+                65,
+                66,
+                68,
+                69,
+                71,
+                72,
+                74,
+                75,
+            ]
+        ),
+    ),
+    voice=score["cello 2 voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (36,)),
+    evans.RhythmHandler(evans.talea([3, 7, 6, 7], 16)),
+    trinton.rewrite_meter_command(boundary_depth=-1),
+    voice=score["cello 2 voice"],
+    beam_meter=True,
 )
 
 # theorbe music
