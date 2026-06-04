@@ -143,62 +143,93 @@
             s1 * 1/4
               %! +SCORE
             \pageBreak
+              %! +SCORE
+            \once \override Score.NonMusicalPaperColumn.line-break-system-details = #'((alignment-distances . (7 16)))
             \time 3/16
             s1 * 3/16
-            \once \override Score.TimeSignature.stencil = ##f
-            \time 3/16
-            s1 * 3/16
-            \once \override Score.TimeSignature.stencil = ##f
-            \time 3/16
-            s1 * 3/16
-            \once \override Score.TimeSignature.stencil = ##f
-            \time 3/16
-            s1 * 3/16
+              %! +SCORE
+            \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/16
             s1 * 3/16
+              %! +SCORE
+            \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/16
             s1 * 3/16
+              %! +SCORE
+            \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/16
             s1 * 3/16
+              %! +SCORE
+            \noBreak
+            \once \override Score.TimeSignature.stencil = ##f
+            \time 3/16
+            s1 * 3/16
+              %! +SCORE
+            \noBreak
+            \once \override Score.TimeSignature.stencil = ##f
+            \time 3/16
+            s1 * 3/16
+              %! +SCORE
+            \noBreak
+            \once \override Score.TimeSignature.stencil = ##f
+            \time 3/16
+            s1 * 3/16
+              %! +SCORE
+            \noBreak
             \time 3/8
             s1 * 3/8
-            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #1 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 48" } } }
+            ^ \markup \override #'(font-name . "Bodoni72 Book") { \hspace #1.5 \raise #14 \with-dimensions-from \null \concat { \fontsize #0.5 { \note { 8 } #2 } \fontsize #8 { "= 48" } } }
+              %! +SCORE
+            \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+            \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+            \break
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+            \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+            \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+            \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+            \break
             \time 8/4
             s1 * 2
-            - \tweak font-size #6
-            ^ \markup { "beating only, articulate bow changes" }
+              %! +SCORE
+            \noBreak
             \once \override Score.BarLine.transparent = ##f
             \once \override MultiMeasureRest.transparent = ##t
             \once \override Score.TimeSignature.stencil = ##f
             \time 1/4
             R1 * 1/4
-            - \markup { "beating only, don't articulate bow changes" }
             - \tweak font-size #'14
-            - \tweak padding -4
+            - \tweak padding -7
             _ \extremely-long-fermata
             \bar "||"
             \once \override Score.BarLine.transparent = ##f
+              %! +SCORE
+            \pageBreak
         }
         \tag #'group1
         {
@@ -2447,6 +2478,7 @@
                                         \undo \hide NoteHead
                                         <bf, d>16
                                     }
+                                    \override Dots.staff-position = #2
                                     \override Staff.Clef.stencil = #ly:text-interface::print
                                     \override Staff.Clef.text = \seven-string-clef
                                     \staff-line-count 7
@@ -2456,133 +2488,176 @@
                                     \clef "percussion"
                                     g'32
                                     - \accent
-                                    ^ \markup 0
                                     [
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    - \tweak font-size 2
+                                    - \tweak padding #9.5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { { \column { \line { "Grip both sides of the bow" } \line { "firmly with each hand," } \line { "using as much pressure as possible, CLT." } } } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding -2
+                                    \startTextSpan
                                     \set Staff.forceClef = ##f
+                                    \override NoteHead.X-extent = #'(0 . 0)
+                                    \override NoteHead.transparent = ##t
+                                    \override NoteHead.no-ledgers = ##t
                                     e'32
                                     - \accent
-                                    ^ \markup 1
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     g'32
                                     - \accent
-                                    ^ \markup 2
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     g'16
                                     - \accent
-                                    ^ \markup 3
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 1
                                     e'32
                                     - \accent
-                                    ^ \markup 4
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 2
                                     c'16
                                     - \accent
-                                    ^ \markup 5
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     b'32
                                     - \accent
-                                    ^ \markup 6
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     c'32
                                     - \accent
-                                    ^ \markup 7
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     e'32
                                     - \accent
-                                    ^ \markup 8
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 1
                                     g'32
                                     - \accent
-                                    ^ \markup 9
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 2
                                     e'16
                                     - \accent
-                                    ^ \markup 10
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     c'16
                                     - \accent
-                                    ^ \markup 11
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     b'32
                                     - \accent
-                                    ^ \markup 12
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 1
                                     a32
                                     - \accent
-                                    ^ \markup 13
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 3
                                     g'32
                                     - \accent
-                                    ^ \markup 14
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     a16
                                     - \accent
-                                    ^ \markup 15
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     b'32
                                     - \accent
-                                    ^ \markup 16
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 2
                                     \set stemRightBeamCount = 1
                                     c'16
                                     - \accent
-                                    ^ \markup 17
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 3
                                     e'32
                                     - \accent
-                                    ^ \markup 18
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     c'32
                                     - \accent
-                                    ^ \markup 19
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     a32
                                     - \accent
-                                    ^ \markup 20
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     f32
                                     - \accent
-                                    ^ \markup 21
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 2
                                     \set stemRightBeamCount = 1
                                     b'16
                                     - \accent
-                                    ^ \markup 22
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 2
                                     g'16
                                     - \accent
-                                    ^ \markup 23
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     e'32
                                     - \accent
-                                    ^ \markup 24
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     g'16
                                     - \accent
-                                    ^ \markup 25
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 1
                                     b'32
                                     - \accent
-                                    ^ \markup 26
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 3
                                     f32
                                     - \accent
-                                    ^ \markup 27
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     a32
                                     - \accent
-                                    ^ \markup 28
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     c'16
                                     - \accent
-                                    ^ \markup 29
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     g'32
                                     - \accent
-                                    ^ \markup 30
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    \revert NoteHead.X-extent
+                                    \revert NoteHead.transparent
+                                    \revert NoteHead.no-ledgers
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 1
                                     e'32
                                     - \accent
-                                    ^ \markup 31
                                     ~
+                                    \revert Dots.staff-position
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 3
                                     e'32
-                                    ^ \markup 32
+                                    \stopTextSpan
                                     ]
                                     \revert Staff.Clef.stencil
                                     \revert Staff.StaffSymbol.line-positions
@@ -2594,14 +2669,12 @@
                                     \clef "bass"
                                     <dqf,! d,!>16.
                                     - \accent
-                                    ^ \markup 33
                                     ~
                                     \set Staff.forceClef = ##f
                                     <dqf, d,>8
-                                    ^ \markup 34
                                     ~
                                     <dqf, d,>16
-                                    ^ \markup 35
+                                    \override Dots.staff-position = #2
                                     \override Staff.Clef.stencil = #ly:text-interface::print
                                     \override Staff.Clef.text = \seven-string-clef
                                     \staff-line-count 7
@@ -2613,66 +2686,149 @@
                                     \clef "percussion"
                                     g'32
                                     - \accent
-                                    ^ \markup 36
                                     [
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    - \tweak font-name "Bodoni72 Book Italic" 
+                                    - \tweak font-size 2
+                                    - \tweak padding #6.5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { \upright { "sim. ( like mm. 78 )" } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding -2
+                                    \startTextSpan
                                     \set Staff.forceClef = ##f
+                                    \override NoteHead.X-extent = #'(0 . 0)
+                                    \override NoteHead.transparent = ##t
+                                    \override NoteHead.no-ledgers = ##t
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 1
                                     e'32
                                     - \accent
-                                    ^ \markup 37
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 2
                                     c'16
                                     - \accent
-                                    ^ \markup 38
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     b'32
                                     - \accent
-                                    ^ \markup 39
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 1
                                     c'32
                                     - \accent
-                                    ^ \markup 40
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
                                     ~
+                                    \once \override Accidental.stencil = ##f
+                                    \once \override NoteHead.no-ledgers = ##t
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 3
+                                    \once \override NoteHead.transparent = ##t
+                                      %! abjad.glissando(1)
+                                    \hide NoteHead
+                                      %! abjad.glissando(1)
+                                    \override Accidental.stencil = ##f
+                                      %! abjad.glissando(1)
+                                    \override NoteColumn.glissando-skip = ##t
+                                      %! abjad.glissando(1)
+                                    \override NoteHead.no-ledgers = ##t
                                     c'32
-                                    ^ \markup 41
+                                    \once \override Accidental.stencil = ##f
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.transparent = ##t
+                                      %! abjad.glissando(6)
+                                    \revert Accidental.stencil
+                                      %! abjad.glissando(6)
+                                    \revert NoteColumn.glissando-skip
+                                      %! abjad.glissando(6)
+                                    \revert NoteHead.no-ledgers
+                                      %! abjad.glissando(6)
+                                    \undo \hide NoteHead
                                     e'32
                                     - \accent
-                                    ^ \markup 42
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    \once \override Accidental.stencil = ##f
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.transparent = ##t
                                     g'32
                                     - \accent
-                                    ^ \markup 43
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    \once \override Accidental.stencil = ##f
+                                    \once \override NoteHead.no-ledgers = ##t
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 1
+                                    \once \override NoteHead.transparent = ##t
                                     a32
                                     - \accent
-                                    ^ \markup 44
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    \once \override Accidental.stencil = ##f
+                                    \once \override NoteHead.no-ledgers = ##t
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 2
+                                    \once \override NoteHead.transparent = ##t
                                     c'16
                                     - \accent
-                                    ^ \markup 45
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    \once \override Accidental.stencil = ##f
+                                    \once \override NoteHead.no-ledgers = ##t
+                                    \once \override NoteHead.transparent = ##t
                                     e'32
                                     - \accent
-                                    ^ \markup 46
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    \once \override Accidental.stencil = ##f
+                                    \once \override NoteHead.no-ledgers = ##t
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 1
+                                    \once \override NoteHead.transparent = ##t
                                     c'32
                                     - \accent
-                                    ^ \markup 47
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
                                     ~
+                                    \once \override Accidental.stencil = ##f
+                                    \once \override NoteHead.no-ledgers = ##t
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 3
+                                    \once \override NoteHead.transparent = ##t
+                                      %! abjad.glissando(1)
+                                    \hide NoteHead
+                                      %! abjad.glissando(1)
+                                    \override Accidental.stencil = ##f
+                                      %! abjad.glissando(1)
+                                    \override NoteColumn.glissando-skip = ##t
+                                      %! abjad.glissando(1)
+                                    \override NoteHead.no-ledgers = ##t
                                     c'32
-                                    ^ \markup 48
+                                    \revert NoteHead.X-extent
+                                    \revert NoteHead.transparent
+                                    \revert NoteHead.no-ledgers
+                                    \revert Dots.staff-position
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 3
+                                      %! abjad.glissando(6)
+                                    \revert Accidental.stencil
+                                      %! abjad.glissando(6)
+                                    \revert NoteColumn.glissando-skip
+                                      %! abjad.glissando(6)
+                                    \revert NoteHead.no-ledgers
+                                      %! abjad.glissando(6)
+                                    \undo \hide NoteHead
                                     a32
                                     - \accent
-                                    ^ \markup 49
+                                    \stopTextSpan
                                     ]
                                     \revert Staff.Clef.stencil
                                     \revert Staff.StaffSymbol.line-positions
@@ -2684,11 +2840,10 @@
                                     \clef "bass"
                                     <d, eqf,>16
                                     - \accent
-                                    ^ \markup 50
                                     ~
                                     \set Staff.forceClef = ##f
                                     <d, eqf,>4
-                                    ^ \markup 51
+                                    \override Dots.staff-position = #2
                                     \override Staff.Clef.stencil = #ly:text-interface::print
                                     \override Staff.Clef.text = \seven-string-clef
                                     \staff-line-count 7
@@ -2700,27 +2855,45 @@
                                     \clef "percussion"
                                     e'16
                                     - \accent
-                                    ^ \markup 52
                                     [
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    - \tweak font-name "Bodoni72 Book Italic" 
+                                    - \tweak font-size 2
+                                    - \tweak padding #6.5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { \upright { "sim." } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding -2
+                                    \startTextSpan
                                     \set Staff.forceClef = ##f
+                                    \override NoteHead.X-extent = #'(0 . 0)
+                                    \override NoteHead.transparent = ##t
+                                    \override NoteHead.no-ledgers = ##t
                                     c'32
                                     - \accent
-                                    ^ \markup 53
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 1
                                     b'32
                                     - \accent
-                                    ^ \markup 54
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 3
                                     c'32
                                     - \accent
-                                    ^ \markup 55
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    \revert NoteHead.X-extent
+                                    \revert NoteHead.transparent
+                                    \revert NoteHead.no-ledgers
+                                    \revert Dots.staff-position
                                     \set stemLeftBeamCount = 2
                                     \set stemRightBeamCount = 2
                                     e'16
                                     - \accent
-                                    ^ \markup 56
+                                    \stopTextSpan
                                     ]
                                     \revert Staff.Clef.stencil
                                     \revert Staff.StaffSymbol.line-positions
@@ -2732,17 +2905,14 @@
                                     \clef "bass"
                                     <cs, d,>32
                                     - \accent
-                                    ^ \markup 57
                                     ~
                                     \set Staff.forceClef = ##f
                                     <cs, d,>8
-                                    ^ \markup 58
                                     ~
                                     <cs, d,>4
-                                    ^ \markup 59
                                     ~
                                     <cs, d,>16
-                                    ^ \markup 60
+                                    \override Dots.staff-position = #2
                                     \override Staff.Clef.stencil = #ly:text-interface::print
                                     \override Staff.Clef.text = \seven-string-clef
                                     \staff-line-count 7
@@ -2754,71 +2924,99 @@
                                     \clef "percussion"
                                     g'32
                                     - \accent
-                                    ^ \markup 61
                                     [
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    - \tweak font-name "Bodoni72 Book Italic" 
+                                    - \tweak font-size 2
+                                    - \tweak padding #6.5
+                                    - \abjad-dashed-line-with-hook
+                                    - \tweak bound-details.left.text \markup \concat { \upright { "sim." } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding -2
+                                    \startTextSpan
                                     \set Staff.forceClef = ##f
+                                    \override NoteHead.X-extent = #'(0 . 0)
+                                    \override NoteHead.transparent = ##t
+                                    \override NoteHead.no-ledgers = ##t
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 1
                                     e'32
                                     - \accent
-                                    ^ \markup 62
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 2
                                     c'16
                                     - \accent
-                                    ^ \markup 63
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     b'32
                                     - \accent
-                                    ^ \markup 64
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 1
                                     c'32
                                     - \accent
-                                    ^ \markup 65
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 2
                                     e'16
                                     - \accent
-                                    ^ \markup 66
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     g'32
                                     - \accent
-                                    ^ \markup 67
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 1
                                     g'32
                                     - \accent
-                                    ^ \markup 68
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 2
                                     e'16
                                     - \accent
-                                    ^ \markup 69
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     g'32
                                     - \accent
-                                    ^ \markup 70
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 3
                                     \set stemRightBeamCount = 1
                                     a32
                                     - \accent
-                                    ^ \markup 71
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 3
                                     c'32
                                     - \accent
-                                    ^ \markup 72
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     e'32
                                     - \accent
-                                    ^ \markup 73
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
                                     \set stemLeftBeamCount = 2
                                     \set stemRightBeamCount = 1
                                     c'16
                                     - \accent
-                                    ^ \markup 74
+                                    - \abjad-zero-padding-glissando
+                                    \glissando
+                                    \revert NoteHead.X-extent
+                                    \revert NoteHead.transparent
+                                    \revert NoteHead.no-ledgers
+                                    \revert Dots.staff-position
                                     \set stemLeftBeamCount = 1
                                     \set stemRightBeamCount = 2
                                     a16
                                     - \accent
-                                    ^ \markup 75
+                                    \stopTextSpan
                                     ]
                                     \revert Staff.Clef.stencil
                                     \revert Staff.StaffSymbol.line-positions
@@ -2830,46 +3028,99 @@
                                     \clef "bass"
                                     <dqf,! d,!>16
                                     - \accent
-                                    ^ \markup 76
                                     ~
                                     \set Staff.forceClef = ##f
                                     <dqf, d,>8
-                                    ^ \markup 77
                                     \override Staff.Stem.stemlet-length = 0.75
-                                    c'8.
+                                    <dqf,! d,!>8.
+                                    - \accent
                                     [
+                                    \>
                                     \revert Staff.Stem.stemlet-length
-                                    c'16
+                                    <dqf,! d,!>16
+                                    - \accent
                                     ]
                                     ~
-                                    c'4
+                                    <dqf, d,>4
                                     ~
                                     \override Staff.Stem.stemlet-length = 0.75
-                                    c'8
+                                    <dqf, d,>8
                                     [
                                     \revert Staff.Stem.stemlet-length
-                                    c'8
+                                    <dqf,! d,!>8
+                                    - \accent
                                     ]
                                     ~
-                                    c'4
-                                    c'4
+                                    <dqf, d,>4
+                                    <dqf,! d,!>4
+                                    - \accent
+                                    \mf
                                     ~
                                     \override Staff.Stem.stemlet-length = 0.75
-                                    c'8.
+                                    <dqf, d,>8.
                                     [
                                     \revert Staff.Stem.stemlet-length
-                                    c'16
+                                    <dqf,! d,!>16
+                                    - \accent
                                     ]
                                     ~
                                     \override Staff.Stem.stemlet-length = 0.75
-                                    c'8
+                                    <dqf, d,>8
                                     [
                                     \revert Staff.Stem.stemlet-length
-                                    c'8
+                                    <dqf,! d,!>8
+                                    - \accent
                                     ]
+                                    \>
                                     ~
-                                    c'4
-                                    s1 * 1/4
+                                    <dqf, d,>4
+                                    \once \override Dots.staff-position = #2
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    \once \override Stem.stencil = ##f
+                                    \afterGrace
+                                    <dqf,! d,!>4
+                                    \pp
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    {
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override Dots.staff-position = #2
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override RepeatTie.transparent = ##t
+                                        \once \override Beam.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override Dots.stencil = ##f
+                                        \once \override Tie.stencil = ##f
+                                        \once \override NoteHead.duration-log = 2
+                                        \once \override Stem.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(1)
+                                        \hide NoteHead
+                                          %! abjad.glissando(1)
+                                        \override Accidental.stencil = ##f
+                                          %! abjad.glissando(1)
+                                        \override NoteColumn.glissando-skip = ##t
+                                          %! abjad.glissando(1)
+                                        \override NoteHead.no-ledgers = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        <dqf, d,>16
+                                    }
                                 }
                             }
                         }
