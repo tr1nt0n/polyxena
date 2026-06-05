@@ -889,7 +889,7 @@ trinton.make_music(
         ),
     ),
     trinton.hooked_spanner_command(
-        string=r"""\markup { \column { \line { "Grip both sides of the bow" } \line { "firmly with each hand," } \line { "using as much pressure as possible, CLT." } } }""",
+        string=r"""\markup { \column { \line { "Grip both sides of the bow" } \line { "firmly with each hand," } \line { "using as much pressure as possible, 1/2 CLT." } } }""",
         selector=trinton.select_leaves_by_index([0, 32], pitched=True),
         padding=9.5,
         direction=None,

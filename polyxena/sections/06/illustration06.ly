@@ -2494,7 +2494,7 @@
                                     - \tweak font-size 2
                                     - \tweak padding #9.5
                                     - \abjad-dashed-line-with-hook
-                                    - \tweak bound-details.left.text \markup \concat { { \column { \line { "Grip both sides of the bow" } \line { "firmly with each hand," } \line { "using as much pressure as possible, CLT." } } } \hspace #0.5 }
+                                    - \tweak bound-details.left.text \markup \concat { { \column { \line { "Grip both sides of the bow" } \line { "firmly with each hand," } \line { "using as much pressure as possible, 1/2 CLT." } } } \hspace #0.5 }
                                     - \tweak bound-details.right.padding -2
                                     \startTextSpan
                                     \set Staff.forceClef = ##f
