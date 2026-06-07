@@ -2491,6 +2491,7 @@
                                     [
                                     - \abjad-zero-padding-glissando
                                     \glissando
+                                    - \tweak font-name "Bodoni72 Book Italic" 
                                     - \tweak font-size 2
                                     - \tweak padding #9.5
                                     - \abjad-dashed-line-with-hook

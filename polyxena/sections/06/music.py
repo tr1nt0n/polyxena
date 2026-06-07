@@ -900,7 +900,7 @@ trinton.make_music(
         command="",
         tag=None,
         tweaks=[
-            # r"""- \tweak font-name "Bodoni72 Book Italic" """,
+            r"""- \tweak font-name "Bodoni72 Book Italic" """,
             r"""- \tweak font-size 2""",
         ],
     ),
