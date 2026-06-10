@@ -524,7 +524,7 @@
                                     - \staccato
                                     \fff
                                     - \tweak font-size #2
-                                    ^ \markup { "1/2 CLT, striking all strings as hard as possible, sempre" }
+                                    ^ \markup { "1/2 CLB, striking all strings as hard as possible, sempre" }
                                     \set Staff.forceClef = ##f
                                     r8..
                                     r16.

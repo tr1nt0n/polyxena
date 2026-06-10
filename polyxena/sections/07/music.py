@@ -107,7 +107,7 @@ trinton.make_music(
         attachments=[
             abjad.bundle(
                 abjad.Markup(
-                    r"""\markup { "1/2 CLT, striking all strings as hard as possible, sempre" }"""
+                    r"""\markup { "1/2 CLB, striking all strings as hard as possible, sempre" }"""
                 ),
                 r"- \tweak font-size #2",
             ),
